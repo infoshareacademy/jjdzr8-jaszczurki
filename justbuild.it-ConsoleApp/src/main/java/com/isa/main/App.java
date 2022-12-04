@@ -10,22 +10,6 @@ public class App
     {
         MenuNavigator.chooseMenu();
         MenuNavigator.chooseMenuOptions();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
 
