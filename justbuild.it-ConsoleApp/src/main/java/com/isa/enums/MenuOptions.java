@@ -5,8 +5,8 @@ public enum MenuOptions {
     ADD(1),
     EDIT(2),
     DELETE(3),
-    CLOSE(4),
-    SEARCH(5);
+    SEARCH(4),
+    EXIT(5);
 
     int number;
     MenuOptions(int number) {
