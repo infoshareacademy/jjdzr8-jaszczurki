@@ -2,26 +2,12 @@ package com.isa.control;
 
 import java.util.Scanner;
 
-import static com.isa.control.SubMenuNavigator.backToMenu;
+public class AddOptions extends SubMenuNavigator{
 
-public class AddOptions extends MenuOptions{
+    public void showAddDetails(){
 
-    public static void showAddDetails(){
-
-        System.out.println("Jesteś w opcji 1-ADD");
-
-    }
-    public static void menuAdd(){
-
-    }
-
-    @Override
-    public void goUp() {
-//dodawanie opcji
-    }
-
-    @Override
-    public void goDown() {
-//do menu
+        System.out.println("Tu możesz dodać ogłoszenie");
+        System.out.println("1 - ACCEPT\n2 - back to MENU");
+        choose();
     }
 }

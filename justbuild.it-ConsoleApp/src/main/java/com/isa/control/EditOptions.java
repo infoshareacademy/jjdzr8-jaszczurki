@@ -1,8 +1,10 @@
 package com.isa.control;
 
-public class EditOptions {
-    public static void showEditDetails(){
+public class EditOptions extends SubMenuNavigator{
+    public void showEditDetails(){
 
-        System.out.println("Jesteś w opcji 2-EDIT");
+        System.out.println("Edytuj ogłoszenie.");
+        System.out.println("1 - ACCEPT\n2 - back to MENU");
+        choose();
     }
 }

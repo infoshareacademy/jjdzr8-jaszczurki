@@ -1,8 +1,10 @@
 package com.isa.control;
 
-public class DeleteOptions {
-    public static void showDeleteDetails(){
+public class DeleteOptions extends SubMenuNavigator{
+    public void showDeleteDetails(){
 
-        System.out.println("Jesteś w opcji 3-DELETE");
+        System.out.println("Skasuj ogłoszenie.");
+        System.out.println("1 - ACCEPT\n2 - back to MENU");
+        choose();
     }
 }
