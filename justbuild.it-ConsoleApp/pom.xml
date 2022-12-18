@@ -26,7 +26,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>com.isa.App</mainClass>
+              <mainClass>com.isa.main.App</mainClass>
             </manifest>
           </archive>
         </configuration>
