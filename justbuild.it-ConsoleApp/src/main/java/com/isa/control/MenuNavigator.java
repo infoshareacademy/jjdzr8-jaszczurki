@@ -70,7 +70,7 @@ public class MenuNavigator {
         do {
             try {
                 number = scanner.nextInt();
-                if (number < 1 || number > 6) {
+                if (number < 1 || number >= 6) {
                     System.out.println("Wybrano niewłaściwą cyfrę.");
                 } else {
                     enteringNumber = false;
