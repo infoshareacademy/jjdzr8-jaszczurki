@@ -1,10 +1,15 @@
 package com.isa.control;
 
+
+import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU;
+
 public class EditOptions extends SubMenuNavigator{
+
+    public static final String EDIT = "Edytuj ogłoszenie.";
     public void showEditDetails(){
 
-        System.out.println("Edytuj ogłoszenie.");
-        System.out.println("1 - ACCEPT\n2 - back to MENU");
-        choose();
+        System.out.println(EDIT);
+        System.out.println(ACCEPT_OR_BACK_TO_MENU);
+        subMenuActions();
     }
 }

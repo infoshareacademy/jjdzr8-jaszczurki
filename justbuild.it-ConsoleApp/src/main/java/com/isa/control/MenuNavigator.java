@@ -1,9 +1,12 @@
 package com.isa.control;
 
-import com.isa.enums.MenuOptions;
+import com.isa.entity.enums.MenuOptions;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_SIGNS;
 
 public class MenuNavigator {
 
@@ -71,12 +74,12 @@ public class MenuNavigator {
             try {
                 number = scanner.nextInt();
                 if (number < 1 || number >= 6) {
-                    System.out.println("Wybrano niewłaściwą cyfrę.");
+                    System.out.println(ENTERED_WRONG_NUMBER);
                 } else {
                     enteringNumber = false;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Podano niewłaściwe znaki.");
+                System.out.println(ENTERED_WRONG_SIGNS);
                 scanner.next();
             }
 

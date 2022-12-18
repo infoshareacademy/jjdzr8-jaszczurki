@@ -8,22 +8,6 @@ public class App
     {
         MenuNavigator.printMenu();
         MenuNavigator.chooseMenuOptions();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
 

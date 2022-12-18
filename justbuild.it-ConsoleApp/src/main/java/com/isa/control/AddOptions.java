@@ -1,13 +1,16 @@
 package com.isa.control;
 
-import java.util.Scanner;
+
+import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU;
 
 public class AddOptions extends SubMenuNavigator{
 
+    private static final String ADD = "Tu możesz dodać ogłoszenie";
+
     public void showAddDetails(){
 
-        System.out.println("Tu możesz dodać ogłoszenie");
-        System.out.println("1 - ACCEPT\n2 - back to MENU");
-        choose();
+        System.out.println(ADD);
+        System.out.println(ACCEPT_OR_BACK_TO_MENU);
+        subMenuActions();
     }
 }

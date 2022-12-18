@@ -3,9 +3,11 @@ package com.isa.control;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static com.isa.entity.appConstants.AppConstants.*;
+
 public abstract class SubMenuNavigator {
 
-    void choose(){
+    void subMenuActions(){
 
         boolean inProgress = true;
         do{
@@ -14,24 +16,24 @@ public abstract class SubMenuNavigator {
             try{
                 choice = scanner.nextInt();
                 if (choice == 1) {
-                    accept();
+                    acceptAction();
                 } else if (choice == 2) {
                     goBackToMenu();
                     inProgress = false;
                 } else {
-                    System.out.println("Wpisano błędną cyfrę.");
+                    System.out.println(ENTERED_WRONG_NUMBER);
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Wpisano niewłaściwe znaki");
+                System.out.println(ENTERED_WRONG_SIGNS);
             }
         } while(inProgress);
     }
-    void accept(){
-        System.out.println("Akcja wykonana poprawnie.");
+    void acceptAction(){
+        System.out.println(ACCEPTED);
 
     }
     void goBackToMenu(){
-        System.out.println("Wracam do menu");
+        System.out.println(BACK_TO_MENU);
         MenuNavigator.printMenu();
         MenuNavigator.chooseMenuOptions();
     }
