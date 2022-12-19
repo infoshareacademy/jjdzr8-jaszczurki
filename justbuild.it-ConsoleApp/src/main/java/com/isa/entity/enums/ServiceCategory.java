@@ -1,4 +1,4 @@
-package com.isa.enums;
+package com.isa.entity.enums;
 
 public enum ServiceCategory {
     CONSTRUCTION,

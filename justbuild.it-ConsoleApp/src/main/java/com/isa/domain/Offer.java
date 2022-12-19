@@ -1,6 +1,6 @@
 package com.isa.domain;
 
-import com.isa.enums.ServiceCategory;
+import com.isa.entity.enums.ServiceCategory;
 
 import java.util.Date;
 
