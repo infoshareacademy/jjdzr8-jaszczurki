@@ -12,13 +12,7 @@ public class Offer {
     private User user;
     private Date date;
 
-    public Offer(long offerID, ServiceCategory serviceCategory, String offerContent, String city, User user, Date date) {
-        this.offerID = offerID;
-        this.serviceCategory = serviceCategory;
-        this.offerContent = offerContent;
-        this.city = city;
-        this.user = user;
-        this.date = date;
+    public Offer() {
     }
 
     public long getOfferID() {
