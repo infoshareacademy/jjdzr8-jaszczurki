@@ -6,6 +6,7 @@ import com.isa.domain.User;
 import com.isa.entity.enums.ServiceCategory;
 
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -31,9 +32,24 @@ public class AddOptions extends SubMenuNavigator{
             //long offerID = getUniqueOfferID(); <- metoda pobierająca pierwsze "wolne" ID dla oferty użytkownika
 
             //offer.setOfferID(offerID);
+            long numberForID;
 
-            System.out.println("Podaj ID oferty: ");
-            offer.setOfferID(scanner.nextInt());
+            while (true) {
+                try {
+                    System.out.println("Podaj ID oferty: ");
+                    numberForID = scanner.nextInt();
+                    if (numberForID < 1) {
+                        System.out.println("Podaj liczbę dodatnią.");
+                    }
+                    else {
+                        offer.setOfferID(numberForID);
+                        break;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Podaj liczbę dodatnią.");
+                    scanner.nextLine();
+                }
+            }
             scanner.nextLine();
 
             System.out.println("Podaj 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród : ");
