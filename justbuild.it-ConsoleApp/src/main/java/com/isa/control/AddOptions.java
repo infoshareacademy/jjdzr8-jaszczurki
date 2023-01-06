@@ -1,7 +1,7 @@
 package com.isa.control;
 
 
-import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU;
+import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU_MESSAGE;
 
 public class AddOptions extends SubMenuNavigator{
 
@@ -10,7 +10,7 @@ public class AddOptions extends SubMenuNavigator{
     public void showAddDetails(){
 
         System.out.println(ADD);
-        System.out.println(ACCEPT_OR_BACK_TO_MENU);
+        System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
         subMenuActions();
     }
 }

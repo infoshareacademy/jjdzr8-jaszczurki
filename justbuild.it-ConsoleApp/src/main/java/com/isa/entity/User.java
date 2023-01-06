@@ -1,4 +1,4 @@
-package com.isa.domain;
+package com.isa.entity;
 
 public class User {
     private String firstName;
