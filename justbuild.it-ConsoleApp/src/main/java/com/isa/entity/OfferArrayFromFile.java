@@ -19,7 +19,6 @@ public class OfferArrayFromFile {
         MyObjectFileStorage fileStorage = new MyObjectFileStorage(new MyObjectParser());
         try {
             List<Offer> offersList = fileStorage.readFromFile(OFFERS_FILEPATH);
-            System.out.println(offersList);
             offersArray.addAll(offersList);
 
         } catch (IOException e) {
