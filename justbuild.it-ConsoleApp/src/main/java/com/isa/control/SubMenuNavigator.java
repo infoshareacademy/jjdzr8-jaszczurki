@@ -10,9 +10,10 @@ public abstract class SubMenuNavigator {
     void subMenuActions(){
 
         boolean inProgress = true;
+
         do{
             Scanner scanner = new Scanner(System.in);
-            int choice = 0;
+            int choice = 0; // to '0' można chyba usunąć, nie jest raczej potrzebne
             try{
                 choice = scanner.nextInt();
                 if (choice == 1) {
@@ -21,19 +22,19 @@ public abstract class SubMenuNavigator {
                     goBackToMenu();
                     inProgress = false;
                 } else {
-                    System.out.println(ENTERED_WRONG_NUMBER);
+                    System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
                 }
             } catch (InputMismatchException e) {
-                System.out.println(ENTERED_WRONG_SIGNS);
+                System.out.println(ENTERED_WRONG_SIGNS_MESSAGE);
             }
         } while(inProgress);
     }
     void acceptAction(){
-        System.out.println(ACCEPTED);
+        System.out.println(ACCEPTED_MESSAGE);
 
     }
     void goBackToMenu(){
-        System.out.println(BACK_TO_MENU);
+        System.out.println(BACK_TO_MENU_MESSAGE);
         MenuNavigator.printMenu();
         MenuNavigator.chooseMenuOptions();
     }

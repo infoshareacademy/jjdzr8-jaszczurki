@@ -1,25 +1,31 @@
 package com.isa.control;
 
-
-import com.isa.domain.Offer;
-import com.isa.domain.User;
+import com.isa.control.filesFactory.MyObjectFileStorage;
+import com.isa.control.filesFactory.MyObjectParser;
+import com.isa.entity.Offer;
+import com.isa.entity.User;
 import com.isa.entity.enums.ServiceCategory;
 
-import java.util.Date;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.io.IOException;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.*;
 
-import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU;
+import static com.isa.entity.appConstants.AppConstants.*;
 
 public class AddOptions extends SubMenuNavigator{
-
     private static final String ADD = "Tu możesz dodać ogłoszenie";
+    private final MyObjectFileStorage fileStorage;
+
+    public AddOptions() {
+        fileStorage = new MyObjectFileStorage(new MyObjectParser());
+    }
 
     public void showAddDetails(){
 
         System.out.println(ADD);
-        System.out.println(ACCEPT_OR_BACK_TO_MENU);
+        System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
         subMenuActions();
     }
     @Override
@@ -27,48 +33,25 @@ public class AddOptions extends SubMenuNavigator{
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
-        if (input.matches("1")) {
+        if (input.equals("1")) {
             Offer offer = new Offer();
-            //long offerID = getUniqueOfferID(); <- metoda pobierająca pierwsze "wolne" ID dla oferty użytkownika
 
-            //offer.setOfferID(offerID);
-            long numberForID;
+            long offerID = getUniqueOfferID();
+            offer.setOfferID(offerID);
 
-            while (true) {
-                try {
-                    System.out.println("Podaj ID oferty: ");
-                    numberForID = scanner.nextInt();
-                    if (numberForID < 1) {
-                        System.out.println("Podaj liczbę dodatnią.");
-                    }
-                    else {
-                        offer.setOfferID(numberForID);
-                        break;
-                    }
-                } catch (InputMismatchException e) {
-                    System.out.println("Podaj liczbę dodatnią.");
-                    scanner.nextLine();
+            System.out.println(CATEGORY_SELECTION_MESSAGE);
+            String serviceCategory = scanner.nextLine().toLowerCase();
+            switch (serviceCategory) {
+                case "budowa" -> offer.setServiceCategory(ServiceCategory.CONSTRUCTION);
+                case "remont" -> offer.setServiceCategory(ServiceCategory.FINISHING_WORKS);
+                case "instalacje" -> offer.setServiceCategory(ServiceCategory.INSTALLATION);
+                case "elektryka" -> offer.setServiceCategory(ServiceCategory.ELECTRICITY);
+                case "roboty ziemne" -> offer.setServiceCategory(ServiceCategory.EARTH_WORKS);
+                case "ogród" -> offer.setServiceCategory(ServiceCategory.GARDEN);
+                default -> {
+                    System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
+                    goBackToMenu();
                 }
-            }
-            scanner.nextLine();
-
-            System.out.println("Podaj 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród : ");
-            String serviceCategory = scanner.nextLine();
-            if (serviceCategory.matches("Budowa")) {
-                offer.setServiceCategory(ServiceCategory.CONSTRUCTION);
-            } else if (serviceCategory.matches("Remont")) {
-                offer.setServiceCategory(ServiceCategory.FINISHING_WORKS);
-            } else if (serviceCategory.matches("Instalacje")) {
-                offer.setServiceCategory(ServiceCategory.INSTALLATION);
-            } else if (serviceCategory.matches("Elektryka")) {
-                offer.setServiceCategory(ServiceCategory.ELECTRICITY);
-            } else if (serviceCategory.matches("Roboty ziemne")) {
-                offer.setServiceCategory(ServiceCategory.EARTH_WORKS);
-            } else if (serviceCategory.matches("Ogród")) {
-                offer.setServiceCategory(ServiceCategory.GARDEN);
-            } else {
-                System.out.println("Nieprawidłowa kategoria usługi. Spróbuj ponownie.");
-                goBackToMenu();
             }
 
             System.out.println("Podaj treść oferty: ");
@@ -94,36 +77,46 @@ public class AddOptions extends SubMenuNavigator{
 
             offer.setUser(new User(firstName, lastName, companyName, email, phoneNumber));
 
-            System.out.println("Twoja oferta wygląda następująco: \n" + offer);
+            LocalDateTime localDateTime = LocalDateTime.now();
+            offer.setDate(Date.from(Instant.parse(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toString())));  /* sprawdźcie czy nie zapisuje u was (w pliku) czasu oferty o 1 godzinę wcześniejszego, to może pojawić się pod Linuxem jeśli macie 2 OS na 1 pececie albo lapku
+                                                                                                                              ja tak mam i właśnie to podejrzewam, ale gdyby taki problem pojawił się w innej konfiguracji to postaram się naprawić
+                                                                                                                              ale to chyba nie jest jakiś wielki problem :)
+                                                                                                                           */
+            System.out.println(USERS_OFFER_DISPLAY_MESSAGE + offer);
 
-            offer.setDate(new Date()); // to chyba ma być połączone z zapisywaniem do pliku
+            try {
+                List<Offer> offersList = fileStorage.readFromFile(OFFERS_FILEPATH);
+                offersList.add(offer);
+                fileStorage.saveToFile(offersList, OFFERS_FILEPATH);
+            } catch (IOException e) {
+                System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
+            }
 
-            //zapisanie oferty do pliku
-            //saveOfferToFile(offer);
-            goBackToMenu(); // to do usunięcia (chyba) po zaimplementowaniu metody zapisującej ofertę do pliku
+            System.out.println(USERS_OFFER_SAVING_MESSAGE + offer.getOfferID());
+
+            goBackToMenu();
         } else {
             goBackToMenu();
         }
     }
 
-    //private long getUniqueOfferID() {
-        long minID = 1;
-        long maxID = 10000;
+    private long getUniqueOfferID() {
+        List<Offer> objects = new LinkedList<>();
+        try {
+            objects = fileStorage.readFromFile(OFFERS_FILEPATH);
+        } catch (IOException e) {
+            System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
+        }
 
-        //List<Offer> allOffers = getAllOffersFromFile(offersDB); <- pobieranie listy ofert z pliku
+        long maxID = 0;
 
-        //for (long i = minID; i <= maxID; i++) {
-            boolean isIDOccupied = false;
-            //for (Offer offer: allOffers) {
-            //    if (offer.getOfferID() == i) {
-            //        isIDOccupied = true;
-            //        break;
-            //    }
-            //}
-            //if (!isIDOccupied) {
-            //    return i;
-            //}
-        //}
-        //return 0;
-    //}
+            for (Offer obj: objects) {
+                if (obj != null) {
+                    if (obj.getOfferID() > maxID) {
+                    maxID = obj.getOfferID();
+                }
+            }
+        }
+        return maxID + 1;
+    }
 }
