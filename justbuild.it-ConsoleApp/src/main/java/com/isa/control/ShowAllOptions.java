@@ -3,9 +3,7 @@ package com.isa.control;
 import com.isa.entity.Offer;
 import com.isa.entity.OfferArrayFromFile;
 import com.isa.entity.enums.ServiceCategory;
-
 import java.util.Scanner;
-
 import static com.isa.entity.appConstants.AppConstants.*;
 
 public class ShowAllOptions extends SubMenuNavigator {
@@ -22,13 +20,12 @@ public class ShowAllOptions extends SubMenuNavigator {
         Scanner scanner = new Scanner(System.in);
 
         switch (scanner.nextLine()) {
-            case "1":
-                showOfferCategory();
-            case "2":
-                goBackToMenu();
-            default:
+            case "1" -> showOfferCategory();
+            case "2" -> goBackToMenu();
+            default -> {
                 System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
                 subMenuActions();
+            }
         }
     }
 
@@ -36,7 +33,9 @@ public class ShowAllOptions extends SubMenuNavigator {
         Scanner scanner = new Scanner(System.in);
         System.out.println(CHOOSE_A_NUMBER_MESSAGE);
 
-        for (ServiceCategory d : ServiceCategory.values()) System.out.println(d.toString());
+        for (ServiceCategory d : ServiceCategory.values()){
+            System.out.println(d.toString());
+        }
 
         switch (scanner.nextLine()) {
             case "1" -> {
@@ -68,6 +67,7 @@ public class ShowAllOptions extends SubMenuNavigator {
                 showOfferCategory();
             }
         }
+        goBackToMenu();
     }
 
     public void findOfferCategory(ServiceCategory serviceCategory) {
