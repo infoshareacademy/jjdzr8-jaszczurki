@@ -5,13 +5,14 @@ import com.isa.control.filesFactory.MyObjectParser;
 import com.isa.entity.Offer;
 import com.isa.entity.User;
 import com.isa.entity.enums.ServiceCategory;
-
 import java.io.IOException;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.*;
-
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 import static com.isa.entity.appConstants.AppConstants.*;
 
 public class AddOptions extends SubMenuNavigator{
@@ -23,7 +24,6 @@ public class AddOptions extends SubMenuNavigator{
     }
 
     public void showAddDetails(){
-
         System.out.println(ADD);
         System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
         subMenuActions();
@@ -78,10 +78,7 @@ public class AddOptions extends SubMenuNavigator{
             offer.setUser(new User(firstName, lastName, companyName, email, phoneNumber));
 
             LocalDateTime localDateTime = LocalDateTime.now();
-            offer.setDate(Date.from(Instant.parse(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toString())));  /* sprawdźcie czy nie zapisuje u was (w pliku) czasu oferty o 1 godzinę wcześniejszego, to może pojawić się pod Linuxem jeśli macie 2 OS na 1 pececie albo lapku
-                                                                                                                              ja tak mam i właśnie to podejrzewam, ale gdyby taki problem pojawił się w innej konfiguracji to postaram się naprawić
-                                                                                                                              ale to chyba nie jest jakiś wielki problem :)
-                                                                                                                           */
+            offer.setDate(Date.from(Instant.parse(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toString())));
             System.out.println(USERS_OFFER_DISPLAY_MESSAGE + offer);
 
             try {
