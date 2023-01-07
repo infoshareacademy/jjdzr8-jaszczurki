@@ -17,7 +17,6 @@ public class MenuNavigator {
         for (MenuOptions c : MenuOptions.values()) {
             System.out.println(c);
         }
-
         System.out.println(CHOOSE_A_NUMBER_MESSAGE);
     }
 
@@ -84,8 +83,8 @@ public class MenuNavigator {
                 System.out.println(ENTERED_WRONG_SIGNS_MESSAGE);
                 scanner.next();
             }
-
-        } while (enteringNumber);
+        }
+        while (enteringNumber);
         return number;
     }
 }

@@ -2,12 +2,10 @@ package com.isa.entity;
 
 import com.isa.control.filesFactory.MyObjectFileStorage;
 import com.isa.control.filesFactory.MyObjectParser;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import static com.isa.entity.appConstants.AppConstants.FILE_READ_OR_WRITE_ERROR_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.OFFERS_FILEPATH;
 

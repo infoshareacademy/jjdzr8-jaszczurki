@@ -5,7 +5,6 @@ import com.isa.control.filesFactory.MyObjectParser;
 import com.isa.entity.Offer;
 import com.isa.entity.User;
 import com.isa.entity.enums.ServiceCategory;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,7 +13,6 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
-
 import static com.isa.entity.appConstants.AppConstants.*;
 
 public class AddOptions extends SubMenuNavigator{
@@ -36,7 +34,6 @@ public class AddOptions extends SubMenuNavigator{
     }
 
     public void showAddDetails(){
-
         System.out.println(ADD);
         System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
         subMenuActions();
