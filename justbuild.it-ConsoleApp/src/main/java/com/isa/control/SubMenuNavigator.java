@@ -36,6 +36,5 @@ public abstract class SubMenuNavigator {
     void goBackToMenu(){
         System.out.println(BACK_TO_MENU_MESSAGE);
         MenuNavigator.printMenu();
-        MenuNavigator.chooseMenuOptions();
     }
 }
