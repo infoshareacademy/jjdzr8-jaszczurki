@@ -1,0 +1,1 @@
+{"offerID":1,"serviceCategory":"FINISHING_WORKS","offerContent":"xxxx","city":"Lublin","user":{"firstName":"1","lastName":"1","company":"1","emailAddress":"1","telephoneNumber":"1"},"date":"2023-01-08T21:37:19.426Z"}

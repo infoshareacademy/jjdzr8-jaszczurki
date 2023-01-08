@@ -54,6 +54,11 @@ public class MenuNavigator {
                             options3.showSearchDetails();
                         }
                         case 5 -> {
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
+                            ShowAllOptions options4 = new ShowAllOptions();
+                            options4.showAllDetails();
+                        }
+                        case 6 -> {
                             System.out.println(CHOSEN_OPTION_MESSAGE + d + "\n" + GOODBYE_MESSAGE + d);
                             inProgress = false;
                         }
@@ -71,7 +76,7 @@ public class MenuNavigator {
         do {
             try {
                 number = scanner.nextInt();
-                if (number < 1 || number >= 6) {
+                if (number < 1 || number >= 7) {
                     System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
                 } else {
                     enteringNumber = false;

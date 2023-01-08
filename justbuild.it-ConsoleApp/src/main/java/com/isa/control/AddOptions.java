@@ -7,6 +7,9 @@ import com.isa.entity.User;
 import com.isa.entity.enums.ServiceCategory;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -36,21 +39,41 @@ public class AddOptions extends SubMenuNavigator{
         if (input.equals("1")) {
             Offer offer = new Offer();
 
-            long offerID = getUniqueOfferID();
-            offer.setOfferID(offerID);
-
             System.out.println(CATEGORY_SELECTION_MESSAGE);
             String serviceCategory = scanner.nextLine().toLowerCase();
-            switch (serviceCategory) {
-                case "budowa" -> offer.setServiceCategory(ServiceCategory.CONSTRUCTION);
-                case "remont" -> offer.setServiceCategory(ServiceCategory.FINISHING_WORKS);
-                case "instalacje" -> offer.setServiceCategory(ServiceCategory.INSTALLATION);
-                case "elektryka" -> offer.setServiceCategory(ServiceCategory.ELECTRICITY);
-                case "roboty ziemne" -> offer.setServiceCategory(ServiceCategory.EARTH_WORKS);
-                case "ogród" -> offer.setServiceCategory(ServiceCategory.GARDEN);
-                default -> {
-                    System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
-                    goBackToMenu();
+
+            boolean inProgress = true;
+
+            while (inProgress) {
+                switch (serviceCategory) {
+                    case "budowa" -> {
+                        offer.setServiceCategory(ServiceCategory.CONSTRUCTION);
+                        inProgress = false;
+                    }
+                    case "remont" -> {
+                        offer.setServiceCategory(ServiceCategory.FINISHING_WORKS);
+                        inProgress = false;
+                    }
+                    case "instalacje" -> {
+                        offer.setServiceCategory(ServiceCategory.INSTALLATION);
+                        inProgress = false;
+                    }
+                    case "elektryka" -> {
+                        offer.setServiceCategory(ServiceCategory.ELECTRICITY);
+                        inProgress = false;
+                    }
+                    case "roboty ziemne" -> {
+                        offer.setServiceCategory(ServiceCategory.EARTH_WORKS);
+                        inProgress = false;
+                    }
+                    case "ogród" -> {
+                        offer.setServiceCategory(ServiceCategory.GARDEN);
+                        inProgress = false;
+                    }
+                    default -> {
+                        System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
+                        serviceCategory = scanner.nextLine().toLowerCase();
+                    }
                 }
             }
 
@@ -78,20 +101,32 @@ public class AddOptions extends SubMenuNavigator{
             offer.setUser(new User(firstName, lastName, companyName, email, phoneNumber));
 
             LocalDateTime localDateTime = LocalDateTime.now();
-            offer.setDate(Date.from(Instant.parse(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toString())));  /* sprawdźcie czy nie zapisuje u was (w pliku) czasu oferty o 1 godzinę wcześniejszego, to może pojawić się pod Linuxem jeśli macie 2 OS na 1 pececie albo lapku
-                                                                                                                              ja tak mam i właśnie to podejrzewam, ale gdyby taki problem pojawił się w innej konfiguracji to postaram się naprawić
-                                                                                                                              ale to chyba nie jest jakiś wielki problem :)
-                                                                                                                           */
-            System.out.println(USERS_OFFER_DISPLAY_MESSAGE + offer);
+            offer.setDate(Date.from(Instant.parse(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toString())));
 
-            try {
-                List<Offer> offersList = fileStorage.readFromFile(OFFERS_FILEPATH);
-                offersList.add(offer);
-                fileStorage.saveToFile(offersList, OFFERS_FILEPATH);
-            } catch (IOException e) {
-                System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
+            long offerID = getUniqueOfferID();
+            offer.setOfferID(offerID);
+
+            Path filePath = Paths.get(OFFERS_FILEPATH);
+            if(Files.exists(filePath)) {
+                try {
+                    List<Offer> offersList = fileStorage.readFromFile(OFFERS_FILEPATH);
+                    offersList.add(offer);
+                    fileStorage.saveToFile(offersList, OFFERS_FILEPATH);
+                } catch (IOException e) {
+                    System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
+                }
+            } else {
+                try {
+                    Files.createFile(filePath);
+                    List<Offer> offersList = new ArrayList<>();
+                    offersList.add(offer);
+                    fileStorage.saveToFile(offersList, OFFERS_FILEPATH);
+                } catch (IOException e) {
+                    System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
+                }
             }
 
+            System.out.println(USERS_OFFER_DISPLAY_MESSAGE + offer);
             System.out.println(USERS_OFFER_SAVING_MESSAGE + offer.getOfferID());
 
             goBackToMenu();
