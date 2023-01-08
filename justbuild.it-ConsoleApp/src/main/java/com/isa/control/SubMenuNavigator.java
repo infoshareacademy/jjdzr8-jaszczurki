@@ -13,7 +13,7 @@ public abstract class SubMenuNavigator {
 
         do{
             Scanner scanner = new Scanner(System.in);
-            int choice = 0; // to '0' można chyba usunąć, nie jest raczej potrzebne
+            int choice;
             try{
                 choice = scanner.nextInt();
                 if (choice == 1) {
@@ -36,6 +36,5 @@ public abstract class SubMenuNavigator {
     void goBackToMenu(){
         System.out.println(BACK_TO_MENU_MESSAGE);
         MenuNavigator.printMenu();
-        MenuNavigator.chooseMenuOptions();
     }
 }
