@@ -18,7 +18,17 @@ import java.util.*;
 import static com.isa.entity.appConstants.AppConstants.*;
 
 public class AddOptions extends SubMenuNavigator{
-    private static final String ADD = "Tu możesz dodać ogłoszenie";
+    private static final String ADD = "Tu możesz dodać swoje ogłoszenie";
+    public static final String CATEGORY_SELECTION_MESSAGE = "Podaj 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród : ";
+    private static final String OFFER_CONTENT_MESSAGE = "Podaj treść oferty: ";
+    private static final String LOCALIZATION_MESSAGE = "Podaj swoją lokalizację: ";
+    private static final String FIRST_NAME_MESSAGE = "Podaj imię: ";
+    private static final String LAST_NAME_MESSAGE = "Podaj nazwisko: ";
+    private static final String COMPANY_NAME_MESSAGE = "Podaj nazwę firmy: ";
+    private static final String EMAIL_MESSAGE = "Podaj adres e-mail: ";
+    private static final String PHONE_NUMBER_MESSAGE = "Podaj numer telefonu: ";
+    public static final String USERS_OFFER_DISPLAY_MESSAGE = "Twoja oferta wygląda następująco: \n";
+    public static final String USERS_OFFER_SAVING_MESSAGE = "Twoja oferta została pomyślnie zapisana. Numer Twojej oferty: ";
     private final MyObjectFileStorage fileStorage;
 
     public AddOptions() {
@@ -32,12 +42,15 @@ public class AddOptions extends SubMenuNavigator{
         subMenuActions();
     }
     @Override
-    protected void subMenuActions() {
+    void subMenuActions() {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
         if (input.equals("1")) {
             Offer offer = new Offer();
+
+            long offerID = getUniqueOfferID();
+            offer.setOfferID(offerID);
 
             System.out.println(CATEGORY_SELECTION_MESSAGE);
             String serviceCategory = scanner.nextLine().toLowerCase();
@@ -77,34 +90,31 @@ public class AddOptions extends SubMenuNavigator{
                 }
             }
 
-            System.out.println("Podaj treść oferty: ");
-            offer.setOfferContent(scanner.nextLine());
+            System.out.println(OFFER_CONTENT_MESSAGE);
+            offer.setOfferContent(scanner.nextLine().toLowerCase());
 
-            System.out.println("Podaj lokalizację: ");
-            offer.setCity(scanner.nextLine());
+            System.out.println(LOCALIZATION_MESSAGE);
+            offer.setCity(scanner.nextLine().toLowerCase());
 
-            System.out.println("Podaj imię: ");
+            System.out.println(FIRST_NAME_MESSAGE);
             String firstName = scanner.nextLine();
 
-            System.out.println("Podaj nazwisko: ");
+            System.out.println(LAST_NAME_MESSAGE);
             String lastName = scanner.nextLine();
 
-            System.out.println("Podaj nazwę firmy: ");
+            System.out.println(COMPANY_NAME_MESSAGE);
             String companyName = scanner.nextLine();
 
-            System.out.println("Podaj adres email: ");
+            System.out.println(EMAIL_MESSAGE);
             String email = scanner.nextLine();
 
-            System.out.println("Podaj numer telefonu: ");
+            System.out.println(PHONE_NUMBER_MESSAGE);
             String phoneNumber = scanner.nextLine();
 
             offer.setUser(new User(firstName, lastName, companyName, email, phoneNumber));
 
             LocalDateTime localDateTime = LocalDateTime.now();
             offer.setDate(Date.from(Instant.parse(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toString())));
-
-            long offerID = getUniqueOfferID();
-            offer.setOfferID(offerID);
 
             Path filePath = Paths.get(OFFERS_FILEPATH);
             if(Files.exists(filePath)) {
@@ -118,7 +128,7 @@ public class AddOptions extends SubMenuNavigator{
             } else {
                 try {
                     Files.createFile(filePath);
-                    List<Offer> offersList = new ArrayList<>();
+                    List<Offer> offersList = new LinkedList<>();
                     offersList.add(offer);
                     fileStorage.saveToFile(offersList, OFFERS_FILEPATH);
                 } catch (IOException e) {

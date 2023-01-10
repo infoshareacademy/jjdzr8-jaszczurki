@@ -29,7 +29,7 @@ public class MyObjectFileStorage {
 
     public List<Offer> readFromFile(String filePath) throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(filePath))) {
-            return reader.lines().map(line -> {
+            return reader.lines().filter(line -> !line.isEmpty()).map(line -> {
                         try {
                             return parser.deserialize(line);
                         } catch (IOException e) {
