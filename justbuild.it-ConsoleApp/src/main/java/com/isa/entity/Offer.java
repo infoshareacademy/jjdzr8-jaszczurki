@@ -94,5 +94,4 @@ public class Offer implements Serializable{
                 ", date=" + date +
                 '}';
     }
-
 }
