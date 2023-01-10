@@ -16,6 +16,7 @@ public class SearchOptions extends SubMenuNavigator{
     private static final String OPTIONAL_LOCALIZATION_MESSAGE = "Podaj lokalizację (opcjonalnie): ";
     private static final String OPTIONAL_KEYWORD_MESSAGE = "Podaj słowo kluczowe (opcjonalnie): ";
     private static final String CATEGORY_FOR_SEARCH_SELECTION_MESSAGE = "Musisz podać przynajmniej 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród i wcisnąć \"Enter\". \nNastępnie wpisz słowo \"koniec\" żeby zakończyć wybór kategorii. Możesz podać dowolną ilość kategorii: ";
+    private static final String ALREADY_CHOSEN_CATEGORY_MESSAGE = "Wybrano juź tę kategorię. Proszę wybrać inną.";
     private static final String SEARCH_CONTINUE_OR_QUIT_MESSAGE = "Czy chcesz kontynuować wyszukiwanie? (tak/nie)";
 
     public SearchOptions() {
@@ -39,6 +40,7 @@ public class SearchOptions extends SubMenuNavigator{
             }
         }
     }
+
     private void showSearchOptions(){
 
         while (true) {
@@ -48,25 +50,35 @@ public class SearchOptions extends SubMenuNavigator{
             if (location.isEmpty()) {
                 location = "";
             }
+
             System.out.println(OPTIONAL_KEYWORD_MESSAGE);
             String keyword = scanner.nextLine().toLowerCase();
             if (keyword.isEmpty()) {
                 keyword = "";
             }
 
+            System.out.println(CHOOSE_A_NUMBER_MESSAGE);
             System.out.println(CATEGORY_FOR_SEARCH_SELECTION_MESSAGE);
+            for (ServiceCategory d : ServiceCategory.values()){
+                System.out.println(d.toString());
+            }
+
             List<ServiceCategory> selectedCategories = new ArrayList<>();
 
             while (true) {
-                String serviceCategory = scanner.nextLine().toLowerCase();
+                String serviceCategory = scanner.nextLine();
                 while (!serviceCategory.equals("koniec")) {
                     ServiceCategory category = getServiceCategory(serviceCategory);
                     if (category != null) {
-                        selectedCategories.add(category);
+                        if (selectedCategories.contains(category)) {
+                            System.out.println(ALREADY_CHOSEN_CATEGORY_MESSAGE);
+                        } else {
+                            selectedCategories.add(category);
+                        }
                     } else {
                         System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
                     }
-                    serviceCategory = scanner.nextLine().toLowerCase();
+                    serviceCategory = scanner.nextLine();
                 }
                 if (!selectedCategories.isEmpty()) {
                     break;
@@ -100,12 +112,12 @@ public class SearchOptions extends SubMenuNavigator{
 
     private ServiceCategory getServiceCategory(String categoryName) {
         return switch (categoryName) {
-            case "budowa" -> ServiceCategory.CONSTRUCTION;
-            case "remont" -> ServiceCategory.FINISHING_WORKS;
-            case "instalacje" -> ServiceCategory.INSTALLATION;
-            case "elektryka" -> ServiceCategory.ELECTRICITY;
-            case "roboty ziemne" -> ServiceCategory.EARTH_WORKS;
-            case "ogród" -> ServiceCategory.GARDEN;
+            case "1" -> ServiceCategory.CONSTRUCTION;
+            case "2" -> ServiceCategory.FINISHING_WORKS;
+            case "3" -> ServiceCategory.INSTALLATION;
+            case "4" -> ServiceCategory.ELECTRICITY;
+            case "5" -> ServiceCategory.EARTH_WORKS;
+            case "6" -> ServiceCategory.GARDEN;
             default -> null;
         };
     }
