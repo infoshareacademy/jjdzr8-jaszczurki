@@ -6,9 +6,10 @@ public enum MenuOptions {
     EDIT(2),
     DELETE(3),
     SEARCH(4),
-    EXIT(5);
+    SHOW_ALL(5),
+    EXIT(6);
 
-    int number;
+    final int number;
     MenuOptions(int number) {
         this.number = number;
     }

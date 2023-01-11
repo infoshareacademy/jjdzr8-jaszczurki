@@ -1,6 +1,6 @@
 package com.isa.control;
 
-import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU;
+import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU_MESSAGE;
 
 
 public class DeleteOptions extends SubMenuNavigator{
@@ -9,7 +9,7 @@ public class DeleteOptions extends SubMenuNavigator{
     public void showDeleteDetails(){
 
         System.out.println(DELETE);
-        System.out.println(ACCEPT_OR_BACK_TO_MENU);
+        System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
         subMenuActions();
     }
 }

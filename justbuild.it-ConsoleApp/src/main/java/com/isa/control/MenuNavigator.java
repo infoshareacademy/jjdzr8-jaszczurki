@@ -5,65 +5,68 @@ import com.isa.entity.enums.MenuOptions;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER;
-import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_SIGNS;
+import static com.isa.entity.appConstants.AppConstants.*;
 
 public class MenuNavigator {
 
 
     //wyświetlanie dostępnych menu
     public static void printMenu() {
-        System.out.println("Program justbuild.it");
-        System.out.println("*****************MENU*********************");
+        System.out.println(PROGRAM_NAME_MESSAGE);
+        System.out.println(MENU_MESSAGE);
 
         for (MenuOptions c : MenuOptions.values()) {
             System.out.println(c);
         }
+
+        System.out.println(CHOOSE_A_NUMBER_MESSAGE);
     }
 
     //wybieranie menu
     public static void chooseMenuOptions() {
-        System.out.println("************** Wybierz numer: *****************");
 
-        boolean inProgress = false;
+        boolean inProgress = true;
 
-        do {
+        while (inProgress) {
             int number = getMenuNumberFromUser();
 
             for (MenuOptions d : MenuOptions.values()) {
                 if (number == d.getNumber()) {
                     switch (d.getNumber()) {
-                        case 1:
-                            System.out.println("Wybrano " + d);
+                        case 1 -> {
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
                             AddOptions options = new AddOptions();
                             options.showAddDetails();
-                            break;
-                        case 2:
-                            System.out.println("Wybrano " + d);
+                        }
+                        case 2 -> {
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
                             EditOptions options1 = new EditOptions();
                             options1.showEditDetails();
-                            break;
-                        case 3:
-                            System.out.println("Wybrano " + d);
+                        }
+                        case 3 -> {
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
                             DeleteOptions options2 = new DeleteOptions();
                             options2.showDeleteDetails();
-                            break;
-                        case 4:
-                            System.out.println("Wybrano " + d);
+                        }
+                        case 4 -> {
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
                             SearchOptions options3 = new SearchOptions();
                             options3.showSearchDetails();
-                            break;
-                        case 5:
-                            System.out.println("Wybrano " + d + "\n" + "Dziękujemy, do widzenia!");
-                            return;
+                        }
+                        case 5 -> {
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
+                            ShowAllOptions options4 = new ShowAllOptions();
+                            options4.showAllDetails();
+                        }
+                        case 6 -> {
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d + "\n" + GOODBYE_MESSAGE + d);
+                            inProgress = false;
+                        }
                     }
-                    inProgress = true;
                     break;
                 }
-
             }
-        } while (inProgress);
-
+        }
     }
 
     private static int getMenuNumberFromUser() {
@@ -73,13 +76,13 @@ public class MenuNavigator {
         do {
             try {
                 number = scanner.nextInt();
-                if (number < 1 || number >= 6) {
-                    System.out.println(ENTERED_WRONG_NUMBER);
+                if (number < 1 || number >= 7) {
+                    System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
                 } else {
                     enteringNumber = false;
                 }
             } catch (InputMismatchException e) {
-                System.out.println(ENTERED_WRONG_SIGNS);
+                System.out.println(ENTERED_WRONG_SIGNS_MESSAGE);
                 scanner.next();
             }
 
