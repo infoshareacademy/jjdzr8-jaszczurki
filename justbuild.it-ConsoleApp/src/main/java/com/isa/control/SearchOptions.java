@@ -121,4 +121,5 @@ public class SearchOptions extends SubMenuNavigator{
             default -> null;
         };
     }
+
 }

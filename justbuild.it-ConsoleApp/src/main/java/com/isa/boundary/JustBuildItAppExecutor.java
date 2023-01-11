@@ -7,8 +7,8 @@ public class JustBuildItAppExecutor
 {
     public static void main( String[] args )
     {
-        OfferArrayFromFile.setOffersArray();
         MenuNavigator.printMenu();
+        OfferArrayFromFile.setOffersArray();
         MenuNavigator.chooseMenuOptions();
     }
 }
