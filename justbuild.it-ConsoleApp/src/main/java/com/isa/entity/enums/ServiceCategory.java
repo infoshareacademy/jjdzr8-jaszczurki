@@ -14,6 +14,10 @@ public enum ServiceCategory {
         this.number = number;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
     @Override
     public String toString() {
         return number + " - " + name();
