@@ -9,8 +9,7 @@ import static com.isa.entity.appConstants.AppConstants.*;
 
 public class MenuNavigator {
 
-
-    //wyświetlanie dostępnych menu
+        //wyświetlanie dostępnych menu
     public static void printMenu() {
         System.out.println(PROGRAM_NAME_MESSAGE);
         System.out.println(MENU_MESSAGE);
@@ -89,5 +88,4 @@ public class MenuNavigator {
         } while (enteringNumber);
         return number;
     }
-
 }
