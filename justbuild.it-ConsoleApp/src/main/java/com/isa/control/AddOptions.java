@@ -5,11 +5,7 @@ import com.isa.control.filesFactory.MyObjectParser;
 import com.isa.entity.Offer;
 import com.isa.entity.User;
 import com.isa.entity.enums.ServiceCategory;
-
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -17,21 +13,10 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
-
 import static com.isa.entity.appConstants.AppConstants.*;
 
 public class AddOptions extends SubMenuNavigator{
-    private static final String ADD = "Tu możesz dodać swoje ogłoszenie";
-    public static final String CATEGORY_SELECTION_MESSAGE = "Podaj 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród : ";
-    private static final String OFFER_CONTENT_MESSAGE = "Podaj treść oferty: ";
-    private static final String LOCALIZATION_MESSAGE = "Podaj swoją lokalizację: ";
-    private static final String FIRST_NAME_MESSAGE = "Podaj imię: ";
-    private static final String LAST_NAME_MESSAGE = "Podaj nazwisko: ";
-    private static final String COMPANY_NAME_MESSAGE = "Podaj nazwę firmy: ";
-    private static final String EMAIL_MESSAGE = "Podaj adres e-mail: ";
-    private static final String PHONE_NUMBER_MESSAGE = "Podaj numer telefonu: ";
-    public static final String USERS_OFFER_DISPLAY_MESSAGE = "Twoja oferta wygląda następująco: \n";
-    public static final String USERS_OFFER_SAVING_MESSAGE = "Twoja oferta została pomyślnie zapisana. Numer Twojej oferty: ";
+    private static final String ADD = "Tu możesz dodać ogłoszenie";
     private final MyObjectFileStorage fileStorage;
 
     public AddOptions() {
@@ -44,7 +29,7 @@ public class AddOptions extends SubMenuNavigator{
         subMenuActions();
     }
     @Override
-    void subMenuActions() {
+    protected void subMenuActions() {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
 
@@ -56,89 +41,54 @@ public class AddOptions extends SubMenuNavigator{
 
             System.out.println(CATEGORY_SELECTION_MESSAGE);
             String serviceCategory = scanner.nextLine().toLowerCase();
-
-            boolean inProgress = true;
-
-            while (inProgress) {
-                switch (serviceCategory) {
-                    case "budowa" -> {
-                        offer.setServiceCategory(ServiceCategory.CONSTRUCTION);
-                        inProgress = false;
-                    }
-                    case "remont" -> {
-                        offer.setServiceCategory(ServiceCategory.FINISHING_WORKS);
-                        inProgress = false;
-                    }
-                    case "instalacje" -> {
-                        offer.setServiceCategory(ServiceCategory.INSTALLATION);
-                        inProgress = false;
-                    }
-                    case "elektryka" -> {
-                        offer.setServiceCategory(ServiceCategory.ELECTRICITY);
-                        inProgress = false;
-                    }
-                    case "roboty ziemne" -> {
-                        offer.setServiceCategory(ServiceCategory.EARTH_WORKS);
-                        inProgress = false;
-                    }
-                    case "ogród" -> {
-                        offer.setServiceCategory(ServiceCategory.GARDEN);
-                        inProgress = false;
-                    }
-                    default -> {
-                        System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
-                        serviceCategory = scanner.nextLine().toLowerCase();
-                    }
+            switch (serviceCategory) {
+                case "budowa" -> offer.setServiceCategory(ServiceCategory.CONSTRUCTION);
+                case "remont" -> offer.setServiceCategory(ServiceCategory.FINISHING_WORKS);
+                case "instalacje" -> offer.setServiceCategory(ServiceCategory.INSTALLATION);
+                case "elektryka" -> offer.setServiceCategory(ServiceCategory.ELECTRICITY);
+                case "roboty ziemne" -> offer.setServiceCategory(ServiceCategory.EARTH_WORKS);
+                case "ogród" -> offer.setServiceCategory(ServiceCategory.GARDEN);
+                default -> {
+                    System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
+                    goBackToMenu();
                 }
             }
 
-            System.out.println(OFFER_CONTENT_MESSAGE);
-            offer.setOfferContent(scanner.nextLine().toLowerCase());
+            System.out.println("Podaj treść oferty: ");
+            offer.setOfferContent(scanner.nextLine());
 
-            System.out.println(LOCALIZATION_MESSAGE);
-            offer.setCity(scanner.nextLine().toLowerCase());
+            System.out.println("Podaj lokalizację: ");
+            offer.setCity(scanner.nextLine());
 
-            System.out.println(FIRST_NAME_MESSAGE);
+            System.out.println("Podaj imię: ");
             String firstName = scanner.nextLine();
 
-            System.out.println(LAST_NAME_MESSAGE);
+            System.out.println("Podaj nazwisko: ");
             String lastName = scanner.nextLine();
 
-            System.out.println(COMPANY_NAME_MESSAGE);
+            System.out.println("Podaj nazwę firmy: ");
             String companyName = scanner.nextLine();
 
-            System.out.println(EMAIL_MESSAGE);
+            System.out.println("Podaj adres email: ");
             String email = scanner.nextLine();
 
-            System.out.println(PHONE_NUMBER_MESSAGE);
+            System.out.println("Podaj numer telefonu: ");
             String phoneNumber = scanner.nextLine();
 
             offer.setUser(new User(firstName, lastName, companyName, email, phoneNumber));
 
             LocalDateTime localDateTime = LocalDateTime.now();
             offer.setDate(Date.from(Instant.parse(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toString())));
+            System.out.println(USERS_OFFER_DISPLAY_MESSAGE + offer);
 
-            Path filePath = Paths.get(OFFERS_FILEPATH);
-            if(Files.exists(filePath)) {
-                try {
-                    List<Offer> offersList = fileStorage.readFromFile(OFFERS_FILEPATH);
-                    offersList.add(offer);
-                    fileStorage.saveToFile(offersList, OFFERS_FILEPATH);
-                } catch (IOException e) {
-                    System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
-                }
-            } else {
-                try {
-                    Files.createFile(filePath);
-                    List<Offer> offersList = new LinkedList<>();
-                    offersList.add(offer);
-                    fileStorage.saveToFile(offersList, OFFERS_FILEPATH);
-                } catch (IOException e) {
-                    System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
-                }
+            try {
+                List<Offer> offersList = fileStorage.readFromFile(OFFERS_FILEPATH);
+                offersList.add(offer);
+                fileStorage.saveToFile(offersList, OFFERS_FILEPATH);
+            } catch (IOException e) {
+                System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
             }
 
-            System.out.println(USERS_OFFER_DISPLAY_MESSAGE + offer);
             System.out.println(USERS_OFFER_SAVING_MESSAGE + offer.getOfferID());
 
             goBackToMenu();

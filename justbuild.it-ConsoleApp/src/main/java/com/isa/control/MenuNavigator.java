@@ -18,6 +18,8 @@ public class MenuNavigator {
             System.out.println(c);
         }
         System.out.println(CHOOSE_A_NUMBER_MESSAGE);
+
+        System.out.println(CHOOSE_A_NUMBER_MESSAGE);
     }
 
     //wybieranie menu
@@ -83,8 +85,8 @@ public class MenuNavigator {
                 System.out.println(ENTERED_WRONG_SIGNS_MESSAGE);
                 scanner.next();
             }
-        }
-        while (enteringNumber);
+
+        } while (enteringNumber);
         return number;
     }
 }
