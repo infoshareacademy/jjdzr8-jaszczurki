@@ -5,13 +5,7 @@ import com.isa.entity.enums.MenuOptions;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static com.isa.entity.appConstants.AppConstants.CHOOSE_A_NUMBER_MESSAGE;
-import static com.isa.entity.appConstants.AppConstants.CHOSEN_OPTION_MESSAGE;
-import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER_MESSAGE;
-import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_SIGNS_MESSAGE;
-import static com.isa.entity.appConstants.AppConstants.GOODBYE_MESSAGE;
-import static com.isa.entity.appConstants.AppConstants.MENU_MESSAGE;
-import static com.isa.entity.appConstants.AppConstants.PROGRAM_NAME_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.*;
 
 public class MenuNavigator {
 
@@ -23,50 +17,55 @@ public class MenuNavigator {
         for (MenuOptions c : MenuOptions.values()) {
             System.out.println(c);
         }
+
+        System.out.println(CHOOSE_A_NUMBER_MESSAGE);
     }
 
     //wybieranie menu
     public static void chooseMenuOptions() {
-        System.out.println(CHOOSE_A_NUMBER_MESSAGE);
 
-        boolean inProgress = false;
+        boolean inProgress = true;
 
-        do {
+        while (inProgress) {
             int number = getMenuNumberFromUser();
 
             for (MenuOptions d : MenuOptions.values()) {
                 if (number == d.getNumber()) {
                     switch (d.getNumber()) {
-                        case 1:
+                        case 1 -> {
                             System.out.println(CHOSEN_OPTION_MESSAGE + d);
                             AddOptions options = new AddOptions();
                             options.showAddDetails();
-                            break;
-                        case 2:
+                        }
+                        case 2 -> {
                             System.out.println(CHOSEN_OPTION_MESSAGE + d);
                             EditOptions options1 = new EditOptions();
                             options1.showEditDetails();
-                            break;
-                        case 3:
+                        }
+                        case 3 -> {
                             System.out.println(CHOSEN_OPTION_MESSAGE + d);
                             DeleteOptions options2 = new DeleteOptions();
                             options2.showDeleteDetails();
-                            break;
-                        case 4:
+                        }
+                        case 4 -> {
                             System.out.println(CHOSEN_OPTION_MESSAGE + d);
                             SearchOptions options3 = new SearchOptions();
                             options3.showSearchDetails();
-                            break;
-                        case 5:
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d + "\n" + GOODBYE_MESSAGE);
-                            return;
+                        }
+                        case 5 -> {
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
+                            ShowAllOptions options4 = new ShowAllOptions();
+                            options4.showAllDetails();
+                        }
+                        case 6 -> {
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d + "\n" + GOODBYE_MESSAGE + d);
+                            inProgress = false;
+                        }
                     }
-                    inProgress = true;
                     break;
                 }
-
             }
-        } while (inProgress);
+        }
     }
 
     private static int getMenuNumberFromUser() {
@@ -76,7 +75,7 @@ public class MenuNavigator {
         do {
             try {
                 number = scanner.nextInt();
-                if (number < 1 || number >= 6) {
+                if (number < 1 || number >= 7) {
                     System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
                 } else {
                     enteringNumber = false;

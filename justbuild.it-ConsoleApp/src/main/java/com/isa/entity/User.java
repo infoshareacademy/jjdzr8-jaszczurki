@@ -7,6 +7,9 @@ public class User {
     private String emailAddress;
     private String telephoneNumber;
 
+    public User() {  // ten konstruktor musi tu być pomimo tego, że jest nieużywany -> JSON go wymaga
+    }
+
     public User(String firstName, String lastName, String company, String emailAddress, String telephoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;

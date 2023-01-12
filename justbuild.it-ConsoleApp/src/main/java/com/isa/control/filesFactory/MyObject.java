@@ -2,12 +2,23 @@ package com.isa.control.filesFactory;
 
 import java.util.Objects;
 
+/*
+
+     wszystko co ta klasa robiła przeniosłem do klasy Offer
+     po moich zmianach klasa nie ma chyba dalszej racji bytu, ale zostawiam ją gdyby były inne pomysły
+
+ */
 public class MyObject {
+
     private int id;
     private String name;
 
     public int getId() {
         return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getName() {

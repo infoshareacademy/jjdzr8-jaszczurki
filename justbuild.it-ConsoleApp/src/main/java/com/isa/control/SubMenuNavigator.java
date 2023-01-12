@@ -10,9 +10,10 @@ public abstract class SubMenuNavigator {
     void subMenuActions(){
 
         boolean inProgress = true;
+
         do{
             Scanner scanner = new Scanner(System.in);
-            int choice = 0;
+            int choice;
             try{
                 choice = scanner.nextInt();
                 if (choice == 1) {
@@ -35,6 +36,5 @@ public abstract class SubMenuNavigator {
     void goBackToMenu(){
         System.out.println(BACK_TO_MENU_MESSAGE);
         MenuNavigator.printMenu();
-        MenuNavigator.chooseMenuOptions();
     }
 }

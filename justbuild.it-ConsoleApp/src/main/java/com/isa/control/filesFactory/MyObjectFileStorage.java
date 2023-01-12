@@ -1,5 +1,7 @@
 package com.isa.control.filesFactory;
 
+import com.isa.entity.Offer;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -16,9 +18,9 @@ public class MyObjectFileStorage {
         this.parser = parser;
     }
 
-    public void saveToFile(List<MyObject> objects, String filePath) throws IOException {
+    public void saveToFile(List<Offer> objects, String filePath) throws IOException {
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath))) {
-            for (MyObject obj : objects) {
+            for (Offer obj : objects) {
                 String json = parser.serialize(obj);
                 writer.write(json);
                 writer.newLine();
@@ -26,9 +28,9 @@ public class MyObjectFileStorage {
         }
     }
 
-    public List<MyObject> readFromFile(String filePath) throws IOException {
+    public List<Offer> readFromFile(String filePath) throws IOException {
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(filePath))) {
-            return reader.lines().map(line -> {
+            return reader.lines().filter(line -> !line.isEmpty()).map(line -> {
                         try {
                             return parser.deserialize(line);
                         } catch (IOException e) {
@@ -39,3 +41,4 @@ public class MyObjectFileStorage {
         }
     }
 }
+
