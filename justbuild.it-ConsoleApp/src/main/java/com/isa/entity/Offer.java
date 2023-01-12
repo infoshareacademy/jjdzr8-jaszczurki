@@ -1,8 +1,9 @@
 package com.isa.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.isa.entity.enums.ServiceCategory;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.isa.entity.enums.ServiceCategory;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
