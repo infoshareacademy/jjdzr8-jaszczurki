@@ -1,4 +1,4 @@
-package com.isa.domain;
+package com.isa.entity;
 
 import com.isa.entity.enums.ServiceCategory;
 

@@ -26,7 +26,7 @@
             <manifest>
               <addClasspath>true</addClasspath>
               <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>com.isa.main.App</mainClass>
+              <mainClass>com.isa.boundary.JustBuildItAppExecutor</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -46,5 +46,10 @@
       <artifactId>maven-jar-plugin</artifactId>
       <version>3.2.0</version>
     </dependency>
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+          <version>2.14.0</version>
+      </dependency>
   </dependencies>
 </project>
