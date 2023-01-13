@@ -1,0 +1,287 @@
+[ {
+  "offerID" : 22,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "najpiękniejszy ogród w okolicy",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "Pola",
+    "lastName" : "Oliwska",
+    "company" : "Pola Ogrody",
+    "emailAddress" : "ogrodnik@pola.ogrody.pl",
+    "telephoneNumber" : "603 391 755"
+  },
+  "date" : "2023-01-13T14:08:10.859Z"
+}, {
+  "offerID" : 21,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "instalacje i przyłącza - wszystkie ",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "Wojciech",
+    "lastName" : "Słupski",
+    "company" : "WOJ-TEC Installbud",
+    "emailAddress" : "slupski@installbud.pl",
+    "telephoneNumber" : "506 299 114"
+  },
+  "date" : "2023-01-13T13:48:51.417Z"
+}, {
+  "offerID" : 20,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "roboty drogowo-mostowe",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "Bridge&Highway SA",
+    "emailAddress" : "reception@bh.pl",
+    "telephoneNumber" : "58 556 00 01"
+  },
+  "date" : "2023-01-13T13:44:08.166Z"
+}, {
+  "offerID" : 19,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "kompleksowe roboty budowlane i wykończenie",
+  "city" : "kraków",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "REMBUD SA",
+    "emailAddress" : "biuro@rembud.pl",
+    "telephoneNumber" : "881 001 001"
+  },
+  "date" : "2023-01-13T13:21:06.371Z"
+}, {
+  "offerID" : 18,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "glazurnik",
+  "city" : "lublin",
+  "user" : {
+    "firstName" : "Krzysztof",
+    "lastName" : "Lato",
+    "company" : "Krzysztof Lato",
+    "emailAddress" : "krzysztof9202@wp.pl",
+    "telephoneNumber" : "602 563 298"
+  },
+  "date" : "2023-01-13T13:14:38.042Z"
+}, {
+  "offerID" : 17,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "instalacja elektryczna, alarmy, monitoring",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "E-House Sp. z o.o.",
+    "emailAddress" : "office@ehouse.eu",
+    "telephoneNumber" : "880 001 081"
+  },
+  "date" : "2023-01-13T12:10:12.059Z"
+}, {
+  "offerID" : 16,
+  "serviceCategory" : "EARTH_WORKS",
+  "offerContent" : "wykopy, niwelacja, sprzęt ciężki",
+  "city" : "lublin",
+  "user" : {
+    "firstName" : "Feliks",
+    "lastName" : "Komar",
+    "company" : "FEL-BUD PBU",
+    "emailAddress" : "roboty.ziemne@komar.pl",
+    "telephoneNumber" : "792 871 018"
+  },
+  "date" : "2023-01-13T11:46:39.584Z"
+}, {
+  "offerID" : 15,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "profesjonalnie, szybki termin realizacji, możliwe wykończenie pod klucz",
+  "city" : "lublin",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "INVEST-PROJEKT SA",
+    "emailAddress" : "biuro@invest-projekt.pl",
+    "telephoneNumber" : "81 560 00 01"
+  },
+  "date" : "2023-01-10T19:52:15.131Z"
+}, {
+  "offerID" : 14,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "budowa gdańsk i teraz województwa pomorskiego",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "Mikołaj",
+    "lastName" : "święty",
+    "company" : "Santa Claus Constructions SA",
+    "emailAddress" : "office@santa_claus.pl",
+    "telephoneNumber" : "804 444 444"
+  },
+  "date" : "2023-01-10T14:38:28.075Z"
+}, {
+  "offerID" : 13,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
+  "city" : "szczecin",
+  "user" : {
+    "firstName" : "Grzegorz",
+    "lastName" : "Jarzyna",
+    "company" : "InstallBUD SA",
+    "emailAddress" : "grzegorz.jarzyna@installbud.pl",
+    "telephoneNumber" : "500 055 001"
+  },
+  "date" : "2023-01-10T13:04:04.570Z"
+}, {
+  "offerID" : 12,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Gwidon",
+    "lastName" : "Gwóźdź",
+    "company" : "G-BUD SA",
+    "emailAddress" : "office@gbud.pl",
+    "telephoneNumber" : "22 561 00 10"
+  },
+  "date" : "2023-01-10T12:01:22.829Z"
+}, {
+  "offerID" : 11,
+  "serviceCategory" : "EARTH_WORKS",
+  "offerContent" : "koparka, ładowarka, walec i łopata, kompleksowo",
+  "city" : "skierniewice",
+  "user" : {
+    "firstName" : "Zenon",
+    "lastName" : "Ptak",
+    "company" : "ZenBUD Sp. z o.o.",
+    "emailAddress" : "biuro@zenbud.pl",
+    "telephoneNumber" : "688 089 003"
+  },
+  "date" : "2023-01-10T11:58:21.727Z"
+}, {
+  "offerID" : 10,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "wykończenie pod klucz, solidnie, krótkie terminy realizacji",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "Zenon",
+    "lastName" : "Laskowik",
+    "company" : "Laskowik Remonty ",
+    "emailAddress" : "biuro.remonty@laskowik.pl",
+    "telephoneNumber" : "502 718 345"
+  },
+  "date" : "2023-01-09T21:23:22.820Z"
+}, {
+  "offerID" : 9,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "projekt i realizacja, piękny ogród na życzenie",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Monika",
+    "lastName" : "Kisiel",
+    "company" : "MoKi Garden ",
+    "emailAddress" : "monika@garden.eu",
+    "telephoneNumber" : "505 527 211"
+  },
+  "date" : "2023-01-09T21:20:14.815Z"
+}, {
+  "offerID" : 8,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "fachowe usługi elektryczne, monitoring, inteligentny dom",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Arnold",
+    "lastName" : "Guzik",
+    "company" : "EL-GUZ ",
+    "emailAddress" : "biuro@elguz.pl",
+    "telephoneNumber" : "772 675 012"
+  },
+  "date" : "2023-01-09T20:58:11.831Z"
+}, {
+  "offerID" : 7,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "tylko konstrukcja, do stanu surowego zamkniętego",
+  "city" : "lublin",
+  "user" : {
+    "firstName" : "Piotr",
+    "lastName" : "Nowak",
+    "company" : "Nowak Construction SA",
+    "emailAddress" : "office@nowak.construction.pl",
+    "telephoneNumber" : "660 067 001"
+  },
+  "date" : "2023-01-09T16:37:41.356Z"
+}, {
+  "offerID" : 6,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "instalacje wod-kan i co, przyłącza",
+  "city" : "kraków",
+  "user" : {
+    "firstName" : "Jan",
+    "lastName" : "Nowak",
+    "company" : "Instalator ",
+    "emailAddress" : "office@instalator.pl",
+    "telephoneNumber" : "880 011 010"
+  },
+  "date" : "2023-01-08T18:31:34.771Z"
+}, {
+  "offerID" : 5,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "kompleksowe usługi wykończeniowe-remontowe",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Janusz",
+    "lastName" : "Piątek",
+    "company" : "Piątek Remonty ",
+    "emailAddress" : "remonty@gmail.com",
+    "telephoneNumber" : "609 333 330"
+  },
+  "date" : "2023-01-08T18:26:53.914Z"
+}, {
+  "offerID" : 4,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "konstrukcja budynku, wykończenie pod klucz",
+  "city" : "lublin",
+  "user" : {
+    "firstName" : "Tadeusz",
+    "lastName" : "Wójtowicz",
+    "company" : "TAD-BUD PBU Sp. z o.o.",
+    "emailAddress" : "biuro@tadbud.pl",
+    "telephoneNumber" : "708 921 001"
+  },
+  "date" : "2023-01-08T18:23:25.234Z"
+}, {
+  "offerID" : 3,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "szybki i tani fachowiec od robót wewnętrznych",
+  "city" : "poznań",
+  "user" : {
+    "firstName" : "Ryszard",
+    "lastName" : "Makowski",
+    "company" : "Makbud",
+    "emailAddress" : "fachowiec@makbud.pl",
+    "telephoneNumber" : "880 033 701"
+  },
+  "date" : "2023-01-08T13:49:57.620Z"
+}, {
+  "offerID" : 2,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "wykończenie pod klucz, szybko i fachowo",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "Piotr",
+    "lastName" : "Jankowski",
+    "company" : "PeterBUD Sp. z o.o.",
+    "emailAddress" : "fachowiec@peterbud.pl",
+    "telephoneNumber" : "724 678 054"
+  },
+  "date" : "2023-01-07T21:48:45.260Z"
+}, {
+  "offerID" : 1,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "prace ogólnobudowlane, roboty wysokościowe, sprzęt ciężki",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "BUDOMEX SA",
+    "emailAddress" : "biuro.budomex@budomex.eu",
+    "telephoneNumber" : "600 106 001"
+  },
+  "date" : "2023-01-07T21:40:54.223Z"
+} ]

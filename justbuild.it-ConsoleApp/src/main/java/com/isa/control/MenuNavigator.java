@@ -9,14 +9,13 @@ import static com.isa.entity.appConstants.AppConstants.*;
 
 public class MenuNavigator {
 
-
     //wyświetlanie dostępnych menu
     public static void printMenu() {
         System.out.println(PROGRAM_NAME_MESSAGE);
         System.out.println(MENU_MESSAGE);
 
         for (MenuOptions c : MenuOptions.values()) {
-            System.out.println(c);
+            System.out.println(c.getNumber() + " - " + c.getPolishName());
         }
 
         System.out.println(CHOOSE_A_NUMBER_MESSAGE);
@@ -34,32 +33,33 @@ public class MenuNavigator {
                 if (number == d.getNumber()) {
                     switch (d.getNumber()) {
                         case 1 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName());
                             AddOptions options = new AddOptions();
                             options.showAddDetails();
                         }
                         case 2 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName());
                             EditOptions options1 = new EditOptions();
                             options1.showEditDetails();
                         }
                         case 3 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName());
                             DeleteOptions options2 = new DeleteOptions();
                             options2.showDeleteDetails();
                         }
                         case 4 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName());
                             SearchOptions options3 = new SearchOptions();
                             options3.showSearchDetails();
                         }
                         case 5 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d);
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName());
                             ShowAllOptions options4 = new ShowAllOptions();
                             options4.showAllDetails();
                         }
                         case 6 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d + "\n" + GOODBYE_MESSAGE + d);
+                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName() +
+                                    "\n" + GOODBYE_MESSAGE);
                             inProgress = false;
                         }
                     }
