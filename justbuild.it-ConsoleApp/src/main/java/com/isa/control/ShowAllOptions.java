@@ -1,10 +1,12 @@
 package com.isa.control;
 
-        import com.isa.entity.Offer;
-        import com.isa.entity.OfferArrayFromFile;
-        import com.isa.entity.enums.ServiceCategory;
-        import java.util.Scanner;
-        import static com.isa.entity.appConstants.AppConstants.*;
+import com.isa.entity.Offer;
+import com.isa.entity.OfferArrayFromFile;
+import com.isa.entity.enums.ServiceCategory;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import static com.isa.entity.appConstants.AppConstants.*;
+
 
 public class ShowAllOptions extends SubMenuNavigator {
     private static final String SHOW_ALL = "Pokaż wszystkie ogłoszenia.";
@@ -29,45 +31,35 @@ public class ShowAllOptions extends SubMenuNavigator {
         }
     }
 
-    private void showOfferCategory(){
-        Scanner scanner = new Scanner(System.in);
+    private void showOfferCategory() {
         System.out.println(CHOOSE_A_NUMBER_MESSAGE);
 
-        for (ServiceCategory d : ServiceCategory.values()){
+        for (ServiceCategory d : ServiceCategory.values()) {
             System.out.println(d.toString());
         }
+        searchByCategory();
+    }
 
-        switch (scanner.nextLine()) {
-            case "1" -> {
-                System.out.println(CHOSEN_OPTION_MESSAGE + ServiceCategory.CONSTRUCTION.name());
-                findOfferCategory(ServiceCategory.CONSTRUCTION);
+    private void searchByCategory() {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            int chose = scanner.nextInt();
+            for (ServiceCategory k : ServiceCategory.values()) {
+                if (chose == k.getNumber()) {
+                    System.out.println(CHOSEN_OPTION_MESSAGE + k);
+                    findOfferCategory(k);
+                    goBackToMenu();
+                }
+                if (chose < 1 || chose > ServiceCategory.values().length) {
+                    System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
+                    showOfferCategory();
+                    break;
+                }
             }
-            case "2" -> {
-                System.out.println(CHOSEN_OPTION_MESSAGE + ServiceCategory.FINISHING_WORKS);
-                findOfferCategory(ServiceCategory.FINISHING_WORKS);
-            }
-            case "3" -> {
-                System.out.println(CHOSEN_OPTION_MESSAGE + ServiceCategory.INSTALLATION);
-                findOfferCategory(ServiceCategory.INSTALLATION);
-            }
-            case "4" -> {
-                System.out.println(CHOSEN_OPTION_MESSAGE + ServiceCategory.ELECTRICITY);
-                findOfferCategory(ServiceCategory.ELECTRICITY);
-            }
-            case "5" -> {
-                System.out.println(CHOSEN_OPTION_MESSAGE + ServiceCategory.EARTH_WORKS);
-                findOfferCategory(ServiceCategory.EARTH_WORKS);
-            }
-            case "6" -> {
-                System.out.println(CHOSEN_OPTION_MESSAGE + ServiceCategory.GARDEN);
-                findOfferCategory(ServiceCategory.GARDEN);
-            }
-            default -> {
-                System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
-                showOfferCategory();
-            }
+        }catch (InputMismatchException e) {
+            System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
+            showOfferCategory();
         }
-        goBackToMenu();
     }
 
     public void findOfferCategory(ServiceCategory serviceCategory) {

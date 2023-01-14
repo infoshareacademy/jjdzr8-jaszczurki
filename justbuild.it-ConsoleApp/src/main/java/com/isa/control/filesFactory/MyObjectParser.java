@@ -19,4 +19,3 @@ public class MyObjectParser {
     public Offer deserialize(String json) throws IOException {
         return objectMapper.readValue(json, Offer.class);
     }
-}
