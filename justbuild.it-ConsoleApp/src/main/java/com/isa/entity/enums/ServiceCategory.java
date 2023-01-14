@@ -25,8 +25,13 @@ public enum ServiceCategory {
         throw new IllegalArgumentException();
     }
 
+    public String getNumber() {
+        return number;
+    }
+
     @Override
     public String toString() {
         return number + " - " + polishName;
     }
 }
+
