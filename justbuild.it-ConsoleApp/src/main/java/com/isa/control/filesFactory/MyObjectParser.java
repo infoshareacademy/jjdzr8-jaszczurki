@@ -8,6 +8,7 @@ import java.io.IOException;
 public class MyObjectParser {
 
     private final ObjectMapper objectMapper;
+
     public MyObjectParser() {
         objectMapper = new ObjectMapper();
     }

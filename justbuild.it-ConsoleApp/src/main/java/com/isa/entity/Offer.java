@@ -29,7 +29,7 @@ public class Offer implements Serializable{
     }
     
     public ServiceCategory getServiceCategory() {
-        return serviceCategory;
+        return serviceCategory;        
     }
     
     public void setServiceCategory(ServiceCategory serviceCategory) {

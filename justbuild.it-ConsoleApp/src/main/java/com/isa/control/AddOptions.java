@@ -52,34 +52,38 @@ public class AddOptions extends SubMenuNavigator{
             long offerID = getUniqueOfferID();
             offer.setOfferID(offerID);
 
+            System.out.println(CHOOSE_A_NUMBER_MESSAGE);
             System.out.println(CATEGORY_SELECTION_MESSAGE);
-            String serviceCategory = scanner.nextLine().toLowerCase();
+            for (ServiceCategory d : ServiceCategory.values()){
+                System.out.println(d.toString());
+            }
 
+            String serviceCategory = scanner.nextLine();
             boolean inProgress = true;
 
             while (inProgress) {
                 switch (serviceCategory) {
-                    case "budowa" -> {
+                    case "1" -> {
                         offer.setServiceCategory(ServiceCategory.CONSTRUCTION);
                         inProgress = false;
                     }
-                    case "remont" -> {
+                    case "2" -> {
                         offer.setServiceCategory(ServiceCategory.FINISHING_WORKS);
                         inProgress = false;
                     }
-                    case "instalacje" -> {
+                    case "3" -> {
                         offer.setServiceCategory(ServiceCategory.INSTALLATION);
                         inProgress = false;
                     }
-                    case "elektryka" -> {
+                    case "4" -> {
                         offer.setServiceCategory(ServiceCategory.ELECTRICITY);
                         inProgress = false;
                     }
-                    case "roboty ziemne" -> {
+                    case "5" -> {
                         offer.setServiceCategory(ServiceCategory.EARTH_WORKS);
                         inProgress = false;
                     }
-                    case "ogród" -> {
+                    case "6" -> {
                         offer.setServiceCategory(ServiceCategory.GARDEN);
                         inProgress = false;
                     }

@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MyObjectFileStorage {
-
     private final MyObjectParser parser;
 
     public MyObjectFileStorage(MyObjectParser parser) {
@@ -41,4 +40,3 @@ public class MyObjectFileStorage {
         }
     }
 }
-

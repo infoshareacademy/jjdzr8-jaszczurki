@@ -1,5 +1,7 @@
 package com.isa.control.filesFactory;
 
+
+
 import java.util.Objects;
 
 /*
@@ -12,6 +14,7 @@ public class MyObject {
 
     private int id;
     private String name;
+
 
     public int getId() {
         return id;

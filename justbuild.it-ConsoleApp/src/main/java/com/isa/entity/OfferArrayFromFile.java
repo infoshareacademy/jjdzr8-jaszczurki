@@ -2,13 +2,15 @@ package com.isa.entity;
 
 import com.isa.control.filesFactory.MyObjectFileStorage;
 import com.isa.control.filesFactory.MyObjectParser;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
+
 import static com.isa.entity.appConstants.AppConstants.FILE_READ_OR_WRITE_ERROR_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.OFFERS_FILEPATH;
 
@@ -32,8 +34,7 @@ public class OfferArrayFromFile {
     }
 
     public static ArrayList<Offer> getOffersArray() {
-        Collections.reverse(offersArray);
+        offersArray.sort((object1, object2) -> object2.getDate().compareTo(object1.getDate()));
         return offersArray;
     }
 }
-
