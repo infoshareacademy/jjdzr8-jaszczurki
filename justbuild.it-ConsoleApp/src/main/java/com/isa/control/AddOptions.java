@@ -1,7 +1,6 @@
 package com.isa.control;
 
 import com.isa.control.filesFactory.MyObjectFileStorage;
-import com.isa.control.filesFactory.MyObjectParser;
 import com.isa.entity.Offer;
 import com.isa.entity.User;
 import com.isa.entity.enums.ServiceCategory;
@@ -10,7 +9,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
@@ -32,7 +30,7 @@ public class AddOptions extends SubMenuNavigator{
     private final MyObjectFileStorage fileStorage;
 
     public AddOptions() {
-        fileStorage = new MyObjectFileStorage(new MyObjectParser());
+        fileStorage = new MyObjectFileStorage();
     }
 
     public void showAddDetails(){
@@ -52,42 +50,23 @@ public class AddOptions extends SubMenuNavigator{
             long offerID = getUniqueOfferID();
             offer.setOfferID(offerID);
 
+            System.out.println(CHOOSE_A_NUMBER_MESSAGE);
             System.out.println(CATEGORY_SELECTION_MESSAGE);
-            String serviceCategory = scanner.nextLine().toLowerCase();
+            for (ServiceCategory d : ServiceCategory.values()){
+                System.out.println(d.toString());
+            }
 
+            String serviceCategoryNumber = scanner.nextLine();
             boolean inProgress = true;
-
             while (inProgress) {
-                switch (serviceCategory) {
-                    case "budowa" -> {
-                        offer.setServiceCategory(ServiceCategory.CONSTRUCTION);
-                        inProgress = false;
-                    }
-                    case "remont" -> {
-                        offer.setServiceCategory(ServiceCategory.FINISHING_WORKS);
-                        inProgress = false;
-                    }
-                    case "instalacje" -> {
-                        offer.setServiceCategory(ServiceCategory.INSTALLATION);
-                        inProgress = false;
-                    }
-                    case "elektryka" -> {
-                        offer.setServiceCategory(ServiceCategory.ELECTRICITY);
-                        inProgress = false;
-                    }
-                    case "roboty ziemne" -> {
-                        offer.setServiceCategory(ServiceCategory.EARTH_WORKS);
-                        inProgress = false;
-                    }
-                    case "ogród" -> {
-                        offer.setServiceCategory(ServiceCategory.GARDEN);
-                        inProgress = false;
-                    }
-                    default -> {
-                        System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
-                        serviceCategory = scanner.nextLine().toLowerCase();
-                    }
+                try {
+                    ServiceCategory category = ServiceCategory.getFromString(serviceCategoryNumber);
+                    offer.setServiceCategory(category);
+                    inProgress = false;
+                } catch (IllegalArgumentException e) {
+                    System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
                 }
+                if(inProgress) serviceCategoryNumber = scanner.nextLine();
             }
 
             System.out.println(OFFER_CONTENT_MESSAGE);
@@ -113,8 +92,7 @@ public class AddOptions extends SubMenuNavigator{
 
             offer.setUser(new User(firstName, lastName, companyName, email, phoneNumber));
 
-            LocalDateTime localDateTime = LocalDateTime.now();
-            offer.setDate(Date.from(Instant.parse(localDateTime.atZone(ZoneId.systemDefault()).toInstant().toString())));
+            offer.setDate(Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()));
 
             Path filePath = Paths.get(OFFERS_FILEPATH);
             if(Files.exists(filePath)) {
@@ -136,7 +114,7 @@ public class AddOptions extends SubMenuNavigator{
                 }
             }
 
-            System.out.println(USERS_OFFER_DISPLAY_MESSAGE + offer);
+            System.out.println(USERS_OFFER_DISPLAY_MESSAGE + "\n" + offer.printOffer() + "\n");
             System.out.println(USERS_OFFER_SAVING_MESSAGE + offer.getOfferID());
 
             goBackToMenu();
