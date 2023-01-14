@@ -8,6 +8,7 @@ import java.io.IOException;
 public class MyObjectParser {
 
     private final ObjectMapper objectMapper;
+
     public MyObjectParser() {
         objectMapper = new ObjectMapper();
     }
@@ -19,3 +20,4 @@ public class MyObjectParser {
     public Offer deserialize(String json) throws IOException {
         return objectMapper.readValue(json, Offer.class);
     }
+}

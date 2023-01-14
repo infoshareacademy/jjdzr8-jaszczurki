@@ -47,20 +47,15 @@ public class SearchOptions extends SubMenuNavigator{
             System.out.println(SEARCH);
             System.out.println(OPTIONAL_LOCALIZATION_MESSAGE);
             String location = scanner.nextLine().toLowerCase();
-            if (location.isEmpty()) {
-                location = "";
-            }
 
             System.out.println(OPTIONAL_KEYWORD_MESSAGE);
             String keyword = scanner.nextLine().toLowerCase();
-            if (keyword.isEmpty()) {
-                keyword = "";
-            }
+
 
             System.out.println(CHOOSE_A_NUMBER_MESSAGE);
             System.out.println(CATEGORY_FOR_SEARCH_SELECTION_MESSAGE);
-            for (ServiceCategory d : ServiceCategory.values()){
-                System.out.println(d.toString());
+            for (ServiceCategory serviceCategory : ServiceCategory.values()){
+                System.out.println(serviceCategory);
             }
 
             List<ServiceCategory> selectedCategories = new ArrayList<>();
