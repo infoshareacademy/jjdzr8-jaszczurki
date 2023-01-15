@@ -2,6 +2,7 @@ package com.isa.control;
 
 import com.isa.control.filesFactory.MyObjectFileStorage;
 import com.isa.entity.Offer;
+import com.isa.entity.OfferArrayFromFile;
 import com.isa.entity.User;
 import com.isa.entity.enums.ServiceCategory;
 
@@ -52,8 +53,8 @@ public class AddOptions extends SubMenuNavigator{
 
             System.out.println(CHOOSE_A_NUMBER_MESSAGE);
             System.out.println(CATEGORY_SELECTION_MESSAGE);
-            for (ServiceCategory d : ServiceCategory.values()){
-                System.out.println(d.toString());
+            for (ServiceCategory serviceCategory : ServiceCategory.values()){
+                System.out.println(serviceCategory.toString());
             }
 
             String serviceCategoryNumber = scanner.nextLine();
@@ -114,6 +115,8 @@ public class AddOptions extends SubMenuNavigator{
                 }
             }
 
+            OfferArrayFromFile.setOffersArray();
+
             System.out.println(USERS_OFFER_DISPLAY_MESSAGE + "\n" + offer.printOffer() + "\n");
             System.out.println(USERS_OFFER_SAVING_MESSAGE + offer.getOfferID());
 
@@ -133,12 +136,13 @@ public class AddOptions extends SubMenuNavigator{
 
         long maxID = 0;
 
-            for (Offer obj: objects) {
-                if (obj != null) {
-                    if (obj.getOfferID() > maxID) {
-                    maxID = obj.getOfferID();
+            for (Offer item: objects) {
+                if (item != null) {
+                    if (item.getOfferID() > maxID) {
+                    maxID = item.getOfferID();
                 }
             }
+
         }
         return maxID + 1;
     }

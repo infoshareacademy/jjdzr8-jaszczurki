@@ -3,10 +3,8 @@ package com.isa.control;
 import com.isa.entity.Offer;
 import com.isa.entity.OfferArrayFromFile;
 import com.isa.entity.enums.ServiceCategory;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import static com.isa.entity.appConstants.AppConstants.*;
-
 
 public class ShowAllOptions extends SubMenuNavigator {
     private static final String SHOW_ALL = "Pokaż wszystkie ogłoszenia.";
@@ -34,8 +32,8 @@ public class ShowAllOptions extends SubMenuNavigator {
     private void showOfferCategory() {
         System.out.println(CHOOSE_A_NUMBER_MESSAGE);
 
-        for (ServiceCategory d : ServiceCategory.values()) {
-            System.out.println(d.toString());
+        for (ServiceCategory serviceCategory : ServiceCategory.values()) {
+            System.out.println(serviceCategory.toString());
         }
         searchByCategory();
     }
@@ -43,29 +41,21 @@ public class ShowAllOptions extends SubMenuNavigator {
     private void searchByCategory() {
         Scanner scanner = new Scanner(System.in);
         try {
-            int chose = scanner.nextInt();
-            for (ServiceCategory k : ServiceCategory.values()) {
-                if (chose == Integer.parseInt(k.getNumber())) {
-                    System.out.println(CHOSEN_OPTION_MESSAGE + k);
-                    findOfferCategory(k);
-                    goBackToMenu();
-                }
-                if (chose < 1 || chose > ServiceCategory.values().length) {
-                    System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
-                    showOfferCategory();
-                    break;
-                }
-            }
-        }catch (InputMismatchException e) {
+            String userChoose = scanner.nextLine();
+            ServiceCategory searchCategory = ServiceCategory.getFromString(userChoose);
+            System.out.println(CHOSEN_OPTION_MESSAGE + searchCategory);
+            findOfferCategory(searchCategory);
+            goBackToMenu();
+        }catch (IllegalArgumentException e) {
             System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
             showOfferCategory();
         }
     }
 
     public void findOfferCategory(ServiceCategory serviceCategory) {
-        for (Offer o : OfferArrayFromFile.getOffersArray()){
-            if (o.getServiceCategory().equals(serviceCategory)){
-                System.out.println(o);
+        for (Offer offer : OfferArrayFromFile.getOffersArray()){
+            if (offer.getServiceCategory().equals(serviceCategory)){
+                System.out.println(offer);
             }
         }
         System.out.println(NO_OFFERS_MORE);

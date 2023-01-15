@@ -81,16 +81,16 @@ public class SearchOptions extends SubMenuNavigator{
             }
 
             List<Offer> matchingOffers = new ArrayList<>();
-            for (Offer o : OfferArrayFromFile.getOffersArray()) {
-                if ((location.isEmpty() || o.getCity().equals(location)) && (keyword.isEmpty() ||
-                        o.getOfferContent().contains(keyword)) && selectedCategories.contains(o.getServiceCategory())) {
-                    matchingOffers.add(o);
+            for (Offer offer : OfferArrayFromFile.getOffersArray()) {
+                if ((location.isEmpty() || offer.getCity().equals(location)) && (keyword.isEmpty() ||
+                        offer.getOfferContent().contains(keyword)) && selectedCategories.contains(offer.getServiceCategory())) {
+                    matchingOffers.add(offer);
                 }
             }
 
             if (!matchingOffers.isEmpty()) {
-                for (Offer o : matchingOffers) {
-                    System.out.println(o);
+                for (Offer offer : matchingOffers) {
+                    System.out.println(offer);
                 }
             } else {
                 System.out.println(NO_OFFERS_MORE);

@@ -1,4 +1,43 @@
 [ {
+  "offerID" : 25,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "kompleksowo - pełny zakres robót wewnętrznych",
+  "city" : "kraków",
+  "user" : {
+    "firstName" : "Edward",
+    "lastName" : "Gierak",
+    "company" : "Gierak Malarstwo i Glazurnictwo",
+    "emailAddress" : "",
+    "telephoneNumber" : "506 874 323"
+  },
+  "date" : "2023-01-15T15:18:28.008Z"
+}, {
+  "offerID" : 24,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "systemy alarmowe",
+  "city" : "kraków",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "ALARM-INTACT",
+    "emailAddress" : "systemy@alarm.intact.pl",
+    "telephoneNumber" : "792 427 385"
+  },
+  "date" : "2023-01-15T13:54:09.818Z"
+}, {
+  "offerID" : 23,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "instalacje co i piece",
+  "city" : "lublin",
+  "user" : {
+    "firstName" : "Tomasz",
+    "lastName" : "Kowal",
+    "company" : "ThermoInstall Sp. z o.o.",
+    "emailAddress" : "kowal77@gmail.com",
+    "telephoneNumber" : "605 055 321"
+  },
+  "date" : "2023-01-15T10:04:05.991Z"
+}, {
   "offerID" : 22,
   "serviceCategory" : "GARDEN",
   "offerContent" : "najpiękniejszy ogród w okolicy",
