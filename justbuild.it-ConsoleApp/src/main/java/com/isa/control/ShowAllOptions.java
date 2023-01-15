@@ -7,10 +7,11 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import static com.isa.entity.appConstants.AppConstants.*;
 
+
 public class ShowAllOptions extends SubMenuNavigator {
     private static final String SHOW_ALL = "Pokaż wszystkie ogłoszenia.";
 
-    public void showAllDetails() {
+    public void showAllDetails(){
         System.out.println(SHOW_ALL);
         System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
         subMenuActions();
@@ -44,7 +45,7 @@ public class ShowAllOptions extends SubMenuNavigator {
         try {
             int chose = scanner.nextInt();
             for (ServiceCategory k : ServiceCategory.values()) {
-                if (chose == k.getNumber()) {
+                if (chose == Integer.parseInt(k.getNumber())) {
                     System.out.println(CHOSEN_OPTION_MESSAGE + k);
                     findOfferCategory(k);
                     goBackToMenu();
@@ -70,4 +71,3 @@ public class ShowAllOptions extends SubMenuNavigator {
         System.out.println(NO_OFFERS_MORE);
     }
 }
-

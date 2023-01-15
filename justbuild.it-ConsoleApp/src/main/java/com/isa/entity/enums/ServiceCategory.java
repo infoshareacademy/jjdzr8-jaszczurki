@@ -25,7 +25,7 @@ public enum ServiceCategory {
         throw new IllegalArgumentException();
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
