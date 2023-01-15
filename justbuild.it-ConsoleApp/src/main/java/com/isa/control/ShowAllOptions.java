@@ -45,7 +45,7 @@ public class ShowAllOptions extends SubMenuNavigator {
         try {
             int chose = scanner.nextInt();
             for (ServiceCategory k : ServiceCategory.values()) {
-                if (chose == k.getNumber()) {
+                if (chose == Integer.parseInt(k.getNumber())) {
                     System.out.println(CHOSEN_OPTION_MESSAGE + k);
                     findOfferCategory(k);
                     goBackToMenu();

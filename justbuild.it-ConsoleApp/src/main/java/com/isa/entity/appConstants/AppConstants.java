@@ -14,7 +14,7 @@ public class AppConstants {
     public static final String CHOOSE_A_NUMBER_MESSAGE = "************** Wybierz numer: *****************";
     public static final String ENTERED_WRONG_CATEGORY_MESSAGE = "Nieprawidłowa kategoria usługi. Spróbuj ponownie.";
     public static final String FILE_READ_OR_WRITE_ERROR_MESSAGE = "Wystąpił błąd podczas odczytu lub zapisu do pliku: ";
-    public static final String OFFERS_FILEPATH = "offers.txt";
+    public static final String OFFERS_FILEPATH = "offers.json";
     public static final String NO_OFFERS_MORE = "Brak kolejnych ofert";
 
 }

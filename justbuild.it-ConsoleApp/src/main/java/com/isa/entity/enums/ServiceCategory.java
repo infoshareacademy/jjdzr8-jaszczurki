@@ -1,26 +1,37 @@
 package com.isa.entity.enums;
 
 public enum ServiceCategory {
-    CONSTRUCTION(1),
-    FINISHING_WORKS(2),
-    INSTALLATION(3),
-    ELECTRICITY(4),
-    EARTH_WORKS(5),
-    GARDEN(6);
+    CONSTRUCTION("1","Budowa"),
+    FINISHING_WORKS("2","Remont"),
+    INSTALLATION("3","Instalacje"),
+    ELECTRICITY("4","Elektryka"),
+    EARTH_WORKS("5","Roboty ziemne"),
+    GARDEN("6","Ogród");
 
-    final int number;
+    final String number;
+    final String polishName;
 
-    ServiceCategory(int number) {
+    ServiceCategory(String number, String polishName) {
         this.number = number;
+        this.polishName = polishName;
     }
 
-    public int getNumber() {
+    public static ServiceCategory getFromString(String number) {
+        for (ServiceCategory category: ServiceCategory.values()) {
+            if (category.number.equals(number)) {
+                return category;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
+
+    public String getNumber() {
         return number;
     }
 
     @Override
     public String toString() {
-        return number + " - " + name();
+        return number + " - " + polishName;
     }
 }
 

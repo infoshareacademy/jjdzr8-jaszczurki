@@ -7,7 +7,7 @@ public class User {
     private String emailAddress;
     private String telephoneNumber;
 
-    public User() {  // ten konstruktor musi tu być pomimo tego, że jest nieużywany -> JSON go wymaga
+    public User() {  // this constructor must be here despite being unused -> JSON requires it!
     }
 
     public User(String firstName, String lastName, String company, String emailAddress, String telephoneNumber) {
@@ -67,5 +67,10 @@ public class User {
                 ", emailAddress='" + emailAddress + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
                 '}';
+    }
+
+    public String printUser() {
+        return (String.format("{%n          \"firstName\" : \"%s\", %n          \"lastName\" : \"%s\", %n          \"company\" : \"%s\", %n          \"emailAddress\" : \"%s\", %n          \"telephoneNumber\" : \"%s\"}",
+                firstName, lastName, company, emailAddress, telephoneNumber));
     }
 }

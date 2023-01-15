@@ -27,39 +27,39 @@ public class Offer implements Serializable{
     public void setOfferID(long offerID) {
         this.offerID = offerID;
     }
-    
+
     public ServiceCategory getServiceCategory() {
-        return serviceCategory;        
+        return serviceCategory;
     }
-    
+
     public void setServiceCategory(ServiceCategory serviceCategory) {
         this.serviceCategory = serviceCategory;
     }
-    
+
     public String getOfferContent() {
         return offerContent;
     }
-    
+
     public void setOfferContent(String offerContent) {
         this.offerContent = offerContent;
     }
-    
+
     public String getCity() {
         return city;
     }
-    
+
     public void setCity(String city) {
         this.city = city;
     }
-    
+
     public User getUser() {
         return user;
     }
-    
+
     public void setUser(User user) {
         this.user = user;
     }
-    
+
     public Date getDate() {
         return date;
     }
@@ -84,13 +84,12 @@ public class Offer implements Serializable{
 
     @Override
     public String toString() {
-        return "Offer{" +
-                "offerID=" + offerID +
-                ", serviceCategory=" + serviceCategory +
-                ", offerContent='" + offerContent + '\'' +
-                ", city='" + city + '\'' +
-                ", user=" + user +
-                ", date=" + date +
-                '}';
+        return String.format("Offer{offerID= \t%s\t, \tserviceCategory= \t%-20s, \tcity= \t%-15s, user= \t%-160s,\tdate= %s, \tofferContent= \t%s}",offerID,serviceCategory,city,user,date,offerContent);
     }
+
+    public String printOffer() {
+        return String.format("{\"offerID\" : %d, %n   \"serviceCategory\" : \"%s\", %n   \"offerContent\" : \"%s\", %n   \"city\" : \"%s\", %n   \"user\" : %s, %n   \"date\" : \"%s\"}",
+                offerID, serviceCategory, offerContent, city, user.printUser(), date);
+    }
+
 }

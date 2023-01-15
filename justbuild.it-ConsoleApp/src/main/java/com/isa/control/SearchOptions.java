@@ -61,19 +61,19 @@ public class SearchOptions extends SubMenuNavigator{
             List<ServiceCategory> selectedCategories = new ArrayList<>();
 
             while (true) {
-                String serviceCategory = scanner.nextLine();
-                while (!serviceCategory.equals("koniec")) {
-                    ServiceCategory category = getServiceCategory(serviceCategory);
-                    if (category != null) {
+                String serviceCategoryNumber = scanner.nextLine();
+                while (!serviceCategoryNumber.equals("koniec")) {
+                    try {
+                        ServiceCategory category = ServiceCategory.getFromString(serviceCategoryNumber);
                         if (selectedCategories.contains(category)) {
                             System.out.println(ALREADY_CHOSEN_CATEGORY_MESSAGE);
                         } else {
                             selectedCategories.add(category);
                         }
-                    } else {
+                    } catch (IllegalArgumentException e) {
                         System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
                     }
-                    serviceCategory = scanner.nextLine();
+                    serviceCategoryNumber = scanner.nextLine();
                 }
                 if (!selectedCategories.isEmpty()) {
                     break;
@@ -104,17 +104,4 @@ public class SearchOptions extends SubMenuNavigator{
         }
         goBackToMenu();
     }
-
-    private ServiceCategory getServiceCategory(String categoryName) {
-        return switch (categoryName) {
-            case "1" -> ServiceCategory.CONSTRUCTION;
-            case "2" -> ServiceCategory.FINISHING_WORKS;
-            case "3" -> ServiceCategory.INSTALLATION;
-            case "4" -> ServiceCategory.ELECTRICITY;
-            case "5" -> ServiceCategory.EARTH_WORKS;
-            case "6" -> ServiceCategory.GARDEN;
-            default -> null;
-        };
-    }
-
 }
