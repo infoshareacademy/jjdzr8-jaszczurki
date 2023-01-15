@@ -20,7 +20,7 @@ public class AddOptions extends SubMenuNavigator{
     private static final String ADD = "Tu możesz dodać swoje ogłoszenie";
     public static final String CATEGORY_SELECTION_MESSAGE = "Podaj 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród : ";
     private static final String OFFER_CONTENT_MESSAGE = "Podaj treść oferty: ";
-    private static final String LOCALIZATION_MESSAGE = "Podaj swoją lokalizację: ";
+    private static final String LOCALIZATION_MESSAGE = "Podaj swoją lokalizację (nazwa miasta): ";
     private static final String FIRST_NAME_MESSAGE = "Podaj imię: ";
     private static final String LAST_NAME_MESSAGE = "Podaj nazwisko: ";
     private static final String COMPANY_NAME_MESSAGE = "Podaj nazwę firmy: ";

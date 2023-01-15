@@ -13,9 +13,9 @@ import static com.isa.entity.appConstants.AppConstants.*;
 public class SearchOptions extends SubMenuNavigator{
     private final Scanner scanner;
     private static final String SEARCH = "Wyszukaj po lokalizacji i kategorii, możesz również podać 1 słowo kluczowe, które powinno znajdować się w treści oferty.";
-    private static final String OPTIONAL_LOCALIZATION_MESSAGE = "Podaj lokalizację (opcjonalnie): ";
+    private static final String OPTIONAL_LOCALIZATION_MESSAGE = "Podaj lokalizację -> wpisz nazwę miasta (opcjonalnie): ";
     private static final String OPTIONAL_KEYWORD_MESSAGE = "Podaj słowo kluczowe (opcjonalnie): ";
-    private static final String CATEGORY_FOR_SEARCH_SELECTION_MESSAGE = "Musisz podać przynajmniej 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród i wcisnąć \"Enter\". \nNastępnie wpisz słowo \"koniec\" żeby zakończyć wybór kategorii. Możesz podać dowolną ilość kategorii: ";
+    private static final String CATEGORY_FOR_SEARCH_SELECTION_MESSAGE = "Musisz podać przynajmniej 1 kategorię z dostępnych poniżej i wcisnąć \"Enter\". \nNastępnie wpisz słowo \"koniec\" żeby zakończyć wybór kategorii. Możesz podać dowolną ilość kategorii: ";
     private static final String ALREADY_CHOSEN_CATEGORY_MESSAGE = "Wybrano juź tę kategorię. Proszę wybrać inną.";
     private static final String SEARCH_CONTINUE_OR_QUIT_MESSAGE = "Czy chcesz kontynuować wyszukiwanie? (tak/nie)";
 

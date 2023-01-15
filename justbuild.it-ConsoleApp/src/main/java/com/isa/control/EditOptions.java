@@ -17,6 +17,23 @@ public class EditOptions extends SubMenuNavigator{
     private final Scanner scanner;
     private final MyObjectFileStorage fileStorage;
     public static final String EDIT = "Edytuj ogłoszenie.";
+    public static final String OFFER_NUMBER_TO_CHANGE_MESSAGE = "Podaj numer oferty, którą chcesz zmienić: ";
+    public static final String MISMATCHED_OFFER_NUMBER_MESSAGE = "Nie podano numeru oferty. Spróbuj ponownie.";
+    public static final String WRONG_OFFER_NUMBER_MESSAGE = "Oferta o podanym numerze nie istnieje. Spróbuj ponownie.";
+    public static final String OFFER_INFO_MESSAGE = "Informacje o aktualnej ofercie: \n";
+    public static final String OFFER_READY_TO_EDIT_MESSAGE = "\nPodaj nowe informacje o ofercie (pozostawienie pustego pola oznacza brak zmian): ";
+    public static final String CATEGORY_READY_TO_EDIT_MESSAGE = "Zmień swoją kategorię usługi: ";
+    public static final String OFFER_CONTENT_READY_TO_EDIT_MESSAGE = "Zmień treść oferty: ";
+    public static final String LOCALIZATION_READY_TO_EDIT_MESSAGE = "Zmień swoją lokalizację (nazwa miasta): ";
+    public static final String FIRST_NAME_READY_TO_EDIT_MESSAGE = "Zmień imię: ";
+    public static final String LAST_NAME_READY_TO_EDIT_MESSAGE = "Zmień nazwisko: ";
+    public static final String COMPANY_NAME_READY_TO_EDIT_MESSAGE = "Zmień nazwę firmy: ";
+    public static final String EMAIL_READY_TO_EDIT_MESSAGE = "Zmień adres e-mail: ";
+    public static final String PHONE_NUMBER_READY_TO_EDIT_MESSAGE = "Zmień numer telefonu: ";
+    public static final String CHANGES_CONFIRMATION_MESSAGE = "Czy na pewno chcesz zapisać zmiany? (tak)";
+    public static final String OFFER_CHANGED_MESSAGE = "Oferta zmieniona: ";
+    public static final String CHANGES_SAVED_MESSAGE = "Zmiany zapisano.";
+    public static final String CHANGES_CANCELED_MESSAGE = "Anulowano zmiany.";
 
     public EditOptions() {
         this.scanner = new Scanner(System.in);
@@ -44,133 +61,98 @@ public class EditOptions extends SubMenuNavigator{
     }
 
     private void showEditOptions() {
-
+        boolean isOfferValid = false;
         long numberOfferToEdit;
         Offer offer = null;
 
-        while (offer == null) {
+        while (!isOfferValid) {
             try {
-                System.out.println("Podaj numer oferty, którą chcesz zmienić: ");
+                System.out.println(OFFER_NUMBER_TO_CHANGE_MESSAGE);
                 numberOfferToEdit = scanner.nextLong();
-                if (numberOfferToEdit > 0 && numberOfferToEdit <= OfferArrayFromFile.getOffersArray().size()) {
-                    offer = getOfferByNumber(numberOfferToEdit);
-                    if (offer == null) {
-                        System.out.println("Oferta o podanym numerze nie istnieje. Spróbuj ponownie lub wprowadź 0, aby powrócić do głównego menu.");
-                        numberOfferToEdit = scanner.nextLong();
-                        if (numberOfferToEdit == 0) {
-                            goBackToMenu();
-                            subMenuActions();
-                        }
-                    } else {
-                        System.out.println("Informacje o aktualnej ofercie: \n");
-                        System.out.println(offer.printOffer());
-                        System.out.println("\nPodaj nowe informacje o ofercie (pozostawienie pustego pola oznacza brak zmian): ");
-                    }
-                } else {
-                    System.out.println("Numer oferty poza zakresem. Spróbuj ponownie lub wprowadź 0, aby powrócić do głównego menu.");
-                    numberOfferToEdit = scanner.nextLong();
-                    if (numberOfferToEdit == 0) {
-                        goBackToMenu();
-                        subMenuActions();
-                    }
-                }
+                offer = getOfferByNumber(numberOfferToEdit);
+                isOfferValid = true;
             } catch (InputMismatchException e) {
-                System.out.println("Nie podano numeru oferty. Spróbuj ponownie lub wprowadź 0, aby powrócić do głównego menu.");
+                System.out.println(MISMATCHED_OFFER_NUMBER_MESSAGE);
                 scanner.nextLine();
-                numberOfferToEdit = scanner.nextLong();
-                if (numberOfferToEdit == 0) {
-                    goBackToMenu();
-                    subMenuActions();
-                }
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
             }
-            scanner.nextLine();
-
-            System.out.println("Zmień swoją kategorię usługi: ");
-            String serviceCategoryNumber = scanner.nextLine();
-            boolean inProgress = true;
-            if (!serviceCategoryNumber.isEmpty()) {
-                while (inProgress) {
-                    try {
-                        ServiceCategory category = ServiceCategory.getFromString(serviceCategoryNumber);
-                        if (offer != null) {
-                            offer.setServiceCategory(category);
-                            inProgress = false;
-                        }
-                        inProgress = false;
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
-                        serviceCategoryNumber = scanner.nextLine();
-                    }
-                }
-            }
-
-            System.out.println("Zmień treść oferty: ");
-            String offerContent = scanner.nextLine().toLowerCase();
-            if (!offerContent.isEmpty()) {
-                if (offer != null) {
-                    offer.setOfferContent(offerContent);
-                }
-            }
-
-            System.out.println("Zmień swoją lokalizację: ");
-            String city = scanner.nextLine().toLowerCase();
-            if(!city.isEmpty()) {
-                if (offer != null) {
-                    offer.setCity(city);
-                }
-            }
-
-            User modificatedUser;
-            if (offer != null) {
-                modificatedUser = offer.getUser();
-
-                System.out.println("Zmień imię: ");
-                String firstName = scanner.nextLine();
-                if (!firstName.isEmpty()) modificatedUser.setFirstName(firstName);
-
-                System.out.println("Zmień nazwisko: ");
-                String lastName = scanner.nextLine();
-                if (!lastName.isEmpty()) modificatedUser.setLastName(lastName);
-
-                System.out.println("Zmień nazwę firmy: ");
-                String companyName = scanner.nextLine();
-                if (!companyName.isEmpty()) modificatedUser.setCompany(companyName);
-
-                System.out.println("Zmień adres e-mail: ");
-                String email = scanner.nextLine();
-                if (!email.isEmpty()) modificatedUser.setEmailAddress(email);
-
-                System.out.println("Zmień numer telefonu: ");
-                String phoneNumber = scanner.nextLine();
-                if (!phoneNumber.isEmpty()) modificatedUser.setTelephoneNumber(phoneNumber);
-            }
-
-            System.out.println("Czy na pewno chcesz zapisać zmiany? (tak/nie)");
-            String confirm = scanner.nextLine();
-            if(confirm.equalsIgnoreCase("tak")){
-                if (offer != null) {
-                    offer.setDate(Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()));
-                }
-                if (offer != null) {
-                    System.out.println("Oferta zmieniona: " + offer.getDate());
-                }
-                saveOfferChanges(offer);
-                System.out.println("Zmiany zapisano.");
-            }else{
-                System.out.println("Anulowano zmiany.");
-            }
-            goBackToMenu();
         }
+
+        System.out.println(OFFER_INFO_MESSAGE);
+        System.out.println(offer.printOffer());
+        System.out.println(OFFER_READY_TO_EDIT_MESSAGE);
+        scanner.nextLine();
+        System.out.println(CATEGORY_READY_TO_EDIT_MESSAGE);
+        String serviceCategoryNumber = scanner.nextLine();
+        if (!serviceCategoryNumber.isEmpty()) {
+            try {
+                ServiceCategory category = ServiceCategory.getFromString(serviceCategoryNumber);
+                offer.setServiceCategory(category);
+            } catch (IllegalArgumentException e) {
+                System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
+            }
+        }
+
+        System.out.println(OFFER_CONTENT_READY_TO_EDIT_MESSAGE);
+        String offerContent = scanner.nextLine().toLowerCase();
+        if (!offerContent.isEmpty()) {
+            offer.setOfferContent(offerContent);
+        }
+
+        System.out.println(LOCALIZATION_READY_TO_EDIT_MESSAGE);
+        String city = scanner.nextLine().toLowerCase();
+        if(!city.isEmpty()) {
+            offer.setCity(city);
+        }
+
+        User modificatedUser = offer.getUser();
+
+        System.out.println(FIRST_NAME_READY_TO_EDIT_MESSAGE);
+        String firstName = scanner.nextLine();
+        if (!firstName.isEmpty()) modificatedUser.setFirstName(firstName);
+
+        System.out.println(LAST_NAME_READY_TO_EDIT_MESSAGE);
+        String lastName = scanner.nextLine();
+        if (!lastName.isEmpty()) modificatedUser.setLastName(lastName);
+
+        System.out.println(COMPANY_NAME_READY_TO_EDIT_MESSAGE);
+        String companyName = scanner.nextLine();
+        if (!companyName.isEmpty()) modificatedUser.setCompany(companyName);
+
+        System.out.println(EMAIL_READY_TO_EDIT_MESSAGE);
+        String email = scanner.nextLine();
+        if (!email.isEmpty()) modificatedUser.setEmailAddress(email);
+
+        System.out.println(PHONE_NUMBER_READY_TO_EDIT_MESSAGE);
+        String phoneNumber = scanner.nextLine();
+        if (!phoneNumber.isEmpty()) modificatedUser.setTelephoneNumber(phoneNumber);
+
+        System.out.println(CHANGES_CONFIRMATION_MESSAGE);
+        String confirm = scanner.nextLine();
+        if(confirm.equalsIgnoreCase("tak")){
+            offer.setDate(Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()));
+            System.out.println(OFFER_CHANGED_MESSAGE + offer.getDate());
+            saveOfferChanges(offer);
+            System.out.println(CHANGES_SAVED_MESSAGE);
+        }else{
+            System.out.println(CHANGES_CANCELED_MESSAGE);
+        }
+        goBackToMenu();
     }
 
-    private Offer getOfferByNumber(long number) {
-        List<Offer> offersList = OfferArrayFromFile.getOffersArray();
-        for (Offer offer: offersList) {
-            if (Objects.equals(offer.getOfferID(), number)) {
-                return offer;
+    private Offer getOfferByNumber(long numberOfferToEdit) {
+        Offer offer = null;
+        for (Offer offerNumber : OfferArrayFromFile.getOffersArray()) {
+            if (offerNumber.getOfferID() == numberOfferToEdit) {
+                offer = offerNumber;
+                break;
             }
         }
-        return null;
+        if (offer == null) {
+            throw new IllegalArgumentException(WRONG_OFFER_NUMBER_MESSAGE);
+        }
+        return offer;
     }
 
     private void saveOfferChanges(Offer offer){
