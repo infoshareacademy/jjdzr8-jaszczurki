@@ -1,16 +1,29 @@
 [ {
+  "offerID" : 20,
+  "serviceCategory" : "EARTH_WORKS",
+  "offerContent" : "roboty drogowo-mostowe",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "Bridge&Highway SA",
+    "emailAddress" : "reception@bh.pl",
+    "telephoneNumber" : "58 556 00 01"
+  },
+  "date" : "2023-01-16T23:06:24.972Z"
+}, {
   "offerID" : 14,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "budowa - trójmiasto i całe województwo pomorskie",
   "city" : "gdańsk",
   "user" : {
     "firstName" : "Mikołaj",
-    "lastName" : "święty",
+    "lastName" : "Święty",
     "company" : "Santa Claus Constructions SA",
     "emailAddress" : "office@santa_claus.pl",
     "telephoneNumber" : "804 444 444"
   },
-  "date" : "2023-01-15T18:01:29.112Z"
+  "date" : "2023-01-16T23:04:55.754Z"
 }, {
   "offerID" : 12,
   "serviceCategory" : "CONSTRUCTION",
@@ -21,9 +34,9 @@
     "lastName" : "Gwóźdź",
     "company" : "GOOD-BUD SA",
     "emailAddress" : "office@gbud.pl",
-    "telephoneNumber" : "22 561 00 10"
+    "telephoneNumber" : "22 562 00 10"
   },
-  "date" : "2023-01-15T17:58:21.839Z"
+  "date" : "2023-01-16T19:04:07.555Z"
 }, {
   "offerID" : 1,
   "serviceCategory" : "CONSTRUCTION",
@@ -102,19 +115,6 @@
     "telephoneNumber" : "506 299 114"
   },
   "date" : "2023-01-13T13:48:51.417Z"
-}, {
-  "offerID" : 20,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "roboty drogowo-mostowe",
-  "city" : "gdańsk",
-  "user" : {
-    "firstName" : "",
-    "lastName" : "",
-    "company" : "Bridge&Highway SA",
-    "emailAddress" : "reception@bh.pl",
-    "telephoneNumber" : "58 556 00 01"
-  },
-  "date" : "2023-01-13T13:44:08.166Z"
 }, {
   "offerID" : 19,
   "serviceCategory" : "CONSTRUCTION",

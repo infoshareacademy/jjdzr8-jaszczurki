@@ -17,7 +17,7 @@ public class SearchOptions extends SubMenuNavigator{
     private static final String OPTIONAL_KEYWORD_MESSAGE = "Podaj słowo kluczowe (opcjonalnie): ";
     private static final String CATEGORY_FOR_SEARCH_SELECTION_MESSAGE = "Musisz podać przynajmniej 1 kategorię z dostępnych poniżej i wcisnąć \"Enter\". \nNastępnie wpisz słowo \"koniec\" żeby zakończyć wybór kategorii. Możesz podać dowolną ilość kategorii: ";
     private static final String ALREADY_CHOSEN_CATEGORY_MESSAGE = "Wybrano juź tę kategorię. Proszę wybrać inną.";
-    private static final String SEARCH_CONTINUE_OR_QUIT_MESSAGE = "Czy chcesz kontynuować wyszukiwanie? (tak/nie)";
+    private static final String SEARCH_CONTINUE_OR_QUIT_MESSAGE = "Czy chcesz kontynuować wyszukiwanie? (tak lub \"Enter\"/nie)";
 
     public SearchOptions() {
         this.scanner = new Scanner(System.in);
@@ -51,34 +51,8 @@ public class SearchOptions extends SubMenuNavigator{
             System.out.println(OPTIONAL_KEYWORD_MESSAGE);
             String keyword = scanner.nextLine().toLowerCase();
 
-
             System.out.println(CHOOSE_A_NUMBER_MESSAGE);
-            System.out.println(CATEGORY_FOR_SEARCH_SELECTION_MESSAGE);
-            for (ServiceCategory serviceCategory : ServiceCategory.values()){
-                System.out.println(serviceCategory);
-            }
-
-            List<ServiceCategory> selectedCategories = new ArrayList<>();
-
-            while (true) {
-                String serviceCategoryNumber = scanner.nextLine();
-                while (!serviceCategoryNumber.equals("koniec")) {
-                    try {
-                        ServiceCategory category = ServiceCategory.getFromString(serviceCategoryNumber);
-                        if (selectedCategories.contains(category)) {
-                            System.out.println(ALREADY_CHOSEN_CATEGORY_MESSAGE);
-                        } else {
-                            selectedCategories.add(category);
-                        }
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
-                    }
-                    serviceCategoryNumber = scanner.nextLine();
-                }
-                if (!selectedCategories.isEmpty()) {
-                    break;
-                }
-            }
+            List<ServiceCategory> selectedCategories = selectServiceCategories();
 
             List<Offer> matchingOffers = new ArrayList<>();
             for (Offer offer : OfferArrayFromFile.getOffersArray()) {
@@ -103,5 +77,49 @@ public class SearchOptions extends SubMenuNavigator{
             }
         }
         goBackToMenu();
+    }
+
+    private List<ServiceCategory> selectServiceCategories() {
+        List<ServiceCategory> selectedCategories = new ArrayList<>();
+        displayServiceCategories();
+        while (true) {
+            String serviceCategoryNumber = scanner.nextLine();
+            if(serviceCategoryNumber.equals("koniec")) {
+                if (!selectedCategories.isEmpty()) {
+                    break;
+                }
+            } else {
+                ServiceCategory category = convertInputToCategory(serviceCategoryNumber);
+                if (category != null) {
+                    if (isCategoryAlreadySelected(selectedCategories, category)) {
+                        System.out.println(ALREADY_CHOSEN_CATEGORY_MESSAGE);
+                    } else {
+                        selectedCategories.add(category);
+                    }
+                } else {
+                    System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
+                }
+            }
+        }
+        return selectedCategories;
+    }
+
+    private void displayServiceCategories(){
+        System.out.println(CATEGORY_FOR_SEARCH_SELECTION_MESSAGE);
+        for (ServiceCategory serviceCategory : ServiceCategory.values()){
+            System.out.println(serviceCategory);
+        }
+    }
+
+    private boolean isCategoryAlreadySelected(List<ServiceCategory> selectedCategories, ServiceCategory category){
+        return selectedCategories.contains(category);
+    }
+
+    private ServiceCategory convertInputToCategory(String serviceCategoryNumber){
+        try {
+            return ServiceCategory.getFromString(serviceCategoryNumber);
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
     }
 }

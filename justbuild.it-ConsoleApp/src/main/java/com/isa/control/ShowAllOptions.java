@@ -31,9 +31,8 @@ public class ShowAllOptions extends SubMenuNavigator {
 
     private void showOfferCategory() {
         System.out.println(CHOOSE_A_NUMBER_MESSAGE);
-
         for (ServiceCategory serviceCategory : ServiceCategory.values()) {
-            System.out.println(serviceCategory.toString());
+            System.out.println(serviceCategory);
         }
         searchByCategory();
     }
@@ -52,7 +51,7 @@ public class ShowAllOptions extends SubMenuNavigator {
         }
     }
 
-    public void findOfferCategory(ServiceCategory serviceCategory) {
+    private void findOfferCategory(ServiceCategory serviceCategory) {
         for (Offer offer : OfferArrayFromFile.getOffersArray()){
             if (offer.getServiceCategory().equals(serviceCategory)){
                 System.out.println(offer);
