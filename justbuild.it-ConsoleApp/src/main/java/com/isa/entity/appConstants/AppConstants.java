@@ -4,7 +4,7 @@ public class AppConstants {
 
     public static final String ENTERED_WRONG_NUMBER_MESSAGE = "Wybrano niewłaściwą cyfrę.";
     public static final String ENTERED_WRONG_SIGNS_MESSAGE = "Podano niewłaściwe znaki.";
-    public static final String ACCEPT_OR_BACK_TO_MENU_MESSAGE = "1 - ACCEPT\n2 - back to MENU";
+    public static final String ACCEPT_OR_BACK_TO_MENU_MESSAGE = "1 - WYKONAJ \n2 - WRÓĆ DO MENU";
     public static final String ACCEPTED_MESSAGE = "Akcja wykonana poprawnie.";
     public static final String BACK_TO_MENU_MESSAGE = "Wracam do menu";
     public static final String PROGRAM_NAME_MESSAGE = "Program justbuild.it";

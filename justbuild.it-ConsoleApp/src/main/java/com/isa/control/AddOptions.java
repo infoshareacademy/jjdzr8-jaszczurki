@@ -18,7 +18,7 @@ import static com.isa.entity.appConstants.AppConstants.*;
 
 public class AddOptions extends SubMenuNavigator{
     private static final String ADD = "Tu możesz dodać swoje ogłoszenie";
-    public static final String CATEGORY_SELECTION_MESSAGE = "Podaj 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród : ";
+    private static final String CATEGORY_SELECTION_MESSAGE = "Podaj 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród : ";
     private static final String OFFER_CONTENT_MESSAGE = "Podaj treść oferty: ";
     private static final String LOCALIZATION_MESSAGE = "Podaj swoją lokalizację (nazwa miasta): ";
     private static final String FIRST_NAME_MESSAGE = "Podaj imię: ";
@@ -26,8 +26,8 @@ public class AddOptions extends SubMenuNavigator{
     private static final String COMPANY_NAME_MESSAGE = "Podaj nazwę firmy: ";
     private static final String EMAIL_MESSAGE = "Podaj adres e-mail: ";
     private static final String PHONE_NUMBER_MESSAGE = "Podaj numer telefonu: ";
-    public static final String USERS_OFFER_DISPLAY_MESSAGE = "Twoja oferta wygląda następująco: \n";
-    public static final String USERS_OFFER_SAVING_MESSAGE = "Twoja oferta została pomyślnie zapisana. Numer Twojej oferty: ";
+    private static final String USERS_OFFER_DISPLAY_MESSAGE = "Twoja oferta wygląda następująco: \n";
+    private static final String USERS_OFFER_SAVING_MESSAGE = "Twoja oferta została pomyślnie zapisana. Numer Twojej oferty: ";
     private final MyObjectFileStorage fileStorage;
 
     public AddOptions() {
