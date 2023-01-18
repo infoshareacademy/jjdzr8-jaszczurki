@@ -13,7 +13,7 @@ import static com.isa.entity.appConstants.AppConstants.OFFERS_FILEPATH;
 
 public class OfferArrayFromFile {
 
-    private static final ArrayList<Offer> offersArray = new ArrayList<>();
+    private static final List<Offer> offersArray = new ArrayList<>();
 
     public static void setOffersArray() {
         MyObjectFileStorage fileStorage = new MyObjectFileStorage();
@@ -30,7 +30,7 @@ public class OfferArrayFromFile {
         }
     }
 
-    public static ArrayList<Offer> getOffersArray() {
+    public static List<Offer> getOffersArray() {
         offersArray.sort((object1, object2) -> object2.getDate().compareTo(object1.getDate()));
         return offersArray;
     }
