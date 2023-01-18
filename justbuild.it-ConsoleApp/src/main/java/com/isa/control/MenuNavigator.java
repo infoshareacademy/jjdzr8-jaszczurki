@@ -9,19 +9,17 @@ import static com.isa.entity.appConstants.AppConstants.*;
 
 public class MenuNavigator {
 
-    //wyświetlanie dostępnych menu
     public static void printMenu() {
         System.out.println(PROGRAM_NAME_MESSAGE);
         System.out.println(MENU_MESSAGE);
 
-        for (MenuOptions c : MenuOptions.values()) {
-            System.out.println(c.getNumber() + " - " + c.getPolishName());
+        for (MenuOptions options : MenuOptions.values()) {
+            System.out.println(options.getNumber() + " - " + options.getPolishName());
         }
 
         System.out.println(CHOOSE_A_NUMBER_MESSAGE);
     }
 
-    //wybieranie menu
     public static void chooseMenuOptions() {
 
         boolean inProgress = true;
@@ -29,36 +27,36 @@ public class MenuNavigator {
         while (inProgress) {
             int number = getMenuNumberFromUser();
 
-            for (MenuOptions d : MenuOptions.values()) {
-                if (number == d.getNumber()) {
-                    switch (d.getNumber()) {
+            for (MenuOptions menuOptions : MenuOptions.values()) {
+                if (number == menuOptions.getNumber()) {
+                    switch (menuOptions.getNumber()) {
                         case 1 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName());
+                            System.out.println(CHOSEN_OPTION_MESSAGE + menuOptions.getNumber() + " - " + menuOptions.getPolishName());
                             AddOptions options = new AddOptions();
                             options.showAddDetails();
                         }
                         case 2 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName());
+                            System.out.println(CHOSEN_OPTION_MESSAGE + menuOptions.getNumber() + " - " + menuOptions.getPolishName());
                             EditOptions options1 = new EditOptions();
                             options1.showEditDetails();
                         }
                         case 3 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName());
+                            System.out.println(CHOSEN_OPTION_MESSAGE + menuOptions.getNumber() + " - " + menuOptions.getPolishName());
                             DeleteOptions options2 = new DeleteOptions();
                             options2.showDeleteDetails();
                         }
                         case 4 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName());
+                            System.out.println(CHOSEN_OPTION_MESSAGE + menuOptions.getNumber() + " - " + menuOptions.getPolishName());
                             SearchOptions options3 = new SearchOptions();
                             options3.showSearchDetails();
                         }
                         case 5 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName());
+                            System.out.println(CHOSEN_OPTION_MESSAGE + menuOptions.getNumber() + " - " + menuOptions.getPolishName());
                             ShowAllOptions options4 = new ShowAllOptions();
                             options4.showAllDetails();
                         }
                         case 6 -> {
-                            System.out.println(CHOSEN_OPTION_MESSAGE + d.getNumber() + " - " + d.getPolishName() +
+                            System.out.println(CHOSEN_OPTION_MESSAGE + menuOptions.getNumber() + " - " + menuOptions.getPolishName() +
                                     "\n" + GOODBYE_MESSAGE);
                             inProgress = false;
                         }

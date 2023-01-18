@@ -13,11 +13,11 @@ import static com.isa.entity.appConstants.AppConstants.*;
 public class SearchOptions extends SubMenuNavigator{
     private final Scanner scanner;
     private static final String SEARCH = "Wyszukaj po lokalizacji i kategorii, możesz również podać 1 słowo kluczowe, które powinno znajdować się w treści oferty.";
-    private static final String OPTIONAL_LOCALIZATION_MESSAGE = "Podaj lokalizację (opcjonalnie): ";
+    private static final String OPTIONAL_LOCALIZATION_MESSAGE = "Podaj lokalizację -> wpisz nazwę miasta (opcjonalnie): ";
     private static final String OPTIONAL_KEYWORD_MESSAGE = "Podaj słowo kluczowe (opcjonalnie): ";
-    private static final String CATEGORY_FOR_SEARCH_SELECTION_MESSAGE = "Musisz podać przynajmniej 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród i wcisnąć \"Enter\". \nNastępnie wpisz słowo \"koniec\" żeby zakończyć wybór kategorii. Możesz podać dowolną ilość kategorii: ";
+    private static final String CATEGORY_FOR_SEARCH_SELECTION_MESSAGE = "Musisz podać przynajmniej 1 kategorię z dostępnych poniżej i wcisnąć \"Enter\". \nNastępnie wpisz słowo \"koniec\" żeby zakończyć wybór kategorii. Możesz podać dowolną ilość kategorii: ";
     private static final String ALREADY_CHOSEN_CATEGORY_MESSAGE = "Wybrano juź tę kategorię. Proszę wybrać inną.";
-    private static final String SEARCH_CONTINUE_OR_QUIT_MESSAGE = "Czy chcesz kontynuować wyszukiwanie? (tak/nie)";
+    private static final String SEARCH_CONTINUE_OR_QUIT_MESSAGE = "Czy chcesz kontynuować wyszukiwanie? (tak lub \"Enter\"/nie)";
 
     public SearchOptions() {
         this.scanner = new Scanner(System.in);
@@ -51,46 +51,20 @@ public class SearchOptions extends SubMenuNavigator{
             System.out.println(OPTIONAL_KEYWORD_MESSAGE);
             String keyword = scanner.nextLine().toLowerCase();
 
-
             System.out.println(CHOOSE_A_NUMBER_MESSAGE);
-            System.out.println(CATEGORY_FOR_SEARCH_SELECTION_MESSAGE);
-            for (ServiceCategory serviceCategory : ServiceCategory.values()){
-                System.out.println(serviceCategory);
-            }
-
-            List<ServiceCategory> selectedCategories = new ArrayList<>();
-
-            while (true) {
-                String serviceCategoryNumber = scanner.nextLine();
-                while (!serviceCategoryNumber.equals("koniec")) {
-                    try {
-                        ServiceCategory category = ServiceCategory.getFromString(serviceCategoryNumber);
-                        if (selectedCategories.contains(category)) {
-                            System.out.println(ALREADY_CHOSEN_CATEGORY_MESSAGE);
-                        } else {
-                            selectedCategories.add(category);
-                        }
-                    } catch (IllegalArgumentException e) {
-                        System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
-                    }
-                    serviceCategoryNumber = scanner.nextLine();
-                }
-                if (!selectedCategories.isEmpty()) {
-                    break;
-                }
-            }
+            List<ServiceCategory> selectedCategories = selectServiceCategories();
 
             List<Offer> matchingOffers = new ArrayList<>();
-            for (Offer o : OfferArrayFromFile.getOffersArray()) {
-                if ((location.isEmpty() || o.getCity().equals(location)) && (keyword.isEmpty() ||
-                        o.getOfferContent().contains(keyword)) && selectedCategories.contains(o.getServiceCategory())) {
-                    matchingOffers.add(o);
+            for (Offer offer : OfferArrayFromFile.getOffersArray()) {
+                if ((location.isEmpty() || offer.getCity().equals(location)) && (keyword.isEmpty() ||
+                        offer.getOfferContent().contains(keyword)) && selectedCategories.contains(offer.getServiceCategory())) {
+                    matchingOffers.add(offer);
                 }
             }
 
             if (!matchingOffers.isEmpty()) {
-                for (Offer o : matchingOffers) {
-                    System.out.println(o);
+                for (Offer offer : matchingOffers) {
+                    System.out.println(offer);
                 }
             } else {
                 System.out.println(NO_OFFERS_MORE);
@@ -103,5 +77,49 @@ public class SearchOptions extends SubMenuNavigator{
             }
         }
         goBackToMenu();
+    }
+
+    private List<ServiceCategory> selectServiceCategories() {
+        List<ServiceCategory> selectedCategories = new ArrayList<>();
+        displayServiceCategories();
+        while (true) {
+            String serviceCategoryNumber = scanner.nextLine();
+            if(serviceCategoryNumber.equals("koniec")) {
+                if (!selectedCategories.isEmpty()) {
+                    break;
+                }
+            } else {
+                ServiceCategory category = convertInputToCategory(serviceCategoryNumber);
+                if (category != null) {
+                    if (isCategoryAlreadySelected(selectedCategories, category)) {
+                        System.out.println(ALREADY_CHOSEN_CATEGORY_MESSAGE);
+                    } else {
+                        selectedCategories.add(category);
+                    }
+                } else {
+                    System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
+                }
+            }
+        }
+        return selectedCategories;
+    }
+
+    private void displayServiceCategories(){
+        System.out.println(CATEGORY_FOR_SEARCH_SELECTION_MESSAGE);
+        for (ServiceCategory serviceCategory : ServiceCategory.values()){
+            System.out.println(serviceCategory);
+        }
+    }
+
+    private boolean isCategoryAlreadySelected(List<ServiceCategory> selectedCategories, ServiceCategory category){
+        return selectedCategories.contains(category);
+    }
+
+    private ServiceCategory convertInputToCategory(String serviceCategoryNumber){
+        try {
+            return ServiceCategory.getFromString(serviceCategoryNumber);
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
     }
 }

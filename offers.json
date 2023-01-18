@@ -1,4 +1,108 @@
 [ {
+  "offerID" : 13,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
+  "city" : "szczecin",
+  "user" : {
+    "firstName" : "Krzysztof",
+    "lastName" : "Jarzyna",
+    "company" : "InstallBUD SA",
+    "emailAddress" : "grzegorz.jarzyna@installbud.pl",
+    "telephoneNumber" : "500 055 001"
+  },
+  "date" : "2023-01-17T19:09:43.159Z"
+}, {
+  "offerID" : 20,
+  "serviceCategory" : "EARTH_WORKS",
+  "offerContent" : "roboty drogowo-mostowe",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "Bridge&Highway SA",
+    "emailAddress" : "reception@bh.pl",
+    "telephoneNumber" : "58 556 00 01"
+  },
+  "date" : "2023-01-16T23:06:24.972Z"
+}, {
+  "offerID" : 14,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "budowa - trójmiasto i całe województwo pomorskie",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "Mikołaj",
+    "lastName" : "Święty",
+    "company" : "Santa Claus Constructions SA",
+    "emailAddress" : "office@santa_claus.pl",
+    "telephoneNumber" : "804 444 444"
+  },
+  "date" : "2023-01-16T23:04:55.754Z"
+}, {
+  "offerID" : 12,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Gwidon",
+    "lastName" : "Gwóźdź",
+    "company" : "GOOD-BUD SA",
+    "emailAddress" : "office@gbud.pl",
+    "telephoneNumber" : "22 562 00 10"
+  },
+  "date" : "2023-01-16T19:04:07.555Z"
+}, {
+  "offerID" : 1,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "prace ogólnobudowlane, roboty wysokościowe, sprzęt ciężki",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "BUDOMEX SERVICE SA",
+    "emailAddress" : "office.budomex@budomex.eu",
+    "telephoneNumber" : "600 106 001"
+  },
+  "date" : "2023-01-15T16:47:47.201Z"
+}, {
+  "offerID" : 25,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "kompleksowo - pełny zakres robót wewnętrznych",
+  "city" : "kraków",
+  "user" : {
+    "firstName" : "Edward",
+    "lastName" : "Gierak",
+    "company" : "Gierak Malarstwo i Glazurnictwo",
+    "emailAddress" : "",
+    "telephoneNumber" : "506 874 323"
+  },
+  "date" : "2023-01-15T15:18:28.008Z"
+}, {
+  "offerID" : 24,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "systemy alarmowe",
+  "city" : "kraków",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "ALARM-INTACT",
+    "emailAddress" : "systemy@alarm.intact.pl",
+    "telephoneNumber" : "792 427 385"
+  },
+  "date" : "2023-01-15T13:54:09.818Z"
+}, {
+  "offerID" : 23,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "instalacje co i piece",
+  "city" : "lublin",
+  "user" : {
+    "firstName" : "Tomasz",
+    "lastName" : "Kowal",
+    "company" : "ThermoInstall Sp. z o.o.",
+    "emailAddress" : "kowal77@gmail.com",
+    "telephoneNumber" : "605 055 321"
+  },
+  "date" : "2023-01-15T10:04:05.991Z"
+}, {
   "offerID" : 22,
   "serviceCategory" : "GARDEN",
   "offerContent" : "najpiękniejszy ogród w okolicy",
@@ -24,19 +128,6 @@
     "telephoneNumber" : "506 299 114"
   },
   "date" : "2023-01-13T13:48:51.417Z"
-}, {
-  "offerID" : 20,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "roboty drogowo-mostowe",
-  "city" : "gdańsk",
-  "user" : {
-    "firstName" : "",
-    "lastName" : "",
-    "company" : "Bridge&Highway SA",
-    "emailAddress" : "reception@bh.pl",
-    "telephoneNumber" : "58 556 00 01"
-  },
-  "date" : "2023-01-13T13:44:08.166Z"
 }, {
   "offerID" : 19,
   "serviceCategory" : "CONSTRUCTION",
@@ -102,45 +193,6 @@
     "telephoneNumber" : "81 560 00 01"
   },
   "date" : "2023-01-10T19:52:15.131Z"
-}, {
-  "offerID" : 14,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "budowa gdańsk i teraz województwa pomorskiego",
-  "city" : "gdańsk",
-  "user" : {
-    "firstName" : "Mikołaj",
-    "lastName" : "święty",
-    "company" : "Santa Claus Constructions SA",
-    "emailAddress" : "office@santa_claus.pl",
-    "telephoneNumber" : "804 444 444"
-  },
-  "date" : "2023-01-10T14:38:28.075Z"
-}, {
-  "offerID" : 13,
-  "serviceCategory" : "INSTALLATION",
-  "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
-  "city" : "szczecin",
-  "user" : {
-    "firstName" : "Grzegorz",
-    "lastName" : "Jarzyna",
-    "company" : "InstallBUD SA",
-    "emailAddress" : "grzegorz.jarzyna@installbud.pl",
-    "telephoneNumber" : "500 055 001"
-  },
-  "date" : "2023-01-10T13:04:04.570Z"
-}, {
-  "offerID" : 12,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
-  "city" : "warszawa",
-  "user" : {
-    "firstName" : "Gwidon",
-    "lastName" : "Gwóźdź",
-    "company" : "G-BUD SA",
-    "emailAddress" : "office@gbud.pl",
-    "telephoneNumber" : "22 561 00 10"
-  },
-  "date" : "2023-01-10T12:01:22.829Z"
 }, {
   "offerID" : 11,
   "serviceCategory" : "EARTH_WORKS",
@@ -272,16 +324,16 @@
   },
   "date" : "2023-01-07T21:48:45.260Z"
 }, {
-  "offerID" : 1,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "prace ogólnobudowlane, roboty wysokościowe, sprzęt ciężki",
-  "city" : "gdańsk",
+  "offerID" : 26,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "prace remontowo-wykończeniowe, termin realizacji: wiosna 2023",
+  "city" : "warszawa",
   "user" : {
-    "firstName" : "",
-    "lastName" : "",
-    "company" : "BUDOMEX SA",
-    "emailAddress" : "biuro.budomex@budomex.eu",
-    "telephoneNumber" : "600 106 001"
+    "firstName" : "Norbert",
+    "lastName" : "Noga",
+    "company" : "NorbertREMONT",
+    "emailAddress" : "remonty@norbert.pl",
+    "telephoneNumber" : "607 871 292"
   },
-  "date" : "2023-01-07T21:40:54.223Z"
+  "date" : "2023-01-17T20:54:28.585Z"
 } ]
