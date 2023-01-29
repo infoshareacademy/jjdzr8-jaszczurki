@@ -12,9 +12,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.*;
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 
-import static com.isa.entity.appConstants.AppConstants.*;
+import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.CHOOSE_A_NUMBER_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_CATEGORY_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.FILE_READ_OR_WRITE_ERROR_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.OFFERS_FILEPATH;
 
 public class AddOptions extends SubMenuNavigator{
     private static final String ADD = "Tu możesz dodać swoje ogłoszenie";

@@ -16,5 +16,5 @@ public class AppConstants {
     public static final String FILE_READ_OR_WRITE_ERROR_MESSAGE = "Wystąpił błąd podczas odczytu lub zapisu do pliku: ";
     public static final String OFFERS_FILEPATH = "offers.json";
     public static final String NO_OFFERS_MORE = "Brak kolejnych ofert";
-
+    public static final String OFFER_NOT_FOUND_MESSAGE = "Nie znaleziono oferty o podanym ID.";
 }

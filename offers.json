@@ -1,4 +1,17 @@
 [ {
+  "offerID" : 26,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "prace remontowo-wykończeniowe, termin realizacji: wiosna 2023",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Norbert",
+    "lastName" : "Noga",
+    "company" : "NorbertREMONT",
+    "emailAddress" : "remonty@norbert.pl",
+    "telephoneNumber" : "607 871 292"
+  },
+  "date" : "2023-01-17T20:54:28.585Z"
+}, {
   "offerID" : 13,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
@@ -50,19 +63,6 @@
     "telephoneNumber" : "22 562 00 10"
   },
   "date" : "2023-01-16T19:04:07.555Z"
-}, {
-  "offerID" : 1,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "prace ogólnobudowlane, roboty wysokościowe, sprzęt ciężki",
-  "city" : "gdańsk",
-  "user" : {
-    "firstName" : "",
-    "lastName" : "",
-    "company" : "BUDOMEX SERVICE SA",
-    "emailAddress" : "office.budomex@budomex.eu",
-    "telephoneNumber" : "600 106 001"
-  },
-  "date" : "2023-01-15T16:47:47.201Z"
 }, {
   "offerID" : 25,
   "serviceCategory" : "FINISHING_WORKS",
@@ -323,17 +323,4 @@
     "telephoneNumber" : "724 678 054"
   },
   "date" : "2023-01-07T21:48:45.260Z"
-}, {
-  "offerID" : 26,
-  "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "prace remontowo-wykończeniowe, termin realizacji: wiosna 2023",
-  "city" : "warszawa",
-  "user" : {
-    "firstName" : "Norbert",
-    "lastName" : "Noga",
-    "company" : "NorbertREMONT",
-    "emailAddress" : "remonty@norbert.pl",
-    "telephoneNumber" : "607 871 292"
-  },
-  "date" : "2023-01-17T20:54:28.585Z"
 } ]
