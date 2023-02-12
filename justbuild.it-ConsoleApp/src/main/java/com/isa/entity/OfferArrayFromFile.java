@@ -20,6 +20,7 @@ public class OfferArrayFromFile {
         try {
             if (Files.exists(Paths.get(OFFERS_FILEPATH))) {
                 List<Offer> offersList = fileStorage.readFromFile(OFFERS_FILEPATH);
+                offersArray.clear();
                 offersArray.addAll(offersList);
             } else {
                 new File(OFFERS_FILEPATH);
