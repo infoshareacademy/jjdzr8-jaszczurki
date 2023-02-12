@@ -8,9 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.isa.entity.appConstants.AppConstants.*;
+import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.CHOOSE_A_NUMBER_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_CATEGORY_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.NO_OFFERS_MORE;
 
-public class SearchOptions extends SubMenuNavigator{
+public class SearchOptions extends SubMenuNavigator {
     private final Scanner scanner;
     private static final String SEARCH = "Wyszukaj po lokalizacji i kategorii, możesz również podać 1 słowo kluczowe, które powinno znajdować się w treści oferty.";
     private static final String OPTIONAL_LOCALIZATION_MESSAGE = "Podaj lokalizację -> wpisz nazwę miasta (opcjonalnie): ";
@@ -23,7 +27,7 @@ public class SearchOptions extends SubMenuNavigator{
         this.scanner = new Scanner(System.in);
     }
 
-    public void showSearchDetails(){
+    public void showSearchDetails() {
         System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
         subMenuActions();
     }
@@ -41,7 +45,7 @@ public class SearchOptions extends SubMenuNavigator{
         }
     }
 
-    private void showSearchOptions(){
+    private void showSearchOptions() {
 
         while (true) {
             System.out.println(SEARCH);
@@ -84,7 +88,7 @@ public class SearchOptions extends SubMenuNavigator{
         displayServiceCategories();
         while (true) {
             String serviceCategoryNumber = scanner.nextLine();
-            if(serviceCategoryNumber.equals("koniec")) {
+            if (serviceCategoryNumber.equals("koniec")) {
                 if (!selectedCategories.isEmpty()) {
                     break;
                 }
@@ -104,22 +108,33 @@ public class SearchOptions extends SubMenuNavigator{
         return selectedCategories;
     }
 
-    private void displayServiceCategories(){
+    private void displayServiceCategories() {
         System.out.println(CATEGORY_FOR_SEARCH_SELECTION_MESSAGE);
-        for (ServiceCategory serviceCategory : ServiceCategory.values()){
+        for (ServiceCategory serviceCategory : ServiceCategory.values()) {
             System.out.println(serviceCategory);
         }
     }
 
-    private boolean isCategoryAlreadySelected(List<ServiceCategory> selectedCategories, ServiceCategory category){
+    private boolean isCategoryAlreadySelected(List<ServiceCategory> selectedCategories, ServiceCategory category) {
         return selectedCategories.contains(category);
     }
 
-    private ServiceCategory convertInputToCategory(String serviceCategoryNumber){
+    private ServiceCategory convertInputToCategory(String serviceCategoryNumber) {
         try {
             return ServiceCategory.getFromString(serviceCategoryNumber);
         } catch (IllegalArgumentException e) {
             return null;
         }
+    }
+
+    public Offer getOfferByNumber(long numberOfferToEdit) {
+        Offer offer = null;
+        for (Offer offerNumber : OfferArrayFromFile.getOffersArray()) {
+            if (offerNumber.getOfferID() == numberOfferToEdit) {
+                offer = offerNumber;
+                break;
+            }
+        }
+        return offer;
     }
 }

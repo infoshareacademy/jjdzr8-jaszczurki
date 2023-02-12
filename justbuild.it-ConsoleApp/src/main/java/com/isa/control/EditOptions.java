@@ -9,17 +9,25 @@ import com.isa.entity.enums.ServiceCategory;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
-import static com.isa.entity.appConstants.AppConstants.*;
+import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_CATEGORY_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_SIGNS_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.FILE_READ_OR_WRITE_ERROR_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.OFFERS_FILEPATH;
+import static com.isa.entity.appConstants.AppConstants.OFFER_NOT_FOUND_MESSAGE;
 
 public class EditOptions extends SubMenuNavigator{
     private final Scanner scanner;
     private final MyObjectFileStorage fileStorage;
+    private SearchOptions searchOptions;
     private static final String EDIT = "Edytuj ogłoszenie.";
     private static final String OFFER_NUMBER_TO_CHANGE_MESSAGE = "Podaj numer oferty, którą chcesz zmienić: ";
-    private static final String MISMATCHED_OFFER_NUMBER_MESSAGE = "Nie podano numeru oferty.";
-    private static final String WRONG_OFFER_NUMBER_MESSAGE = "Oferta o podanym numerze nie istnieje.";
     private static final String OFFER_INFO_MESSAGE = "Informacje o aktualnej ofercie: \n";
     private static final String OFFER_READY_TO_EDIT_MESSAGE = "\nPodaj nowe informacje o ofercie (pozostawienie pustego pola oznacza brak zmian).";
     private static final String CATEGORY_READY_TO_EDIT_MESSAGE = "Zmień swoją kategorię usługi: \n1 - Budowa \n2 - Remont \n3 - Instalacje \n4 - Elektryka \n5 - Roboty ziemne \n6 - Ogród";
@@ -37,6 +45,7 @@ public class EditOptions extends SubMenuNavigator{
 
     public EditOptions() {
         this.scanner = new Scanner(System.in);
+        searchOptions = new SearchOptions();
         fileStorage = new MyObjectFileStorage();
     }
 
@@ -61,26 +70,42 @@ public class EditOptions extends SubMenuNavigator{
     }
 
     private void showEditOptions() {
-        boolean isOfferValid = false;
-        long numberOfferToEdit;
-        Offer offer = null;
-
-        while (!isOfferValid) {
+        System.out.println(OFFER_NUMBER_TO_CHANGE_MESSAGE);
+        int offerId = 0;
+        boolean isValidOfferId = false;
+        while (!isValidOfferId) {
             try {
-                System.out.println(OFFER_NUMBER_TO_CHANGE_MESSAGE);
-                numberOfferToEdit = scanner.nextLong();
-                offer = getOfferByNumber(numberOfferToEdit);
-                isOfferValid = true;
-            } catch (InputMismatchException e) {
-                System.out.println(MISMATCHED_OFFER_NUMBER_MESSAGE);
-                scanner.nextLine();
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                offerId = Integer.parseInt(scanner.nextLine().trim());
+                if (offerId < 1) {
+                    System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
+                } else {
+                    isValidOfferId = true;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println(ENTERED_WRONG_SIGNS_MESSAGE);
             }
-            if (!isOfferValid) {
-                goBackToMenu();
-                return;
+        }
+
+        Offer offer = searchOptions.getOfferByNumber(offerId);
+
+        while (offer == null) {
+            System.out.println(OFFER_NOT_FOUND_MESSAGE);
+            offerId = 0;
+            isValidOfferId = false;
+            while (!isValidOfferId) {
+                try {
+                    offerId = Integer.parseInt(scanner.nextLine().trim());
+                    if (offerId < 1) {
+                        System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
+                    } else {
+                        isValidOfferId = true;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println(ENTERED_WRONG_SIGNS_MESSAGE);
+                }
             }
+            offer = searchOptions.getOfferByNumber(offerId);
+        }
 
             System.out.println(OFFER_INFO_MESSAGE);
             System.out.println(offer.printOffer());
@@ -145,21 +170,7 @@ public class EditOptions extends SubMenuNavigator{
             }
             goBackToMenu();
         }
-    }
 
-    private Offer getOfferByNumber(long numberOfferToEdit) {
-        Offer offer = null;
-        for (Offer offerNumber : OfferArrayFromFile.getOffersArray()) {
-            if (offerNumber.getOfferID() == numberOfferToEdit) {
-                offer = offerNumber;
-                break;
-            }
-        }
-        if (offer == null) {
-            throw new IllegalArgumentException(WRONG_OFFER_NUMBER_MESSAGE);
-        }
-        return offer;
-    }
 
     private void saveOfferChanges(Offer offer){
         try {
