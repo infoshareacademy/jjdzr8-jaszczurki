@@ -20,15 +20,15 @@ import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER_MESS
 import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_SIGNS_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.FILE_READ_OR_WRITE_ERROR_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.OFFERS_FILEPATH;
+import static com.isa.entity.appConstants.AppConstants.OFFER_INFO_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.OFFER_NOT_FOUND_MESSAGE;
 
 public class EditOptions extends SubMenuNavigator{
     private final Scanner scanner;
     private final MyObjectFileStorage fileStorage;
-    private SearchOptions searchOptions;
+    private final SearchOptions searchOptions;
     private static final String EDIT = "Edytuj ogłoszenie.";
     private static final String OFFER_NUMBER_TO_CHANGE_MESSAGE = "Podaj numer oferty, którą chcesz zmienić: ";
-    private static final String OFFER_INFO_MESSAGE = "Informacje o aktualnej ofercie: \n";
     private static final String OFFER_READY_TO_EDIT_MESSAGE = "\nPodaj nowe informacje o ofercie (pozostawienie pustego pola oznacza brak zmian).";
     private static final String CATEGORY_READY_TO_EDIT_MESSAGE = "Zmień swoją kategorię usługi: \n1 - Budowa \n2 - Remont \n3 - Instalacje \n4 - Elektryka \n5 - Roboty ziemne \n6 - Ogród";
     private static final String OFFER_CONTENT_READY_TO_EDIT_MESSAGE = "Zmień treść oferty: ";
