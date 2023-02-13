@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
 import static com.isa.entity.appConstants.AppConstants.FILE_READ_OR_WRITE_ERROR_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.OFFERS_FILEPATH;
 
@@ -20,6 +21,7 @@ public class OfferArrayFromFile {
         try {
             if (Files.exists(Paths.get(OFFERS_FILEPATH))) {
                 List<Offer> offersList = fileStorage.readFromFile(OFFERS_FILEPATH);
+                offersArray.clear();
                 offersArray.addAll(offersList);
             } else {
                 new File(OFFERS_FILEPATH);

@@ -14,25 +14,44 @@ import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER_MESS
 import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_SIGNS_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.FILE_READ_OR_WRITE_ERROR_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.OFFERS_FILEPATH;
+import static com.isa.entity.appConstants.AppConstants.OFFER_INFO_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.OFFER_NOT_FOUND_MESSAGE;
 
 
 public class DeleteOptions extends SubMenuNavigator {
 
-    private static final String OFFER_DELETED_SUCCESSFULLY_MESSAGE = "Ofera została usunięta.";
+    private static final String OFFER_DELETED_SUCCESSFULLY_MESSAGE = "Oferta została usunięta.";
     private static final String ENTER_OFFER_ID_MESSAGE = "Podaj ID oferty, którą chcesz usunąć: ";
+    private static final String DELETE_CONFIRMATION_MESSAGE = "Czy na pewno chcesz usunąć ofertę? (tak/nie lub \"Enter\")";
+    private static final String DELETE_CANCELED_MESSAGE = "Anulowano usunięcie oferty.";
 
-
-    private SearchOptions searchOptions;
-    private Scanner scanner;
-    private MyObjectFileStorage fileStorage;
-
+    private final SearchOptions searchOptions;
+    private final Scanner scanner;
+    private final MyObjectFileStorage fileStorage;
 
     public DeleteOptions() {
 
         searchOptions = new SearchOptions();
         scanner = new Scanner(System.in);
         fileStorage = new MyObjectFileStorage();
+    }
+
+    public void showDeleteDetails() {
+        System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
+        subMenuActions();
+    }
+
+    @Override
+    void subMenuActions() {
+
+        switch (scanner.nextLine()) {
+            case "1" -> deleteOffer();
+            case "2" -> goBackToMenu();
+            default -> {
+                System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
+                subMenuActions();
+            }
+        }
     }
 
     public void deleteOffer() {
@@ -73,15 +92,17 @@ public class DeleteOptions extends SubMenuNavigator {
             offer = searchOptions.getOfferByNumber(offerId);
         }
 
-        offer.printOffer();
-        deleteOfferFromFile(offer);
-        System.out.println(OFFER_DELETED_SUCCESSFULLY_MESSAGE);
+        System.out.println(OFFER_INFO_MESSAGE);
+        System.out.println(offer.printOffer());
+        System.out.println(DELETE_CONFIRMATION_MESSAGE);
+        String confirm = scanner.nextLine();
+        if (confirm.equalsIgnoreCase("tak")) {
+            deleteOfferFromFile(offer);
+            System.out.println(OFFER_DELETED_SUCCESSFULLY_MESSAGE);
+        } else {
+            System.out.println(DELETE_CANCELED_MESSAGE);
+        }
         goBackToMenu();
-    }
-
-    public void showDeleteDetails() {
-        System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
-        subMenuActions();
     }
 
     private void deleteOfferFromFile(Offer offer) {
@@ -103,19 +124,6 @@ public class DeleteOptions extends SubMenuNavigator {
             }
         } catch (IOException e) {
             System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
-        }
-    }
-
-    @Override
-    void subMenuActions() {
-
-        switch (scanner.nextLine()) {
-            case "1" -> deleteOffer();
-            case "2" -> goBackToMenu();
-            default -> {
-                System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
-                subMenuActions();
-            }
         }
     }
 }

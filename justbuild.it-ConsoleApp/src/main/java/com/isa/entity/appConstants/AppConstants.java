@@ -17,4 +17,5 @@ public class AppConstants {
     public static final String OFFERS_FILEPATH = "offers.json";
     public static final String NO_OFFERS_MORE = "Brak kolejnych ofert";
     public static final String OFFER_NOT_FOUND_MESSAGE = "Nie znaleziono oferty o podanym ID.";
+    public static final String OFFER_INFO_MESSAGE = "Informacje o aktualnej ofercie: \n";
 }
