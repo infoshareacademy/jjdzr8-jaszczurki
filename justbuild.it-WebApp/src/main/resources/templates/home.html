@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+    <title>home</title>
+</head>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+
+<nav class="navbar navbar-light rounded bg-light mx-3">
+    <div class="container-fluid border-primary justify-content-md-center">
+        <form class="d-flex">
+            <input class="form-control me-2 mx-2 justify-content-center" type="search" placeholder="Szukaj ogłoszenia" aria-label="Search">
+            <button class="btn btn-outline-info" type="submit">Szukaj</button>
+        </form>
+    </div>
+</nav>
+
+<div class="btn-group-vertical me-2 mx-3 my-3" role="group" aria-label="Basic outlined example">
+    <button type="button" class="btn btn-outline-primary">Budowa</button>
+    <button type="button" class="btn btn-outline-primary">Remont</button>
+    <button type="button" class="btn btn-outline-primary">Instalacje</button>
+    <button type="button" class="btn btn-outline-primary">Elektryka</button>
+    <button type="button" class="btn btn-outline-primary">Roboty ziemne</button>
+    <button type="button" class="btn btn-outline-primary">Ogród</button>
+</div>
+
+<div class="container" style="height: 60vh">
+</div>
+
+<div th:insert="~{fragments/footer :: footer}"></div>
+</body>
+</html>
