@@ -1,15 +1,21 @@
 package com.isa.control;
 
-import com.isa.entity.Offer;
-import com.isa.entity.OfferArrayFromFile;
+import com.isa.control.service.Service;
 import com.isa.entity.enums.ServiceCategory;
+
 import java.util.Scanner;
-import static com.isa.entity.appConstants.AppConstants.*;
+
+import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.CHOOSE_A_NUMBER_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.CHOSEN_OPTION_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER_MESSAGE;
 
 public class ShowAllOptions extends SubMenuNavigator {
     private static final String SHOW_ALL = "Pokaż wszystkie ogłoszenia.";
 
-    public void showAllDetails(){
+    Service service = new Service();
+
+    public void showAllDetails() {
         System.out.println(SHOW_ALL);
         System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
         subMenuActions();
@@ -43,20 +49,11 @@ public class ShowAllOptions extends SubMenuNavigator {
             String userChoose = scanner.nextLine();
             ServiceCategory searchCategory = ServiceCategory.getFromString(userChoose);
             System.out.println(CHOSEN_OPTION_MESSAGE + searchCategory);
-            findOfferCategory(searchCategory);
+            service.findOfferCategory(searchCategory);
             goBackToMenu();
-        }catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(ENTERED_WRONG_NUMBER_MESSAGE);
             showOfferCategory();
         }
-    }
-
-    private void findOfferCategory(ServiceCategory serviceCategory) {
-        for (Offer offer : OfferArrayFromFile.getOffersArray()){
-            if (offer.getServiceCategory().equals(serviceCategory)){
-                System.out.println(offer);
-            }
-        }
-        System.out.println(NO_OFFERS_MORE);
     }
 }

@@ -3,18 +3,21 @@ package com.isa.control;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static com.isa.entity.appConstants.AppConstants.*;
+import static com.isa.entity.appConstants.AppConstants.ACCEPTED_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.BACK_TO_MENU_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_SIGNS_MESSAGE;
 
 public abstract class SubMenuNavigator {
 
-    void subMenuActions(){
+    void subMenuActions() {
 
         boolean inProgress = true;
 
-        do{
+        do {
             Scanner scanner = new Scanner(System.in);
             int choice;
-            try{
+            try {
                 choice = scanner.nextInt();
                 if (choice == 1) {
                     acceptAction();
@@ -27,13 +30,15 @@ public abstract class SubMenuNavigator {
             } catch (InputMismatchException e) {
                 System.out.println(ENTERED_WRONG_SIGNS_MESSAGE);
             }
-        } while(inProgress);
+        } while (inProgress);
     }
-    void acceptAction(){
+
+    void acceptAction() {
         System.out.println(ACCEPTED_MESSAGE);
 
     }
-    void goBackToMenu(){
+
+    public void goBackToMenu() {
         System.out.println(BACK_TO_MENU_MESSAGE);
         MenuNavigator.printMenu();
     }

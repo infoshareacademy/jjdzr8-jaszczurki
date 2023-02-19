@@ -5,7 +5,13 @@ import com.isa.entity.enums.MenuOptions;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import static com.isa.entity.appConstants.AppConstants.*;
+import static com.isa.entity.appConstants.AppConstants.CHOOSE_A_NUMBER_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.CHOSEN_OPTION_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_SIGNS_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.GOODBYE_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.MENU_MESSAGE;
+import static com.isa.entity.appConstants.AppConstants.PROGRAM_NAME_MESSAGE;
 
 public class MenuNavigator {
 
@@ -87,5 +93,4 @@ public class MenuNavigator {
         } while (enteringNumber);
         return number;
     }
-
 }
