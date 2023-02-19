@@ -1,6 +1,7 @@
 package com.isa.control;
 
 import com.isa.control.filesFactory.MyObjectFileStorage;
+import com.isa.control.service.Service;
 import com.isa.entity.Offer;
 import com.isa.entity.OfferArrayFromFile;
 import com.isa.entity.User;
@@ -47,6 +48,8 @@ public class AddOptions extends SubMenuNavigator{
         System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
         subMenuActions();
     }
+
+    Service service = new Service();
     @Override
     void subMenuActions() {
         Scanner scanner = new Scanner(System.in);
@@ -55,7 +58,7 @@ public class AddOptions extends SubMenuNavigator{
         if (input.equals("1")) {
             Offer offer = new Offer();
 
-            long offerID = getUniqueOfferID();
+            long offerID = service.getUniqueOfferID();
             offer.setOfferID(offerID);
 
             System.out.println(CHOOSE_A_NUMBER_MESSAGE);
@@ -131,26 +134,5 @@ public class AddOptions extends SubMenuNavigator{
         } else {
             goBackToMenu();
         }
-    }
-
-    private long getUniqueOfferID() {
-        List<Offer> objects = new LinkedList<>();
-        try {
-            objects = fileStorage.readFromFile(OFFERS_FILEPATH);
-        } catch (IOException e) {
-            System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
-        }
-
-        long maxID = 0;
-
-            for (Offer item: objects) {
-                if (item != null) {
-                    if (item.getOfferID() > maxID) {
-                    maxID = item.getOfferID();
-                }
-            }
-
-        }
-        return maxID + 1;
     }
 }

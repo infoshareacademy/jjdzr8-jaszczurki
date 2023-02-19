@@ -1,5 +1,6 @@
 package com.isa.control;
 
+import com.isa.control.service.Service;
 import com.isa.entity.Offer;
 import com.isa.entity.OfferArrayFromFile;
 import com.isa.entity.enums.ServiceCategory;
@@ -10,7 +11,6 @@ import java.util.Scanner;
 
 import static com.isa.entity.appConstants.AppConstants.ACCEPT_OR_BACK_TO_MENU_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.CHOOSE_A_NUMBER_MESSAGE;
-import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_CATEGORY_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_NUMBER_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.NO_OFFERS_MORE;
 
@@ -19,9 +19,10 @@ public class SearchOptions extends SubMenuNavigator {
     private static final String SEARCH = "Wyszukaj po lokalizacji i kategorii, możesz również podać 1 słowo kluczowe, które powinno znajdować się w treści oferty.";
     private static final String OPTIONAL_LOCALIZATION_MESSAGE = "Podaj lokalizację -> wpisz nazwę miasta (opcjonalnie): ";
     private static final String OPTIONAL_KEYWORD_MESSAGE = "Podaj słowo kluczowe (opcjonalnie): ";
-    private static final String CATEGORY_FOR_SEARCH_SELECTION_MESSAGE = "Musisz podać przynajmniej 1 kategorię z dostępnych poniżej i wcisnąć \"Enter\". \nNastępnie wpisz słowo \"koniec\" żeby zakończyć wybór kategorii. Możesz podać dowolną ilość kategorii: ";
-    private static final String ALREADY_CHOSEN_CATEGORY_MESSAGE = "Wybrano juź tę kategorię. Proszę wybrać inną.";
+
     private static final String SEARCH_CONTINUE_OR_QUIT_MESSAGE = "Czy chcesz kontynuować wyszukiwanie? (tak lub \"Enter\"/nie)";
+
+    Service service = new Service();
 
     public SearchOptions() {
         this.scanner = new Scanner(System.in);
@@ -56,7 +57,7 @@ public class SearchOptions extends SubMenuNavigator {
             String keyword = scanner.nextLine().toLowerCase();
 
             System.out.println(CHOOSE_A_NUMBER_MESSAGE);
-            List<ServiceCategory> selectedCategories = selectServiceCategories();
+            List<ServiceCategory> selectedCategories = service.selectServiceCategories();
 
             List<Offer> matchingOffers = new ArrayList<>();
             for (Offer offer : OfferArrayFromFile.getOffersArray()) {
@@ -81,60 +82,5 @@ public class SearchOptions extends SubMenuNavigator {
             }
         }
         goBackToMenu();
-    }
-
-    private List<ServiceCategory> selectServiceCategories() {
-        List<ServiceCategory> selectedCategories = new ArrayList<>();
-        displayServiceCategories();
-        while (true) {
-            String serviceCategoryNumber = scanner.nextLine();
-            if (serviceCategoryNumber.equals("koniec")) {
-                if (!selectedCategories.isEmpty()) {
-                    break;
-                }
-            } else {
-                ServiceCategory category = convertInputToCategory(serviceCategoryNumber);
-                if (category != null) {
-                    if (isCategoryAlreadySelected(selectedCategories, category)) {
-                        System.out.println(ALREADY_CHOSEN_CATEGORY_MESSAGE);
-                    } else {
-                        selectedCategories.add(category);
-                    }
-                } else {
-                    System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
-                }
-            }
-        }
-        return selectedCategories;
-    }
-
-    private void displayServiceCategories() {
-        System.out.println(CATEGORY_FOR_SEARCH_SELECTION_MESSAGE);
-        for (ServiceCategory serviceCategory : ServiceCategory.values()) {
-            System.out.println(serviceCategory);
-        }
-    }
-
-    private boolean isCategoryAlreadySelected(List<ServiceCategory> selectedCategories, ServiceCategory category) {
-        return selectedCategories.contains(category);
-    }
-
-    private ServiceCategory convertInputToCategory(String serviceCategoryNumber) {
-        try {
-            return ServiceCategory.getFromString(serviceCategoryNumber);
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
-    }
-
-    public Offer getOfferByNumber(long numberOfferToEdit) {
-        Offer offer = null;
-        for (Offer offerNumber : OfferArrayFromFile.getOffersArray()) {
-            if (offerNumber.getOfferID() == numberOfferToEdit) {
-                offer = offerNumber;
-                break;
-            }
-        }
-        return offer;
     }
 }
