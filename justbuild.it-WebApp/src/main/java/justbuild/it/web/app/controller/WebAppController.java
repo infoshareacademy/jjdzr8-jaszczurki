@@ -1,6 +1,6 @@
 package justbuild.it.web.app.controller;
 
-import justbuild.it.web.app.serwice.WebAppService;
+import justbuild.it.web.app.service.WebAppService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
