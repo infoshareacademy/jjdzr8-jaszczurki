@@ -46,7 +46,7 @@ public class Service {
         return maxID + 1;
     }
 
-    public boolean deleteOfferFromFile(Offer offer) {
+    public void deleteOfferFromFile(Offer offer) {
 
         List<Offer> offersList = OfferArrayFromFile.getOffersArray();
         boolean removed = offersList.remove(offer);
@@ -57,7 +57,6 @@ public class Service {
                 System.out.println(FILE_READ_OR_WRITE_ERROR_MESSAGE + e.getMessage());
             }
         }
-        return removed;
     }
 
     public void saveOfferChanges(Offer offer) {

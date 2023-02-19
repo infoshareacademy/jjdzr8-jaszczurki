@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Offer implements Serializable{
+public class Offer implements Serializable {
     private long offerID;
     private ServiceCategory serviceCategory;
     private String offerContent;
@@ -85,7 +85,7 @@ public class Offer implements Serializable{
 
     @Override
     public String toString() {
-        return String.format("Offer{offerID= \t%s\t, \tserviceCategory= \t%-20s, \tcity= \t%-15s, user= \t%-160s,\tdate= %s, \tofferContent= \t%s}",offerID,serviceCategory,city,user,date,offerContent);
+        return String.format("Offer{offerID= \t%s\t, \tserviceCategory= \t%-20s, \tcity= \t%-15s, user= \t%-160s,\tdate= %s, \tofferContent= \t%s}", offerID, serviceCategory, city, user, date, offerContent);
     }
 
     public String printOffer() {
