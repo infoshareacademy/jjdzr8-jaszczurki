@@ -1,60 +1,125 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
-  <title>Dodaj ogłoszenie</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"
+          type="text/css"/>
+    <title>Dodaj ogłoszenie</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/add style.css}"/>
 </head>
 <body>
-<div th:insert="~{fragments/header :: header}"></div>
+<div th:insert="~{fragments/header :: header-add}"></div>
 
-<form class="col-12">
-  <div class="mb-3">
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Tu wpisz treść ogłoszenia">
-  </div>
-  <div class="mb-3">
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Tu wpisz imię i nazwisko">
-  </div>
-  <div class="mb-3">
-    <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Tu wpisz telefon kontaktowy">
-  </div>
-  <div class="mb-3">
-    <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Tu wpisz email">
-  </div>
-  <div class="input-group mb-3">
-    <label class="input-group-text" for="inputGroupSelect01">Miasto</label>
-    <select class="form-select" id="inputGroupSelect01">
-      <option selected>Wybierz...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-  <div class="input-group mb-3">
-    <label class="input-group-text" for="inputGroupSelect02">Kategoria</label>
-    <select class="form-select" id="inputGroupSelect02">
-      <option selected>Wybierz...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-  <div class="input-group mb-3">
-    <label class="input-group-text" for="inputGroupSelect03">Słowo kluczowe</label>
-    <select class="form-select" id="inputGroupSelect03">
-      <option selected>Wybierz...</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </div>
-  <div>
-    <button type="submit" class="btn btn-primary">Zatwierdź</button>
-  </div>
-
+<form class="addForm col-11 mt-5 mb-5 mx-auto" action="#" th:action="@{/add}" th:object="${offer}" method="post">
+    <hr>
+    <div class="id mb-4 mt-3 col-1">
+        <label for="formGroupExampleInput0">ID oferty: </label>
+        <input type="text" class="form-control" id="formGroupExampleInput0" th:field="*{offerID}" readonly>
+    </div>
+    <hr/>
+    <div class="mb-4 mt-5">
+        <input type="text" class="form-control" id="formGroupExampleInput2" th:field="*{city}"
+               placeholder="Tu wpisz miasto*" required>
+    </div>
+    <div class="mb-4">
+        <input type="text" class="form-control" id="formGroupExampleInput3" th:field="*{userFirstName}"
+               placeholder="Tu wpisz imię">
+    </div>
+    <div class="mb-4">
+        <input type="text" class="form-control" id="formGroupExampleInput4" th:field="*{userLastName}"
+               placeholder="Tu wpisz nazwisko">
+    </div>
+    <div class="mb-4">
+        <input type="text" class="form-control" id="formGroupExampleInput5" th:field="*{userCompanyName}"
+               placeholder="Tu wpisz nazwę firmy*" required>
+    </div>
+    <div class="mb-4">
+        <input type="text" class="form-control" id="formGroupExampleInput6" th:field="*{userTelephoneNumber}"
+               placeholder="Tu wpisz telefon kontaktowy*" required>
+    </div>
+    <div class="mb-4">
+        <input type="text" class="form-control" id="formGroupExampleInput7" th:field="*{userEmailAddress}"
+               placeholder="Tu wpisz email*" required>
+    </div>
+    <div class="mb-5">
+        <input type="text" class="form-control" id="formGroupExampleInput1" th:field="*{offerContent}"
+               placeholder="Tu wpisz treść ogłoszenia">
+    </div>
+    <div class="input-group mb-4">
+        <label class="input-group-text" for="inputGroupSelect02">Kategoria</label>
+        <select class="form-select" id="inputGroupSelect02" th:field="*{serviceCategory}">
+            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).CONSTRUCTION}">Budowa</option>
+            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).FINISHING_WORKS}">Remont</option>
+            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).INSTALLATION}">Instalacje</option>
+            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).ELECTRICITY}">Elektryka</option>
+            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).EARTH_WORKS}">Roboty ziemne</option>
+            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).GARDEN}">Ogród</option>
+        </select>
+    </div>
+    <div class="mb-4">
+        <input type="text" class="form-control" id="formGroupExampleInput8" th:field="*{dateTime}"
+               th:value="${#temporals.format(#temporals.createNow(), 'yyyy-MM-dd HH:mm')}" readonly>
+    </div>
+    <hr>
+    <div class="buttons mb-4">
+        <button type="button" class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            Zatwierdź
+        </button>
+        <a href="/home" class="btn btn-secondary" role="button" data-bs-toggle="modal"
+           data-bs-target="#staticBackdrop2">Wróć do strony głównej</a>
+    </div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Potwierdź dodanie oferty</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Czy chcesz zapisać swoją ofertę i wrócić do strony głównej ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
+                    <button type="button" class="btn btn-primary" onclick="const city = document.forms[0].elements['city'].value;
+                                                                const company = document.forms[0].elements['userCompanyName'].value;
+                                                                const phone = document.forms[0].elements['userTelephoneNumber'].value;
+                                                                const email = document.forms[0].elements['userEmailAddress'].value;
+          if(city && company && phone && email){
+            document.forms[0].submit();
+          } else {
+            alert('Proszę uzupełnić wszystkie wymagane pola: miasto, nazwę firmy, telefon i email.');
+          }">Tak
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel2">Potwierdź rezygnację</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Czy chcesz przerwać dodawanie oferty i wrócić do strony głównej ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
+                    <a href="/home" class="btn btn-primary" role="button">Tak</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
-
 <div th:insert="~{fragments/footer :: footer}"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
 </body>
 </html>
