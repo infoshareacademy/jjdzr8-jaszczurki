@@ -1,9 +1,9 @@
 package justbuild.it.web.app.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import justbuild.it.web.app.model.Offer;
 import justbuild.it.web.app.model.ServiceCategory;
 import justbuild.it.web.app.model.User;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
@@ -22,7 +22,7 @@ public class OfferDTO {
     private String userEmailAddress;
     @NotBlank
     private String userTelephoneNumber;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime dateTime;
 
     public OfferDTO() {
