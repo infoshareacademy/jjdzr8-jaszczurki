@@ -2,7 +2,7 @@ package justbuild.it.web.app.controller;
 
 import justbuild.it.web.app.dto.OfferDTO;
 import justbuild.it.web.app.model.Offer;
-import justbuild.it.web.app.service.OfferCreationService;
+import justbuild.it.web.app.service.OfferService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,13 +15,13 @@ import javax.validation.Valid;
 @Controller
 public class WebAppController {
 
-    private final OfferCreationService offerCreationService;
+    private final OfferService offerService;
 
-    public WebAppController(OfferCreationService offerCreationService) {
-        this.offerCreationService = offerCreationService;
+    public WebAppController(OfferService offerService) {
+        this.offerService = offerService;
     }
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String goHome(Model model) {
         return "home";
     }
@@ -29,7 +29,7 @@ public class WebAppController {
     @GetMapping("/add")
     public String goAdd(Model model) {
         OfferDTO offer = new OfferDTO();
-        offer.setOfferID(offerCreationService.getNextOfferId());
+        offer.setOfferID(offerService.getNextOfferId());
         model.addAttribute("offer", offer);
         return "add";
     }
@@ -40,7 +40,7 @@ public class WebAppController {
             return "add";
         }
         Offer offer = offerDTO.toOffer();
-        offerCreationService.addOffer(offer);
-        return "redirect:/home";
+        offerService.addOffer(offer);
+        return "redirect:/";
     }
 }
