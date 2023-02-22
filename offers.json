@@ -362,4 +362,17 @@
     "telephoneNumber" : "702 452 118"
   },
   "date" : [ 2023, 2, 21, 22, 41 ]
-}, ]
+}, {
+  "offerID" : 30,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Kompleksowe roboty budowlane ",
+  "city" : "Warszawa",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "KP Construction SA",
+    "emailAddress" : "kp.office@construction.pl",
+    "telephoneNumber" : "770 007 007"
+  },
+  "date" : [ 2023, 2, 22, 17, 16 ]
+} ]
