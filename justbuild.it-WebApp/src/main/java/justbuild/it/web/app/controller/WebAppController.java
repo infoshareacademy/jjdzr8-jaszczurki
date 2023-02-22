@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
+
 @Controller
 public class WebAppController {
 
@@ -33,7 +35,7 @@ public class WebAppController {
     }
 
     @PostMapping("/add")
-    public String addOffer(@ModelAttribute("offer") OfferDTO offerDTO, BindingResult result) {
+    public String addOffer(@Valid @ModelAttribute("offer") OfferDTO offerDTO, BindingResult result) {
         if (result.hasErrors()) {
             return "add";
         }

@@ -5,17 +5,22 @@ import justbuild.it.web.app.model.Offer;
 import justbuild.it.web.app.model.ServiceCategory;
 import justbuild.it.web.app.model.User;
 
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
 public class OfferDTO {
     private Long offerID;
     private ServiceCategory serviceCategory;
     private String offerContent;
+    @NotBlank
     private String city;
     private String userFirstName;
     private String userLastName;
+    @NotBlank
     private String userCompanyName;
+    @NotBlank
     private String userEmailAddress;
+    @NotBlank
     private String userTelephoneNumber;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime dateTime;
