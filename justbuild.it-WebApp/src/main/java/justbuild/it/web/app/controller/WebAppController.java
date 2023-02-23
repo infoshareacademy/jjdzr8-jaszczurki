@@ -1,6 +1,7 @@
 package justbuild.it.web.app.controller;
 
 import justbuild.it.web.app.dto.OfferDTO;
+import justbuild.it.web.app.mapper.OfferMapper;
 import justbuild.it.web.app.model.Offer;
 import justbuild.it.web.app.service.OfferService;
 import org.springframework.stereotype.Controller;
@@ -16,9 +17,11 @@ import javax.validation.Valid;
 public class WebAppController {
 
     private final OfferService offerService;
+    private final OfferMapper mapper;
 
-    public WebAppController(OfferService offerService) {
+    public WebAppController(OfferService offerService, OfferMapper mapper) {
         this.offerService = offerService;
+        this.mapper = mapper;
     }
 
     @GetMapping("/")
@@ -39,7 +42,7 @@ public class WebAppController {
         if (result.hasErrors()) {
             return "add";
         }
-        Offer offer = offerDTO.toOffer();
+        Offer offer = mapper.fromDto(offerDTO);
         offerService.addOffer(offer);
         return "redirect:/";
     }

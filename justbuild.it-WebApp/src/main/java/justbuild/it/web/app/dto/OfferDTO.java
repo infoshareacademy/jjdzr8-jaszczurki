@@ -1,8 +1,6 @@
 package justbuild.it.web.app.dto;
 
-import justbuild.it.web.app.model.Offer;
 import justbuild.it.web.app.model.ServiceCategory;
-import justbuild.it.web.app.model.User;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
@@ -53,23 +51,6 @@ public class OfferDTO {
         this.userEmailAddress = userEmailAddress;
         this.userTelephoneNumber = userTelephoneNumber;
         this.dateTime = dateTime;
-    }
-
-    public Offer toOffer() {
-        Offer offer = new Offer();
-        offer.setOfferID(offerID);
-        offer.setServiceCategory(serviceCategory);
-        offer.setOfferContent(offerContent);
-        offer.setCity(city);
-        offer.setDate(dateTime);
-        User user = new User();
-        user.setFirstName(userFirstName);
-        user.setLastName(userLastName);
-        user.setCompany(userCompanyName);
-        user.setEmailAddress(userEmailAddress);
-        user.setTelephoneNumber(userTelephoneNumber);
-        offer.setUser(user);
-        return offer;
     }
 
     public Long getOfferID() {
