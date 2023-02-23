@@ -5,6 +5,7 @@ import justbuild.it.web.app.model.ServiceCategory;
 import justbuild.it.web.app.model.User;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
@@ -18,6 +19,7 @@ public class OfferDTO {
     private String userLastName;
     @NotBlank
     private String userCompanyName;
+    @Email(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
     @NotBlank
     private String userEmailAddress;
     @NotBlank

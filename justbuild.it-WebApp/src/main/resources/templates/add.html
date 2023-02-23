@@ -12,7 +12,8 @@
 <body>
 <div th:insert="~{fragments/header :: header-add}"></div>
 
-<form class="addForm col-11 mt-5 mb-5 mx-auto" action="#" th:action="@{/add}" th:object="${offer}" method="post">
+<form id="addForm" class="addForm col-11 mt-5 mb-5 mx-auto" action="#" th:action="@{/add}" th:object="${offer}"
+      method="post">
     <hr>
     <div class="id mb-4 mt-3 col-1">
         <label for="formGroupExampleInput0">ID oferty: </label>
@@ -44,8 +45,8 @@
              class="error-message"></div>
     </div>
     <div class="mb-4">
-        <input type="text" class="form-control" id="formGroupExampleInput7" th:field="*{userEmailAddress}"
-               placeholder="Tu wpisz email*" required>
+        <input type="email" class="form-control" id="formGroupExampleInput7" th:field="*{userEmailAddress}"
+               placeholder="Tu wpisz email*" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
         <div th:if="${#fields.hasErrors('userEmailAddress')}" th:errors="*{userEmailAddress}"
              class="error-message"></div>
     </div>
@@ -54,8 +55,8 @@
                placeholder="Tu wpisz treść ogłoszenia">
     </div>
     <div class="input-group mb-4">
-        <label class="input-group-text" for="inputGroupSelect02">Kategoria</label>
-        <select class="form-select" id="inputGroupSelect02" th:field="*{serviceCategory}">
+        <label class="input-group-text" for="inputGroupSelect">Kategoria</label>
+        <select class="form-select" id="inputGroupSelect" th:field="*{serviceCategory}">
             <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).CONSTRUCTION}">Budowa</option>
             <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).FINISHING_WORKS}">Remont</option>
             <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).INSTALLATION}">Instalacje</option>
@@ -73,7 +74,7 @@
         <button type="button" class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Zatwierdź
         </button>
-        <a href="/home" class="btn btn-secondary" role="button" data-bs-toggle="modal"
+        <a href="/" class="btn btn-secondary" role="button" data-bs-toggle="modal"
            data-bs-target="#staticBackdrop2">Wróć do strony głównej</a>
     </div>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -89,12 +90,13 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
-                    <button type="button" class="btn btn-primary" onclick="const city = document.forms[0].elements['city'].value;
-                                                                const company = document.forms[0].elements['userCompanyName'].value;
-                                                                const phone = document.forms[0].elements['userTelephoneNumber'].value;
-                                                                const email = document.forms[0].elements['userEmailAddress'].value;
-          if(city && company && phone && email){
-            document.forms[0].submit();
+                    <button type="button" class="btn btn-primary" onclick="const city = document.getElementById('addForm').elements['city'].value;
+                                                                const company = document.getElementById('addForm').elements['userCompanyName'].value;
+                                                                const phone = document.getElementById('addForm').elements['userTelephoneNumber'].value;
+                                                                const email = document.getElementById('addForm').elements['userEmailAddress'].value;
+                                                                const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if(city && company && phone && email && emailRegex.test(email)){
+            document.getElementById('addForm').submit();
           } else {
             alert('Proszę uzupełnić wszystkie wymagane pola: miasto, nazwę firmy, telefon i email.');
           }">Tak
