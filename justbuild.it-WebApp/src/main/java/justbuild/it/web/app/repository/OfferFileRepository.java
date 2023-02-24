@@ -9,11 +9,17 @@ import org.springframework.stereotype.Repository;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedList;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.List;
+
+import static justbuild.it.web.app.config.constants.AppConstants.LOG_READ;
+import static justbuild.it.web.app.config.constants.AppConstants.LOG_WRITE;
 
 @Repository
 public class OfferFileRepository {
+
     private final ObjectMapper objectMapper;
     private final Logger logger;
 
@@ -23,25 +29,25 @@ public class OfferFileRepository {
     }
 
     public List<Offer> getOffersFromJsonFile(String filePath) {
-        File file = new File(filePath);
-        List<Offer> offers = new LinkedList<>();
-        if (file.exists() && file.length() > 0) {
-            try {
-                offers = objectMapper.readValue(file, new TypeReference<>() {
-                });
-            } catch (IOException e) {
-                logger.error("Error reading offers from file: " + filePath, e);
-            }
+        if (!Files.exists(Paths.get(filePath)) || new File(filePath).length() == 0) {
+            return Collections.emptyList();
         }
-        return offers;
+
+        try {
+            return objectMapper.readValue(new File(filePath), new TypeReference<>() {
+            });
+        } catch (IOException e) {
+            logger.error(LOG_READ + filePath, e);
+            return Collections.emptyList();
+        }
     }
 
-    public void saveOffersToJsonFile(List<Offer> offers) {
-        File file = new File("offers.json");
+    public void saveOffersToJsonFile(List<Offer> offers, String filePath) {
+        File file = new File(filePath);
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, offers);
         } catch (IOException e) {
-            logger.error("Error saving offers to file: " + file.getAbsolutePath(), e);
+            logger.error(LOG_WRITE + file.getAbsolutePath(), e);
         }
     }
 }

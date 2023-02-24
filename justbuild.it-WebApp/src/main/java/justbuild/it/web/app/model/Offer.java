@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Offer {
+
     private Long offerID;
     private ServiceCategory serviceCategory;
     private String offerContent;

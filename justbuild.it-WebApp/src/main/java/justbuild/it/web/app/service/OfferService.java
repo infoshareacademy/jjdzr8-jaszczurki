@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OfferService {
+
     private final OfferCreationService offerCreationService;
 
     public OfferService(OfferCreationService offerCreationService) {

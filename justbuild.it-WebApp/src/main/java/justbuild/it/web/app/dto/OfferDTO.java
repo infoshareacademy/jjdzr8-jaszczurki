@@ -7,7 +7,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
+import static justbuild.it.web.app.config.constants.AppConstants.DISPLAY_DATE_FORMAT;
+import static justbuild.it.web.app.config.constants.AppConstants.EMAIL_FORMAT;
+
 public class OfferDTO {
+
     private Long offerID;
     private ServiceCategory serviceCategory;
     private String offerContent;
@@ -17,12 +21,12 @@ public class OfferDTO {
     private String userLastName;
     @NotBlank
     private String userCompanyName;
-    @Email(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
+    @Email(regexp = EMAIL_FORMAT)
     @NotBlank
     private String userEmailAddress;
     @NotBlank
     private String userTelephoneNumber;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @DateTimeFormat(pattern = DISPLAY_DATE_FORMAT)
     private LocalDateTime dateTime;
 
     public OfferDTO() {
