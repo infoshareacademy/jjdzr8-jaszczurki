@@ -1,6 +1,6 @@
 package justbuild.it.web.app.service;
 
-import justbuild.it.web.app.model.Offer;
+import justbuild.it.web.app.entity.Offer;
 import org.springframework.stereotype.Service;
 
 @Service

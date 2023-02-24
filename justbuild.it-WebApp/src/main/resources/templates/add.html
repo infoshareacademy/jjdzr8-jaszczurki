@@ -57,12 +57,12 @@
     <div class="input-group mb-4">
         <label class="input-group-text" for="inputGroupSelect">Kategoria</label>
         <select class="form-select" id="inputGroupSelect" th:field="*{serviceCategory}">
-            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).CONSTRUCTION}">Budowa</option>
-            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).FINISHING_WORKS}">Remont</option>
-            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).INSTALLATION}">Instalacje</option>
-            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).ELECTRICITY}">Elektryka</option>
-            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).EARTH_WORKS}">Roboty ziemne</option>
-            <option th:value="${T(justbuild.it.web.app.model.ServiceCategory).GARDEN}">Ogród</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).CONSTRUCTION}">Budowa</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).FINISHING_WORKS}">Remont</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).INSTALLATION}">Instalacje</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).ELECTRICITY}">Elektryka</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).EARTH_WORKS}">Roboty ziemne</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).GARDEN}">Ogród</option>
         </select>
     </div>
     <div class="mb-4">

@@ -1,8 +1,8 @@
 package justbuild.it.web.app.mapper;
 
 import justbuild.it.web.app.dto.OfferDTO;
-import justbuild.it.web.app.model.Offer;
-import justbuild.it.web.app.model.User;
+import justbuild.it.web.app.entity.Offer;
+import justbuild.it.web.app.entity.User;
 import org.springframework.stereotype.Component;
 
 @Component

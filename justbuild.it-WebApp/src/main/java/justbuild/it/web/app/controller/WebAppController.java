@@ -2,7 +2,7 @@ package justbuild.it.web.app.controller;
 
 import justbuild.it.web.app.dto.OfferDTO;
 import justbuild.it.web.app.mapper.OfferMapper;
-import justbuild.it.web.app.model.Offer;
+import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.service.OfferService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,6 @@
-package justbuild.it.web.app.model;
+package justbuild.it.web.app.entity;
+
+import justbuild.it.web.app.entity.enums.ServiceCategory;
 
 import java.time.LocalDateTime;
 import java.util.Objects;

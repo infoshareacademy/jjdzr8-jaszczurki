@@ -1,4 +1,4 @@
-package justbuild.it.web.app.model;
+package justbuild.it.web.app.entity.enums;
 
 public enum ServiceCategory {
 

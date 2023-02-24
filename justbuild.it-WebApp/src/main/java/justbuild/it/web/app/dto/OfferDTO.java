@@ -1,6 +1,6 @@
 package justbuild.it.web.app.dto;
 
-import justbuild.it.web.app.model.ServiceCategory;
+import justbuild.it.web.app.entity.enums.ServiceCategory;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;

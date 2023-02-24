@@ -1,4 +1,4 @@
-package justbuild.it.web.app.model;
+package justbuild.it.web.app.entity;
 
 public class User {
 
