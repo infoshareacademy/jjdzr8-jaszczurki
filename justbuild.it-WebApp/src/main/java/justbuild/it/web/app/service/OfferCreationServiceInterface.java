@@ -4,7 +4,7 @@ import justbuild.it.web.app.entity.Offer;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface OfferCreationServiceInterface {
+interface OfferCreationServiceInterface {
 
     void addOffer(Offer offer);
 
