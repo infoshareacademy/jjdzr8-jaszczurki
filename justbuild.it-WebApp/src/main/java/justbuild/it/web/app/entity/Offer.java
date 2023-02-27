@@ -1,21 +1,21 @@
 package justbuild.it.web.app.entity;
 
-import justbuild.it.web.app.entity.enums.ServiceCategory;
+import justbuild.it.web.app.entity.enums.ServiceCategoryEnum;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Offer {
 
-    private Long offerID;
-    private ServiceCategory serviceCategory;
+    private Long offerId;
+    private ServiceCategoryEnum serviceCategory;
     private String offerContent;
     private String city;
     private User user;
     private LocalDateTime date;
 
     public Offer() {
-        this.offerID = 0L;
+        this.offerId = 0L;
         this.serviceCategory = null;
         this.offerContent = "";
         this.city = "";
@@ -23,8 +23,8 @@ public class Offer {
         this.date = LocalDateTime.now();
     }
 
-    public Offer(Long offerID, ServiceCategory serviceCategory, String offerContent, String city, User user, LocalDateTime date) {
-        this.offerID = offerID;
+    public Offer(Long offerID, ServiceCategoryEnum serviceCategory, String offerContent, String city, User user, LocalDateTime date) {
+        this.offerId = offerID;
         this.serviceCategory = serviceCategory;
         this.offerContent = offerContent;
         this.city = city;
@@ -32,19 +32,19 @@ public class Offer {
         this.date = date;
     }
 
-    public Long getOfferID() {
-        return offerID;
+    public Long getOfferId() {
+        return offerId;
     }
 
-    public void setOfferID(Long offerID) {
-        this.offerID = offerID;
+    public void setOfferId(Long offerId) {
+        this.offerId = offerId;
     }
 
-    public ServiceCategory getServiceCategory() {
+    public ServiceCategoryEnum getServiceCategory() {
         return serviceCategory;
     }
 
-    public void setServiceCategory(ServiceCategory serviceCategory) {
+    public void setServiceCategory(ServiceCategoryEnum serviceCategory) {
         this.serviceCategory = serviceCategory;
     }
 
@@ -85,11 +85,11 @@ public class Offer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Offer offer = (Offer) o;
-        return Objects.equals(offerID, offer.offerID) && serviceCategory == offer.serviceCategory && Objects.equals(offerContent, offer.offerContent) && Objects.equals(city, offer.city) && Objects.equals(user, offer.user) && Objects.equals(date, offer.date);
+        return Objects.equals(offerId, offer.offerId) && serviceCategory == offer.serviceCategory && Objects.equals(offerContent, offer.offerContent) && Objects.equals(city, offer.city) && Objects.equals(user, offer.user) && Objects.equals(date, offer.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(offerID, serviceCategory, offerContent, city, user, date);
+        return Objects.hash(offerId, serviceCategory, offerContent, city, user, date);
     }
 }

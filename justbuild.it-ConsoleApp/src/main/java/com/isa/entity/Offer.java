@@ -10,7 +10,7 @@ import java.util.Objects;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Offer implements Serializable {
-    private long offerID;
+    private long offerId;
     private ServiceCategory serviceCategory;
     private String offerContent;
     private String city;
@@ -21,12 +21,12 @@ public class Offer implements Serializable {
     public Offer() {
     }
 
-    public long getOfferID() {
-        return offerID;
+    public long getOfferId() {
+        return offerId;
     }
 
-    public void setOfferID(long offerID) {
-        this.offerID = offerID;
+    public void setOfferId(long offerId) {
+        this.offerId = offerId;
     }
 
     public ServiceCategory getServiceCategory() {
@@ -75,22 +75,22 @@ public class Offer implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Offer offer = (Offer) o;
-        return offerID == offer.offerID && serviceCategory == offer.serviceCategory && Objects.equals(offerContent, offer.offerContent) && Objects.equals(city, offer.city) && Objects.equals(user, offer.user) && Objects.equals(date, offer.date);
+        return offerId == offer.offerId && serviceCategory == offer.serviceCategory && Objects.equals(offerContent, offer.offerContent) && Objects.equals(city, offer.city) && Objects.equals(user, offer.user) && Objects.equals(date, offer.date);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), offerID, serviceCategory, offerContent, city, user, date);
+        return Objects.hash(super.hashCode(), offerId, serviceCategory, offerContent, city, user, date);
     }
 
     @Override
     public String toString() {
-        return String.format("Offer{offerID= \t%s\t, \tserviceCategory= \t%-20s, \tcity= \t%-15s, user= \t%-160s,\tdate= %s, \tofferContent= \t%s}", offerID, serviceCategory, city, user, date, offerContent);
+        return String.format("Offer{offerID= \t%s\t, \tserviceCategory= \t%-20s, \tcity= \t%-15s, user= \t%-160s,\tdate= %s, \tofferContent= \t%s}", offerId, serviceCategory, city, user, date, offerContent);
     }
 
     public String printOffer() {
         return String.format("{\"offerID\" : %d, %n   \"serviceCategory\" : \"%s\", %n   \"offerContent\" : \"%s\", %n   \"city\" : \"%s\", %n   \"user\" : %s, %n   \"date\" : \"%s\"}",
-                offerID, serviceCategory, offerContent, city, user.printUser(), date);
+                offerId, serviceCategory, offerContent, city, user.printUser(), date);
     }
 
 }

@@ -1,6 +1,6 @@
 package justbuild.it.web.app.controller;
 
-import justbuild.it.web.app.dto.OfferDTO;
+import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.mapper.OfferMapper;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.service.OfferService;
@@ -29,20 +29,18 @@ public class WebAppController {
         return "home";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/addOffer")
     public String goAdd(Model model) {
-        OfferDTO offer = new OfferDTO();
-        offer.setOfferID(offerService.getNextOfferId());
-        model.addAttribute("offer", offer);
-        return "add";
+        model.addAttribute("offer", offerService.provideNewOffer());
+        return "addOffer";
     }
 
-    @PostMapping("/add")
-    public String addOffer(@Valid @ModelAttribute("offer") OfferDTO offerDTO, BindingResult result) {
+    @PostMapping("/addOffer")
+    public String addOffer(@Valid @ModelAttribute("offer") OfferDto offerDto, BindingResult result) {
         if (result.hasErrors()) {
-            return "add";
+            return "addOffer";
         }
-        Offer offer = mapper.fromDto(offerDTO);
+        Offer offer = mapper.fromDto(offerDto);
         offerService.addOffer(offer);
         return "redirect:/";
     }

@@ -1,6 +1,6 @@
 package justbuild.it.web.app.entity.enums;
 
-public enum ServiceCategory {
+public enum ServiceCategoryEnum {
 
     CONSTRUCTION,
     FINISHING_WORKS,

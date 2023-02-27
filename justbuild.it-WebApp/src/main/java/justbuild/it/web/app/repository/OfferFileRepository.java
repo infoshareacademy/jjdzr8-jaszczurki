@@ -14,18 +14,18 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 
-import static justbuild.it.web.app.config.constants.AppConstants.LOG_READ;
-import static justbuild.it.web.app.config.constants.AppConstants.LOG_WRITE;
+import static justbuild.it.web.app.entity.constants.AppConstants.LOG_READ_FROM_FILE;
+import static justbuild.it.web.app.entity.constants.AppConstants.LOG_WRITE_TO_FILE;
 
 @Repository
 public class OfferFileRepository {
 
     private final ObjectMapper objectMapper;
-    private final Logger logger;
+    private final Logger LOGGER;
 
     public OfferFileRepository(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
-        this.logger = LogManager.getLogger(OfferFileRepository.class.getName());
+        this.LOGGER = LogManager.getLogger(OfferFileRepository.class.getName());
     }
 
     public List<Offer> getOffersFromJsonFile(String filePath) {
@@ -37,7 +37,7 @@ public class OfferFileRepository {
             return objectMapper.readValue(new File(filePath), new TypeReference<>() {
             });
         } catch (IOException e) {
-            logger.error(LOG_READ + filePath, e);
+            LOGGER.error(LOG_READ_FROM_FILE + filePath, e);
             return Collections.emptyList();
         }
     }
@@ -47,7 +47,7 @@ public class OfferFileRepository {
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, offers);
         } catch (IOException e) {
-            logger.error(LOG_WRITE + file.getAbsolutePath(), e);
+            LOGGER.error(LOG_WRITE_TO_FILE + file.getAbsolutePath(), e);
         }
     }
 }

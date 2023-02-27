@@ -1,5 +1,6 @@
 package justbuild.it.web.app.service;
 
+import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,9 @@ public class OfferService {
         offerCreationService.addOffer(offer);
     }
 
-    public Long getNextOfferId() {
-        return offerCreationService.getNextOfferId();
+    public OfferDto provideNewOffer() {
+        OfferDto offer = new OfferDto();
+        offer.setDtoOfferId(offerCreationService.getNextOfferId());
+        return offer;
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static justbuild.it.web.app.config.constants.AppConstants.OFFERS_FILEPATH;
+import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH;
 
 @Service
 class OfferCreationService implements OfferCreationServiceInterface {
@@ -29,7 +29,7 @@ class OfferCreationService implements OfferCreationServiceInterface {
         List<Offer> offers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
 
         return offers.stream()
-                .mapToLong(Offer::getOfferID)
+                .mapToLong(Offer::getOfferId)
                 .reduce(0L, Long::max)
                 + 1L;
     }

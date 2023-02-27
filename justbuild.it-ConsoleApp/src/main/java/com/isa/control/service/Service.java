@@ -25,7 +25,7 @@ public class Service {
     MyObjectFileStorage myObjectFileStorage = new MyObjectFileStorage();
     Scanner scanner = new Scanner(System.in);
 
-    public long getUniqueOfferID() {
+    public long getUniqueOfferId() {
         List<Offer> objects = new LinkedList<>();
         try {
             objects = myObjectFileStorage.readFromFile(OFFERS_FILEPATH);
@@ -37,8 +37,8 @@ public class Service {
 
         for (Offer item : objects) {
             if (item != null) {
-                if (item.getOfferID() > maxID) {
-                    maxID = item.getOfferID();
+                if (item.getOfferId() > maxID) {
+                    maxID = item.getOfferId();
                 }
             }
 
@@ -63,7 +63,7 @@ public class Service {
         try {
             List<Offer> offersList = OfferArrayFromFile.getOffersArray();
             for (int i = 0; i < offersList.size(); i++) {
-                if (Objects.equals(offersList.get(i).getOfferID(), offer.getOfferID())) {
+                if (Objects.equals(offersList.get(i).getOfferId(), offer.getOfferId())) {
                     offersList.set(i, offer);
                     break;
                 }
@@ -121,7 +121,7 @@ public class Service {
     public Offer getOfferByNumber(long numberOfferToEdit) {
         Offer offer = null;
         for (Offer offerNumber : OfferArrayFromFile.getOffersArray()) {
-            if (offerNumber.getOfferID() == numberOfferToEdit) {
+            if (offerNumber.getOfferId() == numberOfferToEdit) {
                 offer = offerNumber;
                 break;
             }

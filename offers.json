@@ -1,5 +1,5 @@
 [ {
-  "offerID" : 26,
+  "offerId" : 26,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "prace remontowo-wykończeniowe, termin realizacji: wiosna 2023",
   "city" : "warszawa",
@@ -12,7 +12,7 @@
   },
   "date" : [ 2023, 1, 17, 20, 54, 28, 585000000 ]
 }, {
-  "offerID" : 13,
+  "offerId" : 13,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
   "city" : "szczecin",
@@ -25,7 +25,7 @@
   },
   "date" : [ 2023, 1, 17, 19, 9, 43, 159000000 ]
 }, {
-  "offerID" : 20,
+  "offerId" : 20,
   "serviceCategory" : "EARTH_WORKS",
   "offerContent" : "roboty drogowo-mostowe",
   "city" : "gdańsk",
@@ -38,7 +38,7 @@
   },
   "date" : [ 2023, 1, 16, 23, 6, 24, 972000000 ]
 }, {
-  "offerID" : 14,
+  "offerId" : 14,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "budowa - trójmiasto i całe województwo pomorskie",
   "city" : "gdańsk",
@@ -51,7 +51,7 @@
   },
   "date" : [ 2023, 1, 16, 23, 4, 55, 754000000 ]
 }, {
-  "offerID" : 12,
+  "offerId" : 12,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
   "city" : "warszawa",
@@ -64,7 +64,7 @@
   },
   "date" : [ 2023, 1, 16, 19, 4, 7, 555000000 ]
 }, {
-  "offerID" : 25,
+  "offerId" : 25,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "kompleksowo - pełny zakres robót wewnętrznych",
   "city" : "kraków",
@@ -77,7 +77,7 @@
   },
   "date" : [ 2023, 1, 15, 15, 18, 28, 8000000 ]
 }, {
-  "offerID" : 24,
+  "offerId" : 24,
   "serviceCategory" : "ELECTRICITY",
   "offerContent" : "systemy alarmowe",
   "city" : "kraków",
@@ -90,7 +90,7 @@
   },
   "date" : [ 2023, 1, 15, 13, 54, 9, 818000000 ]
 }, {
-  "offerID" : 23,
+  "offerId" : 23,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacje co i piece",
   "city" : "lublin",
@@ -103,7 +103,7 @@
   },
   "date" : [ 2023, 1, 15, 10, 4, 5, 991000000 ]
 }, {
-  "offerID" : 22,
+  "offerId" : 22,
   "serviceCategory" : "GARDEN",
   "offerContent" : "najpiękniejszy ogród w okolicy",
   "city" : "gdańsk",
@@ -116,7 +116,7 @@
   },
   "date" : [ 2023, 1, 13, 14, 8, 10, 859000000 ]
 }, {
-  "offerID" : 21,
+  "offerId" : 21,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacje i przyłącza - wszystkie ",
   "city" : "gdańsk",
@@ -129,7 +129,7 @@
   },
   "date" : [ 2023, 1, 13, 13, 48, 51, 417000000 ]
 }, {
-  "offerID" : 19,
+  "offerId" : 19,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "kompleksowe roboty budowlane i wykończenie",
   "city" : "kraków",
@@ -142,7 +142,7 @@
   },
   "date" : [ 2023, 1, 13, 13, 21, 6, 371000000 ]
 }, {
-  "offerID" : 18,
+  "offerId" : 18,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "glazurnik",
   "city" : "lublin",
@@ -155,7 +155,7 @@
   },
   "date" : [ 2023, 1, 13, 13, 14, 38, 42000000 ]
 }, {
-  "offerID" : 17,
+  "offerId" : 17,
   "serviceCategory" : "ELECTRICITY",
   "offerContent" : "instalacja elektryczna, alarmy, monitoring",
   "city" : "warszawa",
@@ -168,7 +168,7 @@
   },
   "date" : [ 2023, 1, 13, 12, 10, 12, 59000000 ]
 }, {
-  "offerID" : 16,
+  "offerId" : 16,
   "serviceCategory" : "EARTH_WORKS",
   "offerContent" : "wykopy, niwelacja, sprzęt ciężki",
   "city" : "lublin",
@@ -181,7 +181,7 @@
   },
   "date" : [ 2023, 1, 13, 11, 46, 39, 584000000 ]
 }, {
-  "offerID" : 15,
+  "offerId" : 15,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "profesjonalnie, szybki termin realizacji, możliwe wykończenie pod klucz",
   "city" : "lublin",
@@ -194,7 +194,7 @@
   },
   "date" : [ 2023, 1, 10, 19, 52, 15, 131000000 ]
 }, {
-  "offerID" : 11,
+  "offerId" : 11,
   "serviceCategory" : "EARTH_WORKS",
   "offerContent" : "koparka, ładowarka, walec i łopata, kompleksowo",
   "city" : "skierniewice",
@@ -207,7 +207,7 @@
   },
   "date" : [ 2023, 1, 10, 11, 58, 21, 727000000 ]
 }, {
-  "offerID" : 10,
+  "offerId" : 10,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "wykończenie pod klucz, solidnie, krótkie terminy realizacji",
   "city" : "gdańsk",
@@ -220,7 +220,7 @@
   },
   "date" : [ 2023, 1, 9, 21, 23, 22, 820000000 ]
 }, {
-  "offerID" : 9,
+  "offerId" : 9,
   "serviceCategory" : "GARDEN",
   "offerContent" : "projekt i realizacja, piękny ogród na życzenie",
   "city" : "warszawa",
@@ -233,7 +233,7 @@
   },
   "date" : [ 2023, 1, 9, 21, 20, 14, 815000000 ]
 }, {
-  "offerID" : 8,
+  "offerId" : 8,
   "serviceCategory" : "ELECTRICITY",
   "offerContent" : "fachowe usługi elektryczne, monitoring, inteligentny dom",
   "city" : "warszawa",
@@ -246,7 +246,7 @@
   },
   "date" : [ 2023, 1, 9, 20, 58, 11, 831000000 ]
 }, {
-  "offerID" : 7,
+  "offerId" : 7,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "tylko konstrukcja, do stanu surowego zamkniętego",
   "city" : "lublin",
@@ -259,7 +259,7 @@
   },
   "date" : [ 2023, 1, 9, 16, 37, 41, 356000000 ]
 }, {
-  "offerID" : 6,
+  "offerId" : 6,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacje wod-kan i co, przyłącza",
   "city" : "kraków",
@@ -272,7 +272,7 @@
   },
   "date" : [ 2023, 1, 8, 18, 31, 34, 771000000 ]
 }, {
-  "offerID" : 5,
+  "offerId" : 5,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "kompleksowe usługi wykończeniowe-remontowe",
   "city" : "warszawa",
@@ -285,7 +285,7 @@
   },
   "date" : [ 2023, 1, 8, 18, 26, 53, 914000000 ]
 }, {
-  "offerID" : 4,
+  "offerId" : 4,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "konstrukcja budynku, wykończenie pod klucz",
   "city" : "lublin",
@@ -298,7 +298,7 @@
   },
   "date" : [ 2023, 1, 8, 18, 23, 25, 234000000 ]
 }, {
-  "offerID" : 3,
+  "offerId" : 3,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "szybki i tani fachowiec od robót wewnętrznych",
   "city" : "poznań",
@@ -311,7 +311,7 @@
   },
   "date" : [ 2023, 1, 8, 13, 49, 57, 620000000 ]
 }, {
-  "offerID" : 2,
+  "offerId" : 2,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "wykończenie pod klucz, szybko i fachowo",
   "city" : "gdańsk",
@@ -324,7 +324,7 @@
   },
   "date" : [ 2023, 1, 7, 21, 48, 45, 260000000 ]
 }, {
-  "offerID" : 27,
+  "offerId" : 27,
   "serviceCategory" : "GARDEN",
   "offerContent" : "Piękny ogród, projekt i wykonawstwo",
   "city" : "Lublin",
@@ -337,7 +337,7 @@
   },
   "date" : [ 2023, 2, 21, 22, 38 ]
 }, {
-  "offerID" : 28,
+  "offerId" : 28,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "Sprzęt ciężki, roboty ziemne, wznoszenie budynków",
   "city" : "Warszawa",
@@ -350,7 +350,7 @@
   },
   "date" : [ 2023, 2, 21, 22, 40 ]
 }, {
-  "offerID" : 29,
+  "offerId" : 29,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "Profesjonalne roboty wykończeniowe, remonty, obiekty użyteczności publicznej i przemysłowe",
   "city" : "Poznań",
@@ -363,7 +363,7 @@
   },
   "date" : [ 2023, 2, 21, 22, 41 ]
 }, {
-  "offerID" : 30,
+  "offerId" : 30,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "Kompleksowe roboty budowlane ",
   "city" : "Warszawa",

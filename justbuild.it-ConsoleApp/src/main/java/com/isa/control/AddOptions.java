@@ -59,8 +59,8 @@ public class AddOptions extends SubMenuNavigator {
         if (input.equals("1")) {
             Offer offer = new Offer();
 
-            long offerID = service.getUniqueOfferID();
-            offer.setOfferID(offerID);
+            long offerID = service.getUniqueOfferId();
+            offer.setOfferId(offerID);
 
             System.out.println(CHOOSE_A_NUMBER_MESSAGE);
             System.out.println(CATEGORY_SELECTION_MESSAGE);
@@ -129,7 +129,7 @@ public class AddOptions extends SubMenuNavigator {
             OfferArrayFromFile.setOffersArray();
 
             System.out.println(USERS_OFFER_DISPLAY_MESSAGE + "\n" + offer.printOffer() + "\n");
-            System.out.println(USERS_OFFER_SAVING_MESSAGE + offer.getOfferID());
+            System.out.println(USERS_OFFER_SAVING_MESSAGE + offer.getOfferId());
 
             goBackToMenu();
         } else {

@@ -1,19 +1,19 @@
 package justbuild.it.web.app.dto;
 
-import justbuild.it.web.app.entity.enums.ServiceCategory;
+import justbuild.it.web.app.entity.enums.ServiceCategoryEnum;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
-import static justbuild.it.web.app.config.constants.AppConstants.DISPLAY_DATE_FORMAT;
-import static justbuild.it.web.app.config.constants.AppConstants.EMAIL_FORMAT;
+import static justbuild.it.web.app.entity.constants.AppConstants.DISPLAY_DATE_FORMAT;
+import static justbuild.it.web.app.entity.constants.AppConstants.EMAIL_FORMAT;
 
-public class OfferDTO {
+public class OfferDto {
 
-    private Long offerID;
-    private ServiceCategory serviceCategory;
+    private Long dtoOfferId;
+    private ServiceCategoryEnum serviceCategory;
     private String offerContent;
     @NotBlank
     private String city;
@@ -29,8 +29,8 @@ public class OfferDTO {
     @DateTimeFormat(pattern = DISPLAY_DATE_FORMAT)
     private LocalDateTime dateTime;
 
-    public OfferDTO() {
-        this.offerID = 0L;
+    public OfferDto() {
+        this.dtoOfferId = 0L;
         this.serviceCategory = null;
         this.offerContent = "";
         this.city = "";
@@ -42,10 +42,10 @@ public class OfferDTO {
         this.dateTime = LocalDateTime.now();
     }
 
-    public OfferDTO(Long offerID, ServiceCategory serviceCategory, String offerContent, String city,
+    public OfferDto(Long dtoOfferId, ServiceCategoryEnum serviceCategory, String offerContent, String city,
                     String userFirstName, String userLastName, String userCompanyName, String userEmailAddress,
                     String userTelephoneNumber, LocalDateTime dateTime) {
-        this.offerID = offerID;
+        this.dtoOfferId = dtoOfferId;
         this.serviceCategory = serviceCategory;
         this.offerContent = offerContent;
         this.city = city;
@@ -57,19 +57,19 @@ public class OfferDTO {
         this.dateTime = dateTime;
     }
 
-    public Long getOfferID() {
-        return offerID;
+    public Long getDtoOfferId() {
+        return dtoOfferId;
     }
 
-    public void setOfferID(Long offerID) {
-        this.offerID = offerID;
+    public void setDtoOfferId(Long dtoOfferId) {
+        this.dtoOfferId = dtoOfferId;
     }
 
-    public ServiceCategory getServiceCategory() {
+    public ServiceCategoryEnum getServiceCategory() {
         return serviceCategory;
     }
 
-    public void setServiceCategory(ServiceCategory serviceCategory) {
+    public void setServiceCategory(ServiceCategoryEnum serviceCategory) {
         this.serviceCategory = serviceCategory;
     }
 

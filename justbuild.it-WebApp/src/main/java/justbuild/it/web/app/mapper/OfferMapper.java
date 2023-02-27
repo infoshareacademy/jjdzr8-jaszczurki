@@ -1,6 +1,6 @@
 package justbuild.it.web.app.mapper;
 
-import justbuild.it.web.app.dto.OfferDTO;
+import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.entity.User;
 import org.springframework.stereotype.Component;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class OfferMapper {
 
-    public OfferDTO toDto(Offer offer) {
-        OfferDTO dto = new OfferDTO();
-        dto.setOfferID(offer.getOfferID());
+    public OfferDto toDto(Offer offer) {
+        OfferDto dto = new OfferDto();
+        dto.setDtoOfferId(offer.getOfferId());
         dto.setServiceCategory(offer.getServiceCategory());
         dto.setOfferContent(offer.getOfferContent());
         dto.setCity(offer.getCity());
@@ -23,9 +23,9 @@ public class OfferMapper {
         return dto;
     }
 
-    public Offer fromDto(OfferDTO dto) {
+    public Offer fromDto(OfferDto dto) {
         Offer offer = new Offer();
-        offer.setOfferID(dto.getOfferID());
+        offer.setOfferId(dto.getDtoOfferId());
         offer.setServiceCategory(dto.getServiceCategory());
         offer.setOfferContent(dto.getOfferContent());
         offer.setCity(dto.getCity());

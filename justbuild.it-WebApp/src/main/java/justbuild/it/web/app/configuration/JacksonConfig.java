@@ -1,4 +1,4 @@
-package justbuild.it.web.app.config;
+package justbuild.it.web.app.configuration;
 
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.context.annotation.Bean;

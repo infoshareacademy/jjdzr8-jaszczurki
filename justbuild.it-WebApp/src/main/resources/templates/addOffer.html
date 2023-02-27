@@ -12,17 +12,17 @@
 <body>
 <div th:insert="~{fragments/header :: header-add}"></div>
 
-<form id="addForm" class="addForm col-11 mt-5 mb-5 mx-auto" action="#" th:action="@{/add}" th:object="${offer}"
+<form id="addForm" class="addForm col-11 mt-5 mb-5 mx-auto" action="#" th:action="@{/addOffer}" th:object="${offer}"
       method="post">
     <hr>
     <div class="id mb-4 mt-3 col-1">
         <label for="formGroupExampleInput0">ID oferty: </label>
-        <input type="text" class="form-control" id="formGroupExampleInput0" th:field="*{offerID}" readonly>
+        <input type="text" class="form-control" id="formGroupExampleInput0" th:field="*{dtoOfferId}" readonly>
     </div>
     <hr/>
     <div class="mb-4 mt-5">
         <input type="text" class="form-control" id="formGroupExampleInput2" th:field="*{city}"
-               placeholder="Tu wpisz miasto*" required>
+               placeholder="Tu wpisz miasto / pole wymagane" required>
         <div th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="error-message"></div>
     </div>
     <div class="mb-4">
@@ -35,34 +35,34 @@
     </div>
     <div class="mb-4">
         <input type="text" class="form-control" id="formGroupExampleInput5" th:field="*{userCompanyName}"
-               placeholder="Tu wpisz nazwę firmy*" required>
+               placeholder="Tu wpisz nazwę firmy / pole wymagane" required>
         <div th:if="${#fields.hasErrors('userCompanyName')}" th:errors="*{userCompanyName}" class="error-message"></div>
     </div>
     <div class="mb-4">
         <input type="text" class="form-control" id="formGroupExampleInput6" th:field="*{userTelephoneNumber}"
-               placeholder="Tu wpisz telefon kontaktowy*" required>
+               placeholder="Tu wpisz telefon kontaktowy / pole wymagane" required>
         <div th:if="${#fields.hasErrors('userTelephoneNumber')}" th:errors="*{userTelephoneNumber}"
              class="error-message"></div>
     </div>
-    <div class="mb-4">
+    <div class="mb-5">
         <input type="email" class="form-control" id="formGroupExampleInput7" th:field="*{userEmailAddress}"
-               placeholder="Tu wpisz email*" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+               placeholder="Tu wpisz email / pole wymagane" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
         <div th:if="${#fields.hasErrors('userEmailAddress')}" th:errors="*{userEmailAddress}"
              class="error-message"></div>
     </div>
     <div class="mb-5">
-        <input type="text" class="form-control" id="formGroupExampleInput1" th:field="*{offerContent}"
-               placeholder="Tu wpisz treść ogłoszenia">
+        <textarea class="form-control" id="formGroupExampleInput1" th:field="*{offerContent}"
+                  placeholder="Tu wpisz treść ogłoszenia" style="height: 10em"></textarea>
     </div>
     <div class="input-group mb-4">
         <label class="input-group-text" for="inputGroupSelect">Kategoria</label>
         <select class="form-select" id="inputGroupSelect" th:field="*{serviceCategory}">
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).CONSTRUCTION}">Budowa</option>
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).FINISHING_WORKS}">Remont</option>
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).INSTALLATION}">Instalacje</option>
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).ELECTRICITY}">Elektryka</option>
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).EARTH_WORKS}">Roboty ziemne</option>
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategory).GARDEN}">Ogród</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).CONSTRUCTION}">Budowa</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).FINISHING_WORKS}">Remont</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).INSTALLATION}">Instalacje</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).ELECTRICITY}">Elektryka</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).EARTH_WORKS}">Roboty ziemne</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).GARDEN}">Ogród</option>
         </select>
     </div>
     <div class="mb-4">
