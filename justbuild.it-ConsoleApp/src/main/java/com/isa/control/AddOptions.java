@@ -24,7 +24,7 @@ import static com.isa.entity.appConstants.AppConstants.ENTERED_WRONG_CATEGORY_ME
 import static com.isa.entity.appConstants.AppConstants.FILE_READ_OR_WRITE_ERROR_MESSAGE;
 import static com.isa.entity.appConstants.AppConstants.OFFERS_FILEPATH;
 
-public class AddOptions extends SubMenuNavigator{
+public class AddOptions extends SubMenuNavigator {
     private static final String ADD = "Tu możesz dodać swoje ogłoszenie";
     private static final String CATEGORY_SELECTION_MESSAGE = "Podaj 1 kategorię z dostępnych -> Budowa, Remont, Instalacje, Elektryka, Roboty ziemne, Ogród : ";
     private static final String OFFER_CONTENT_MESSAGE = "Podaj treść oferty: ";
@@ -42,7 +42,7 @@ public class AddOptions extends SubMenuNavigator{
         fileStorage = new MyObjectFileStorage();
     }
 
-    public void showAddDetails(){
+    public void showAddDetails() {
 
         System.out.println(ADD);
         System.out.println(ACCEPT_OR_BACK_TO_MENU_MESSAGE);
@@ -50,6 +50,7 @@ public class AddOptions extends SubMenuNavigator{
     }
 
     Service service = new Service();
+
     @Override
     void subMenuActions() {
         Scanner scanner = new Scanner(System.in);
@@ -58,12 +59,12 @@ public class AddOptions extends SubMenuNavigator{
         if (input.equals("1")) {
             Offer offer = new Offer();
 
-            long offerID = service.getUniqueOfferID();
-            offer.setOfferID(offerID);
+            long offerID = service.getUniqueOfferId();
+            offer.setOfferId(offerID);
 
             System.out.println(CHOOSE_A_NUMBER_MESSAGE);
             System.out.println(CATEGORY_SELECTION_MESSAGE);
-            for (ServiceCategory serviceCategory : ServiceCategory.values()){
+            for (ServiceCategory serviceCategory : ServiceCategory.values()) {
                 System.out.println(serviceCategory.toString());
             }
 
@@ -77,7 +78,7 @@ public class AddOptions extends SubMenuNavigator{
                 } catch (IllegalArgumentException e) {
                     System.out.println(ENTERED_WRONG_CATEGORY_MESSAGE);
                 }
-                if(inProgress) serviceCategoryNumber = scanner.nextLine();
+                if (inProgress) serviceCategoryNumber = scanner.nextLine();
             }
 
             System.out.println(OFFER_CONTENT_MESSAGE);
@@ -106,7 +107,7 @@ public class AddOptions extends SubMenuNavigator{
             offer.setDate(Date.from(LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant()));
 
             Path filePath = Paths.get(OFFERS_FILEPATH);
-            if(Files.exists(filePath)) {
+            if (Files.exists(filePath)) {
                 try {
                     List<Offer> offersList = fileStorage.readFromFile(OFFERS_FILEPATH);
                     offersList.add(offer);
@@ -128,7 +129,7 @@ public class AddOptions extends SubMenuNavigator{
             OfferArrayFromFile.setOffersArray();
 
             System.out.println(USERS_OFFER_DISPLAY_MESSAGE + "\n" + offer.printOffer() + "\n");
-            System.out.println(USERS_OFFER_SAVING_MESSAGE + offer.getOfferID());
+            System.out.println(USERS_OFFER_SAVING_MESSAGE + offer.getOfferId());
 
             goBackToMenu();
         } else {

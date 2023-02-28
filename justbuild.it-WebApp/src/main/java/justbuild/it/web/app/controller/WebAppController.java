@@ -1,26 +1,47 @@
 package justbuild.it.web.app.controller;
 
-import justbuild.it.web.app.service.WebAppService;
+import justbuild.it.web.app.dto.OfferDto;
+import justbuild.it.web.app.mapper.OfferMapper;
+import justbuild.it.web.app.entity.Offer;
+import justbuild.it.web.app.service.OfferService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 public class WebAppController {
 
-    private final WebAppService webAppService;
+    private final OfferService offerService;
+    private final OfferMapper mapper;
 
-    public WebAppController(WebAppService webAppService) {
-        this.webAppService = webAppService;
+    public WebAppController(OfferService offerService, OfferMapper mapper) {
+        this.offerService = offerService;
+        this.mapper = mapper;
     }
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String goHome(Model model) {
-      return "home";
+        return "home";
     }
 
-    @GetMapping("/add")
+    @GetMapping("/addOffer")
     public String goAdd(Model model) {
-        return "add";
+        model.addAttribute("offer", offerService.provideNewOffer());
+        return "addOffer";
+    }
+
+    @PostMapping("/addOffer")
+    public String addOffer(@Valid @ModelAttribute("offer") OfferDto offerDto, BindingResult result) {
+        if (result.hasErrors()) {
+            return "addOffer";
+        }
+        Offer offer = mapper.fromDto(offerDto);
+        offerService.addOffer(offer);
+        return "redirect:/";
     }
 }

@@ -1,6 +1,5 @@
 package com.isa.control;
 
-import com.isa.control.filesFactory.MyObjectFileStorage;
 import com.isa.control.service.Service;
 import com.isa.entity.Offer;
 
