@@ -1,8 +1,8 @@
 package justbuild.it.web.app.controller;
 
 import justbuild.it.web.app.dto.OfferDto;
-import justbuild.it.web.app.mapper.OfferMapper;
 import justbuild.it.web.app.entity.Offer;
+import justbuild.it.web.app.mapper.OfferMapper;
 import justbuild.it.web.app.service.OfferService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class WebAppController {
@@ -43,5 +43,20 @@ public class WebAppController {
         Offer offer = mapper.fromDto(offerDto);
         offerService.addOffer(offer);
         return "redirect:/";
+    }
+
+    @GetMapping("/searchOffer")
+    public String goSearch(String searchValue, Model model) {
+        List<OfferDto> filteredOfferDtoList = offerService.provideNewFilteredOfferDtoList(searchValue);
+        model.addAttribute("filteredOfferDtoList", filteredOfferDtoList);
+//        if (searchValue == null || searchValue == ""){
+//            List<OfferDto> allOfferDtoList = offerService.provideAllDtoList();
+//            model.addAttribute("allOfferDtoList", allOfferDtoList);
+//        } else {
+//            List<OfferDto> filteredOfferDtoList = offerService.provideNewFilteredOfferDtoList(searchValue);
+//            model.addAttribute("filteredOfferDtoList", filteredOfferDtoList);
+//        }
+//        System.out.println(offerService.provideNewFilteredOfferDtoList(searchValue));
+        return "searchOffer";
     }
 }

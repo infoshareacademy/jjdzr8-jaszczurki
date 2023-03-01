@@ -13,10 +13,10 @@
 
 <nav class="navbar navbar-light rounded bg-light mx-3">
     <div class="container-fluid border-primary justify-content-md-center">
-        <form class="d-flex">
-            <input class="form-control me-2 mx-2 justify-content-center" type="search" placeholder="Szukaj ogłoszenia"
-                   aria-label="Search">
-            <button class="btn btn-outline-info" type="submit">Szukaj</button>
+        <form class="d-flex" th:action="@{/searchOffer}" method="get">
+            <input class="form-control me-2 mx-2 justify-content-center" type="text"
+                   name="searchValue" th:value="${searchValue}" placeholder="Szukaj ogłoszenia" aria-label="Search">
+            <button type="submit" class="btn btn-outline-info">Szukaj</button>
         </form>
     </div>
 </nav>
