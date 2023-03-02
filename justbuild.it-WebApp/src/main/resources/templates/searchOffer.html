@@ -24,53 +24,74 @@
 </nav>
 
 <form id="addForm" class="addForm col-11 mt-5 mb-5 mx-auto">
-    <div class="col gy-4 text-center border border-black">
-        <h3 class="text-bg-secondary text-center">Znalezione ogłoszenia:</h3>
-
-        <div class="table-responsive">
-            <table class="table align-middle table-striped table-bordered" th:each="searching: ${filteredOfferDtoList}">
-                <thead>
-                <tr>
-                    <th scope="col">ID:</th>
-                    <th scope="col">Kategoria:</th>
-                    <th scope="col">Firma:</th>
-                    <th scope="col">Imię:</th>
-                    <th scope="col">Nazwisko:</th>
-                    <th scope="col">Telefon:</th>
-                    <th scope="col">Oferta:</th>
-                    <th scope="col">Miasto:</th>
-                    <th scope="col">Data:</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td th:text="${searching.getDtoOfferId()}"></td>
-                    <td th:text="${searching.getServiceCategory()}"></td>
-                    <td th:text="${searching.getUserCompanyName()}"></td>
-                    <td th:text="${searching.getUserFirstName()}"></td>
-                    <td th:text="${searching.getUserLastName()}"></td>
-                    <td th:text="${searching.getUserTelephoneNumber()}"></td>
-                    <td th:text="${searching.getOfferContent()}"></td>
-                    <td th:text="${searching.getCity()}"></td>
-                    <td th:text="${searching.getDateTime()}"></td>
-                </tr>
-                </tbody>
-            </table>
+    <div class="col gy-4 text-center ">
+        <h2>Znalezione oferty:</h2>
+        <table class="table table-bordered table-striped table-hover shadow">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Kategoria</th>
+                <th>Firma</th>
+                <th>Miasto</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="offer : ${filteredOfferDtoList}">
+                <td th:text="${offer.dtoOfferId}"></td>
+                <td th:text="${offer.serviceCategory}"></td>
+                <td th:text="${offer.userCompanyName}"></td>
+                <td th:text="${offer.city}"></td>
+                <td>
+                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                            th:data-bs-target="'#modal-' + ${offer.dtoOfferId}">Szczegóły
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div th:each="offerToModal : ${filteredOfferDtoList}">
+            <div class="modal fade" th:id="'modal-' + ${offerToModal.dtoOfferId}" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title text-center"
+                                th:text="${offerToModal.userCompanyName + ', ' + offerToModal.city}"></h5>
+                            <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body text-left">
+                            <h6>Oferta:</h6>
+                            <p th:text="${offerToModal.offerContent}"></p>
+                            <h6>Kontakt:</h6>
+                            <p>Firma: <span th:text="${offerToModal.userCompanyName}"></span></p>
+                            <p>Imię: <span th:text="${offerToModal.userFirstName}"></span></p>
+                            <p>Nazwisko: <span th:text="${offerToModal.userLastName}"></span></p>
+                            <p>Telefon: <span th:text="${offerToModal.userTelephoneNumber}"></span></p>
+                            <p>Email: <span th:text="${offerToModal.userEmailAddress}"></span></p>
+                        </div>
+                        <div class="modal-footer bg-primary text-white">
+                            <p th:text="'Id: ' + ${offerToModal.dtoOfferId}"></p>
+                            <p th:text="'Data dodania: ' + ${offerToModal.dateTime}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="buttons mb-4 text-center">
-        <a href="/" class="btn btn-secondary" role="button"
-           data-bs-target="#staticBackdrop2">Wróć do strony głównej
-        </a>
-    </div>
+    <form>
+        <div class="buttons mb-4 text-center">
+            <a href="/" class="btn btn-secondary" role="button"
+               data-bs-target="#staticBackdrop2">Wróć do strony głównej
+            </a>
+        </div>
+    </form>
+
+    <div th:insert="~{fragments/footer :: footer}"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous">
+    </script>
 </form>
-
-<div th:insert="~{fragments/footer :: footer}"></div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous">
-</script>
-
 </body>
 </html>

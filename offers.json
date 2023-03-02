@@ -375,4 +375,30 @@
     "telephoneNumber" : "770 007 007"
   },
   "date" : [ 2023, 2, 22, 17, 16 ]
+}, {
+  "offerId" : 31,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "Instalacje wodne",
+  "city" : "Gdynia",
+  "user" : {
+    "firstName" : "Eugeniusz",
+    "lastName" : "Wolski",
+    "company" : "WolskiBud",
+    "emailAddress" : "wolski@o2.pl",
+    "telephoneNumber" : "555 222 555"
+  },
+  "date" : [ 2023, 3, 1, 23, 4 ]
+}, {
+  "offerId" : 32,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Ciągle poszerzamy wiedzę na temat energooszczędnych rozwiązań. Jako jedni z pierwszych w regionie pomorza budujemy domy z Ytonga Jumbo, dzięki czemu nasze inwestycje powstają w krótkim czasie. Posiadamy pełen park maszynowy, który pozwala nam sprawnie wykonać wszystkie prace.",
+  "city" : "Gdynia",
+  "user" : {
+    "firstName" : "Filip",
+    "lastName" : "Burchacz",
+    "company" : "BurchBudowa",
+    "emailAddress" : "burchacz@budowa.eu",
+    "telephoneNumber" : "123 456 654"
+  },
+  "date" : [ 2023, 3, 3, 0, 17 ]
 } ]
