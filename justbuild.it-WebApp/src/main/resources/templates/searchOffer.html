@@ -57,7 +57,9 @@
                         <div class="modal-header bg-primary text-white">
                             <h5 class="modal-title text-center"
                                 th:text="${offerToModal.userCompanyName + ', ' + offerToModal.city}"></h5>
-                            <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
+                            <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="modal-body text-left">
                             <h6>Oferta:</h6>
