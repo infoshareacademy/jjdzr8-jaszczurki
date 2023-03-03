@@ -10,9 +10,11 @@ import java.util.List;
 public class OfferService {
 
     private final OfferCreationService offerCreationService;
+    private final OfferSearchingService offerSearchingService;
 
-    public OfferService(OfferCreationService offerCreationService) {
+    public OfferService(OfferCreationService offerCreationService, OfferSearchingService offerSearchingService) {
         this.offerCreationService = offerCreationService;
+        this.offerSearchingService = offerSearchingService;
     }
 
     public void addOffer(Offer offer) {
@@ -28,14 +30,14 @@ public class OfferService {
     public List<OfferDto> provideNewFilteredOfferDtoList(String searchValue) {
         OfferMapper offerMapper = new OfferMapper();
         List<OfferDto> filteredOfferDtoList;
-        filteredOfferDtoList = offerMapper.toDtoList(offerCreationService.getOffersListFilteredBySearchValue(searchValue));
+        filteredOfferDtoList = offerMapper.toDtoList(offerSearchingService.getOffersListFilteredBySearchValue(searchValue));
         return filteredOfferDtoList;
     }
 
     public List<OfferDto> provideAllDtoList() {
         OfferMapper offerMapper = new OfferMapper();
         List<OfferDto> allOfferDtoList;
-        allOfferDtoList = offerMapper.toDtoList(offerCreationService.getOffersList());
+        allOfferDtoList = offerMapper.toDtoList(offerSearchingService.getOffersList());
         return allOfferDtoList;
     }
 }

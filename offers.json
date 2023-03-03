@@ -401,4 +401,17 @@
     "telephoneNumber" : "123 456 654"
   },
   "date" : [ 2023, 3, 3, 0, 17 ]
+}, {
+  "offerId" : 33,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "Wszelkie instalacje elektryczne oraz alarmowe.",
+  "city" : "Wrocław",
+  "user" : {
+    "firstName" : "Damian",
+    "lastName" : "Lubaszenko",
+    "company" : "DLB",
+    "emailAddress" : "dlb@service.pl",
+    "telephoneNumber" : "888 222 333"
+  },
+  "date" : [ 2023, 3, 3, 21, 28 ]
 } ]

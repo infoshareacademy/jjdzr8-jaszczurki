@@ -73,7 +73,7 @@
                         </div>
                         <div class="modal-footer bg-primary text-white">
                             <p th:text="'Id: ' + ${offerToModal.dtoOfferId}"></p>
-                            <p th:text="'Data dodania: ' + ${offerToModal.dateTime}"></p>
+                            <p th:text="'Data dodania: ' + ${#temporals.format(offerToModal.dateTime,'dd-MM-yyyy HH:mm')}"></p>
                         </div>
                     </div>
                 </div>
