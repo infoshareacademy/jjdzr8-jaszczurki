@@ -49,14 +49,6 @@ public class WebAppController {
     public String goSearch(String searchValue, Model model) {
         List<OfferDto> filteredOfferDtoList = offerService.provideNewFilteredOfferDtoList(searchValue);
         model.addAttribute("filteredOfferDtoList", filteredOfferDtoList);
-//        if (searchValue == null || searchValue == ""){
-//            List<OfferDto> allOfferDtoList = offerService.provideAllDtoList();
-//            model.addAttribute("allOfferDtoList", allOfferDtoList);
-//        } else {
-//            List<OfferDto> filteredOfferDtoList = offerService.provideNewFilteredOfferDtoList(searchValue);
-//            model.addAttribute("filteredOfferDtoList", filteredOfferDtoList);
-//        }
-//        System.out.println(offerService.provideNewFilteredOfferDtoList(searchValue));
         return "searchOffer";
     }
 }

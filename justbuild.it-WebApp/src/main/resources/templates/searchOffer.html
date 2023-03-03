@@ -29,10 +29,11 @@
         <table class="table table-bordered table-striped table-hover shadow">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Kategoria</th>
-                <th>Firma</th>
-                <th>Miasto</th>
+                <th>Id:</th>
+                <th>Kategoria:</th>
+                <th>Firma:</th>
+                <th>Miasto:</th>
+                <th>Dodano:</th>
                 <th></th>
             </tr>
             </thead>
@@ -42,6 +43,7 @@
                 <td th:text="${offer.serviceCategory}"></td>
                 <td th:text="${offer.userCompanyName}"></td>
                 <td th:text="${offer.city}"></td>
+                <td th:text="${#temporals.format(offer.dateTime,'dd-MM-yyyy HH:mm')}"></td>
                 <td>
                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
                             th:data-bs-target="'#modal-' + ${offer.dtoOfferId}">Szczegóły
