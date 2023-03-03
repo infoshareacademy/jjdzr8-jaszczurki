@@ -3,8 +3,11 @@ package justbuild.it.web.app.service;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.repository.OfferFileRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH;
 
 @Service
@@ -24,6 +27,7 @@ public class OfferSearchingService implements OfferSearchingServiceInterface {
     @Override
     public List<Offer> getOffersListFilteredBySearchValue(String searchValue) {
         List<Offer> offers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
+        offers.sort(Comparator.comparing(Offer::getDate));
 
         return offers.stream()
                 .filter(value -> value.getOfferContent().toLowerCase().contains(searchValue.toLowerCase())
