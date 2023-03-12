@@ -3,9 +3,7 @@ package justbuild.it.web.app.service;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.repository.OfferFileRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-
 import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH;
 
 @Service

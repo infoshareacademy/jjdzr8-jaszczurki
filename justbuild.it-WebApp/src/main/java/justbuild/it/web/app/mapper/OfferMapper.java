@@ -4,6 +4,8 @@ import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.entity.User;
 import org.springframework.stereotype.Component;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class OfferMapper {
@@ -38,5 +40,14 @@ public class OfferMapper {
         user.setTelephoneNumber(dto.getUserTelephoneNumber());
         offer.setUser(user);
         return offer;
+    }
+
+    public List<OfferDto> toDtoList(List<Offer> offerList) {
+        return offerList.stream()
+                .map(offer -> new OfferDto(offer.getOfferId(), offer.getServiceCategory(), offer.getOfferContent(),
+                        offer.getCity(), offer.getUser().getFirstName(), offer.getUser().getLastName(),
+                        offer.getUser().getCompany(), offer.getUser().getEmailAddress(),
+                        offer.getUser().getTelephoneNumber(), offer.getDate()))
+                .collect(Collectors.toList());
     }
 }
