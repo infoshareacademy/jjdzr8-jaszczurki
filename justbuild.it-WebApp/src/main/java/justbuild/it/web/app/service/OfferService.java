@@ -34,6 +34,13 @@ public class OfferService {
         return filteredOfferDtoList;
     }
 
+    public List<OfferDto> provideNewFilteredByCategoryOfferDtoList(String category) {
+        OfferMapper offerMapper = new OfferMapper();
+        List<OfferDto> filteredByCategoryOfferDtoList;
+        filteredByCategoryOfferDtoList = offerMapper.toDtoList(offerSearchingService.getOffersListFilteredByCategory(category));
+        return filteredByCategoryOfferDtoList;
+    }
+
     public List<OfferDto> provideAllDtoList() {
         OfferMapper offerMapper = new OfferMapper();
         List<OfferDto> allOfferDtoList;

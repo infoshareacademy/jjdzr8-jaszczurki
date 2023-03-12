@@ -21,13 +21,15 @@
     </div>
 </nav>
 
-<div class="btn-group-vertical me-2 mx-3 my-3" role="group" aria-label="Basic outlined example">
-    <button type="button" class="btn btn-outline-primary">Budowa</button>
-    <button type="button" class="btn btn-outline-primary">Remont</button>
-    <button type="button" class="btn btn-outline-primary">Instalacje</button>
-    <button type="button" class="btn btn-outline-primary">Elektryka</button>
-    <button type="button" class="btn btn-outline-primary">Roboty ziemne</button>
-    <button type="button" class="btn btn-outline-primary">Ogród</button>
+<div>
+    <form class="btn-group-vertical me-2 mx-3 my-3" role="group" aria-label="Basic outlined example" th:action="@{/searchOffer}" method="get">
+        <button type="submit" class="btn btn-outline-primary" name="category" value="Budowa">Budowa</button>
+        <button type="submit" class="btn btn-outline-primary" name="category" value="Remont">Remont</button>
+        <button type="submit" class="btn btn-outline-primary" name="category" value="Instalacje">Instalacje</button>
+        <button type="submit" class="btn btn-outline-primary" name="category" value="Elektryka">Elektryka</button>
+        <button type="submit" class="btn btn-outline-primary" name="category" value="Roboty ziemne">Roboty ziemne</button>
+        <button type="submit" class="btn btn-outline-primary" name="category" value="Ogród">Ogród</button>
+    </form>
 </div>
 
 <div class="container" style="height: 60vh">

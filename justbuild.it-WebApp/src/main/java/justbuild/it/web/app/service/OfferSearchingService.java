@@ -36,4 +36,13 @@ public class OfferSearchingService implements OfferSearchingServiceInterface {
                         || value.getServiceCategory().toString().toLowerCase().contains(searchValue.toLowerCase()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<Offer> getOffersListFilteredByCategory(String category) {
+        List<Offer> offers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
+        offers.sort(Comparator.comparing(Offer::getDate).reversed());
+        return offers.stream()
+                .filter(value -> value.getServiceCategory().toString().equals(category))
+                .collect(Collectors.toList());
+    }
 }
