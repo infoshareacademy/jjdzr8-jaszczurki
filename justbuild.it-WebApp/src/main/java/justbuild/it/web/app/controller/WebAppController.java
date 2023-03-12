@@ -46,8 +46,13 @@ public class WebAppController {
     }
 
     @GetMapping("/searchOffer")
-    public String goSearch(String searchValue, Model model) {
-        List<OfferDto> filteredOfferDtoList = offerService.provideNewFilteredOfferDtoList(searchValue);
+    public String goSearch(String searchValue, String category, Model model) {
+        List<OfferDto> filteredOfferDtoList;
+        if (category != null && !category.isEmpty()){
+            filteredOfferDtoList = offerService.provideNewFilteredByCategoryOfferDtoList(category);
+        } else {
+            filteredOfferDtoList = offerService.provideNewFilteredOfferDtoList(searchValue);
+        }
         model.addAttribute("filteredOfferDtoList", filteredOfferDtoList);
         return "searchOffer";
     }

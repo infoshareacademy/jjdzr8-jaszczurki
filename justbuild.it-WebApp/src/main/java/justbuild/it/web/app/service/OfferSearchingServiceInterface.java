@@ -7,4 +7,6 @@ public interface OfferSearchingServiceInterface {
     List<Offer> getOffersList();
 
     List<Offer> getOffersListFilteredBySearchValue(String searchValue);
+
+    List<Offer> getOffersListFilteredByCategory(String category);
 }
