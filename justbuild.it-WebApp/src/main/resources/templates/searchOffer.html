@@ -72,6 +72,7 @@
                             <p>Nazwisko: <span th:text="${offerToModal.userLastName}"></span></p>
                             <p>Telefon: <span th:text="${offerToModal.userTelephoneNumber}"></span></p>
                             <p>Email: <span th:text="${offerToModal.userEmailAddress}"></span></p>
+                            <a th:href="'/editOffer/' + ${offerToModal.dtoOfferId}" th:text="'Edycja'" type="button" class="btn btn-outline-info"></a>
                         </div>
                         <div class="modal-footer bg-primary text-white">
                             <p th:text="'Id: ' + ${offerToModal.dtoOfferId}"></p>

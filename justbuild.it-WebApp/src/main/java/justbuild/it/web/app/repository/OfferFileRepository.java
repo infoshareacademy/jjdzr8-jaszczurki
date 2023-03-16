@@ -13,9 +13,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static justbuild.it.web.app.entity.constants.AppConstants.LOG_READ_FROM_FILE;
 import static justbuild.it.web.app.entity.constants.AppConstants.LOG_WRITE_TO_FILE;
+import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH;
 
 @Repository
 public class OfferFileRepository {
@@ -49,5 +51,12 @@ public class OfferFileRepository {
         } catch (IOException e) {
             LOGGER.error(LOG_WRITE_TO_FILE + file.getAbsolutePath(), e);
         }
+    }
+
+    public Optional<Offer> findOfferById(Long id) {
+        return getOffersFromJsonFile(OFFERS_FILEPATH)
+                .stream()
+                .filter(offer -> offer.getOfferId().equals(id))
+                .findFirst();
     }
 }

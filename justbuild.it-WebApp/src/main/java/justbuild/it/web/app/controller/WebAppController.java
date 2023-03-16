@@ -3,12 +3,14 @@ package justbuild.it.web.app.controller;
 import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.mapper.OfferMapper;
+import justbuild.it.web.app.service.OfferEditService;
 import justbuild.it.web.app.service.OfferService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 import java.util.List;
@@ -18,10 +20,12 @@ public class WebAppController {
 
     private final OfferService offerService;
     private final OfferMapper mapper;
+    private final OfferEditService offerEditService;
 
-    public WebAppController(OfferService offerService, OfferMapper mapper) {
+    public WebAppController(OfferService offerService, OfferMapper mapper, OfferEditService offerEditService) {
         this.offerService = offerService;
         this.mapper = mapper;
+        this.offerEditService = offerEditService;
     }
 
     @GetMapping("/")
@@ -55,5 +59,20 @@ public class WebAppController {
         }
         model.addAttribute("filteredOfferDtoList", filteredOfferDtoList);
         return "searchOffer";
+    }
+
+    @GetMapping("/editOffer/{id}")
+    public String goEdit(@PathVariable Long id, Model model) {
+        model.addAttribute("offer", offerEditService.getOfferDtoById(id));
+        return "editOffer";
+    }
+
+    @PostMapping("/editOffer")
+    public String editOffer(@Valid @ModelAttribute("offer") OfferDto offerDto, BindingResult result) {
+        if (result.hasErrors()) {
+            return "editOffer";
+        }
+        offerEditService.updateOffer(offerDto);
+        return "redirect:/";
     }
 }
