@@ -11,10 +11,12 @@ public class OfferService {
 
     private final OfferCreationService offerCreationService;
     private final OfferSearchingService offerSearchingService;
+    private final OfferEditionService offerEditionService;
 
-    public OfferService(OfferCreationService offerCreationService, OfferSearchingService offerSearchingService) {
+    public OfferService(OfferCreationService offerCreationService, OfferSearchingService offerSearchingService, OfferEditionService offerEditionService) {
         this.offerCreationService = offerCreationService;
         this.offerSearchingService = offerSearchingService;
+        this.offerEditionService = offerEditionService;
     }
 
     public void addOffer(Offer offer) {
@@ -46,5 +48,13 @@ public class OfferService {
         List<OfferDto> allOfferDtoList;
         allOfferDtoList = offerMapper.toDtoList(offerSearchingService.getOffersList());
         return allOfferDtoList;
+    }
+
+    public OfferDto getOfferDtoById(Long id) {
+        return offerEditionService.getOfferDtoById(id);
+    }
+
+    public void updateOffer(OfferDto editedOfferDto) {
+        offerEditionService.updateOffer(editedOfferDto);
     }
 }

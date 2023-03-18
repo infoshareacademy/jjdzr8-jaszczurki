@@ -11,12 +11,12 @@ import java.util.List;
 import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH;
 
 @Service
-public class OfferEditService {
+class OfferEditionService implements OfferEditionServiceInterface {
 
     private final OfferFileRepository offerFileRepository;
     private final OfferMapper mapper;
 
-    public OfferEditService(OfferFileRepository offerFileRepository, OfferMapper mapper) {
+    OfferEditionService(OfferFileRepository offerFileRepository, OfferMapper mapper) {
         this.offerFileRepository = offerFileRepository;
         this.mapper = mapper;
     }
@@ -24,7 +24,7 @@ public class OfferEditService {
     public OfferDto getOfferDtoById(Long id) {
 
         return offerFileRepository.findOfferById(id)
-                .map(offer -> mapper.toDto(offer))
+                .map(mapper::toDto)
                 .orElseThrow();
     }
 

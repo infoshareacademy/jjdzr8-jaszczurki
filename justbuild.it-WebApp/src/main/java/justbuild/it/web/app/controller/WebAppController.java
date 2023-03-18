@@ -3,7 +3,6 @@ package justbuild.it.web.app.controller;
 import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.mapper.OfferMapper;
-import justbuild.it.web.app.service.OfferEditService;
 import justbuild.it.web.app.service.OfferService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +19,10 @@ public class WebAppController {
 
     private final OfferService offerService;
     private final OfferMapper mapper;
-    private final OfferEditService offerEditService;
 
-    public WebAppController(OfferService offerService, OfferMapper mapper, OfferEditService offerEditService) {
+    public WebAppController(OfferService offerService, OfferMapper mapper) {
         this.offerService = offerService;
         this.mapper = mapper;
-        this.offerEditService = offerEditService;
     }
 
     @GetMapping("/")
@@ -63,7 +60,7 @@ public class WebAppController {
 
     @GetMapping("/editOffer/{id}")
     public String goEdit(@PathVariable Long id, Model model) {
-        model.addAttribute("offer", offerEditService.getOfferDtoById(id));
+        model.addAttribute("offer", offerService.getOfferDtoById(id));
         return "editOffer";
     }
 
@@ -72,7 +69,7 @@ public class WebAppController {
         if (result.hasErrors()) {
             return "editOffer";
         }
-        offerEditService.updateOffer(offerDto);
+        offerService.updateOffer(offerDto);
         return "redirect:/";
     }
 }
