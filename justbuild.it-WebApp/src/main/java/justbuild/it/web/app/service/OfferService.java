@@ -3,7 +3,13 @@ package justbuild.it.web.app.service;
 import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.mapper.OfferMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -46,5 +52,21 @@ public class OfferService {
         List<OfferDto> allOfferDtoList;
         allOfferDtoList = offerMapper.toDtoList(offerSearchingService.getOffersList());
         return allOfferDtoList;
+    }
+
+    public Page<OfferDto> findPaginated(Pageable pageable, List<OfferDto> allOfferDtoList) {
+        int pageSize = pageable.getPageSize();
+        int currentPage = pageable.getPageNumber();
+        int startItem = currentPage * pageSize;
+        List<OfferDto> offerList;
+
+        if (allOfferDtoList.size() < startItem) {
+            offerList = Collections.emptyList();
+        } else {
+            int toIndex = Math.min(startItem + pageSize, allOfferDtoList.size());
+            offerList = allOfferDtoList.subList(startItem, toIndex);
+        }
+
+        return new PageImpl<OfferDto>(offerList, PageRequest.of(currentPage, pageSize), allOfferDtoList.size());
     }
 }

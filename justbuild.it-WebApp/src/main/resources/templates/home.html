@@ -6,6 +6,9 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"
           type="text/css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
     <title>home</title>
 </head>
 <body>
@@ -21,18 +24,51 @@
     </div>
 </nav>
 
-<div>
-    <form class="btn-group-vertical me-2 mx-3 my-3" role="group" aria-label="Basic outlined example" th:action="@{/searchOffer}" method="get">
-        <button type="submit" class="btn btn-outline-primary" name="category" value="Budowa">Budowa</button>
-        <button type="submit" class="btn btn-outline-primary" name="category" value="Remont">Remont</button>
-        <button type="submit" class="btn btn-outline-primary" name="category" value="Instalacje">Instalacje</button>
-        <button type="submit" class="btn btn-outline-primary" name="category" value="Elektryka">Elektryka</button>
-        <button type="submit" class="btn btn-outline-primary" name="category" value="Roboty ziemne">Roboty ziemne</button>
-        <button type="submit" class="btn btn-outline-primary" name="category" value="Ogród">Ogród</button>
-    </form>
-</div>
-
-<div class="container" style="height: 60vh">
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="btn-group-vertical me-2 text-start" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary">Budowa</button>
+                <button type="button" class="btn btn-outline-primary">Remont</button>
+                <button type="button" class="btn btn-outline-primary">Instalacje</button>
+                <button type="button" class="btn btn-outline-primary">Elektryka</button>
+                <button type="button" class="btn btn-outline-primary">Roboty ziemne</button>
+                <button type="button" class="btn btn-outline-primary">Ogród</button>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div th:each="offer : ${offerDtoPage.content}" class="col-md-4 my-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${offer.dtoOfferId}">Oferta</h5>
+                            <p class="card-text" th:text="${offer.offerContent}">Opis oferty.</p>
+                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                    th:data-bs-target="'#modal-' + ${offer.dtoOfferId}">Szczegóły
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-end ms-auto">
+            <li class="page-item">
+                <a class="page-link" th:href="@{/(size=${offerDtoPage.size}, page=${offerDtoPage.previousPageable().getPageNumber()})}" th:if="${offerDtoPage.hasPrevious}">
+                    Previous
+                </a>
+            </li>
+            <li th:each="pageNumber : ${pageNumbers}" class="page-item" th:classappend="${pageNumber==offerDtoPage.number + 1} ? 'active'">
+                <a class="page-link" th:href="@{/(size=${offerDtoPage.size}, page=${pageNumber})}" th:text="${pageNumber}"></a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" th:href="@{/(size=${offerDtoPage.size}, page=${offerDtoPage.number + 1})}" th:if="${offerDtoPage.hasNext}">
+                    Next
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 <div th:insert="~{fragments/footer :: footer}"></div>
