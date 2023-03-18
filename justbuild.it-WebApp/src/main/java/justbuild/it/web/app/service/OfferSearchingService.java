@@ -9,11 +9,11 @@ import java.util.stream.Collectors;
 import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH;
 
 @Service
-public class OfferSearchingService implements OfferSearchingServiceInterface {
+class OfferSearchingService implements OfferSearchingServiceInterface {
 
     private final OfferFileRepository offerFileRepository;
 
-    public OfferSearchingService(OfferFileRepository offerFileRepository) {
+    OfferSearchingService(OfferFileRepository offerFileRepository) {
         this.offerFileRepository = offerFileRepository;
     }
 
