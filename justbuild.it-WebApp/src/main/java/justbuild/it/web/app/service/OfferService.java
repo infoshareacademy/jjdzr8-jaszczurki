@@ -62,6 +62,7 @@ public class OfferService {
 
     public void updateOffer(OfferDto editedOfferDto) {
         offerEditionService.updateOffer(editedOfferDto);
+    }
         
     public Page<OfferDto> findPaginated(Pageable pageable, List<OfferDto> allOfferDtoList) {
         int pageSize = pageable.getPageSize();
