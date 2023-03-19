@@ -4,6 +4,10 @@
     border-radius: 5px;
 }
 
+.id {
+    font-size: 22px;
+}
+
 body {
     background-color: #dbe2e5;
 }

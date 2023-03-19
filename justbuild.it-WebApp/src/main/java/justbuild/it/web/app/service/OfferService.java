@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -30,9 +31,11 @@ public class OfferService {
     }
 
     public OfferDto provideNewOffer() {
-        OfferDto offer = new OfferDto();
-        offer.setDtoOfferId(offerCreationService.getNextOfferId());
-        return offer;
+        return new OfferDto();
+    }
+
+    public void setIdToOffer(Offer offer) {
+        offer.setOfferId(offerCreationService.getNextOfferId());
     }
 
     public List<OfferDto> provideNewFilteredOfferDtoList(String searchValue) {
@@ -53,6 +56,7 @@ public class OfferService {
         OfferMapper offerMapper = new OfferMapper();
         List<OfferDto> allOfferDtoList;
         allOfferDtoList = offerMapper.toDtoList(offerSearchingService.getOffersList());
+        allOfferDtoList.sort(Comparator.comparing(OfferDto::getDateTime).reversed());
         return allOfferDtoList;
     }
 

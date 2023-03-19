@@ -15,9 +15,8 @@
 <form id="addForm" class="addForm col-11 mt-5 mb-5 mx-auto" action="#" th:action="@{/addOffer}" th:object="${offer}"
       method="post">
     <hr>
-    <div class="id mb-4 mt-3 col-1">
-        <label for="formGroupExampleInput0">ID oferty: </label>
-        <input type="text" class="form-control" id="formGroupExampleInput0" th:field="*{dtoOfferId}" readonly>
+    <div class="id mb-4 mt-3 col-4">
+        <span>Formularz dodawania oferty: </span>
     </div>
     <hr/>
     <div class="mb-4 mt-5">
