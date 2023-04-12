@@ -1,5 +1,5 @@
 #addForm {
-    background-color: #ffdd00;
+    background-color: #ffd500;
 }
 
 .input-group-text {
@@ -11,9 +11,16 @@
 }
 
 .addForm {
-    background-color: #f0f9ff;
     padding-bottom: 1px;
     border-radius: 5px;
+}
+
+.form-control {
+    background-color: #fff0a0;
+}
+
+.form-select {
+    background-color: #fff0a0;
 }
 
 .id {
@@ -25,25 +32,25 @@ body {
 }
 
 .container-fluid {
-    background-color: #ffdd00;
+    background-color: #ffd500;
 }
 
 .d-flex {
-    background-color: #ffdd00;
+    background-color: #ffd500;
 }
 
 .btn-group-vertical {
-    background-color: #ffdd00;
+    background-color: #ffd500;
 }
 
 .card-body {
-    background-color: #ffdd00;
+    background-color: #ffd500;
 }
 
 .page-link {
-    background-color: #ffdd00;
+    background-color: #ffd500;
 }
 
 .modal-content {
-    background-color: #ffdd00;
+    background-color: #ffd500;
 }
