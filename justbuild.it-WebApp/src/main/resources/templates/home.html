@@ -10,16 +10,17 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
     <title>home</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/add style.css}"/>
 </head>
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 
-<nav class="navbar navbar-light rounded bg-light mx-3">
+<nav class="navbar navbar-light rounded mx-3" style="background-color: #ffd500;">
     <div class="container-fluid border-primary justify-content-md-center">
         <form class="d-flex" th:action="@{/searchOffer}" method="get">
             <input class="form-control me-2 mx-2 justify-content-center" type="text"
                    name="searchValue" th:value="${searchValue}" placeholder="Szukaj ogłoszenia" aria-label="Search">
-            <button type="submit" class="btn btn-outline-info">Szukaj</button>
+            <button type="submit" class="btn btn-outline-primary">Szukaj</button>
         </form>
     </div>
 </nav>
@@ -38,7 +39,7 @@
         </div>
         <div class="col-md-9">
             <div class="row">
-                <div th:each="offer : ${offerDtoPage.content}" class="col-md-4 my-3">
+                <div th:each="offer : ${offerDtoPage}" class="col-md-4 my-3">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title" th:text="${offer.dtoOfferId}">Oferta</h5>

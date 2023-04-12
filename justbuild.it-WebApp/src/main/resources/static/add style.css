@@ -1,3 +1,15 @@
+#addForm {
+    background-color: #ffdd00;
+}
+
+.input-group-text {
+    background-color: #e8b104;
+}
+
+#formGroupExampleInput8 {
+    background-color: #e8b104;
+}
+
 .addForm {
     background-color: #f0f9ff;
     padding-bottom: 1px;
@@ -9,5 +21,29 @@
 }
 
 body {
-    background-color: #dbe2e5;
+    background-color: #e8b104;
+}
+
+.container-fluid {
+    background-color: #ffdd00;
+}
+
+.d-flex {
+    background-color: #ffdd00;
+}
+
+.btn-group-vertical {
+    background-color: #ffdd00;
+}
+
+.card-body {
+    background-color: #ffdd00;
+}
+
+.page-link {
+    background-color: #ffdd00;
+}
+
+.modal-content {
+    background-color: #ffdd00;
 }

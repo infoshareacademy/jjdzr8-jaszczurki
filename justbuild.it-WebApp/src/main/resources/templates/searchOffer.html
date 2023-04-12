@@ -13,12 +13,12 @@
 <body>
 <div th:insert="~{fragments/header :: header-add}"></div>
 
-<nav class="navbar navbar-light rounded bg-light mx-3">
+<nav class="navbar navbar-light rounded mx-3" style="background-color: #ffd500;">
     <div class="container-fluid border-primary justify-content-md-center">
         <form class="d-flex" th:action="@{/searchOffer}" method="get">
             <input class="form-control me-2 mx-2 justify-content-center" type="text"
                    name="searchValue" th:value="${searchValue}" placeholder="Szukaj ogłoszenia" aria-label="Search">
-            <button type="submit" class="btn btn-outline-info">Szukaj</button>
+            <button type="submit" class="btn btn-outline-primary">Szukaj</button>
         </form>
     </div>
 </nav>
@@ -56,11 +56,11 @@
             <div class="modal fade" th:id="'modal-' + ${offerToModal.dtoOfferId}" tabindex="-1">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header bg-primary text-white">
+                        <div class="modal-header bg-dark text-white">
                             <h5 class="modal-title text-center"
                                 th:text="${offerToModal.userCompanyName + ', ' + offerToModal.city}"></h5>
                             <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
-                                <span aria-hidden="true">&times;</span>
+                                <span class="text-white" aria-hidden="true">x</span>
                             </button>
                         </div>
                         <div class="modal-body text-left">
@@ -72,9 +72,9 @@
                             <p>Nazwisko: <span th:text="${offerToModal.userLastName}"></span></p>
                             <p>Telefon: <span th:text="${offerToModal.userTelephoneNumber}"></span></p>
                             <p>Email: <span th:text="${offerToModal.userEmailAddress}"></span></p>
-                            <a th:href="'/editOffer/' + ${offerToModal.dtoOfferId}" th:text="'Edycja'" type="button" class="btn btn-outline-info"></a>
+                            <a th:href="'/editOffer/' + ${offerToModal.dtoOfferId}" th:text="'Edycja'" type="button" class="btn btn-outline-primary"></a>
                         </div>
-                        <div class="modal-footer bg-primary text-white">
+                        <div class="modal-footer bg-dark text-white">
                             <p th:text="'Id: ' + ${offerToModal.dtoOfferId}"></p>
                             <p th:text="'Data dodania: ' + ${#temporals.format(offerToModal.dateTime,'dd-MM-yyyy HH:mm')}"></p>
                         </div>
@@ -86,7 +86,7 @@
 
     <form>
         <div class="buttons mb-4 text-center">
-            <a href="/" class="btn btn-secondary" role="button"
+            <a href="/" class="btn btn-dark" role="button"
                data-bs-target="#staticBackdrop2">Wróć do strony głównej
             </a>
         </div>
