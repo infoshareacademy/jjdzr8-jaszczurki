@@ -1,13 +1,26 @@
 #addForm {
-    background-color: #ffd500;
+    background-color: #FFD733;
+}
+
+.table {
+    background-color: #fff0a0;
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
 }
 
 .input-group-text {
-    background-color: #e8b104;
+    background-color: #7a7a78;
+    color: white;
+    margin-right: 5px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
 }
 
 #formGroupExampleInput8 {
-    background-color: #e8b104;
+    background-color: #7a7a78;
+    color: white;
 }
 
 .addForm {
@@ -17,10 +30,16 @@
 
 .form-control {
     background-color: #fff0a0;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
 }
 
 .form-select {
     background-color: #fff0a0;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
 }
 
 .id {
@@ -28,29 +47,42 @@
 }
 
 body {
-    background-color: #e8b104;
+    background-image: url("brown-brick-wall-bricks-architecture-orange-building-wallpaper-1920x1200_6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .container-fluid {
-    background-color: #ffd500;
+    background-color: #FFD733;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .d-flex {
-    background-color: #ffd500;
+    background-color: #FFD733;
 }
 
 .btn-group-vertical {
-    background-color: #ffd500;
+    background-color: #FFD733;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
 }
 
 .card-body {
-    background-color: #ffd500;
+    background-color: #fff0a0;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
 }
 
 .page-link {
-    background-color: #ffd500;
+    background-color: #FFD733;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5px;
 }
 
 .modal-content {
-    background-color: #ffd500;
+    background-color: #FFD733;
 }
