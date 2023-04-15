@@ -13,7 +13,7 @@
 <body>
 <div th:insert="~{fragments/header :: header-add}"></div>
 
-<nav class="navbar navbar-light rounded mx-3" style="background-color: #ffd500;">
+<nav id="navbar" class="navbar navbar-light rounded mx-3" style="background-color: #ffd500;">
     <div class="container-fluid border-primary justify-content-md-center">
         <form class="d-flex" th:action="@{/searchOffer}" method="get">
             <input class="form-control me-2 mx-2 justify-content-center" type="text"

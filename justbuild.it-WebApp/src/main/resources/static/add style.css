@@ -1,5 +1,6 @@
 #addForm {
     background-color: #FFD733;
+    box-shadow: 10px 10px 30px 0 #000000;
 }
 
 .table {
@@ -54,8 +55,6 @@ body {
 
 .container-fluid {
     background-color: #FFD733;
-    padding: 5px;
-    margin-bottom: 10px;
 }
 
 .d-flex {
@@ -66,14 +65,17 @@ body {
     background-color: #FFD733;
     border-color: black;
     border-style: solid;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 30px 0 #000000;
 }
 
 .card-body {
-    background-color: #fff0a0;
+    background-color: #ffe06d;
     border-color: black;
     border-style: solid;
     border-radius: 5px;
+    box-shadow: 10px 10px 30px 0 #000000;
+    opacity: 0.8;
 }
 
 .page-link {
@@ -81,8 +83,26 @@ body {
     border-color: black;
     border-style: solid;
     border-radius: 5px;
+    box-shadow: 10px 10px 30px 0 #000000;
 }
 
 .modal-content {
     background-color: #FFD733;
 }
+
+#just-build {
+    box-shadow: 10px 10px 30px 0 #000000;
+}
+
+#navbar {
+    box-shadow: 10px 10px 30px 0 #000000;
+}
+
+#navbar2 {
+    box-shadow: 10px 10px 30px 0 #000000;
+}
+
+
+
+
+
