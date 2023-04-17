@@ -13,12 +13,13 @@
 <body>
 <div th:insert="~{fragments/header :: header}"></div>
 
-<nav id="navbar" class="navbar navbar-light rounded mx-3" style="background-color: #ffd500;">
-    <div class="container-fluid border-primary justify-content-md-center">
+<nav id="navbar" class="navbar navbar-light rounded mx-3" style="background-color: #fabf4b;">
+    <div class="container-fluid border-dark justify-content-md-center">
         <form class="d-flex" th:action="@{/searchOffer}" method="get">
             <input class="form-control me-2 mx-2 justify-content-center" type="text"
                    name="searchValue" th:value="${searchValue}" placeholder="Szukaj ogłoszenia" aria-label="Search">
-            <button type="submit" class="btn btn-outline-primary">Szukaj</button>
+            &nbsp;&nbsp;&nbsp;
+            <button type="submit" class="btn btn-outline-dark">Szukaj</button>
         </form>
     </div>
 </nav>
@@ -26,22 +27,22 @@
     <div class="row">
         <div class="col-md-4">
             <form class="btn-group-vertical btn-group-lg ml-3" aria-label="Basic outlined example" th:action="@{/searchOffer}" method="get" style="height: 400px; width: 250px">
-                <button type="submit" class="btn btn-outline-primary" name="category" value="Budowa">Budowa</button>
-                <button type="submit" class="btn btn-outline-primary" name="category" value="Remont">Remont</button>
-                <button type="submit" class="btn btn-outline-primary" name="category" value="Instalacje">Instalacje</button>
-                <button type="submit" class="btn btn-outline-primary" name="category" value="Elektryka">Elektryka</button>
-                <button type="submit" class="btn btn-outline-primary" name="category" value="Roboty ziemne">Roboty ziemne</button>
-                <button type="submit" class="btn btn-outline-primary" name="category" value="Ogród">Ogród</button>
+                <button type="submit" class="btn btn-outline-dark" name="category" value="Budowa">Budowa</button>
+                <button type="submit" class="btn btn-outline-white" style="background-color: #fcf1b9; box-shadow: 10px 10px 30px 0 #000000;" name="category" value="Remont">Remont</button>
+                <button type="submit" class="btn btn-outline-dark" name="category" value="Instalacje">Instalacje</button>
+                <button type="submit" class="btn btn-outline-white" style="background-color: #fcf1b9; box-shadow: 10px 10px 30px 0 #000000;" name="category" value="Elektryka">Elektryka</button>
+                <button type="submit" class="btn btn-outline-dark" name="category" value="Roboty ziemne">Roboty ziemne</button>
+                <button type="submit" class="btn btn-outline-white" style="background-color: #fcf1b9; box-shadow: 10px 10px 30px 0 #000000;" name="category" value="Ogród">Ogród</button>
             </form>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="font-size: 12px;">
             <div class="row">
                 <div th:each="offer : ${offerDtoPage}" class="col-md-4 mb-5">
                     <div class="card">
                         <div class="card-body overflow-auto" style="height: 250px; width: 100%">
                             <h5 class="card-title" th:text="${offer.userCompanyName}">Oferta</h5>
                             <p class="card-text" th:text="${offer.offerContent}">Opis oferty.</p>
-                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                            <button id="button-shadow" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
                                     th:data-bs-target="'#modal-' + ${offer.dtoOfferId}">Szczegóły
                             </button>
                         </div>
@@ -53,7 +54,7 @@
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             <li class="page-item">
-                <a class="page-link"
+                <a class="page-link" style="color: black"
                    th:href="@{/(size=${offerDtoPage.size}, page=${offerDtoPage.previousPageable().getPageNumber() + 1})}"
                    th:if="${offerDtoPage.hasPrevious}">
                     Previous
@@ -61,11 +62,12 @@
             </li>
             <li th:each="pageNumber : ${pageNumbers}" class="page-item"
                 th:classappend="${pageNumber==offerDtoPage.number + 1} ? 'active'">
-                <a class="page-link" th:href="@{/(size=${offerDtoPage.size}, page=${pageNumber})}"
+                <a id="active-black" class="page-link" style="color: black; border-color: #fabf4b"
+                   th:href="@{/(size=${offerDtoPage.size}, page=${pageNumber})}"
                    th:text="${pageNumber}"></a>
             </li>
             <li class="page-item">
-                <a class="page-link" th:href="@{/(size=${offerDtoPage.size}, page=${offerDtoPage.number + 2})}"
+                <a class="page-link" style="color: black; border-color: #fabf4b" th:href="@{/(size=${offerDtoPage.size}, page=${offerDtoPage.number + 2})}"
                    th:if="${offerDtoPage.hasNext}">
                     Next
                 </a>
