@@ -1,0 +1,41 @@
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+<!--    <appender name="FILE_JSON" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>logs/logfile.json</file>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>logs/logfile-%d{yyyy-MM-dd}.json</fileNamePattern>-->
+<!--            <maxHistory>30</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>-->
+<!--    </appender>-->
+
+    <appender name="FILE_CSV" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/logfile.csv</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/logfile-%d{yyyy-MM-dd}.csv</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>%date,%thread,%-5level,%logger{36},%msg%n</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <logger name="justbuild.it-WebApp" level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+<!--        <appender-ref ref="FILE_JSON"/>-->
+        <appender-ref ref="FILE_CSV"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+<!--        <appender-ref ref="FILE_JSON"/>-->
+        <appender-ref ref="FILE_CSV"/>
+    </root>
+</configuration>
