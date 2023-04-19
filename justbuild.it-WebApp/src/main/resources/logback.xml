@@ -6,7 +6,6 @@
     </appender>
 
 <!--    <appender name="FILE_JSON" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-<!--        <file>logs/logfile.json</file>-->
 <!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
 <!--            <fileNamePattern>logs/logfile-%d{yyyy-MM-dd}.json</fileNamePattern>-->
 <!--            <maxHistory>30</maxHistory>-->
@@ -15,7 +14,6 @@
 <!--    </appender>-->
 
     <appender name="FILE_CSV" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/logfile.csv</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>logs/logfile-%d{yyyy-MM-dd}.csv</fileNamePattern>
             <maxHistory>30</maxHistory>
