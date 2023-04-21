@@ -3,8 +3,8 @@ package justbuild.it.web.app.repository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import justbuild.it.web.app.entity.Offer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import java.io.File;
@@ -27,7 +27,7 @@ public class OfferFileRepository {
 
     public OfferFileRepository(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
-        this.LOGGER = LogManager.getLogger(OfferFileRepository.class.getName());
+        this.LOGGER = LoggerFactory.getLogger(OfferFileRepository.class);
     }
 
     public List<Offer> getOffersFromJsonFile(String filePath) {

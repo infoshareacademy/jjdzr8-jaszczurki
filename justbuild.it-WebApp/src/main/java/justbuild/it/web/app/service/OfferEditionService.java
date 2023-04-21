@@ -4,6 +4,8 @@ import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.mapper.OfferMapper;
 import justbuild.it.web.app.repository.OfferFileRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,14 +17,16 @@ class OfferEditionService implements OfferEditionServiceInterface {
 
     private final OfferFileRepository offerFileRepository;
     private final OfferMapper mapper;
+    private final Logger LOGGER;
 
     OfferEditionService(OfferFileRepository offerFileRepository, OfferMapper mapper) {
         this.offerFileRepository = offerFileRepository;
         this.mapper = mapper;
+        this.LOGGER = LoggerFactory.getLogger(OfferEditionService.class);
     }
 
     public OfferDto getOfferDtoById(Long id) {
-
+        LOGGER.debug("Fetching offer with ID: {}", id);
         return offerFileRepository.findOfferById(id)
                 .map(mapper::toDto)
                 .orElseThrow();
@@ -35,5 +39,6 @@ class OfferEditionService implements OfferEditionServiceInterface {
         offers.remove(toReplaceOffer);
         offers.add(editedOffer);
         offerFileRepository.saveOffersToJsonFile(offers, OFFERS_FILEPATH);
+        LOGGER.debug("Offer with ID: {} has been updated", editedOffer.getOfferId());
     }
 }

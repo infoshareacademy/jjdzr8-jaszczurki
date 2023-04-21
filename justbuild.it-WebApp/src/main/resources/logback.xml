@@ -5,14 +5,6 @@
         </encoder>
     </appender>
 
-<!--    <appender name="FILE_JSON" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
-<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
-<!--            <fileNamePattern>logs/logfile-%d{yyyy-MM-dd}.json</fileNamePattern>-->
-<!--            <maxHistory>30</maxHistory>-->
-<!--        </rollingPolicy>-->
-<!--        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>-->
-<!--    </appender>-->
-
     <appender name="FILE_CSV" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>logs/logfile-%d{yyyy-MM-dd}.csv</fileNamePattern>
@@ -25,15 +17,18 @@
         </encoder>
     </appender>
 
-    <logger name="justbuild.it-WebApp" level="DEBUG">
-        <appender-ref ref="CONSOLE"/>
-<!--        <appender-ref ref="FILE_JSON"/>-->
+    <logger name="justbuild.it.web.app" level="DEBUG" additivity="false">
         <appender-ref ref="FILE_CSV"/>
     </logger>
 
+<!--    <logger name="justbuild.it.web.app" level="INFO">-->
+<!--        <appender-ref ref="CONSOLE"/>-->
+<!--        <appender-ref ref="FILE_CSV"/>-->
+<!--    </logger>-->
+
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
-<!--        <appender-ref ref="FILE_JSON"/>-->
         <appender-ref ref="FILE_CSV"/>
     </root>
+
 </configuration>
