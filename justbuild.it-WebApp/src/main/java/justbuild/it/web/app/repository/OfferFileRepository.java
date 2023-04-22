@@ -31,6 +31,7 @@ public class OfferFileRepository {
     }
 
     public List<Offer> getOffersFromJsonFile(String filePath) {
+        LOGGER.debug("Getting offers from Json file {}", filePath);
         if (!Files.exists(Paths.get(filePath)) || new File(filePath).length() == 0) {
             return Collections.emptyList();
         }
@@ -45,6 +46,7 @@ public class OfferFileRepository {
     }
 
     public void saveOffersToJsonFile(List<Offer> offers, String filePath) {
+        LOGGER.debug("Saving offers to Json file: {}", filePath);
         File file = new File(filePath);
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, offers);
