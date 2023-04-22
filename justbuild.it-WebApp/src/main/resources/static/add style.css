@@ -77,8 +77,7 @@ body {
     border-color: black;
     border-style: solid;
     border-radius: 5px;
-    box-shadow: 10px 10px 30px 0 #000000;
-    opacity: 0.8;
+    box-shadow: 15px 15px 50px 0 #000000;
 }
 
 .page-link {
@@ -130,7 +129,13 @@ h5 {
     box-shadow: 10px 10px 15px 0 #000000;
 }
 
+.pagination-container {
+    text-align: center;
+}
 
+.pagination {
+    display: inline-block;
+}
 
 
 

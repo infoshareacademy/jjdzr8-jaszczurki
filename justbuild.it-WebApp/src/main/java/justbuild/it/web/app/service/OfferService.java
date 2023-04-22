@@ -5,13 +5,14 @@ import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.mapper.OfferMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.IntStream;
 
 @Service
 public class OfferService {
@@ -60,28 +61,53 @@ public class OfferService {
         return allOfferDtoList;
     }
 
+    public List<OfferDto> provideOfferDtoList(String searchValue, String category) {
+        List<OfferDto> filteredOfferDtoList;
+        if (category != null && !category.isEmpty()){
+            filteredOfferDtoList = provideNewFilteredByCategoryOfferDtoList(category);
+        } else {
+            filteredOfferDtoList = provideNewFilteredOfferDtoList(searchValue);
+        }
+        return filteredOfferDtoList;
+    }
+
     public OfferDto getOfferDtoById(Long id) {
-        return offerEditionService.getOfferDtoById(id);
+        OfferDto offerDtoById = offerEditionService.getOfferDtoById(id);
+        offerDtoById.setDateTime(LocalDateTime.now());
+        return offerDtoById;
     }
 
     public void updateOffer(OfferDto editedOfferDto) {
         offerEditionService.updateOffer(editedOfferDto);
     }
-        
-    public Page<OfferDto> findPaginated(Pageable pageable, List<OfferDto> allOfferDtoList) {
+
+    public Page<OfferDto> providePagination(Pageable pageable, List<OfferDto> allResources) {
         int pageSize = pageable.getPageSize();
         int currentPage = pageable.getPageNumber();
         int startItem = currentPage * pageSize;
-        List<OfferDto> offerList;
+        List<OfferDto> offerDtos;
 
-        if (allOfferDtoList.size() < startItem) {
-            offerList = Collections.emptyList();
+        if (allResources.isEmpty() || allResources.size() < startItem) {
+            offerDtos = Collections.emptyList();
         } else {
-            int toIndex = Math.min(startItem + pageSize, allOfferDtoList.size());
-            offerList = allOfferDtoList.subList(startItem, toIndex);
+            int toIndex = Math.min(startItem + pageSize, allResources.size());
+            offerDtos = allResources.subList(startItem, toIndex);
         }
 
-        return new PageImpl<OfferDto>(offerList, PageRequest.of(currentPage, pageSize), allOfferDtoList.size());
+        return new PageImpl<>(offerDtos, pageable, allResources.size());
+    }
 
+    public List<Integer> calculatePageNumbers(Page<?> page) {
+        int totalPages = page.getTotalPages();
+        if (totalPages > 0) {
+            int maxVisiblePages = 5;
+            int startPage = Math.max(1, page.getNumber() - (maxVisiblePages / 2));
+            int endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+            return IntStream.rangeClosed(startPage, endPage)
+                    .boxed()
+                    .toList();
+        } else {
+            return Collections.emptyList();
+        }
     }
 }

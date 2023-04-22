@@ -1,17 +1,4 @@
 [ {
-  "offerId" : 26,
-  "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "prace remontowo-wykończeniowe, termin realizacji: wiosna 2023",
-  "city" : "warszawa",
-  "user" : {
-    "firstName" : "Norbert",
-    "lastName" : "Noga",
-    "company" : "NorbertREMONT",
-    "emailAddress" : "remonty@norbert.pl",
-    "telephoneNumber" : "607 871 292"
-  },
-  "date" : [ 2023, 1, 17, 20, 54, 28, 585000000 ]
-}, {
   "offerId" : 13,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
@@ -414,4 +401,17 @@
     "telephoneNumber" : "888 222 333"
   },
   "date" : [ 2023, 3, 3, 21, 28 ]
+}, {
+  "offerId" : 26,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "prace remontowo-wykończeniowe, termin realizacji: jesień 2023\r\nzagospodarowanie terenu",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Norbert",
+    "lastName" : "Noga",
+    "company" : "NorbertREMONT",
+    "emailAddress" : "remonty@norbert.pl",
+    "telephoneNumber" : "607 871 292"
+  },
+  "date" : [ 2023, 4, 22, 18, 49 ]
 } ]
