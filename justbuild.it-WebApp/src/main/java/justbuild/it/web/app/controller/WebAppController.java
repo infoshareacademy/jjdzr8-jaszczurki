@@ -60,19 +60,7 @@ public class WebAppController {
     public String goSearch(@RequestParam(required = false) String searchValue, @RequestParam(required = false) String category,
                            @RequestParam(defaultValue = "1") int pageList, @RequestParam(defaultValue = "8") int sizeList,
                            HttpSession session, Model model) {
-        if (searchValue == null) {
-            searchValue = "";
-        }
-        if (category == null) {
-            category = "";
-        }
-        List<OfferDto> filteredOfferDtoList;
-        if (pageList == 1 || session.getAttribute("filteredOfferDtoList") == null) {
-            filteredOfferDtoList = offerService.provideOfferDtoList(searchValue, category);
-            session.setAttribute("filteredOfferDtoList", filteredOfferDtoList);
-        } else {
-            filteredOfferDtoList = (List<OfferDto>) session.getAttribute("filteredOfferDtoList");
-        }
+        List<OfferDto> filteredOfferDtoList = offerService.provideFilteredList(searchValue, category, pageList, session);
         Page<OfferDto> offerDtoListPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), filteredOfferDtoList);
         model.addAttribute("filteredOfferDtoList", offerDtoListPage);
         model.addAttribute("pagesDtoList", offerService.calculatePageNumbers(offerDtoListPage));

@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Comparator;
@@ -79,6 +80,24 @@ public class OfferService {
 
     public void updateOffer(OfferDto editedOfferDto) {
         offerEditionService.updateOffer(editedOfferDto);
+    }
+
+    public List<OfferDto> provideFilteredList(String searchValue, String category, int pageList, HttpSession session) {
+        if (searchValue == null) {
+            searchValue = "";
+        }
+        if (category == null) {
+            category = "";
+        }
+        List<OfferDto> filteredDtoList;
+        if (pageList == 1 || session.getAttribute("filteredOfferDtoList") == null) {
+            filteredDtoList = provideOfferDtoList(searchValue, category);
+            session.setAttribute("filteredOfferDtoList", filteredDtoList);
+        } else {
+            filteredDtoList = (List<OfferDto>) session.getAttribute("filteredOfferDtoList");
+        }
+
+        return filteredDtoList;
     }
 
     public Page<OfferDto> providePagination(Pageable pageable, List<OfferDto> allResources) {
