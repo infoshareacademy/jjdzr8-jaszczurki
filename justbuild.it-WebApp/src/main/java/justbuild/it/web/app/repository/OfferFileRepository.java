@@ -23,22 +23,23 @@ import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH
 public class OfferFileRepository {
 
     private final ObjectMapper objectMapper;
-    private final Logger LOGGER;
+    private static final Logger LOGGER = LoggerFactory.getLogger(OfferFileRepository.class);
 
     public OfferFileRepository(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
-        this.LOGGER = LoggerFactory.getLogger(OfferFileRepository.class);
     }
 
     public List<Offer> getOffersFromJsonFile(String filePath) {
-        LOGGER.debug("Getting offers from Json file {}", filePath);
+        LOGGER.debug("Reading offers from Json file: {}", filePath);
         if (!Files.exists(Paths.get(filePath)) || new File(filePath).length() == 0) {
             return Collections.emptyList();
         }
 
         try {
-            return objectMapper.readValue(new File(filePath), new TypeReference<>() {
+            List<Offer> offers = objectMapper.readValue(new File(filePath), new TypeReference<>() {
             });
+            LOGGER.debug("File {} read successfully. Loaded '{}' offers", filePath, offers.size());
+            return offers;
         } catch (IOException e) {
             LOGGER.error(LOG_READ_FROM_FILE + filePath, e);
             return Collections.emptyList();
@@ -50,15 +51,18 @@ public class OfferFileRepository {
         File file = new File(filePath);
         try {
             objectMapper.writerWithDefaultPrettyPrinter().writeValue(file, offers);
+            LOGGER.debug("Saving offers to Json file: {} was successful", filePath);
         } catch (IOException e) {
             LOGGER.error(LOG_WRITE_TO_FILE + file.getAbsolutePath(), e);
         }
     }
 
     public Optional<Offer> findOfferById(Long id) {
-        return getOffersFromJsonFile(OFFERS_FILEPATH)
+        Optional<Offer> firstId = getOffersFromJsonFile(OFFERS_FILEPATH)
                 .stream()
                 .filter(offer -> offer.getOfferId().equals(id))
                 .findFirst();
+        LOGGER.debug("First founded Offer ID: {}", firstId);
+        return firstId;
     }
 }

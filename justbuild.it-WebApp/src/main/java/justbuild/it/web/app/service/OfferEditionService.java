@@ -17,12 +17,11 @@ class OfferEditionService implements OfferEditionServiceInterface {
 
     private final OfferFileRepository offerFileRepository;
     private final OfferMapper mapper;
-    private final Logger LOGGER;
+    private static final Logger LOGGER = LoggerFactory.getLogger(OfferEditionService.class);
 
     OfferEditionService(OfferFileRepository offerFileRepository, OfferMapper mapper) {
         this.offerFileRepository = offerFileRepository;
         this.mapper = mapper;
-        this.LOGGER = LoggerFactory.getLogger(OfferEditionService.class);
     }
 
     public OfferDto getOfferDtoById(Long id) {

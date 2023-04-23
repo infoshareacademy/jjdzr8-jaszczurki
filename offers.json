@@ -389,19 +389,6 @@
   },
   "date" : [ 2023, 1, 17, 19, 9 ]
 }, {
-  "offerId" : 32,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "Ciągle poszerzamy wiedzę na temat energooszczędnych rozwiązań. Jako jedni z pierwszych w regionie pomorza budujemy domy z Ytonga Jumbo, dzięki czemu nasze inwestycje powstają w krótkim czasie. Posiadamy pełen park maszynowy, który pozwala nam sprawnie wykonać wszystkie prace.",
-  "city" : "Rumia",
-  "user" : {
-    "firstName" : "Mateusz",
-    "lastName" : "Burchacz",
-    "company" : "BurchBud",
-    "emailAddress" : "burchacz@budowa.eu",
-    "telephoneNumber" : "123 456 611"
-  },
-  "date" : [ 2023, 3, 3, 0, 17 ]
-}, {
   "offerId" : 20,
   "serviceCategory" : "EARTH_WORKS",
   "offerContent" : "Roboty drogowe i prace ziemne.",
@@ -427,4 +414,17 @@
     "telephoneNumber" : "555 222 555"
   },
   "date" : [ 2023, 3, 1, 23, 4 ]
+}, {
+  "offerId" : 32,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Ciągle poszerzamy wiedzę na temat energooszczędnych rozwiązań. Jako jedni z pierwszych w regionie pomorza budujemy domy z Ytonga Jumbo, dzięki czemu nasze inwestycje powstają w krótkim czasie. Posiadamy pełen park maszynowy, który pozwala nam sprawnie wykonać wszystkie prace.",
+  "city" : "Rumia",
+  "user" : {
+    "firstName" : "Mateusz",
+    "lastName" : "Burchacz",
+    "company" : "BurchBud",
+    "emailAddress" : "burchacz@budowa.eu",
+    "telephoneNumber" : "123 456 611"
+  },
+  "date" : [ 2023, 3, 3, 0, 17 ]
 } ]

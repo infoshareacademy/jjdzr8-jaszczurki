@@ -16,22 +16,21 @@ import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH
 public class OfferSearchingService implements OfferSearchingServiceInterface {
 
     private final OfferFileRepository offerFileRepository;
-    private final Logger LOGGER;
+    private static final Logger LOGGER = LoggerFactory.getLogger(OfferSearchingService.class);
 
     public OfferSearchingService(OfferFileRepository offerFileRepository) {
         this.offerFileRepository = offerFileRepository;
-        this.LOGGER = LoggerFactory.getLogger(OfferSearchingService.class);
     }
 
     @Override
     public List<Offer> getOffersList() {
-        LOGGER.debug("Retrieving all offers from file {}", OFFERS_FILEPATH);
+        LOGGER.debug("Retrieving all offers from file: {}", OFFERS_FILEPATH);
         return offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
     }
 
     @Override
     public List<Offer> getOffersListFilteredBySearchValue(String searchValue) {
-        LOGGER.debug("Retrieving offers from file {} filtered by search value '{}'", OFFERS_FILEPATH, searchValue);
+        LOGGER.debug("Retrieving offers from file: {} filtered by search value: '{}'", OFFERS_FILEPATH, searchValue);
         List<Offer> offers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
         offers.sort(Comparator.comparing(Offer::getDate).reversed());
 

@@ -28,12 +28,11 @@ public class WebAppController {
 
     private final OfferService offerService;
     private final OfferMapper mapper;
-    private final Logger LOGGER;
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebAppController.class);
 
     public WebAppController(OfferService offerService, OfferMapper mapper) {
         this.offerService = offerService;
         this.mapper = mapper;
-        this.LOGGER = LoggerFactory.getLogger(WebAppController.class);
     }
 
     @GetMapping("/")
@@ -56,7 +55,7 @@ public class WebAppController {
                     .collect(Collectors.toList());
             model.addAttribute("pageNumbers", pageNumbers);
         }
-        LOGGER.info("Returning home page with {} pages", totalPages);
+        LOGGER.info("Returning home page with '{}' pages", totalPages);
         return "home";
     }
 
@@ -74,13 +73,13 @@ public class WebAppController {
         }
         Offer offer = mapper.fromDto(offerDto);
         offerService.addOffer(offer);
-        LOGGER.info("New offer added with ID {}", offer.getOfferId());
+        LOGGER.info("New offer added with ID: {}", offer.getOfferId());
         return "redirect:/";
     }
 
     @GetMapping("/searchOffer")
     public String goSearch(String searchValue, String category, Model model) {
-        LOGGER.info("Searching for offers with searchValue: {} and category: {}", searchValue, category);
+        LOGGER.info("Searching for offers with searchValue: '{}' and category: '{}'", searchValue, category);
         List<OfferDto> filteredOfferDtoList;
         if (category != null && !category.isEmpty()){
             filteredOfferDtoList = offerService.provideNewFilteredByCategoryOfferDtoList(category);
@@ -88,14 +87,14 @@ public class WebAppController {
             filteredOfferDtoList = offerService.provideNewFilteredOfferDtoList(searchValue);
         }
         model.addAttribute("filteredOfferDtoList", filteredOfferDtoList);
-        LOGGER.info("Returning searchOffer page with {} offers found", filteredOfferDtoList.size());
+        LOGGER.info("Returning searchOffer page with '{}' offers found", filteredOfferDtoList.size());
         return "searchOffer";
     }
 
     @GetMapping("/editOffer/{id}")
     public String goEdit(@PathVariable Long id, Model model) {
         model.addAttribute("offer", offerService.getOfferDtoById(id));
-        LOGGER.info("Opening editOffer page for offer with id: {}", id);
+        LOGGER.info("Opening editOffer page for offer with ID: {}", id);
         return "editOffer";
     }
 
@@ -105,7 +104,7 @@ public class WebAppController {
             return "editOffer";
         }
         offerService.updateOffer(offerDto);
-        LOGGER.info("Updated offer with id {}", offerDto.getDtoOfferId());
+        LOGGER.info("Updated offer with ID: {}", offerDto.getDtoOfferId());
         return "redirect:/";
     }
 }
