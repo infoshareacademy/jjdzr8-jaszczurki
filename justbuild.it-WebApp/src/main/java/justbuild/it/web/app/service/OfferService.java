@@ -76,11 +76,13 @@ public class OfferService {
     }
         
     public Page<OfferDto> findPaginated(Pageable pageable, List<OfferDto> allOfferDtoList) {
-        LOGGER.debug("Finding paginated offer DTO list with page: {} and size: {}", pageable.getPageNumber(), pageable.getPageSize());
+        LOGGER.debug("Finding paginated offer DTO list with page: {} and size: {}", pageable.getPageNumber() + 1, pageable.getPageSize());
         int pageSize = pageable.getPageSize();
         int currentPage = pageable.getPageNumber();
         int startItem = currentPage * pageSize;
         List<OfferDto> offerList;
+
+        LOGGER.debug("Size of allOfferDtoList: {}", allOfferDtoList.size());
 
         if (allOfferDtoList.size() < startItem) {
             offerList = Collections.emptyList();
@@ -88,6 +90,8 @@ public class OfferService {
             int toIndex = Math.min(startItem + pageSize, allOfferDtoList.size());
             offerList = allOfferDtoList.subList(startItem, toIndex);
         }
+
+        LOGGER.debug("Size of offerList: {}", offerList.size());
 
         return new PageImpl<OfferDto>(offerList, PageRequest.of(currentPage, pageSize), allOfferDtoList.size());
     }

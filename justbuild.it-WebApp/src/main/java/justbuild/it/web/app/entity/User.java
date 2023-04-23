@@ -63,4 +63,15 @@ public class User {
     public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", company='" + company + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", telephoneNumber='" + telephoneNumber + '\'' +
+                '}';
+    }
 }
