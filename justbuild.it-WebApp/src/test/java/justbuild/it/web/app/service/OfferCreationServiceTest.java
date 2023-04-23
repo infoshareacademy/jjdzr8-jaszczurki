@@ -4,7 +4,8 @@ import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.entity.User;
 import justbuild.it.web.app.entity.enums.ServiceCategoryEnum;
 import justbuild.it.web.app.repository.OfferFileRepository;
-import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -15,7 +16,6 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -23,25 +23,27 @@ import static org.mockito.Mockito.when;
 
 class OfferCreationServiceTest {
 
+    private final static String TEST_FILEPATH = "offers.json";
+    private final static LocalDateTime NOW = LocalDateTime.now();
+
     private OfferFileRepository offerFileRepositoryMock;
     private OfferCreationService offerCreationService;
-    private Offer offer;
-    private final static String TEST_FILEPATH = "offers.json";
+    private static Offer offer;
 
-
-    @BeforeEach
-    void SetUpTest() {
-        offerFileRepositoryMock = mock(OfferFileRepository.class);
-        offerCreationService = new OfferCreationService(offerFileRepositoryMock);
-
-        offer = new Offer(1L, ServiceCategoryEnum.CONSTRUCTION, "some content", "Warsaw", new User("", "", "Company Name", "example@example.com", "111 111 111"), LocalDateTime.now());
+    @BeforeAll
+    static void setUpTest() {
+        offer = new Offer(1L, ServiceCategoryEnum.CONSTRUCTION, "some content", "Warsaw", new User("", "", "Company Name", "example@example.com", "111 111 111"), NOW);
     }
 
-    @AfterEach
-    void closeTest() {
-        offerFileRepositoryMock = null;
-        offerCreationService = null;
+    @AfterAll
+    static void closeTest() {
         offer = null;
+    }
+
+    @BeforeEach
+    void setUp() {
+        offerFileRepositoryMock = mock(OfferFileRepository.class);
+        offerCreationService = new OfferCreationService(offerFileRepositoryMock);
     }
 
     @Test
@@ -58,8 +60,9 @@ class OfferCreationServiceTest {
         verify(offerFileRepositoryMock).saveOffersToJsonFile(listCaptor.capture(), eq(TEST_FILEPATH));
         List<Offer> savedOffers = listCaptor.getValue();
 
-        assertTrue(savedOffers.contains(offer));
-        assertEquals(1, savedOffers.size());
+        assertThat(savedOffers)
+                .hasSize(1)
+                .contains(offer);
     }
 
     @Test
@@ -75,8 +78,9 @@ class OfferCreationServiceTest {
         verify(offerFileRepositoryMock).saveOffersToJsonFile(listCaptor.capture(), eq(TEST_FILEPATH));
         List<Offer> savedOffers = listCaptor.getValue();
 
-        assertTrue(savedOffers.contains(offer));
-        assertEquals(1, savedOffers.size());
+        assertThat(savedOffers)
+                .hasSize(1)
+                .contains(offer);
     }
 
     @Test
