@@ -11,11 +11,11 @@ import java.util.stream.Collectors;
 import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH;
 
 @Service
-public class OfferSearchingService implements OfferSearchingServiceInterface {
+class OfferSearchingService implements OfferSearchingServiceInterface {
 
     private final OfferFileRepository offerFileRepository;
 
-    public OfferSearchingService(OfferFileRepository offerFileRepository) {
+    OfferSearchingService(OfferFileRepository offerFileRepository) {
         this.offerFileRepository = offerFileRepository;
     }
 
@@ -27,9 +27,9 @@ public class OfferSearchingService implements OfferSearchingServiceInterface {
     @Override
     public List<Offer> getOffersListFilteredBySearchValue(String searchValue) {
         List<Offer> offers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
-        offers.sort(Comparator.comparing(Offer::getDate).reversed());
 
         return offers.stream()
+                .sorted(Comparator.comparing(Offer::getDate).reversed())
                 .filter(value -> value.getOfferContent().toLowerCase().contains(searchValue.toLowerCase())
                         || value.getOfferId().toString().contains(searchValue)
                         || value.getCity().toLowerCase().contains(searchValue.toLowerCase())
@@ -42,8 +42,9 @@ public class OfferSearchingService implements OfferSearchingServiceInterface {
     @Override
     public List<Offer> getOffersListFilteredByCategory(String category) {
         List<Offer> offers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
-        offers.sort(Comparator.comparing(Offer::getDate).reversed());
+
         return offers.stream()
+                .sorted(Comparator.comparing(Offer::getDate).reversed())
                 .filter(value -> value.getServiceCategory().toString().equals(category))
                 .collect(Collectors.toList());
     }
