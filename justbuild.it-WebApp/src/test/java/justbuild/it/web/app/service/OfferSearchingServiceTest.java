@@ -4,17 +4,22 @@ import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.entity.User;
 import justbuild.it.web.app.entity.enums.ServiceCategoryEnum;
 import justbuild.it.web.app.repository.OfferFileRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -39,12 +44,6 @@ class OfferSearchingServiceTest {
         offerSearchingService = new OfferSearchingService(offerFileRepositoryMock);
     }
 
-    @AfterEach
-    public void restoreSetUpTest() {
-        offerFileRepositoryMock = null;
-        offerSearchingService = null;
-    }
-
     @Test
     void getOffersList_shouldReturnOfferList() {
         //Given
@@ -53,10 +52,11 @@ class OfferSearchingServiceTest {
         // When
         List<Offer> testOffersList = offerSearchingService.getOffersList();
         // Then
-        assertThat(testOffersList)
-                .isNotNull()
-                .hasSize(expectedOffersList.size())
-                .containsExactlyElementsOf(expectedOffersList);
+        assertAll("Offer List",
+                () -> assertNotNull(testOffersList),
+                () -> assertEquals(expectedOffersList.size(), testOffersList.size()),
+                () -> assertIterableEquals(expectedOffersList, testOffersList)
+        );
     }
 
     @Test
@@ -78,20 +78,10 @@ class OfferSearchingServiceTest {
         //When
         List<Offer> testOfferList = offerSearchingService.getOffersListFilteredBySearchValue(searchingValue);
         //Then
-        assertThat(testOfferList)
-                .isNotNull()
-                .hasSize(expectedOffersList.size())
-                .containsExactlyElementsOf(expectedOffersList);
-    }
-
-    static Stream<Arguments> getSearchingValueAndExpectedList() {
-        return Stream.of(
-                Arguments.of("proje", List.of(OFFER_2)),
-                Arguments.of("warSza", List.of(OFFER_3, OFFER_4)),
-                Arguments.of("REDLIN", List.of(OFFER_6)),
-                Arguments.of("1", List.of(OFFER_1)),
-                Arguments.of("elektryka", List.of(OFFER_5)),
-                Arguments.of("", List.of(OFFER_1, OFFER_5, OFFER_2, OFFER_3, OFFER_6, OFFER_7, OFFER_4))
+        assertAll("Offer List",
+                () -> assertNotNull(testOfferList),
+                () -> assertEquals(expectedOffersList.size(), testOfferList.size()),
+                () -> assertIterableEquals(expectedOffersList, testOfferList)
         );
     }
 
@@ -114,20 +104,10 @@ class OfferSearchingServiceTest {
         // When
         List<Offer> testOffersList = offerSearchingService.getOffersListFilteredByCategory(category);
         // Then
-        assertThat(testOffersList)
-                .isNotNull()
-                .hasSize(expectedOffersList.size())
-                .containsExactlyInAnyOrderElementsOf(expectedOffersList);
-    }
-
-    static Stream<Arguments> getCategoryAndExpectedOffersList() {
-        return Stream.of(
-                Arguments.of("Budowa", List.of(OFFER_1)),
-                Arguments.of("Remont", List.of(OFFER_3)),
-                Arguments.of("Instalacje", List.of(OFFER_6)),
-                Arguments.of("Elektryka", List.of(OFFER_5)),
-                Arguments.of("Roboty ziemne", List.of(OFFER_4)),
-                Arguments.of("Ogród", List.of(OFFER_2, OFFER_7))
+        assertAll("Offer List",
+                () -> assertNotNull(testOffersList),
+                () -> assertEquals(expectedOffersList.size(), testOffersList.size()),
+                () -> assertIterableEquals(expectedOffersList, testOffersList)
         );
     }
 
@@ -140,5 +120,27 @@ class OfferSearchingServiceTest {
         // Then
         assertThat(testOffersList)
                 .isEmpty();
+    }
+
+    static Stream<Arguments> getSearchingValueAndExpectedList() {
+        return Stream.of(
+                Arguments.of("proje", List.of(OFFER_2)),
+                Arguments.of("warSza", List.of(OFFER_3, OFFER_4)),
+                Arguments.of("REDLIN", List.of(OFFER_6)),
+                Arguments.of("1", List.of(OFFER_1)),
+                Arguments.of("elektryka", List.of(OFFER_5)),
+                Arguments.of("", List.of(OFFER_1, OFFER_5, OFFER_2, OFFER_3, OFFER_6, OFFER_7, OFFER_4))
+        );
+    }
+
+    static Stream<Arguments> getCategoryAndExpectedOffersList() {
+        return Stream.of(
+                Arguments.of("Budowa", List.of(OFFER_1)),
+                Arguments.of("Remont", List.of(OFFER_3)),
+                Arguments.of("Instalacje", List.of(OFFER_6)),
+                Arguments.of("Elektryka", List.of(OFFER_5)),
+                Arguments.of("Roboty ziemne", List.of(OFFER_4)),
+                Arguments.of("Ogród", List.of(OFFER_2, OFFER_7))
+        );
     }
 }
