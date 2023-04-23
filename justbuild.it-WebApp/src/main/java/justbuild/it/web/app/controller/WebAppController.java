@@ -68,6 +68,7 @@ public class WebAppController {
             return "addOffer";
         }
         Offer offer = mapper.fromDto(offerDto);
+        offerService.setIdToOffer(offer);
         offerService.addOffer(offer);
         return "redirect:/";
     }
