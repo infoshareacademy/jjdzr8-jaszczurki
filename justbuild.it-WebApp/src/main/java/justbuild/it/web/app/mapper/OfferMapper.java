@@ -21,6 +21,7 @@ public class OfferMapper {
         dto.setUserLastName(offer.getUser().getLastName());
         dto.setUserCompanyName(offer.getUser().getCompany());
         dto.setUserEmailAddress(offer.getUser().getEmailAddress());
+        dto.setUserPassword(offer.getUser().getPassword());
         dto.setUserTelephoneNumber(offer.getUser().getTelephoneNumber());
         return dto;
     }
@@ -37,6 +38,7 @@ public class OfferMapper {
         user.setLastName(dto.getUserLastName());
         user.setCompany(dto.getUserCompanyName());
         user.setEmailAddress(dto.getUserEmailAddress());
+        user.setPassword(dto.getUserPassword());
         user.setTelephoneNumber(dto.getUserTelephoneNumber());
         offer.setUser(user);
         return offer;

@@ -5,10 +5,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 
 import static justbuild.it.web.app.entity.constants.AppConstants.DISPLAY_DATE_FORMAT;
 import static justbuild.it.web.app.entity.constants.AppConstants.EMAIL_FORMAT;
+import static justbuild.it.web.app.entity.constants.AppConstants.PASSWORD_FORMAT;
 
 public class OfferDto {
 
@@ -24,6 +26,9 @@ public class OfferDto {
     @Email(regexp = EMAIL_FORMAT)
     @NotBlank
     private String userEmailAddress;
+    @Pattern(regexp = PASSWORD_FORMAT)
+    @NotBlank
+    private String userPassword;
     @NotBlank
     private String userTelephoneNumber;
     @DateTimeFormat(pattern = DISPLAY_DATE_FORMAT)
@@ -119,6 +124,14 @@ public class OfferDto {
 
     public void setUserEmailAddress(String userEmailAddress) {
         this.userEmailAddress = userEmailAddress;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     public String getUserTelephoneNumber() {
