@@ -65,8 +65,11 @@
             <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).GARDEN.name()}">Ogród</option>
         </select>
     </div>
-    <div class="mb-4">
-        <input type="text" class="form-control" id="formGroupExampleInput8" th:field="*{dateTime}" readonly>
+    <div>
+        <input type="text" class="alert alert-dark col-12 date-alert" tabindex="-1" id="formGroupExampleInput8" th:field="*{dateTime}" readonly>
+    </div>
+    <div>
+        <input type="text" class="alert alert-dark col-12 date-alert" tabindex="-1" id="formGroupExampleInput9" th:field="*{expiryDate}" readonly>
     </div>
     <hr>
     <div class="buttons mb-4">

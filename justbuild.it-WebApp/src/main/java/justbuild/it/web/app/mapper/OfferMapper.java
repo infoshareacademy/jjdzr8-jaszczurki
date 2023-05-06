@@ -47,7 +47,7 @@ public class OfferMapper {
                 .map(offer -> new OfferDto(offer.getOfferId(), offer.getServiceCategory(), offer.getOfferContent(),
                         offer.getCity(), offer.getUser().getFirstName(), offer.getUser().getLastName(),
                         offer.getUser().getCompany(), offer.getUser().getEmailAddress(),
-                        offer.getUser().getTelephoneNumber(), offer.getDate()))
+                        offer.getUser().getTelephoneNumber(), offer.getDate(), offer.getExpiryDate()))
                 .collect(Collectors.toList());
     }
 }

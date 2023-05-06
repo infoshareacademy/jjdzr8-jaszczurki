@@ -14,6 +14,8 @@ public class Offer {
     private User user;
     private LocalDateTime date;
 
+    private LocalDateTime expiryDate;
+
     public Offer() {
         this.offerId = 0L;
         this.serviceCategory = null;
@@ -21,6 +23,7 @@ public class Offer {
         this.city = "";
         this.user = new User();
         this.date = LocalDateTime.now();
+        this.expiryDate = this.date.plusDays(30);
     }
 
     public Offer(Long offerID, ServiceCategoryEnum serviceCategory, String offerContent, String city, User user, LocalDateTime date) {
@@ -80,17 +83,25 @@ public class Offer {
         this.date = date;
     }
 
+    public LocalDateTime getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(LocalDateTime expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Offer offer = (Offer) o;
-        return Objects.equals(offerId, offer.offerId) && serviceCategory == offer.serviceCategory && Objects.equals(offerContent, offer.offerContent) && Objects.equals(city, offer.city) && Objects.equals(user, offer.user) && Objects.equals(date, offer.date);
+        return Objects.equals(offerId, offer.offerId) && serviceCategory == offer.serviceCategory && Objects.equals(offerContent, offer.offerContent) && Objects.equals(city, offer.city) && Objects.equals(user, offer.user) && Objects.equals(date, offer.date) && Objects.equals(expiryDate, offer.expiryDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(offerId, serviceCategory, offerContent, city, user, date);
+        return Objects.hash(offerId, serviceCategory, offerContent, city, user, date, expiryDate);
     }
 
     @Override
@@ -102,6 +113,7 @@ public class Offer {
                 ", city='" + city + '\'' +
                 ", user=" + user +
                 ", date=" + date +
+                ", expiryDate=" + expiryDate +
                 '}';
     }
 }
