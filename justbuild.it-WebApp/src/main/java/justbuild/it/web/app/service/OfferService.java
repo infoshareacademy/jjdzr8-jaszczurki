@@ -43,6 +43,10 @@ public class OfferService {
         return offer;
     }
 
+    public void setIdToOffer(Offer offer) {
+        offer.setOfferId(offerCreationService.getNextOfferId());
+    }
+
     public List<OfferDto> provideNewFilteredOfferDtoList(String searchValue) {
         LOGGER.debug("Providing new filtered offer DTO list for search value: '{}'", searchValue);
         OfferMapper offerMapper = new OfferMapper();
