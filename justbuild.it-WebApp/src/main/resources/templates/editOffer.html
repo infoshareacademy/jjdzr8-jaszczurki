@@ -65,12 +65,10 @@
             <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).GARDEN.name()}">Ogród</option>
         </select>
     </div>
-    <div>
-        <input type="text" class="alert alert-dark col-12 date-alert" tabindex="-1" id="formGroupExampleInput8" th:field="*{dateTime}" readonly>
-    </div>
-    <div>
-        <input type="text" class="alert alert-dark col-12 date-alert" tabindex="-1" id="formGroupExampleInput9" th:field="*{expiryDate}" readonly>
-    </div>
+    <input type="text" class="alert alert-dark col-12 date-alert" tabindex="-1" id="formGroupExampleInput8" th:field="*{dateTime}" readonly>
+    <input type="text" class="alert alert-dark col-12 date-alert" tabindex="-1" id="formGroupExampleInput9" th:field="*{expiryDate}" readonly>
+    <button class="btn btn-dark" type="button" id="prolong-btn" th:if="${prolongable}">Przedłuż</button>
+
     <hr>
     <div class="buttons mb-4">
         <button type="button" class="btn btn-outline-dark mr-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

@@ -145,4 +145,8 @@ public class OfferService {
             return Collections.emptyList();
         }
     }
+
+    public boolean checkOfferProlongability(OfferDto offerDto){
+    return offerDto.getExpiryDate().minusDays(3).isBefore(LocalDateTime.now());
+    }
 }

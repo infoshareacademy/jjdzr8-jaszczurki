@@ -80,7 +80,10 @@ public class WebAppController {
 
     @GetMapping("/editOffer/{id}")
     public String goEdit(@PathVariable Long id, Model model) {
-        model.addAttribute("offer", offerService.getOfferDtoById(id));
+        OfferDto offerDto = offerService.getOfferDtoById(id);
+        boolean prolongable = offerService.checkOfferProlongability(offerDto);
+        model.addAttribute("offer", offerDto);
+        model.addAttribute("prolongable", prolongable);
         LOGGER.info("Opening editOffer page for offer with ID: {}", id);
         return "editOffer";
     }
