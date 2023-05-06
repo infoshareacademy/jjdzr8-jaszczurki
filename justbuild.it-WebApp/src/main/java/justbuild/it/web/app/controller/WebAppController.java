@@ -1,6 +1,7 @@
 package justbuild.it.web.app.controller;
 
 import justbuild.it.web.app.dto.OfferDto;
+import justbuild.it.web.app.dto.ProlongRequest;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.mapper.OfferMapper;
 import justbuild.it.web.app.service.OfferService;
@@ -8,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,10 +17,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.net.http.HttpResponse;
 import java.util.List;
 
 @Controller
@@ -42,6 +46,11 @@ public class WebAppController {
         model.addAttribute("pageNumbers", pageNumbers);
         LOGGER.info("Returning home page with '{}' pages", pageNumbers.size());
         return "home";
+    }
+
+    @PostMapping("/prolong-ad")
+    public void prolongAd(@RequestBody ProlongRequest request) {
+        offerService.prolongOffer(request.getId(), request.getDays());
     }
 
     @GetMapping("/addOffer")

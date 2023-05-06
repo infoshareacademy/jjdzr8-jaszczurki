@@ -147,6 +147,23 @@ public class OfferService {
     }
 
     public boolean checkOfferProlongability(OfferDto offerDto){
-    return offerDto.getExpiryDate().minusDays(3).isBefore(LocalDateTime.now());
+        return offerDto.getExpiryDate().minusDays(3).isBefore(LocalDateTime.now());
+    }
+
+    public void prolongOffer(Long id, int days) {
+        OfferDto offerDtoById = offerEditionService.getOfferDtoById(id);
+        if (days <= 30 && days >= 1) {
+            LocalDateTime currentExpiryDate = offerDtoById.getExpiryDate();
+            LocalDateTime newExpiryDate;
+            if (LocalDateTime.now().isAfter(currentExpiryDate)) {
+                newExpiryDate = LocalDateTime.now().plusDays(days);
+            } else {
+                newExpiryDate = currentExpiryDate.plusDays(days);
+            }
+            offerDtoById.setExpiryDate(newExpiryDate);
+            offerEditionService.updateOffer(offerDtoById);
+        } else {
+            throw new IllegalArgumentException("Incorrect prolong period");
+        }
     }
 }
