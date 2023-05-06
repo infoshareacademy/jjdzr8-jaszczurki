@@ -13,12 +13,12 @@ import java.util.stream.Collectors;
 import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH;
 
 @Service
-public class OfferSearchingService implements OfferSearchingServiceInterface {
+class OfferSearchingService implements OfferSearchingServiceInterface {
 
     private final OfferFileRepository offerFileRepository;
     private static final Logger LOGGER = LoggerFactory.getLogger(OfferSearchingService.class);
 
-    public OfferSearchingService(OfferFileRepository offerFileRepository) {
+    OfferSearchingService(OfferFileRepository offerFileRepository) {
         this.offerFileRepository = offerFileRepository;
     }
 
@@ -32,9 +32,9 @@ public class OfferSearchingService implements OfferSearchingServiceInterface {
     public List<Offer> getOffersListFilteredBySearchValue(String searchValue) {
         LOGGER.debug("Retrieving offers from file: {} filtered by search value: '{}'", OFFERS_FILEPATH, searchValue);
         List<Offer> offers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
-        offers.sort(Comparator.comparing(Offer::getDate).reversed());
 
         return offers.stream()
+                .sorted(Comparator.comparing(Offer::getDate).reversed())
                 .filter(value -> value.getOfferContent().toLowerCase().contains(searchValue.toLowerCase())
                         || value.getOfferId().toString().contains(searchValue)
                         || value.getCity().toLowerCase().contains(searchValue.toLowerCase())
@@ -48,8 +48,9 @@ public class OfferSearchingService implements OfferSearchingServiceInterface {
     public List<Offer> getOffersListFilteredByCategory(String category) {
         LOGGER.debug("Retrieving offers from file {} filtered by category '{}'", OFFERS_FILEPATH, category);
         List<Offer> offers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
-        offers.sort(Comparator.comparing(Offer::getDate).reversed());
+
         return offers.stream()
+                .sorted(Comparator.comparing(Offer::getDate).reversed())
                 .filter(value -> value.getServiceCategory().toString().equals(category))
                 .collect(Collectors.toList());
     }

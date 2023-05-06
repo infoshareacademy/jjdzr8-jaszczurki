@@ -1,16 +1,29 @@
 [ {
-  "offerId" : 26,
-  "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "prace remontowo-wykończeniowe, termin realizacji: wiosna 2023",
-  "city" : "warszawa",
+  "offerId" : 13,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
+  "city" : "szczecin",
   "user" : {
-    "firstName" : "Norbert",
-    "lastName" : "Noga",
-    "company" : "NorbertREMONT",
-    "emailAddress" : "remonty@norbert.pl",
-    "telephoneNumber" : "607 871 292"
+    "firstName" : "Krzysztof",
+    "lastName" : "Jarzyna",
+    "company" : "InstallBUD SA",
+    "emailAddress" : "grzegorz.jarzyna@installbud.pl",
+    "telephoneNumber" : "500 055 001"
   },
-  "date" : [ 2023, 1, 17, 20, 54, 28, 585000000 ]
+  "date" : [ 2023, 1, 17, 19, 9, 43, 159000000 ]
+}, {
+  "offerId" : 20,
+  "serviceCategory" : "EARTH_WORKS",
+  "offerContent" : "roboty drogowo-mostowe",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "Bridge&Highway SA",
+    "emailAddress" : "reception@bh.pl",
+    "telephoneNumber" : "58 556 00 01"
+  },
+  "date" : [ 2023, 1, 16, 23, 6, 24, 972000000 ]
 }, {
   "offerId" : 14,
   "serviceCategory" : "CONSTRUCTION",
@@ -25,6 +38,19 @@
   },
   "date" : [ 2023, 1, 16, 23, 4, 55, 754000000 ]
 }, {
+  "offerId" : 12,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Gwidon",
+    "lastName" : "Gwóźdź",
+    "company" : "GOOD-BUD SA",
+    "emailAddress" : "office@gbud.pl",
+    "telephoneNumber" : "22 562 00 10"
+  },
+  "date" : [ 2023, 1, 16, 19, 4, 7, 555000000 ]
+}, {
   "offerId" : 25,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "kompleksowo - pełny zakres robót wewnętrznych",
@@ -37,6 +63,19 @@
     "telephoneNumber" : "506 874 323"
   },
   "date" : [ 2023, 1, 15, 15, 18, 28, 8000000 ]
+}, {
+  "offerId" : 24,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "systemy alarmowe",
+  "city" : "kraków",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "ALARM-INTACT",
+    "emailAddress" : "systemy@alarm.intact.pl",
+    "telephoneNumber" : "792 427 385"
+  },
+  "date" : [ 2023, 1, 15, 13, 54, 9, 818000000 ]
 }, {
   "offerId" : 23,
   "serviceCategory" : "INSTALLATION",
@@ -89,6 +128,19 @@
     "telephoneNumber" : "881 001 001"
   },
   "date" : [ 2023, 1, 13, 13, 21, 6, 371000000 ]
+}, {
+  "offerId" : 18,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "glazurnik",
+  "city" : "lublin",
+  "user" : {
+    "firstName" : "Krzysztof",
+    "lastName" : "Lato",
+    "company" : "Krzysztof Lato",
+    "emailAddress" : "krzysztof9202@wp.pl",
+    "telephoneNumber" : "602 563 298"
+  },
+  "date" : [ 2023, 1, 13, 13, 14, 38, 42000000 ]
 }, {
   "offerId" : 17,
   "serviceCategory" : "ELECTRICITY",
@@ -155,6 +207,45 @@
   },
   "date" : [ 2023, 1, 9, 21, 23, 22, 820000000 ]
 }, {
+  "offerId" : 9,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "projekt i realizacja, piękny ogród na życzenie",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Monika",
+    "lastName" : "Kisiel",
+    "company" : "MoKi Garden ",
+    "emailAddress" : "monika@garden.eu",
+    "telephoneNumber" : "505 527 211"
+  },
+  "date" : [ 2023, 1, 9, 21, 20, 14, 815000000 ]
+}, {
+  "offerId" : 8,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "fachowe usługi elektryczne, monitoring, inteligentny dom",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Arnold",
+    "lastName" : "Guzik",
+    "company" : "EL-GUZ ",
+    "emailAddress" : "biuro@elguz.pl",
+    "telephoneNumber" : "772 675 012"
+  },
+  "date" : [ 2023, 1, 9, 20, 58, 11, 831000000 ]
+}, {
+  "offerId" : 7,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "tylko konstrukcja, do stanu surowego zamkniętego",
+  "city" : "lublin",
+  "user" : {
+    "firstName" : "Piotr",
+    "lastName" : "Nowak",
+    "company" : "Nowak Construction SA",
+    "emailAddress" : "office@nowak.construction.pl",
+    "telephoneNumber" : "660 067 001"
+  },
+  "date" : [ 2023, 1, 9, 16, 37, 41, 356000000 ]
+}, {
   "offerId" : 6,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacje wod-kan i co, przyłącza",
@@ -181,6 +272,19 @@
   },
   "date" : [ 2023, 1, 8, 18, 26, 53, 914000000 ]
 }, {
+  "offerId" : 4,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "konstrukcja budynku, wykończenie pod klucz",
+  "city" : "lublin",
+  "user" : {
+    "firstName" : "Tadeusz",
+    "lastName" : "Wójtowicz",
+    "company" : "TAD-BUD PBU Sp. z o.o.",
+    "emailAddress" : "biuro@tadbud.pl",
+    "telephoneNumber" : "708 921 001"
+  },
+  "date" : [ 2023, 1, 8, 18, 23, 25, 234000000 ]
+}, {
   "offerId" : 3,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "szybki i tani fachowiec od robót wewnętrznych",
@@ -196,8 +300,8 @@
 }, {
   "offerId" : 2,
   "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "Wykończenie pod klucz, szybko i fachowo.",
-  "city" : "Gdańsk",
+  "offerContent" : "wykończenie pod klucz, szybko i fachowo",
+  "city" : "gdańsk",
   "user" : {
     "firstName" : "Piotr",
     "lastName" : "Jankowski",
@@ -205,24 +309,37 @@
     "emailAddress" : "fachowiec@peterbud.pl",
     "telephoneNumber" : "724 678 054"
   },
-  "date" : [ 2023, 1, 7, 21, 48 ]
+  "date" : [ 2023, 1, 7, 21, 48, 45, 260000000 ]
 }, {
-  "offerId" : 18,
-  "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "glazurnik",
+  "offerId" : 27,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "Piękny ogród, projekt i wykonawstwo",
   "city" : "Lublin",
   "user" : {
-    "firstName" : "Krzysztof",
-    "lastName" : "Lato",
-    "company" : "Krzysztof Lato",
-    "emailAddress" : "krzysztof9202@wp.pl",
-    "telephoneNumber" : "602 563 298"
+    "firstName" : "Jan",
+    "lastName" : "Ogrodnik",
+    "company" : "Gardenia",
+    "emailAddress" : "ogrodnik@gmail.com",
+    "telephoneNumber" : "605 551 056"
   },
-  "date" : [ 2023, 1, 13, 13, 14 ]
+  "date" : [ 2023, 2, 21, 22, 38 ]
+}, {
+  "offerId" : 28,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Sprzęt ciężki, roboty ziemne, wznoszenie budynków",
+  "city" : "Warszawa",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "WARBUD SA",
+    "emailAddress" : "warbud.office@warbud.pl",
+    "telephoneNumber" : "22 562 10 01"
+  },
+  "date" : [ 2023, 2, 21, 22, 40 ]
 }, {
   "offerId" : 29,
   "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "Profesjonalne roboty wykończeniowe, remonty, obiekty użyteczności publicznej i przemysłowe.",
+  "offerContent" : "Profesjonalne roboty wykończeniowe, remonty, obiekty użyteczności publicznej i przemysłowe",
   "city" : "Poznań",
   "user" : {
     "firstName" : "Jan",
@@ -233,181 +350,25 @@
   },
   "date" : [ 2023, 2, 21, 22, 41 ]
 }, {
-  "offerId" : 34,
-  "serviceCategory" : "GARDEN",
-  "offerContent" : "Zakładanie trawników. Krzewy ozdobne. Wolne terminy.",
-  "city" : "Wrocław",
-  "user" : {
-    "firstName" : "Marian",
-    "lastName" : "Paździoch",
-    "company" : "MarianoGarden",
-    "emailAddress" : "mariano@bud.pl",
-    "telephoneNumber" : "342 345 566"
-  },
-  "date" : [ 2023, 4, 21, 20, 37 ]
-}, {
-  "offerId" : 7,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "tylko konstrukcja, do stanu surowego zamkniętego",
-  "city" : "Lublin",
-  "user" : {
-    "firstName" : "Piotr",
-    "lastName" : "Nowak",
-    "company" : "Nowak Construction SA",
-    "emailAddress" : "office@nowak.construction.pl",
-    "telephoneNumber" : "660 067 001"
-  },
-  "date" : [ 2023, 1, 9, 16, 37 ]
-}, {
-  "offerId" : 9,
-  "serviceCategory" : "GARDEN",
-  "offerContent" : "Projekt i realizacja, piękny ogród na życzenie.",
-  "city" : "Warszawa",
-  "user" : {
-    "firstName" : "Monika",
-    "lastName" : "Kisiel",
-    "company" : "MoKi Garden ",
-    "emailAddress" : "monika@garden.eu",
-    "telephoneNumber" : "505 527 211"
-  },
-  "date" : [ 2023, 1, 9, 21, 20 ]
-}, {
-  "offerId" : 24,
-  "serviceCategory" : "ELECTRICITY",
-  "offerContent" : "Systemy alarmowe.",
-  "city" : "Kraków",
-  "user" : {
-    "firstName" : "Ireneusz",
-    "lastName" : "Nowakowski",
-    "company" : "ALARM-INTACT",
-    "emailAddress" : "systemy@alarm.intact.pl",
-    "telephoneNumber" : "792 427 385"
-  },
-  "date" : [ 2023, 1, 15, 13, 54 ]
-}, {
-  "offerId" : 4,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "konstrukcja budynku, wykończenie pod klucz.",
-  "city" : "Lublin",
-  "user" : {
-    "firstName" : "Tadeusz",
-    "lastName" : "Wójtowicz",
-    "company" : "TAD-BUD PBU Sp. z o.o.",
-    "emailAddress" : "biuro@tadbud.pl",
-    "telephoneNumber" : "708 921 001"
-  },
-  "date" : [ 2023, 1, 8, 18, 23 ]
-}, {
-  "offerId" : 27,
-  "serviceCategory" : "GARDEN",
-  "offerContent" : "Piękny ogród, projekt i wykonawstwo",
-  "city" : "Lublin",
-  "user" : {
-    "firstName" : "Mateusz",
-    "lastName" : "Ogrodnik",
-    "company" : "Gardenia",
-    "emailAddress" : "ogrodnik@gmail.com",
-    "telephoneNumber" : "605 551 056"
-  },
-  "date" : [ 2023, 2, 21, 22, 38 ]
-}, {
-  "offerId" : 12,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "budowa, wykończenie, roboty zewnętrzne.",
-  "city" : "Warszawa",
-  "user" : {
-    "firstName" : "Gwidon",
-    "lastName" : "Gwóźdź",
-    "company" : "GOOD-BUD SA",
-    "emailAddress" : "office@gbud.pl",
-    "telephoneNumber" : "22 562 00 10"
-  },
-  "date" : [ 2023, 1, 16, 19, 4 ]
-}, {
   "offerId" : 30,
   "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "Kompleksowe roboty budowlane",
+  "offerContent" : "Kompleksowe roboty budowlane ",
   "city" : "Warszawa",
   "user" : {
     "firstName" : "",
     "lastName" : "",
     "company" : "KP Construction SA",
     "emailAddress" : "kp.office@construction.pl",
-    "telephoneNumber" : "770 007 000"
+    "telephoneNumber" : "770 007 007"
   },
   "date" : [ 2023, 2, 22, 17, 16 ]
-}, {
-  "offerId" : 28,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "Sprzęt ciężki, roboty ziemne, wznoszenie budynków.",
-  "city" : "Warszawa",
-  "user" : {
-    "firstName" : "Jan",
-    "lastName" : "Nowakowski",
-    "company" : "WARBUD SA",
-    "emailAddress" : "warbud.office@warbud.pl",
-    "telephoneNumber" : "22 562 10 01"
-  },
-  "date" : [ 2023, 2, 21, 22, 40 ]
-}, {
-  "offerId" : 33,
-  "serviceCategory" : "ELECTRICITY",
-  "offerContent" : "Wszelkie instalacje elektryczne i alarmowe.",
-  "city" : "Wrocław",
-  "user" : {
-    "firstName" : "Damian",
-    "lastName" : "Lubaszenko",
-    "company" : "DLB",
-    "emailAddress" : "dlb@service.pl",
-    "telephoneNumber" : "888 222 333"
-  },
-  "date" : [ 2023, 3, 3, 21, 28 ]
-}, {
-  "offerId" : 8,
-  "serviceCategory" : "ELECTRICITY",
-  "offerContent" : "fachowe usługi elektryczne, monitoring, inteligentny dom",
-  "city" : "Warszawa",
-  "user" : {
-    "firstName" : "Arnold",
-    "lastName" : "Guzik",
-    "company" : "EL-GUZ ",
-    "emailAddress" : "biuro@elguz.pl",
-    "telephoneNumber" : "772 675 012"
-  },
-  "date" : [ 2023, 1, 9, 20, 58 ]
-}, {
-  "offerId" : 13,
-  "serviceCategory" : "INSTALLATION",
-  "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
-  "city" : "szczecin",
-  "user" : {
-    "firstName" : "Krzysztof",
-    "lastName" : "Jarzyna",
-    "company" : "InstallBUD SA",
-    "emailAddress" : "grzegorz.jarzyna@installbud.pl",
-    "telephoneNumber" : "500 055 001"
-  },
-  "date" : [ 2023, 1, 17, 19, 9 ]
-}, {
-  "offerId" : 20,
-  "serviceCategory" : "EARTH_WORKS",
-  "offerContent" : "Roboty drogowe i prace ziemne.",
-  "city" : "Gdańsk",
-  "user" : {
-    "firstName" : "Tom",
-    "lastName" : "Fhilips",
-    "company" : "Bridge&Highway SA",
-    "emailAddress" : "reception@bh.pl",
-    "telephoneNumber" : "58 556 00 01"
-  },
-  "date" : [ 2023, 1, 16, 23, 6 ]
 }, {
   "offerId" : 31,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "Instalacje wodne",
-  "city" : "Reda",
+  "city" : "Gdynia",
   "user" : {
-    "firstName" : "Michał",
+    "firstName" : "Eugeniusz",
     "lastName" : "Wolski",
     "company" : "WolskiBud",
     "emailAddress" : "wolski@o2.pl",
@@ -418,13 +379,39 @@
   "offerId" : 32,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "Ciągle poszerzamy wiedzę na temat energooszczędnych rozwiązań. Jako jedni z pierwszych w regionie pomorza budujemy domy z Ytonga Jumbo, dzięki czemu nasze inwestycje powstają w krótkim czasie. Posiadamy pełen park maszynowy, który pozwala nam sprawnie wykonać wszystkie prace.",
-  "city" : "Rumia",
+  "city" : "Gdynia",
   "user" : {
-    "firstName" : "Mateusz",
+    "firstName" : "Filip",
     "lastName" : "Burchacz",
-    "company" : "BurchBud",
+    "company" : "BurchBudowa",
     "emailAddress" : "burchacz@budowa.eu",
-    "telephoneNumber" : "123 456 611"
+    "telephoneNumber" : "123 456 654"
   },
   "date" : [ 2023, 3, 3, 0, 17 ]
+}, {
+  "offerId" : 33,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "Wszelkie instalacje elektryczne oraz alarmowe.",
+  "city" : "Wrocław",
+  "user" : {
+    "firstName" : "Damian",
+    "lastName" : "Lubaszenko",
+    "company" : "DLB",
+    "emailAddress" : "dlb@service.pl",
+    "telephoneNumber" : "888 222 333"
+  },
+  "date" : [ 2023, 3, 3, 21, 28 ]
+}, {
+  "offerId" : 26,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "prace remontowo-wykończeniowe, termin realizacji: jesień 2023\r\nzagospodarowanie terenu",
+  "city" : "warszawa",
+  "user" : {
+    "firstName" : "Norbert",
+    "lastName" : "Noga",
+    "company" : "NorbertREMONT",
+    "emailAddress" : "remonty@norbert.pl",
+    "telephoneNumber" : "607 871 292"
+  },
+  "date" : [ 2023, 4, 22, 18, 49 ]
 } ]

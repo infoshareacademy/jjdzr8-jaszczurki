@@ -17,11 +17,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Controller
 public class WebAppController {
@@ -36,26 +34,13 @@ public class WebAppController {
     }
 
     @GetMapping("/")
-    public String goHome(Model model, @RequestParam("page") Optional<Integer> page, @RequestParam("size") Optional<Integer> size) {
-        int currentPage = page.orElse(1);
-        int pageSize = size.orElse(9);
-
+    public String goHome(Model model, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "9") int size) {
         List<OfferDto> allOfferDtoList = offerService.provideAllDtoList();
-        Page<OfferDto> offerDtoPage = offerService.findPaginated(PageRequest.of(currentPage - 1, pageSize), allOfferDtoList);
-
+        Page<OfferDto> offerDtoPage = offerService.providePagination(PageRequest.of(page - 1, size), allOfferDtoList);
+        List<Integer> pageNumbers = offerService.calculatePageNumbers(offerDtoPage);
         model.addAttribute("offerDtoPage", offerDtoPage);
-
-        int totalPages = offerDtoPage.getTotalPages();
-        if (totalPages > 0) {
-            int maxVisiblePages = 5;
-            int startPage = Math.max(1, currentPage - (maxVisiblePages / 2));
-            int endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-            List<Integer> pageNumbers = IntStream.rangeClosed(startPage, endPage)
-                    .boxed()
-                    .collect(Collectors.toList());
-            model.addAttribute("pageNumbers", pageNumbers);
-        }
-        LOGGER.info("Returning home page with '{}' pages", totalPages);
+        model.addAttribute("pageNumbers", pageNumbers);
+        LOGGER.info("Returning home page with '{}' pages", pageNumbers.size());
         return "home";
     }
 
@@ -72,21 +57,23 @@ public class WebAppController {
             return "addOffer";
         }
         Offer offer = mapper.fromDto(offerDto);
+        offerService.setIdToOffer(offer);
         offerService.addOffer(offer);
         LOGGER.info("New offer added with ID: {}", offer.getOfferId());
         return "redirect:/";
     }
 
     @GetMapping("/searchOffer")
-    public String goSearch(String searchValue, String category, Model model) {
+    public String goSearch(@RequestParam(required = false) String searchValue, @RequestParam(required = false) String category,
+                           @RequestParam(defaultValue = "1") int pageList, @RequestParam(defaultValue = "8") int sizeList,
+                           HttpSession session, Model model) {
         LOGGER.info("Searching for offers with searchValue: '{}' and category: '{}'", searchValue, category);
-        List<OfferDto> filteredOfferDtoList;
-        if (category != null && !category.isEmpty()){
-            filteredOfferDtoList = offerService.provideNewFilteredByCategoryOfferDtoList(category);
-        } else {
-            filteredOfferDtoList = offerService.provideNewFilteredOfferDtoList(searchValue);
-        }
-        model.addAttribute("filteredOfferDtoList", filteredOfferDtoList);
+        List<OfferDto> filteredOfferDtoList = offerService.provideFilteredList(searchValue, category, pageList, session);
+        Page<OfferDto> offerDtoListPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), filteredOfferDtoList);
+        model.addAttribute("filteredOfferDtoList", offerDtoListPage);
+        model.addAttribute("pagesDtoList", offerService.calculatePageNumbers(offerDtoListPage));
+        model.addAttribute("searchValue", searchValue);
+        model.addAttribute("category", category);
         LOGGER.info("Returning searchOffer page with '{}' offers found", filteredOfferDtoList.size());
         return "searchOffer";
     }

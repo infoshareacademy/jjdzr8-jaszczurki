@@ -12,12 +12,11 @@
 <body>
 <div th:insert="~{fragments/header :: header-add}"></div>
 
-<form id="addForm" class="addForm col-11 mt-5 mb-5 mx-auto" action="#" th:action="@{/addOffer}" th:object="${offer}"
+<form id="addForm" class="addForm col-10 mt-5 mb-5 mx-auto" action="#" th:action="@{/addOffer}" th:object="${offer}"
       method="post">
     <hr>
-    <div class="id mb-4 mt-3 col-1">
-        <label for="formGroupExampleInput0">ID oferty: </label>
-        <input type="text" class="form-control" id="formGroupExampleInput0" th:field="*{dtoOfferId}" readonly>
+    <div class="id mb-4 mt-3 col-4">
+        <span>Formularz dodawania oferty: </span>
     </div>
     <hr/>
     <div class="mb-4 mt-5">
@@ -70,10 +69,10 @@
     </div>
     <hr>
     <div class="buttons mb-4">
-        <button type="button" class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <button type="button" class="btn btn-outline-dark mr-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
             Zatwierdź
         </button>
-        <a href="/" class="btn btn-secondary" role="button" data-bs-toggle="modal"
+        <a href="/" class="btn btn-dark" role="button" data-bs-toggle="modal"
            data-bs-target="#staticBackdrop2">Wróć do strony głównej</a>
     </div>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -88,8 +87,8 @@
                     Czy chcesz zapisać swoją ofertę i wrócić do strony głównej ?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
-                    <button type="button" class="btn btn-primary" onclick="const city = document.getElementById('addForm').elements['city'].value;
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Nie</button>
+                    <button type="button" class="btn btn-outline-dark" onclick="const city = document.getElementById('addForm').elements['city'].value;
                                                                 const company = document.getElementById('addForm').elements['userCompanyName'].value;
                                                                 const phone = document.getElementById('addForm').elements['userTelephoneNumber'].value;
                                                                 const email = document.getElementById('addForm').elements['userEmailAddress'].value;
@@ -116,8 +115,8 @@
                     Czy chcesz przerwać dodawanie oferty i wrócić do strony głównej ?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Nie</button>
-                    <a href="/" class="btn btn-primary" role="button">Tak</a>
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Nie</button>
+                    <a href="/" class="btn btn-outline-dark" role="button">Tak</a>
                 </div>
             </div>
         </div>
