@@ -2,6 +2,8 @@ package justbuild.it.web.app.service;
 
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.repository.OfferFileRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,6 +17,7 @@ class OfferCreationService implements OfferCreationServiceInterface {
 
     private final OfferFileRepository offerFileRepository;
     private static final String OFFERS_LIST_CANNOT_BE_NULL_MESSAGE = "list of offers cannot be null";
+    private static final Logger LOGGER = LoggerFactory.getLogger(OfferCreationService.class);
 
     OfferCreationService(OfferFileRepository offerFileRepository) {
         this.offerFileRepository = offerFileRepository;
@@ -28,16 +31,21 @@ class OfferCreationService implements OfferCreationServiceInterface {
         }
         offers.add(offer);
         offerFileRepository.saveOffersToJsonFile(offers, OFFERS_FILEPATH);
+        LOGGER.info("Adding offer with ID: {}", offer.getOfferId());
+        LOGGER.debug("Adding offer '{}'", offer);
     }
 
     @Override
     public Long getNextOfferId() {
         List<Offer> offers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
 
-        return Objects.requireNonNull(offers, OFFERS_LIST_CANNOT_BE_NULL_MESSAGE)
+        long nextOfferId = Objects.requireNonNull(offers, OFFERS_LIST_CANNOT_BE_NULL_MESSAGE)
                 .stream()
                 .mapToLong(Offer::getOfferId)
                 .reduce(0L, Long::max)
                 + 1L;
+
+        LOGGER.debug("Getting next offer ID: {}", nextOfferId);
+        return nextOfferId;
     }
 }
