@@ -1,4 +1,4 @@
-package justbuild.it.web.app.repository;
+package justbuild.it.web.app.control.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

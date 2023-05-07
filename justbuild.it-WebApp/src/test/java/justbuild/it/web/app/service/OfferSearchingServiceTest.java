@@ -1,9 +1,10 @@
 package justbuild.it.web.app.service;
 
+import justbuild.it.web.app.control.service.OfferSearchingService;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.entity.User;
 import justbuild.it.web.app.entity.enums.ServiceCategoryEnum;
-import justbuild.it.web.app.repository.OfferFileRepository;
+import justbuild.it.web.app.control.repository.OfferFileRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

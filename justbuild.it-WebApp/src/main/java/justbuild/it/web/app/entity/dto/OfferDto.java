@@ -1,4 +1,4 @@
-package justbuild.it.web.app.dto;
+package justbuild.it.web.app.entity.dto;
 
 import justbuild.it.web.app.entity.enums.ServiceCategoryEnum;
 import org.springframework.format.annotation.DateTimeFormat;

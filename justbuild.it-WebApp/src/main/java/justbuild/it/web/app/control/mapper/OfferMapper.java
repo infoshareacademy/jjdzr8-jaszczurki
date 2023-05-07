@@ -1,6 +1,6 @@
-package justbuild.it.web.app.mapper;
+package justbuild.it.web.app.control.mapper;
 
-import justbuild.it.web.app.dto.OfferDto;
+import justbuild.it.web.app.entity.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.entity.User;
 import org.springframework.stereotype.Component;

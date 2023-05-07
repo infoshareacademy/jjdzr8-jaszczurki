@@ -1,4 +1,4 @@
-package justbuild.it.web.app;
+package justbuild.it.web.app.boundary;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

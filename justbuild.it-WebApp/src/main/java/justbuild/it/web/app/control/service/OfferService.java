@@ -1,8 +1,8 @@
-package justbuild.it.web.app.service;
+package justbuild.it.web.app.control.service;
 
-import justbuild.it.web.app.dto.OfferDto;
+import justbuild.it.web.app.entity.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
-import justbuild.it.web.app.mapper.OfferMapper;
+import justbuild.it.web.app.control.mapper.OfferMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
