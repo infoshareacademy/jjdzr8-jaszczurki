@@ -1,43 +1,4 @@
 [ {
-  "offerId" : 13,
-  "serviceCategory" : "INSTALLATION",
-  "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
-  "city" : "szczecin",
-  "user" : {
-    "firstName" : "Krzysztof",
-    "lastName" : "Jarzyna",
-    "company" : "InstallBUD SA",
-    "emailAddress" : "grzegorz.jarzyna@installbud.pl",
-    "telephoneNumber" : "500 055 001"
-  },
-  "date" : [ 2023, 1, 17, 19, 9, 43, 159000000 ]
-}, {
-  "offerId" : 20,
-  "serviceCategory" : "EARTH_WORKS",
-  "offerContent" : "roboty drogowo-mostowe",
-  "city" : "gdańsk",
-  "user" : {
-    "firstName" : "",
-    "lastName" : "",
-    "company" : "Bridge&Highway SA",
-    "emailAddress" : "reception@bh.pl",
-    "telephoneNumber" : "58 556 00 01"
-  },
-  "date" : [ 2023, 1, 16, 23, 6, 24, 972000000 ]
-}, {
-  "offerId" : 14,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "budowa - trójmiasto i całe województwo pomorskie",
-  "city" : "gdańsk",
-  "user" : {
-    "firstName" : "Mikołaj",
-    "lastName" : "Święty",
-    "company" : "Santa Claus Constructions SA",
-    "emailAddress" : "office@santa_claus.pl",
-    "telephoneNumber" : "804 444 444"
-  },
-  "date" : [ 2023, 1, 16, 23, 4, 55, 754000000 ]
-}, {
   "offerId" : 12,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
@@ -49,7 +10,8 @@
     "emailAddress" : "office@gbud.pl",
     "telephoneNumber" : "22 562 00 10"
   },
-  "date" : [ 2023, 1, 16, 19, 4, 7, 555000000 ]
+  "date" : [ 2021, 1, 16, 19, 4, 7, 555000000 ],
+  "expiryDate" : [ 2023, 2, 16, 19, 4, 7, 555000000 ]
 }, {
   "offerId" : 25,
   "serviceCategory" : "FINISHING_WORKS",
@@ -62,7 +24,8 @@
     "emailAddress" : "",
     "telephoneNumber" : "506 874 323"
   },
-  "date" : [ 2023, 1, 15, 15, 18, 28, 8000000 ]
+  "date" : [ 2023, 1, 15, 15, 18, 28, 8000000 ],
+  "expiryDate" : [ 2023, 2, 15, 15, 18, 28, 8000000 ]
 }, {
   "offerId" : 24,
   "serviceCategory" : "ELECTRICITY",
@@ -75,7 +38,8 @@
     "emailAddress" : "systemy@alarm.intact.pl",
     "telephoneNumber" : "792 427 385"
   },
-  "date" : [ 2023, 1, 15, 13, 54, 9, 818000000 ]
+  "date" : [ 2023, 1, 15, 13, 54, 9, 818000000 ],
+  "expiryDate" : [ 2023, 2, 15, 13, 54, 9, 818000000 ]
 }, {
   "offerId" : 23,
   "serviceCategory" : "INSTALLATION",
@@ -88,7 +52,8 @@
     "emailAddress" : "kowal77@gmail.com",
     "telephoneNumber" : "605 055 321"
   },
-  "date" : [ 2023, 1, 15, 10, 4, 5, 991000000 ]
+  "date" : [ 2023, 1, 15, 10, 4, 5, 991000000 ],
+  "expiryDate" : [ 2023, 2, 15, 10, 4, 5, 991000000 ]
 }, {
   "offerId" : 22,
   "serviceCategory" : "GARDEN",
@@ -101,7 +66,8 @@
     "emailAddress" : "ogrodnik@pola.ogrody.pl",
     "telephoneNumber" : "603 391 755"
   },
-  "date" : [ 2023, 1, 13, 14, 8, 10, 859000000 ]
+  "date" : [ 2023, 1, 13, 14, 8, 10, 859000000 ],
+  "expiryDate" : [ 2023, 2, 13, 14, 8, 10, 859000000 ]
 }, {
   "offerId" : 21,
   "serviceCategory" : "INSTALLATION",
@@ -114,7 +80,8 @@
     "emailAddress" : "slupski@installbud.pl",
     "telephoneNumber" : "506 299 114"
   },
-  "date" : [ 2023, 1, 13, 13, 48, 51, 417000000 ]
+  "date" : [ 2023, 1, 13, 13, 48, 51, 417000000 ],
+  "expiryDate" : [ 2023, 2, 13, 13, 48, 51, 417000000 ]
 }, {
   "offerId" : 19,
   "serviceCategory" : "CONSTRUCTION",
@@ -127,7 +94,8 @@
     "emailAddress" : "biuro@rembud.pl",
     "telephoneNumber" : "881 001 001"
   },
-  "date" : [ 2023, 1, 13, 13, 21, 6, 371000000 ]
+  "date" : [ 2023, 1, 13, 13, 21, 6, 371000000 ],
+  "expiryDate" : [ 2023, 2, 13, 13, 21, 6, 371000000 ]
 }, {
   "offerId" : 18,
   "serviceCategory" : "FINISHING_WORKS",
@@ -140,7 +108,8 @@
     "emailAddress" : "krzysztof9202@wp.pl",
     "telephoneNumber" : "602 563 298"
   },
-  "date" : [ 2023, 1, 13, 13, 14, 38, 42000000 ]
+  "date" : [ 2023, 1, 13, 13, 14, 38, 42000000 ],
+  "expiryDate" : [ 2023, 2, 13, 13, 14, 38, 42000000 ]
 }, {
   "offerId" : 17,
   "serviceCategory" : "ELECTRICITY",
@@ -153,7 +122,8 @@
     "emailAddress" : "office@ehouse.eu",
     "telephoneNumber" : "880 001 081"
   },
-  "date" : [ 2023, 1, 13, 12, 10, 12, 59000000 ]
+  "date" : [ 2023, 1, 13, 12, 10, 12, 59000000 ],
+  "expiryDate" : [ 2023, 2, 13, 12, 10, 12, 59000000 ]
 }, {
   "offerId" : 16,
   "serviceCategory" : "EARTH_WORKS",
@@ -166,7 +136,8 @@
     "emailAddress" : "roboty.ziemne@komar.pl",
     "telephoneNumber" : "792 871 018"
   },
-  "date" : [ 2023, 1, 13, 11, 46, 39, 584000000 ]
+  "date" : [ 2023, 1, 13, 11, 46, 39, 584000000 ],
+  "expiryDate" : [ 2023, 2, 13, 11, 46, 39, 584000000 ]
 }, {
   "offerId" : 15,
   "serviceCategory" : "CONSTRUCTION",
@@ -179,7 +150,8 @@
     "emailAddress" : "biuro@invest-projekt.pl",
     "telephoneNumber" : "81 560 00 01"
   },
-  "date" : [ 2023, 1, 10, 19, 52, 15, 131000000 ]
+  "date" : [ 2023, 1, 10, 19, 52, 15, 131000000 ],
+  "expiryDate" : [ 2023, 2, 10, 19, 52, 15, 131000000 ]
 }, {
   "offerId" : 11,
   "serviceCategory" : "EARTH_WORKS",
@@ -192,7 +164,8 @@
     "emailAddress" : "biuro@zenbud.pl",
     "telephoneNumber" : "688 089 003"
   },
-  "date" : [ 2023, 1, 10, 11, 58, 21, 727000000 ]
+  "date" : [ 2023, 1, 10, 11, 58, 21, 727000000 ],
+  "expiryDate" : [ 2023, 2, 10, 11, 58, 21, 727000000 ]
 }, {
   "offerId" : 10,
   "serviceCategory" : "FINISHING_WORKS",
@@ -205,7 +178,8 @@
     "emailAddress" : "biuro.remonty@laskowik.pl",
     "telephoneNumber" : "502 718 345"
   },
-  "date" : [ 2023, 1, 9, 21, 23, 22, 820000000 ]
+  "date" : [ 2023, 1, 9, 21, 23, 22, 820000000 ],
+  "expiryDate" : [ 2023, 2, 9, 21, 23, 22, 820000000 ]
 }, {
   "offerId" : 9,
   "serviceCategory" : "GARDEN",
@@ -218,7 +192,8 @@
     "emailAddress" : "monika@garden.eu",
     "telephoneNumber" : "505 527 211"
   },
-  "date" : [ 2023, 1, 9, 21, 20, 14, 815000000 ]
+  "date" : [ 2023, 1, 9, 21, 20, 14, 815000000 ],
+  "expiryDate" : [ 2023, 2, 9, 21, 20, 14, 815000000 ]
 }, {
   "offerId" : 8,
   "serviceCategory" : "ELECTRICITY",
@@ -231,7 +206,8 @@
     "emailAddress" : "biuro@elguz.pl",
     "telephoneNumber" : "772 675 012"
   },
-  "date" : [ 2023, 1, 9, 20, 58, 11, 831000000 ]
+  "date" : [ 2023, 1, 9, 20, 58, 11, 831000000 ],
+  "expiryDate" : [ 2023, 2, 9, 20, 58, 11, 831000000 ]
 }, {
   "offerId" : 7,
   "serviceCategory" : "CONSTRUCTION",
@@ -244,7 +220,8 @@
     "emailAddress" : "office@nowak.construction.pl",
     "telephoneNumber" : "660 067 001"
   },
-  "date" : [ 2023, 1, 9, 16, 37, 41, 356000000 ]
+  "date" : [ 2023, 1, 9, 16, 37, 41, 356000000 ],
+  "expiryDate" : [ 2023, 2, 9, 16, 37, 41, 356000000 ]
 }, {
   "offerId" : 6,
   "serviceCategory" : "INSTALLATION",
@@ -257,7 +234,8 @@
     "emailAddress" : "office@instalator.pl",
     "telephoneNumber" : "880 011 010"
   },
-  "date" : [ 2023, 1, 8, 18, 31, 34, 771000000 ]
+  "date" : [ 2023, 1, 8, 18, 31, 34, 771000000 ],
+  "expiryDate" : [ 2023, 2, 8, 18, 31, 34, 771000000 ]
 }, {
   "offerId" : 5,
   "serviceCategory" : "FINISHING_WORKS",
@@ -270,7 +248,8 @@
     "emailAddress" : "remonty@gmail.com",
     "telephoneNumber" : "609 333 330"
   },
-  "date" : [ 2023, 1, 8, 18, 26, 53, 914000000 ]
+  "date" : [ 2023, 1, 8, 18, 26, 53, 914000000 ],
+  "expiryDate" : [ 2023, 2, 8, 18, 26, 53, 914000000 ]
 }, {
   "offerId" : 4,
   "serviceCategory" : "CONSTRUCTION",
@@ -283,33 +262,8 @@
     "emailAddress" : "biuro@tadbud.pl",
     "telephoneNumber" : "708 921 001"
   },
-  "date" : [ 2023, 1, 8, 18, 23, 25, 234000000 ]
-}, {
-  "offerId" : 3,
-  "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "szybki i tani fachowiec od robót wewnętrznych",
-  "city" : "poznań",
-  "user" : {
-    "firstName" : "Ryszard",
-    "lastName" : "Makowski",
-    "company" : "Makbud",
-    "emailAddress" : "fachowiec@makbud.pl",
-    "telephoneNumber" : "880 033 701"
-  },
-  "date" : [ 2023, 1, 8, 13, 49, 57, 620000000 ]
-}, {
-  "offerId" : 2,
-  "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "wykończenie pod klucz, szybko i fachowo",
-  "city" : "gdańsk",
-  "user" : {
-    "firstName" : "Piotr",
-    "lastName" : "Jankowski",
-    "company" : "PeterBUD Sp. z o.o.",
-    "emailAddress" : "fachowiec@peterbud.pl",
-    "telephoneNumber" : "724 678 054"
-  },
-  "date" : [ 2023, 1, 7, 21, 48, 45, 260000000 ]
+  "date" : [ 2023, 1, 8, 18, 23, 25, 234000000 ],
+  "expiryDate" : [ 2023, 2, 8, 18, 23, 25, 234000000 ]
 }, {
   "offerId" : 27,
   "serviceCategory" : "GARDEN",
@@ -322,7 +276,8 @@
     "emailAddress" : "ogrodnik@gmail.com",
     "telephoneNumber" : "605 551 056"
   },
-  "date" : [ 2023, 2, 21, 22, 38 ]
+  "date" : [ 2023, 2, 21, 22, 38 ],
+  "expiryDate" : [ 2023, 2, 21, 22, 38 ]
 }, {
   "offerId" : 28,
   "serviceCategory" : "CONSTRUCTION",
@@ -335,7 +290,8 @@
     "emailAddress" : "warbud.office@warbud.pl",
     "telephoneNumber" : "22 562 10 01"
   },
-  "date" : [ 2023, 2, 21, 22, 40 ]
+  "date" : [ 2023, 2, 21, 22, 40 ],
+  "expiryDate" : [ 2023, 3, 21, 22, 40 ]
 }, {
   "offerId" : 29,
   "serviceCategory" : "FINISHING_WORKS",
@@ -348,7 +304,8 @@
     "emailAddress" : "rembud.biuro@rembud.pl",
     "telephoneNumber" : "702 452 118"
   },
-  "date" : [ 2023, 2, 21, 22, 41 ]
+  "date" : [ 2023, 2, 21, 22, 41 ],
+  "expiryDate" : [ 2023, 3, 21, 22, 41 ]
 }, {
   "offerId" : 30,
   "serviceCategory" : "CONSTRUCTION",
@@ -361,7 +318,8 @@
     "emailAddress" : "kp.office@construction.pl",
     "telephoneNumber" : "770 007 007"
   },
-  "date" : [ 2023, 2, 22, 17, 16 ]
+  "date" : [ 2023, 2, 22, 17, 16 ],
+  "expiryDate" : [ 2023, 3, 2, 17, 16 ]
 }, {
   "offerId" : 31,
   "serviceCategory" : "INSTALLATION",
@@ -374,7 +332,8 @@
     "emailAddress" : "wolski@o2.pl",
     "telephoneNumber" : "555 222 555"
   },
-  "date" : [ 2023, 3, 1, 23, 4 ]
+  "date" : [ 2023, 3, 1, 23, 4 ],
+  "expiryDate" : [ 2023, 3, 30, 23, 4 ]
 }, {
   "offerId" : 32,
   "serviceCategory" : "CONSTRUCTION",
@@ -387,20 +346,8 @@
     "emailAddress" : "burchacz@budowa.eu",
     "telephoneNumber" : "123 456 654"
   },
-  "date" : [ 2023, 3, 3, 0, 17 ]
-}, {
-  "offerId" : 33,
-  "serviceCategory" : "ELECTRICITY",
-  "offerContent" : "Wszelkie instalacje elektryczne oraz alarmowe.",
-  "city" : "Wrocław",
-  "user" : {
-    "firstName" : "Damian",
-    "lastName" : "Lubaszenko",
-    "company" : "DLB",
-    "emailAddress" : "dlb@service.pl",
-    "telephoneNumber" : "888 222 333"
-  },
-  "date" : [ 2023, 3, 3, 21, 28 ]
+  "date" : [ 2023, 3, 3, 0, 17 ],
+  "expiryDate" : [ 2023, 3, 23, 0, 17 ]
 }, {
   "offerId" : 26,
   "serviceCategory" : "FINISHING_WORKS",
@@ -413,5 +360,104 @@
     "emailAddress" : "remonty@norbert.pl",
     "telephoneNumber" : "607 871 292"
   },
-  "date" : [ 2023, 4, 22, 18, 49 ]
+  "date" : [ 2023, 4, 22, 18, 49 ],
+  "expiryDate" : [ 2023, 5, 20, 18, 49 ]
+}, {
+  "offerId" : 33,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "Wszelkie instalacje elektryczne oraz alarmowe.",
+  "city" : "Wrocław",
+  "user" : {
+    "firstName" : "Damian",
+    "lastName" : "Lubaszenko",
+    "company" : "DLB",
+    "emailAddress" : "dlb@service.pl",
+    "telephoneNumber" : "888 222 333"
+  },
+  "date" : [ 2023, 5, 6, 22, 39 ],
+  "expiryDate" : [ 2023, 6, 5, 22, 39, 37, 781471973 ]
+}, {
+  "offerId" : 3,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "szybki i tani fachowiec od robót wewnętrznych",
+  "city" : "poznań",
+  "user" : {
+    "firstName" : "Ryszard",
+    "lastName" : "Makowski",
+    "company" : "Makbud",
+    "emailAddress" : "fachowiec@makbud.pl",
+    "telephoneNumber" : "880 033 701"
+  },
+  "date" : [ 2023, 1, 8, 13, 49, 57, 620000000 ],
+  "expiryDate" : [ 2023, 7, 6, 0, 59, 29, 910813430 ]
+}, {
+  "offerId" : 13,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
+  "city" : "szczecin",
+  "user" : {
+    "firstName" : "Krzysztof",
+    "lastName" : "Jarzyna",
+    "company" : "InstallBUD SA",
+    "emailAddress" : "grzegorz.jarzyna@installbud.pl",
+    "telephoneNumber" : "500 055 001"
+  },
+  "date" : [ 2023, 1, 17, 19, 9, 43, 159000000 ],
+  "expiryDate" : [ 2023, 6, 6, 1, 10, 2, 847370659 ]
+}, {
+  "offerId" : 20,
+  "serviceCategory" : "EARTH_WORKS",
+  "offerContent" : "roboty drogowo-mostowe",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "Bridge&Highway SA",
+    "emailAddress" : "reception@bh.pl",
+    "telephoneNumber" : "58 556 00 01"
+  },
+  "date" : [ 2023, 1, 16, 23, 6, 24, 972000000 ],
+  "expiryDate" : [ 2023, 6, 6, 1, 13, 6, 617198083 ]
+}, {
+  "offerId" : 14,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "budowa - trójmiasto i całe województwo pomorskie",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "Mikołaj",
+    "lastName" : "Święty",
+    "company" : "Santa Claus Constructions SA",
+    "emailAddress" : "office@santa_claus.pl",
+    "telephoneNumber" : "804 444 444"
+  },
+  "date" : [ 2023, 1, 16, 23, 4, 55, 754000000 ],
+  "expiryDate" : [ 2023, 6, 9, 1, 21, 36, 151468029 ]
+}, {
+  "offerId" : 2,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "wykończenie pod klucz, szybko i fachowo",
+  "city" : "gdańsk",
+  "user" : {
+    "firstName" : "Piotr",
+    "lastName" : "Jankowski",
+    "company" : "PeterBUD Sp. z o.o.",
+    "emailAddress" : "fachowiec@peterbud.pl",
+    "telephoneNumber" : "724 678 054"
+  },
+  "date" : [ 2023, 1, 7, 21, 48, 45, 260000000 ],
+  "expiryDate" : [ 2023, 5, 8, 1, 31, 39, 773101431 ]
+}, {
+  "offerId" : 34,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "Wyremontuję mieszkanie",
+  "city" : "Pruszcz Gdański",
+  "user" : {
+    "firstName" : "Anna",
+    "lastName" : "Ryba",
+    "company" : "poldex",
+    "emailAddress" : "biuro@poldex.pl",
+    "telephoneNumber" : "512345678"
+  },
+  "date" : [ 2023, 5, 6, 23, 17 ],
+  "expiryDate" : [ 2023, 5, 17, 1, 36, 55, 899760660 ]
 } ]
