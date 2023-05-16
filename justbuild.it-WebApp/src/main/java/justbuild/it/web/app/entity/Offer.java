@@ -2,16 +2,41 @@ package justbuild.it.web.app.entity;
 
 import justbuild.it.web.app.entity.enums.ServiceCategoryEnum;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+@Entity
+@Table(name = "offer")
 public class Offer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "offer_id")
     private Long offerId;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "service_category", nullable = false)
     private ServiceCategoryEnum serviceCategory;
+
+    @Column(name = "offer_content")
     private String offerContent;
+
+    @Column(name = "city")
     private String city;
+
+    @ManyToOne
     private User user;
+
+    @Column(name = "date")
     private LocalDateTime date;
 
     private LocalDateTime expiryDate;
@@ -114,6 +139,18 @@ public class Offer {
                 ", user=" + user +
                 ", date=" + date +
                 ", expiryDate=" + expiryDate +
+                '}';
+    }
+
+    @Override
+    public String toString() {
+        return "Offer{" +
+                "offerId=" + offerId +
+                ", serviceCategory=" + serviceCategory +
+                ", offerContent='" + offerContent + '\'' +
+                ", city='" + city + '\'' +
+                ", user=" + user +
+                ", date=" + date +
                 '}';
     }
 }

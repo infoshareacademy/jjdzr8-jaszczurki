@@ -63,7 +63,7 @@ class UserServiceTest {
         ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass(User.class);
         doAnswer(invocationOnMock -> {
             User user = userCaptor.getValue();
-            user.setId(1L);
+            user.setUserId(1L);
             return user;
         }).when(userRepositoryMock).save(userCaptor.capture());
 
@@ -72,7 +72,7 @@ class UserServiceTest {
 
         // then
         verify(userRepositoryMock, times(1)).save(userCaptor.getValue());
-        assertEquals(1L, userCaptor.getValue().getId());
+        assertEquals(1L, userCaptor.getValue().getUserId());
         assertEquals(TEST_EMAIL_ONE, userCaptor.getValue().getEmailAddress());
         assertEquals(TEST_PASSWORD_ONE, userCaptor.getValue().getPassword());
         assertNotEquals(Set.of(new SimpleGrantedAuthority(TEST_ROLE_ONE)), userCaptor.getValue().getAuthorities());  // it should be TRUE (not equals) !!! because tested method gives the role: "USER" for all registered users, the role: "USER_VIP" does not exist in our application
@@ -94,7 +94,7 @@ class UserServiceTest {
                 .isNotEqualTo(user1.getPassword());
         assertThat(userFoundByEmail)
                 .hasFieldOrPropertyWithValue("authorities", Set.of(new SimpleGrantedAuthority("USER")))
-                .hasNoNullFieldsOrPropertiesExcept("id", "firstName", "lastName", "company", "telephoneNumber");
+                .hasNoNullFieldsOrPropertiesExcept("userId", "firstName", "lastName", "company", "telephoneNumber", "offers");
 
     }
 }

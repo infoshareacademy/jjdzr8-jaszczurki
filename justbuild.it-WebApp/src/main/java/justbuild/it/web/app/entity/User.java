@@ -3,6 +3,7 @@ package justbuild.it.web.app.entity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -11,24 +12,43 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "user_id")
+    private Long userId;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "company", nullable = false)
     private String company;
-    @Column(name = "email")
+
+    @Column(name = "email_address", nullable = false, unique = true)
     private String emailAddress;
-    @Column(name = "password")
+
+    @Column(name = "password", nullable = false, unique = true)
     private String password;
+
+    @Column(name = "telephone_number", nullable = false)
     private String telephoneNumber;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Offer> offers = new ArrayList<>();
+
     @ElementCollection(targetClass = SimpleGrantedAuthority.class)
     @CollectionTable(name = "user_authorities", joinColumns = @JoinColumn(name = "user_id"))
     private Set<GrantedAuthority> authorities;
@@ -41,14 +61,15 @@ public class User {
         this.telephoneNumber = "";
     }
 
-    public User(Long id, String firstName, String lastName, String company, String emailAddress, String password, String telephoneNumber) {
-        this.id = id;
+    public User(Long userId, String firstName, String lastName, String company, String emailAddress, String password, String telephoneNumber, List<Offer> offers) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.company = company;
         this.emailAddress = emailAddress;
         this.password = password;
         this.telephoneNumber = telephoneNumber;
+        this.addOffers(offers);
     }
 
     public User(String emailAddress, String password, Set<GrantedAuthority> authorities) {
@@ -57,12 +78,16 @@ public class User {
         this.authorities = authorities;
     }
 
-    public Long getId() {
-        return id;
+    public void addOffers(List<Offer> offers) {offers.forEach(this::addOffer);}
+
+    public void addOffer(Offer offer) {this.offers.add(offer);}
+
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -113,6 +138,14 @@ public class User {
         this.telephoneNumber = telephoneNumber;
     }
 
+    public List<Offer> getOffers() {
+        return offers;
+    }
+
+    public void setOffers(List<Offer> offers) {
+        this.offers = offers;
+    }
+
     public Set<GrantedAuthority> getAuthorities() {
         return authorities;
     }
@@ -122,13 +155,30 @@ public class User {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(userId, user.userId) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(company, user.company) && Objects.equals(emailAddress, user.emailAddress) && Objects.equals(password, user.password) && Objects.equals(telephoneNumber, user.telephoneNumber) && Objects.equals(offers, user.offers) && Objects.equals(authorities, user.authorities);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, firstName, lastName, company, emailAddress, password, telephoneNumber, offers, authorities);
+    }
+
+    @Override
     public String toString() {
         return "User{" +
-                "firstName='" + firstName + '\'' +
+                "userId=" + userId +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", company='" + company + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
+                ", password='" + password + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
+                ", offers=" + offers +
+                ", authorities=" + authorities +
                 '}';
     }
 }
