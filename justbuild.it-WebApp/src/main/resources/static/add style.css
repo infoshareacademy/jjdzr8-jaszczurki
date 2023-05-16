@@ -129,6 +129,14 @@ h5 {
     box-shadow: 10px 10px 15px 0 #000000;
 }
 
+#myOffers-shadow {
+    background-color: #fcf1b9;
+    box-shadow: 10px 10px 15px 0 #000000;
+}
+
+.button-marg {
+    margin-right: 1.5rem !important;
+}
 
 
 

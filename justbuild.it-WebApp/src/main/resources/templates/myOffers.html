@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
+          integrity="sha512-qRtsAzTnYsT99+0x+1SjIyLhQO+ydlJF9zAnZ4MYjOYl8a0JlAX3q/Aj0EMy1JImBHDvjmMh9E2PzETZ+UrY8g=="
+          crossorigin="anonymous" />
+    <title>Moje oferty</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/add style.css}" />
+</head>
+<body>
+<div th:insert="~{fragments/header :: header}"></div>
+
+<h1>Moje oferty</h1>
+
+<h2>Aktywne oferty</h2>
+<div th:if="${activeOffers}">
+    <div class="row">
+        <div th:each="offer : ${activeOffers}" class="col-md-4 mb-5">
+            <div class="card">
+                <div class="card-body overflow-auto" style="height: 250px; width: 100%">
+                    <h5 class="card-title" th:text="${offer.userCompanyName}"></h5>
+                    <p class="card-text" th:text="${offer.offerContent}"></p>
+                    <button id="button-shadow" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                            th:data-bs-target="'#modal-' + ${offer.dtoOfferId}">Szczegóły</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+<div th:unless="${activeOffers}">
+    <p>Brak aktywnych ofert.</p>
+    <hr>
+</div>
+
+<h2>Nieaktywne oferty</h2>
+<div th:if="${inactiveOffers}">
+    <div class="row">
+        <div th:each="offer : ${inactiveOffers}" class="col-md-4 mb-5">
+            <div class="card">
+                <div class="card-body overflow-auto" style="height: 250px; width: 100%">
+                    <h5 class="card-title" th:text="${offer.userCompanyName}"></h5>
+                    <p class="card-text" th:text="${offer.offerContent}"></p>
+                    <button id="button-shadow" type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                            th:data-bs-target="'#modal-' + ${offer.dtoOfferId}">Szczegóły</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>
+<div th:unless="${inactiveOffers}">
+    <p>Brak nieaktywnych ofert.</p>
+    <hr>
+</div>
+<div th:each="offerToModal : ${activeOffers}">
+    <div class="modal fade" th:id="'modal-' + ${offerToModal.dtoOfferId}" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white" style="box-shadow: 10px 10px 30px 0 #000000;">
+                    <h5 class="modal-title text-center"
+                        th:text="${offerToModal.userCompanyName + ', ' + offerToModal.city}"></h5>
+                    <button type="button" class="close" aria-label="Close" data-bs-dismiss="modal">
+                        <span class="text-white" aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body text-left">
+                    <h6>Oferta:</h6>
+                    <p th:text="${offerToModal.offerContent}"></p>
+                    <h6>Kontakt:</h6>
+                    <p>Firma: <span th:text="${offerToModal.userCompanyName}"></span></p>
+                    <p>Imię: <span th:text="${offerToModal.userFirstName}"></span></p>
+                    <p>Nazwisko: <span th:text="${offerToModal.userLastName}"></span></p>
+                    <p>Telefon: <span th:text="${offerToModal.userPhoneNumber}"></span></p>
+                    <p>Email: <span th:text="${offerToModal.userEmail}"></span></p>
+                    <p>Miasto: <span th:text="${offerToModal.city}"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zamknij</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-o5nE+qT73OV7jhF8JZF3KxC0DlujTTBex4aZ8szo1s3dKKjq/R+L7XLVIzN6mOfd"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUc506uE2/d2I3dDnmzLPc4jpCqf4FLt8EVo8OQK4xfo"
+        crossorigin="anonymous"></script>
+
