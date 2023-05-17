@@ -32,7 +32,7 @@ class OfferCreationServiceTest {
 
     @BeforeAll
     static void setUpTest() {
-        offer = new Offer(1L, ServiceCategoryEnum.CONSTRUCTION, "some content", "Warsaw", new User("", "", "Company Name", "example@example.com", "111 111 111"), NOW);
+        offer = new Offer(1L, ServiceCategoryEnum.CONSTRUCTION, "some content", "Warsaw", new User(id, "", "", "Company Name", "example@example.com", "111 111 111"), NOW);
     }
 
     @AfterAll

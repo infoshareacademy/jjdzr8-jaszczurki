@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Service
@@ -23,12 +24,14 @@ public class OfferService {
     private final OfferCreationService offerCreationService;
     private final OfferSearchingService offerSearchingService;
     private final OfferEditionService offerEditionService;
+    private final UserOfferService userOfferService;
     private static final Logger LOGGER = LoggerFactory.getLogger(OfferService.class);
 
-    public OfferService(OfferCreationService offerCreationService, OfferSearchingService offerSearchingService, OfferEditionService offerEditionService) {
+    public OfferService(OfferCreationService offerCreationService, OfferSearchingService offerSearchingService, OfferEditionService offerEditionService, UserOfferService userOfferService) {
         this.offerCreationService = offerCreationService;
         this.offerSearchingService = offerSearchingService;
         this.offerEditionService = offerEditionService;
+        this.userOfferService = userOfferService;
     }
 
     public void addOffer(Offer offer) {
@@ -165,5 +168,30 @@ public class OfferService {
         } else {
             throw new IllegalArgumentException("Incorrect prolong period");
         }
+    }
+
+//    public List<OfferDto> getUserOffers() {
+//        OfferMapper offerMapper = new OfferMapper();
+//        return userOfferService.getUserOfferList(offerMapper.fromDto(offerDto.));
+//    }
+
+    public List<OfferDto> getActiveOffers() {
+        LOGGER.debug("Providing all active offer DTO list");
+        OfferMapper offerMapper = new OfferMapper();
+        List<OfferDto> allOfferDtoList;
+        allOfferDtoList = offerMapper.toDtoList(offerSearchingService.getOffersList());
+        return allOfferDtoList.stream()
+                .filter(value -> userOfferService.isUserOfferActive(offerMapper.fromDto(value)))
+                .collect(Collectors.toList());
+    }
+
+    public List<OfferDto> getInactiveOffers() {
+        LOGGER.debug("Providing all inactive offer DTO list");
+        OfferMapper offerMapper = new OfferMapper();
+        List<OfferDto> allOfferDtoList;
+        allOfferDtoList = offerMapper.toDtoList(offerSearchingService.getOffersList());
+        return allOfferDtoList.stream()
+                .filter(value -> !(userOfferService.isUserOfferActive(offerMapper.fromDto(value))))
+                .collect(Collectors.toList());
     }
 }

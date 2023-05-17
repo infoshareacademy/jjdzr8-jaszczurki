@@ -9,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.net.http.HttpResponse;
 import java.util.List;
 
 @Controller
@@ -106,4 +104,27 @@ public class WebAppController {
         LOGGER.info("Updated offer with ID: {}", offerDto.getDtoOfferId());
         return "redirect:/";
     }
+
+    @GetMapping("/myOffers")
+    public String showOffers(@RequestParam(defaultValue = "1") int pageList, @RequestParam(defaultValue = "8") int sizeList,
+                             Model model) {
+
+        LOGGER.info("Searching for user offers");
+        List<OfferDto> activeOffers = offerService.getActiveOffers();
+        List<OfferDto> inactiveOffers = offerService.getInactiveOffers();
+
+        Page<OfferDto> activeOfferDtoListPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), activeOffers);
+        model.addAttribute("activeFilteredOfferDtoList", activeOfferDtoListPage);
+        model.addAttribute("activePagesDtoList", offerService.calculatePageNumbers(activeOfferDtoListPage));
+
+        Page<OfferDto> inactiveOfferDtoListPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), inactiveOffers);
+        model.addAttribute("inactiveFilteredOfferDtoList", inactiveOfferDtoListPage);
+        model.addAttribute("inactivePagesDtoList", offerService.calculatePageNumbers(inactiveOfferDtoListPage));
+
+        LOGGER.info("Returning user Offers list page with '{}' active offers found", activeOffers.size());
+        LOGGER.info("Returning user Offers list page with '{}' inactive offers found", inactiveOffers.size());
+
+        return "myOffers";
+    }
+
 }

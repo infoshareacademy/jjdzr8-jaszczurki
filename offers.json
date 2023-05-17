@@ -1,23 +1,10 @@
 [ {
-  "offerId" : 12,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
-  "city" : "warszawa",
-  "user" : {
-    "firstName" : "Gwidon",
-    "lastName" : "Gwóźdź",
-    "company" : "GOOD-BUD SA",
-    "emailAddress" : "office@gbud.pl",
-    "telephoneNumber" : "22 562 00 10"
-  },
-  "date" : [ 2021, 1, 16, 19, 4, 7, 555000000 ],
-  "expiryDate" : [ 2023, 2, 16, 19, 4, 7, 555000000 ]
-}, {
   "offerId" : 25,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "kompleksowo - pełny zakres robót wewnętrznych",
   "city" : "kraków",
   "user" : {
+    "id" : null,
     "firstName" : "Edward",
     "lastName" : "Gierak",
     "company" : "Gierak Malarstwo i Glazurnictwo",
@@ -32,6 +19,7 @@
   "offerContent" : "systemy alarmowe",
   "city" : "kraków",
   "user" : {
+    "id" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "ALARM-INTACT",
@@ -46,6 +34,7 @@
   "offerContent" : "instalacje co i piece",
   "city" : "lublin",
   "user" : {
+    "id" : null,
     "firstName" : "Tomasz",
     "lastName" : "Kowal",
     "company" : "ThermoInstall Sp. z o.o.",
@@ -60,6 +49,7 @@
   "offerContent" : "najpiękniejszy ogród w okolicy",
   "city" : "gdańsk",
   "user" : {
+    "id" : null,
     "firstName" : "Pola",
     "lastName" : "Oliwska",
     "company" : "Pola Ogrody",
@@ -74,6 +64,7 @@
   "offerContent" : "instalacje i przyłącza - wszystkie ",
   "city" : "gdańsk",
   "user" : {
+    "id" : null,
     "firstName" : "Wojciech",
     "lastName" : "Słupski",
     "company" : "WOJ-TEC Installbud",
@@ -88,6 +79,7 @@
   "offerContent" : "kompleksowe roboty budowlane i wykończenie",
   "city" : "kraków",
   "user" : {
+    "id" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "REMBUD SA",
@@ -102,6 +94,7 @@
   "offerContent" : "glazurnik",
   "city" : "lublin",
   "user" : {
+    "id" : null,
     "firstName" : "Krzysztof",
     "lastName" : "Lato",
     "company" : "Krzysztof Lato",
@@ -116,6 +109,7 @@
   "offerContent" : "instalacja elektryczna, alarmy, monitoring",
   "city" : "warszawa",
   "user" : {
+    "id" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "E-House Sp. z o.o.",
@@ -130,6 +124,7 @@
   "offerContent" : "wykopy, niwelacja, sprzęt ciężki",
   "city" : "lublin",
   "user" : {
+    "id" : null,
     "firstName" : "Feliks",
     "lastName" : "Komar",
     "company" : "FEL-BUD PBU",
@@ -144,6 +139,7 @@
   "offerContent" : "profesjonalnie, szybki termin realizacji, możliwe wykończenie pod klucz",
   "city" : "lublin",
   "user" : {
+    "id" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "INVEST-PROJEKT SA",
@@ -158,6 +154,7 @@
   "offerContent" : "koparka, ładowarka, walec i łopata, kompleksowo",
   "city" : "skierniewice",
   "user" : {
+    "id" : null,
     "firstName" : "Zenon",
     "lastName" : "Ptak",
     "company" : "ZenBUD Sp. z o.o.",
@@ -172,6 +169,7 @@
   "offerContent" : "wykończenie pod klucz, solidnie, krótkie terminy realizacji",
   "city" : "gdańsk",
   "user" : {
+    "id" : null,
     "firstName" : "Zenon",
     "lastName" : "Laskowik",
     "company" : "Laskowik Remonty ",
@@ -186,6 +184,7 @@
   "offerContent" : "projekt i realizacja, piękny ogród na życzenie",
   "city" : "warszawa",
   "user" : {
+    "id" : null,
     "firstName" : "Monika",
     "lastName" : "Kisiel",
     "company" : "MoKi Garden ",
@@ -200,6 +199,7 @@
   "offerContent" : "fachowe usługi elektryczne, monitoring, inteligentny dom",
   "city" : "warszawa",
   "user" : {
+    "id" : null,
     "firstName" : "Arnold",
     "lastName" : "Guzik",
     "company" : "EL-GUZ ",
@@ -214,6 +214,7 @@
   "offerContent" : "tylko konstrukcja, do stanu surowego zamkniętego",
   "city" : "lublin",
   "user" : {
+    "id" : null,
     "firstName" : "Piotr",
     "lastName" : "Nowak",
     "company" : "Nowak Construction SA",
@@ -228,6 +229,7 @@
   "offerContent" : "instalacje wod-kan i co, przyłącza",
   "city" : "kraków",
   "user" : {
+    "id" : null,
     "firstName" : "Jan",
     "lastName" : "Nowak",
     "company" : "Instalator ",
@@ -242,6 +244,7 @@
   "offerContent" : "kompleksowe usługi wykończeniowe-remontowe",
   "city" : "warszawa",
   "user" : {
+    "id" : null,
     "firstName" : "Janusz",
     "lastName" : "Piątek",
     "company" : "Piątek Remonty ",
@@ -256,6 +259,7 @@
   "offerContent" : "konstrukcja budynku, wykończenie pod klucz",
   "city" : "lublin",
   "user" : {
+    "id" : null,
     "firstName" : "Tadeusz",
     "lastName" : "Wójtowicz",
     "company" : "TAD-BUD PBU Sp. z o.o.",
@@ -270,6 +274,7 @@
   "offerContent" : "Sprzęt ciężki, roboty ziemne, wznoszenie budynków",
   "city" : "Warszawa",
   "user" : {
+    "id" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "WARBUD SA",
@@ -284,6 +289,7 @@
   "offerContent" : "Kompleksowe roboty budowlane ",
   "city" : "Warszawa",
   "user" : {
+    "id" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "KP Construction SA",
@@ -298,6 +304,7 @@
   "offerContent" : "prace remontowo-wykończeniowe, termin realizacji: jesień 2023\r\nzagospodarowanie terenu",
   "city" : "warszawa",
   "user" : {
+    "id" : null,
     "firstName" : "Norbert",
     "lastName" : "Noga",
     "company" : "NorbertREMONT",
@@ -312,6 +319,7 @@
   "offerContent" : "Wszelkie instalacje elektryczne oraz alarmowe.",
   "city" : "Wrocław",
   "user" : {
+    "id" : null,
     "firstName" : "Damian",
     "lastName" : "Lubaszenko",
     "company" : "DLB",
@@ -326,6 +334,7 @@
   "offerContent" : "szybki i tani fachowiec od robót wewnętrznych",
   "city" : "poznań",
   "user" : {
+    "id" : null,
     "firstName" : "Ryszard",
     "lastName" : "Makowski",
     "company" : "Makbud",
@@ -340,6 +349,7 @@
   "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
   "city" : "szczecin",
   "user" : {
+    "id" : null,
     "firstName" : "Krzysztof",
     "lastName" : "Jarzyna",
     "company" : "InstallBUD SA",
@@ -354,6 +364,7 @@
   "offerContent" : "roboty drogowo-mostowe",
   "city" : "gdańsk",
   "user" : {
+    "id" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "Bridge&Highway SA",
@@ -368,6 +379,7 @@
   "offerContent" : "budowa - trójmiasto i całe województwo pomorskie",
   "city" : "gdańsk",
   "user" : {
+    "id" : null,
     "firstName" : "Mikołaj",
     "lastName" : "Święty",
     "company" : "Santa Claus Constructions SA",
@@ -382,6 +394,7 @@
   "offerContent" : "wykończenie pod klucz, szybko i fachowo",
   "city" : "gdańsk",
   "user" : {
+    "id" : null,
     "firstName" : "Piotr",
     "lastName" : "Jankowski",
     "company" : "PeterBUD Sp. z o.o.",
@@ -396,6 +409,7 @@
   "offerContent" : "Ciągle poszerzamy wiedzę na temat energooszczędnych rozwiązań. Jako jedni z pierwszych w regionie pomorza budujemy domy z Ytonga Jumbo, dzięki czemu nasze inwestycje powstają w krótkim czasie. Posiadamy pełen park maszynowy, który pozwala nam sprawnie wykonać wszystkie prace.",
   "city" : "Gdynia",
   "user" : {
+    "id" : null,
     "firstName" : "Filip",
     "lastName" : "Burchacz",
     "company" : "BurchBudowa",
@@ -410,6 +424,7 @@
   "offerContent" : "Wyremontuję mieszkanie",
   "city" : "Pruszcz Gdański",
   "user" : {
+    "id" : null,
     "firstName" : "Anna",
     "lastName" : "Ryba",
     "company" : "poldex",
@@ -424,6 +439,7 @@
   "offerContent" : "Piękny ogród, projekt i wykonawstwo",
   "city" : "Lublin",
   "user" : {
+    "id" : null,
     "firstName" : "Jan",
     "lastName" : "Ogrodnik",
     "company" : "Gardenia",
@@ -438,6 +454,7 @@
   "offerContent" : "Instalacje wodne",
   "city" : "Gdynia",
   "user" : {
+    "id" : null,
     "firstName" : "Eugeniusz",
     "lastName" : "Wolski",
     "company" : "WolskiBud",
@@ -452,6 +469,7 @@
   "offerContent" : "Profesjonalne roboty wykończeniowe, remonty, obiekty użyteczności publicznej i przemysłowe",
   "city" : "Poznań",
   "user" : {
+    "id" : null,
     "firstName" : "Jan",
     "lastName" : "Remontowy",
     "company" : "REM-BUD",
@@ -460,4 +478,34 @@
   },
   "date" : [ 2023, 5, 15, 20, 56 ],
   "expiryDate" : [ 2023, 6, 14, 21, 2, 9, 348778000 ]
+}, {
+  "offerId" : 12,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
+  "city" : "warszawa",
+  "user" : {
+    "id" : null,
+    "firstName" : "Gwidon",
+    "lastName" : "Gwóźdź",
+    "company" : "GOOD-BUD SA",
+    "emailAddress" : "office@gbud.pl",
+    "telephoneNumber" : "22 562 00 10"
+  },
+  "date" : [ 2023, 5, 17, 21, 16 ],
+  "expiryDate" : [ 2023, 6, 16, 21, 16 ]
+}, {
+  "offerId" : 35,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "Montaż oświetlenia zewnętrznego.",
+  "city" : "Gdańsk",
+  "user" : {
+    "id" : null,
+    "firstName" : "Filip",
+    "lastName" : "Goman",
+    "company" : "GonBud",
+    "emailAddress" : "gombud@gmail.com",
+    "telephoneNumber" : "233 456 666"
+  },
+  "date" : [ 2023, 5, 17, 21, 53 ],
+  "expiryDate" : [ 2023, 6, 16, 21, 55, 1, 301969000 ]
 } ]

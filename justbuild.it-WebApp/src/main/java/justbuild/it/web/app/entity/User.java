@@ -2,6 +2,7 @@ package justbuild.it.web.app.entity;
 
 public class User {
 
+    private Long id;
     private String firstName;
     private String lastName;
     private String company;
@@ -16,12 +17,21 @@ public class User {
         this.telephoneNumber = "";
     }
 
-    public User(String firstName, String lastName, String company, String emailAddress, String telephoneNumber) {
+    public User(Long id, String firstName, String lastName, String company, String emailAddress, String telephoneNumber) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.company = company;
         this.emailAddress = emailAddress;
         this.telephoneNumber = telephoneNumber;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
