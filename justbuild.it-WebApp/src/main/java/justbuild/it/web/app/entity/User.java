@@ -2,6 +2,7 @@ package justbuild.it.web.app.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
@@ -21,7 +22,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,16 +35,19 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "company", nullable = false)
+    @Column(name = "company")
     private String company;
 
-    @Column(name = "email_address", nullable = false, unique = true)
+    @Column(name = "email_address")
     private String emailAddress;
+
+    @Column(name = "username", nullable = false, unique = true)
+    private String username;
 
     @Column(name = "password", nullable = false, unique = true)
     private String password;
 
-    @Column(name = "telephone_number", nullable = false)
+    @Column(name = "telephone_number")
     private String telephoneNumber;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -54,26 +58,20 @@ public class User {
     private Set<GrantedAuthority> authorities;
 
     public User() {
-        this.firstName = "";
-        this.lastName = "";
-        this.company = "";
-        this.emailAddress = "";
-        this.telephoneNumber = "";
     }
 
-    public User(Long userId, String firstName, String lastName, String company, String emailAddress, String password, String telephoneNumber, List<Offer> offers) {
+    public User(Long userId, String firstName, String lastName, String company, String emailAddress, String u, String password, String telephoneNumber, List<Offer> offers) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.company = company;
         this.emailAddress = emailAddress;
-        this.password = password;
         this.telephoneNumber = telephoneNumber;
         this.addOffers(offers);
     }
 
-    public User(String emailAddress, String password, Set<GrantedAuthority> authorities) {
-        this.emailAddress = emailAddress;
+    public User(String username, String password, Set<GrantedAuthority> authorities) {
+        this.username = username;
         this.password = password;
         this.authorities = authorities;
     }
@@ -130,6 +128,34 @@ public class User {
         this.password = password;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
     public String getTelephoneNumber() {
         return telephoneNumber;
     }
@@ -159,12 +185,12 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(userId, user.userId) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(company, user.company) && Objects.equals(emailAddress, user.emailAddress) && Objects.equals(password, user.password) && Objects.equals(telephoneNumber, user.telephoneNumber) && Objects.equals(offers, user.offers) && Objects.equals(authorities, user.authorities);
+        return Objects.equals(userId, user.userId) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(company, user.company) && Objects.equals(emailAddress, user.emailAddress) && Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(telephoneNumber, user.telephoneNumber) && Objects.equals(offers, user.offers) && Objects.equals(authorities, user.authorities);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, firstName, lastName, company, emailAddress, password, telephoneNumber, offers, authorities);
+        return Objects.hash(userId, firstName, lastName, company, emailAddress, username, password, telephoneNumber, offers, authorities);
     }
 
     @Override
@@ -175,6 +201,7 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", company='" + company + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
                 ", offers=" + offers +

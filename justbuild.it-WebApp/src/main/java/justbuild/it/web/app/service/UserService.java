@@ -6,6 +6,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Collections;
 
 @Service
@@ -19,13 +20,17 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public void addUserFromForm(String email, String password) {
+    @Transactional
+    public void addUserFromForm(String username, String password) {
         String encodedPassword = passwordEncoder.encode(password);
-        User newUser = new User(email, encodedPassword, Collections.singleton(new SimpleGrantedAuthority("USER")));
+        User newUser = new User();
+        newUser.setUsername(username);
+        newUser.setPassword(encodedPassword);
+        newUser.setAuthorities(Collections.singleton(new SimpleGrantedAuthority("USER")));
         userRepository.save(newUser);
     }
 
-    public User findUserByEmail(String email) {
-        return userRepository.findByEmailAddress(email);
+    public User findUserByLogin(String username) {
+        return userRepository.findUserByUsername(username);
     }
 }
