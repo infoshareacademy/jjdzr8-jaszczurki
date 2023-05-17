@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/add style.css}"/>
+</head>
+<body class="security">
+<h2>Please confirm log-out</h2>
+<br>
+<div class="navigation">
+    <a href="/">Wróć do strony głównej</a>
+</div>
+<hr>
+<br>
+<br>
+<div>
+    <form th:action="@{/logout_form}" method="post" >
+        <button type="submit">Wyloguj</button>
+    </form>
+</div>
+</body>
+</html>

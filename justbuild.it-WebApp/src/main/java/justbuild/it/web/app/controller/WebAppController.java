@@ -39,13 +39,13 @@ public class WebAppController {
         return "home";
     }
 
-    @GetMapping("/addOffer")
+    @GetMapping("/user/addOffer")
     public String goAdd(Model model) {
         model.addAttribute("offer", offerService.provideNewOffer());
         return "addOffer";
     }
 
-    @PostMapping("/addOffer")
+    @PostMapping("/user/addOffer")
     public String addOffer(@Valid @ModelAttribute("offer") OfferDto offerDto, BindingResult result) {
         if (result.hasErrors()) {
             return "addOffer";

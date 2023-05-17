@@ -1,5 +1,6 @@
 package justbuild.it.web.app.configuration;
 
+import justbuild.it.web.app.repository.UserRepository;
 import justbuild.it.web.app.service.DatabaseUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +10,7 @@ import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -20,27 +22,16 @@ import java.util.Collections;
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration {
 
-    private final DatabaseUserDetailsService userDetailsService;
-
-    public SecurityConfiguration(DatabaseUserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
+    @Bean
+    public UserDetailsService userDetailsService(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
+        return new DatabaseUserDetailsService(userRepository, passwordEncoder);
     }
 
-    //@Bean
-   // public UserDetailsService userDetailsService() {
-   //     InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-    //    manager.createUser(User.withUsername("admin")
-   //             .password(bCryptPasswordEncoder().encode("secretAdminPassJB.it!"))
-    //            .roles("ADMIN")
-   //             .build());
-    //    return manager;
-   // }
-
     @Bean
-    public AuthenticationManagerResolver<HttpServletRequest> authenticationManagerResolver() {
+    public AuthenticationManagerResolver<HttpServletRequest> authenticationManagerResolver(UserDetailsService userDetailsService) {
         return request -> {
             try {
-                return authenticationManager();
+                return authenticationManager(userDetailsService);
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -48,12 +39,12 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public AuthenticationManager authenticationManager() {
-        return new ProviderManager(Collections.singletonList(authenticationProvider()));
+    public AuthenticationManager authenticationManager(UserDetailsService userDetailsService) {
+        return new ProviderManager(Collections.singletonList(authenticationProvider(userDetailsService)));
     }
 
     @Bean
-    public DaoAuthenticationProvider authenticationProvider() {
+    public DaoAuthenticationProvider authenticationProvider(UserDetailsService userDetailsService) {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(bCryptPasswordEncoder());
@@ -77,7 +68,7 @@ public class SecurityConfiguration {
                 .and()
                 .logout()
                 .logoutUrl("/logout_form")
-                .logoutSuccessUrl("/login_form?logout=true")
+                .logoutSuccessUrl("/")
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout_form", "POST"))
                 .and()
                 .exceptionHandling()
