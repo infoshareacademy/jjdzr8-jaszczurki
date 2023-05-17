@@ -70,7 +70,7 @@ public class User implements UserDetails {
         this.addOffers(offers);
     }
 
-    public User(String username, String password, Set<GrantedAuthority> authorities) { // and this, too :):):)
+    public User(String username, String password, Set<GrantedAuthority> authorities) { // and this one, too :):):)
         this.username = username;
         this.password = password;
         this.authorities = authorities;
