@@ -63,7 +63,7 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/logout_form")
+    @GetMapping("/logout/logout_form")
     public String showLogout() {
         return "logoutForm";
     }
