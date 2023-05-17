@@ -62,4 +62,9 @@ public class UserController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         return "redirect:/";
     }
+
+    @GetMapping("/logout_form")
+    public String showLogout() {
+        return "logoutForm";
+    }
 }

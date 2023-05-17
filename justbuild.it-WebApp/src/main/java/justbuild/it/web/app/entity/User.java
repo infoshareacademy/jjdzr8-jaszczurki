@@ -57,10 +57,10 @@ public class User implements UserDetails {
     @CollectionTable(name = "user_authorities", joinColumns = @JoinColumn(name = "user_id"))
     private Set<GrantedAuthority> authorities;
 
-    public User() {
+    public User() { // don't touch this constructor, please :):):)
     }
 
-    public User(Long userId, String firstName, String lastName, String company, String emailAddress, String u, String password, String telephoneNumber, List<Offer> offers) {
+    public User(Long userId, String firstName, String lastName, String company, String emailAddress, String telephoneNumber, List<Offer> offers) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -70,7 +70,7 @@ public class User implements UserDetails {
         this.addOffers(offers);
     }
 
-    public User(String username, String password, Set<GrantedAuthority> authorities) {
+    public User(String username, String password, Set<GrantedAuthority> authorities) { // and this, too :):):)
         this.username = username;
         this.password = password;
         this.authorities = authorities;

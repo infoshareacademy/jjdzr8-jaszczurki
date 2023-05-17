@@ -20,6 +20,11 @@
     border-radius: 5px;
 }
 
+#formGroupExampleInput8 {
+    background-color: #7a7a78;
+    color: white;
+}
+
 .date-alert {
     background-color: #7a7a78;
     color: white;
@@ -147,6 +152,15 @@ h5 {
 .button-marg {
     margin-right: 1.5rem !important;
 }
+.security {
+    color: #fcf1b9;
+}
+
+.navigation {
+    background-color: lightgray;
+    padding: 4px;
+}
+
 
 
 
