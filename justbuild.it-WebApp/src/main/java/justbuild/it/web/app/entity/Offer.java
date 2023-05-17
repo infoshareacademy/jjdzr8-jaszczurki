@@ -24,7 +24,7 @@ public class Offer {
     private Long offerId;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "service_category", nullable = false)
+    @Column(name = "service_category")
     private ServiceCategoryEnum serviceCategory;
 
     @Column(name = "offer_content")

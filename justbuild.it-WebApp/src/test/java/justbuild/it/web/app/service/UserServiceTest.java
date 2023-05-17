@@ -23,10 +23,10 @@ import static org.mockito.Mockito.when;
 
 class UserServiceTest {
 
-    private final static String TEST_EMAIL_ONE = "energoInstall@energia.pl";
+    private final static String TEST_USERNAME_ONE = "energoInstall#1";
     private final static String TEST_PASSWORD_ONE = "eNErgo111#";
     private final static String TEST_ROLE_ONE = "USER_VIP";
-    private final static String TEST_EMAIL_TWO = "janek87@gmail.com";
+    private final static String TEST_USERNAME_TWO = "jankoMuzykant87";
     private final static String TEST_PASSWORD_TWO = "J@nek87!";
     private final static String TEST_ROLE_TWO = "USER";
 
@@ -38,8 +38,8 @@ class UserServiceTest {
 
     @BeforeAll
     static void setUpTest() {
-        user1 = new User(TEST_EMAIL_ONE, TEST_PASSWORD_ONE, Set.of(new SimpleGrantedAuthority(TEST_ROLE_ONE)));
-        user2 = new User(TEST_EMAIL_TWO, TEST_PASSWORD_TWO, Set.of(new SimpleGrantedAuthority(TEST_ROLE_TWO)));
+        user1 = new User(TEST_USERNAME_ONE, TEST_PASSWORD_ONE, Set.of(new SimpleGrantedAuthority(TEST_ROLE_ONE)));
+        user2 = new User(TEST_USERNAME_TWO, TEST_PASSWORD_TWO, Set.of(new SimpleGrantedAuthority(TEST_ROLE_TWO)));
     }
 
     @AfterAll
@@ -68,12 +68,12 @@ class UserServiceTest {
         }).when(userRepositoryMock).save(userCaptor.capture());
 
         // when
-        userService.addUserFromForm(TEST_EMAIL_ONE, TEST_PASSWORD_ONE);
+        userService.addUserFromForm(TEST_USERNAME_ONE, TEST_PASSWORD_ONE);
 
         // then
         verify(userRepositoryMock, times(1)).save(userCaptor.getValue());
         assertEquals(1L, userCaptor.getValue().getUserId());
-        assertEquals(TEST_EMAIL_ONE, userCaptor.getValue().getEmailAddress());
+        assertEquals(TEST_USERNAME_ONE, userCaptor.getValue().getUsername());
         assertEquals(TEST_PASSWORD_ONE, userCaptor.getValue().getPassword());
         assertNotEquals(Set.of(new SimpleGrantedAuthority(TEST_ROLE_ONE)), userCaptor.getValue().getAuthorities());  // it should be TRUE (not equals) !!! because tested method gives the role: "USER" for all registered users, the role: "USER_VIP" does not exist in our application
         assertEquals(Set.of(new SimpleGrantedAuthority(TEST_ROLE_TWO)), userCaptor.getValue().getAuthorities());
@@ -82,19 +82,19 @@ class UserServiceTest {
     @Test
     void testIfUserIsCorrectlyFoundByEmail() {
         // given
-        when(userRepositoryMock.findByEmailAddress(TEST_EMAIL_TWO)).thenReturn(user2);
+        when(userRepositoryMock.findUserByUsername(TEST_USERNAME_TWO)).thenReturn(user2);
 
         // when
-        User userFoundByEmail = userService.findUserByEmail(TEST_EMAIL_TWO);
+        User userFoundByEmail = userService.findUserByLogin(TEST_USERNAME_TWO);
 
         // then
-        verify(userRepositoryMock, times(1)).findByEmailAddress(TEST_EMAIL_TWO);
+        verify(userRepositoryMock, times(1)).findUserByUsername(TEST_USERNAME_TWO);
         assertThat(userFoundByEmail.getPassword())
                 .isEqualTo(user2.getPassword())
                 .isNotEqualTo(user1.getPassword());
         assertThat(userFoundByEmail)
                 .hasFieldOrPropertyWithValue("authorities", Set.of(new SimpleGrantedAuthority("USER")))
-                .hasNoNullFieldsOrPropertiesExcept("userId", "firstName", "lastName", "company", "telephoneNumber", "offers");
+                .hasNoNullFieldsOrPropertiesExcept("userId", "firstName", "lastName", "company", "emailAddress", "telephoneNumber", "offers");
 
     }
 }

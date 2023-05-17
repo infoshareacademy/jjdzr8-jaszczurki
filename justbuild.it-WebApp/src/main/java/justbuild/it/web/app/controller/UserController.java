@@ -2,6 +2,10 @@ package justbuild.it.web.app.controller;
 
 import justbuild.it.web.app.entity.User;
 import justbuild.it.web.app.service.UserService;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,9 +20,11 @@ import javax.validation.Valid;
 public class UserController {
 
     private final UserService userService;
+    private final AuthenticationManager authenticationManager;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, AuthenticationManager authenticationManager) {
         this.userService = userService;
+        this.authenticationManager = authenticationManager;
     }
 
     @GetMapping("/register")
@@ -28,17 +34,32 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String processRegistrationForm(@Valid @ModelAttribute("user") User user, @RequestParam String email, @RequestParam String password, BindingResult result, Model model) {
+    public String processRegistrationForm(@Valid @ModelAttribute("user") User user, BindingResult result) {
         if (result.hasErrors()) {
             return "registration";
         }
 
-        User existingUser = userService.findUserByEmail(email);
+        String username = user.getUsername();
+        User existingUser = userService.findUserByLogin(username);
         if(existingUser != null) {
-            model.addAttribute("error", "User already exists");
+            result.rejectValue("username", "error.user", "User already exists");
             return "registration";
         }
-        userService.addUserFromForm(email, password);
-        return "redirect:/login_form?registered=true";
+
+        String password = user.getPassword();
+        userService.addUserFromForm(username, password);
+        return "redirect:/login_form";
+    }
+
+    @GetMapping("/login_form")
+    public String showLogin() {
+        return "loginForm";
+    }
+
+    @PostMapping("/login_form")
+    public String processLoginForm(@RequestParam String username, @RequestParam String password) {
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        return "redirect:/";
     }
 }
