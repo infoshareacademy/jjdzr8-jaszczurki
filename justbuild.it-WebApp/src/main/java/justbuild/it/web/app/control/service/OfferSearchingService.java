@@ -13,12 +13,12 @@ import java.util.stream.Collectors;
 import static justbuild.it.web.app.entity.constants.AppConstants.OFFERS_FILEPATH;
 
 @Service
-class OfferSearchingService implements OfferSearchingServiceInterface {
+public class OfferSearchingService implements OfferSearchingServiceInterface {
 
     private final OfferFileRepository offerFileRepository;
     private static final Logger LOGGER = LoggerFactory.getLogger(OfferSearchingService.class);
 
-    OfferSearchingService(OfferFileRepository offerFileRepository) {
+    public OfferSearchingService(OfferFileRepository offerFileRepository) {
         this.offerFileRepository = offerFileRepository;
     }
 
