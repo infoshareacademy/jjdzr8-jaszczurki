@@ -23,7 +23,7 @@ public class UserOfferService implements UserOffersInterface{
     @Override
     public List<Offer> getUserOfferList(User user) {
         List<Offer> userOffers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
-        return userOffers.stream().filter(value -> value.getUser().getId().equals(user.getId())).collect(Collectors.toList());
+        return userOffers.stream().filter(value -> value.getUser().getUserId().equals(user.getUserId())).collect(Collectors.toList());
     }
 
     @Override

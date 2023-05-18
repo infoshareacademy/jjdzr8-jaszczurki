@@ -110,8 +110,9 @@ public class WebAppController {
                              Model model) {
 
         LOGGER.info("Searching for user offers");
-        List<OfferDto> activeOffers = offerService.getActiveOffers();
-        List<OfferDto> inactiveOffers = offerService.getInactiveOffers();
+
+        List<OfferDto> activeOffers = offerService.provideActiveOffers();
+        List<OfferDto> inactiveOffers = offerService.provideInactiveOffers();
 
         Page<OfferDto> activeOfferDtoListPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), activeOffers);
         model.addAttribute("activeFilteredOfferDtoList", activeOfferDtoListPage);

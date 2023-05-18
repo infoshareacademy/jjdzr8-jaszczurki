@@ -2,6 +2,7 @@ package justbuild.it.web.app.service;
 
 import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
+import justbuild.it.web.app.entity.User;
 import justbuild.it.web.app.mapper.OfferMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -170,12 +171,13 @@ public class OfferService {
         }
     }
 
-//    public List<OfferDto> getUserOffers() {
-//        OfferMapper offerMapper = new OfferMapper();
-//        return userOfferService.getUserOfferList(offerMapper.fromDto(offerDto.));
-//    }
+    public List<OfferDto> provideUserOffers(User user) {
+        LOGGER.debug("Providing user: {} offer DTO list", user);
+        OfferMapper offerMapper = new OfferMapper();
+        return offerMapper.toDtoList(userOfferService.getUserOfferList(user));
+    }
 
-    public List<OfferDto> getActiveOffers() {
+    public List<OfferDto> provideActiveOffers() {
         LOGGER.debug("Providing all active offer DTO list");
         OfferMapper offerMapper = new OfferMapper();
         List<OfferDto> allOfferDtoList;
@@ -185,7 +187,7 @@ public class OfferService {
                 .collect(Collectors.toList());
     }
 
-    public List<OfferDto> getInactiveOffers() {
+    public List<OfferDto> provideInactiveOffers() {
         LOGGER.debug("Providing all inactive offer DTO list");
         OfferMapper offerMapper = new OfferMapper();
         List<OfferDto> allOfferDtoList;
