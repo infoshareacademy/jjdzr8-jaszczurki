@@ -1,9 +1,12 @@
 package justbuild.it.web.app.control.mapper;
 
-import justbuild.it.web.app.entity.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.entity.User;
+import justbuild.it.web.app.entity.dto.OfferDto;
+import justbuild.it.web.app.entity.entities.OfferEntity;
+import justbuild.it.web.app.entity.entities.UserEntity;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,6 +43,27 @@ public class OfferMapper {
         user.setTelephoneNumber(dto.getUserTelephoneNumber());
         offer.setUser(user);
         return offer;
+    }
+
+    public static OfferEntity toEntity(Offer offer) {
+        OfferEntity entity = new OfferEntity();
+        entity.setOfferId(offer.getOfferId());
+        entity.setServiceCategory(offer.getServiceCategory());
+        entity.setOfferContent(offer.getOfferContent());
+        entity.setCity(offer.getCity());
+        entity.setUserEntity(toEntity(offer.getUser()));
+        entity.setDate(offer.getDate());
+        return entity;
+    }
+
+    public static UserEntity toEntity(User user) {
+        UserEntity entity = new UserEntity();
+        entity.setFirstName(user.getFirstName());
+        entity.setLastName(user.getLastName());
+        entity.setCompany(user.getCompany());
+        entity.setEmailAddress(user.getEmailAddress());
+        entity.setTelephoneNumber(user.getTelephoneNumber());
+        return entity;
     }
 
     public List<OfferDto> toDtoList(List<Offer> offerList) {

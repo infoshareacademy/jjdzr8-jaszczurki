@@ -1,17 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
-    <persistence-unit name="myPersistenceUnit">
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>justbuild.it.web.app.entity.entities.OfferEntity</class>
-        <class>justbuild.it.web.app.entity.entities.UserEntity</class>
-        <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/myDatabase"/>
-            <property name="javax.persistence.jdbc.user" value="myUsername"/>
-            <property name="javax.persistence.jdbc.password" value="myPassword"/>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
-            <property name="hibernate.show_sql" value="true"/>
-            <property name="hibernate.format_sql" value="true"/>
-        </properties>
-    </persistence-unit>
-</persistence>
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/just_build_it_offers</property>
+        <property name="hibernate.connection.username">admin</property>
+        <property name="hibernate.connection.password">admin</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <mapping class="justbuild.it.web.app.entity.entities.OfferEntity" />
+        <mapping class="justbuild.it.web.app.entity.entities.UserEntity" />
+    </session-factory>
+</hibernate-configuration>

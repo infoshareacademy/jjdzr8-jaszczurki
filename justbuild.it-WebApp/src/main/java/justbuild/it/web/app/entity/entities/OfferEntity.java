@@ -1,5 +1,7 @@
 package justbuild.it.web.app.entity.entities;
 
+import justbuild.it.web.app.entity.enums.ServiceCategoryEnum;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -61,8 +63,8 @@ public class OfferEntity {
         return serviceCategory;
     }
 
-    public void setServiceCategory(String serviceCategory) {
-        this.serviceCategory = serviceCategory;
+    public ServiceCategoryEnum setServiceCategory(ServiceCategoryEnum serviceCategory) {
+        return serviceCategory;
     }
 
     public String getOfferContent() {

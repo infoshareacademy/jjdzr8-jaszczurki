@@ -1,10 +1,11 @@
 package justbuild.it.web.app.service;
 
+import justbuild.it.web.app.control.repository.OfferFileRepository;
+import justbuild.it.web.app.control.repository.OfferRepository;
 import justbuild.it.web.app.control.service.OfferCreationService;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.entity.User;
 import justbuild.it.web.app.entity.enums.ServiceCategoryEnum;
-import justbuild.it.web.app.control.repository.OfferFileRepository;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,6 +30,7 @@ class OfferCreationServiceTest {
 
     private OfferFileRepository offerFileRepositoryMock;
     private OfferCreationService offerCreationService;
+    private OfferRepository offerRepository;
     private static Offer offer;
 
     @BeforeAll
@@ -44,7 +46,7 @@ class OfferCreationServiceTest {
     @BeforeEach
     void setUp() {
         offerFileRepositoryMock = mock(OfferFileRepository.class);
-        offerCreationService = new OfferCreationService(offerFileRepositoryMock);
+        offerCreationService = new OfferCreationService(offerFileRepositoryMock, offerRepository);
     }
 
     @Test
