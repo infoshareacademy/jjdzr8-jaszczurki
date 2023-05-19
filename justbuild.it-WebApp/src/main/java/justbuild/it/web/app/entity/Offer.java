@@ -141,16 +141,4 @@ public class Offer {
                 ", expiryDate=" + expiryDate +
                 '}';
     }
-
-    @Override
-    public String toString() {
-        return "Offer{" +
-                "offerId=" + offerId +
-                ", serviceCategory=" + serviceCategory +
-                ", offerContent='" + offerContent + '\'' +
-                ", city='" + city + '\'' +
-                ", user=" + user +
-                ", date=" + date +
-                '}';
-    }
 }

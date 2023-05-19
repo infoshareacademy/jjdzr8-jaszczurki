@@ -78,7 +78,7 @@ public class OfferService {
 
     public List<OfferDto> provideOfferDtoList(String searchValue, String category) {
         List<OfferDto> filteredOfferDtoList;
-        if (category != null && !category.isEmpty()){
+        if (category != null && !category.isEmpty()) {
             filteredOfferDtoList = provideNewFilteredByCategoryOfferDtoList(category);
         } else {
             filteredOfferDtoList = provideNewFilteredOfferDtoList(searchValue);
@@ -136,6 +136,7 @@ public class OfferService {
 
         return new PageImpl<>(offerDtos, pageable, allResources.size());
     }
+
     public List<Integer> calculatePageNumbers(Page<?> page) {
         int totalPages = page.getTotalPages();
         if (totalPages > 0) {
@@ -150,7 +151,7 @@ public class OfferService {
         }
     }
 
-    public boolean checkOfferProlongability(OfferDto offerDto){
+    public boolean checkOfferProlongability(OfferDto offerDto) {
         return offerDto.getExpiryDate().minusDays(3).isBefore(LocalDateTime.now());
     }
 
@@ -177,23 +178,22 @@ public class OfferService {
         return offerMapper.toDtoList(userOfferService.getUserOfferList(user));
     }
 
-    public List<OfferDto> provideActiveOffers() {
-        LOGGER.debug("Providing all active offer DTO list");
+    public List<OfferDto> provideActiveUserOffers(User user) {
+        LOGGER.debug("Providing active offer DTO list for user: {}", user);
         OfferMapper offerMapper = new OfferMapper();
-        List<OfferDto> allOfferDtoList;
-        allOfferDtoList = offerMapper.toDtoList(offerSearchingService.getOffersList());
-        return allOfferDtoList.stream()
-                .filter(value -> userOfferService.isUserOfferActive(offerMapper.fromDto(value)))
+        List<OfferDto> userOfferDtoList = provideUserOffers(user);
+        return userOfferDtoList.stream()
+                .filter(offerDto -> userOfferService.isUserOfferActive(offerMapper.fromDto(offerDto)))
                 .collect(Collectors.toList());
     }
 
-    public List<OfferDto> provideInactiveOffers() {
-        LOGGER.debug("Providing all inactive offer DTO list");
+    public List<OfferDto> provideInactiveUserOffers(User user) {
+        LOGGER.debug("Providing inactive offer DTO list for user: {}", user);
         OfferMapper offerMapper = new OfferMapper();
-        List<OfferDto> allOfferDtoList;
-        allOfferDtoList = offerMapper.toDtoList(offerSearchingService.getOffersList());
-        return allOfferDtoList.stream()
-                .filter(value -> !(userOfferService.isUserOfferActive(offerMapper.fromDto(value))))
+        List<OfferDto> userOfferDtoList = provideUserOffers(user);
+        return userOfferDtoList.stream()
+                .filter(offerDto -> !userOfferService.isUserOfferActive(offerMapper.fromDto(offerDto)))
                 .collect(Collectors.toList());
     }
+
 }

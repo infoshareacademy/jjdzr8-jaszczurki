@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 import static justbuild.it.web.app.entity.constants.AppConstants.DISPLAY_DATE_FORMAT;
 import static justbuild.it.web.app.entity.constants.AppConstants.EMAIL_FORMAT;
+import static justbuild.it.web.app.entity.constants.AppConstants.EXPIRY_DATE_FORMAT;
 
 public class OfferDto {
 

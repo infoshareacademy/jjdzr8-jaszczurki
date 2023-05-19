@@ -12,7 +12,8 @@
 <body>
 <div th:insert="~{fragments/header :: header-add}"></div>
 
-<form id="addForm" class="addForm col-10 mt-5 mb-5 mx-auto" action="#" th:action="@{/user/addOffer}" th:object="${offer}"
+<form id="addForm" class="addForm col-10 mt-5 mb-5 mx-auto" action="#" th:action="@{/user/addOffer}"
+      th:object="${offer}"
       method="post">
     <hr>
     <div class="id mb-4 mt-3 col-4">
@@ -56,11 +57,20 @@
     <div class="input-group mb-4">
         <label class="input-group-text" for="inputGroupSelect">Kategoria</label>
         <select class="form-select" id="inputGroupSelect" th:field="*{serviceCategory}">
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).CONSTRUCTION.name()}">Budowa</option>
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).FINISHING_WORKS.name()}">Remont</option>
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).INSTALLATION.name()}">Instalacje</option>
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).ELECTRICITY.name()}">Elektryka</option>
-            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).EARTH_WORKS.name()}">Roboty ziemne</option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).CONSTRUCTION.name()}">Budowa
+            </option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).FINISHING_WORKS.name()}">
+                Remont
+            </option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).INSTALLATION.name()}">
+                Instalacje
+            </option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).ELECTRICITY.name()}">
+                Elektryka
+            </option>
+            <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).EARTH_WORKS.name()}">Roboty
+                ziemne
+            </option>
             <option th:value="${T(justbuild.it.web.app.entity.enums.ServiceCategoryEnum).GARDEN.name()}">Ogród</option>
         </select>
     </div>

@@ -76,9 +76,13 @@ public class User implements UserDetails {
         this.authorities = authorities;
     }
 
-    public void addOffers(List<Offer> offers) {offers.forEach(this::addOffer);}
+    public void addOffers(List<Offer> offers) {
+        offers.forEach(this::addOffer);
+    }
 
-    public void addOffer(Offer offer) {this.offers.add(offer);}
+    public void addOffer(Offer offer) {
+        this.offers.add(offer);
+    }
 
     public Long getUserId() {
         return userId;

@@ -14,7 +14,8 @@
 <body>
 <div th:insert="~{fragments/header :: header-add}"></div>
 
-<form id="addForm" class="addForm col-10 mt-5 mb-5 mx-auto">
+<form id="addForm" class="addForm col-10 mt-5 mb-5 mx-auto" action="#" th:action="@{myOffers}"
+      method="post">
     <br>
     <div class="col gy-4 text-center ">
         <h2>Moje oferty:</h2>
@@ -80,7 +81,8 @@
                                        th:text="${pageNumber}"></a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" style="color: black; border-color: #fabf4b" th:href="@{/myOffers(page=0, sizeList=${activeFilteredOfferDtoList.size}, pageList=${activeFilteredOfferDtoList.number + 2})}"
+                                    <a class="page-link" style="color: black; border-color: #fabf4b"
+                                       th:href="@{/myOffers(page=0, sizeList=${activeFilteredOfferDtoList.size}, pageList=${activeFilteredOfferDtoList.number + 2})}"
                                        th:if="${activeFilteredOfferDtoList.hasNext}">
                                         Next
                                     </a>
@@ -140,7 +142,8 @@
                                        th:text="${pageNumber}"></a>
                                 </li>
                                 <li class="page-item">
-                                    <a class="page-link" style="color: black; border-color: #fabf4b" th:href="@{/myOffers(page=0, sizeList=${inactiveFilteredOfferDtoList.size}, pageList=${inactiveFilteredOfferDtoList.number + 2})}"
+                                    <a class="page-link" style="color: black; border-color: #fabf4b"
+                                       th:href="@{/myOffers(page=0, sizeList=${inactiveFilteredOfferDtoList.size}, pageList=${inactiveFilteredOfferDtoList.number + 2})}"
                                        th:if="${inactiveFilteredOfferDtoList.hasNext}">
                                         Next
                                     </a>

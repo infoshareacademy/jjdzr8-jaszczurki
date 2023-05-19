@@ -1,11 +1,17 @@
 package justbuild.it.web.app.controller;
 
 import justbuild.it.web.app.dto.OfferDto;
+import justbuild.it.web.app.dto.ProlongRequest;
 import justbuild.it.web.app.entity.Offer;
+import justbuild.it.web.app.entity.User;
 import justbuild.it.web.app.mapper.OfferMapper;
 import justbuild.it.web.app.service.OfferService;
+import justbuild.it.web.app.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,21 +19,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
 public class WebAppController {
 
     private final OfferService offerService;
+    private final UserService userService;
     private final OfferMapper mapper;
     private static final Logger LOGGER = LoggerFactory.getLogger(WebAppController.class);
 
-    public WebAppController(OfferService offerService, OfferMapper mapper) {
+    public WebAppController(OfferService offerService, UserService userService, OfferMapper mapper) {
         this.offerService = offerService;
+        this.userService = userService;
         this.mapper = mapper;
     }
 
@@ -82,7 +92,7 @@ public class WebAppController {
         return "searchOffer";
     }
 
-    @GetMapping("/editOffer/{id}")
+    @GetMapping("editOffer/{id}")
     public String goEdit(@PathVariable Long id, Model model) {
         OfferDto offerDto = offerService.getOfferDtoById(id);
         boolean prolongable = offerService.checkOfferProlongability(offerDto);
@@ -92,7 +102,7 @@ public class WebAppController {
         return "editOffer";
     }
 
-    @PostMapping("/editOffer")
+    @PostMapping("editOffer")
     public String editOffer(@Valid @ModelAttribute("offer") OfferDto offerDto, BindingResult result) {
         if (result.hasErrors()) {
             return "editOffer";
@@ -102,27 +112,99 @@ public class WebAppController {
         return "redirect:/";
     }
 
-    @GetMapping("/myOffers")
-    public String showOffers(@RequestParam(defaultValue = "1") int pageList, @RequestParam(defaultValue = "8") int sizeList,
-                             Model model) {
+//    @GetMapping("/myOffers")
+//    public String showUserOffers(@RequestParam(defaultValue = "1") int pageList, @RequestParam(defaultValue = "8") int sizeList,
+//                                 Model model) {
+//
+//        LOGGER.info("Searching for user offers");
+//
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//
+//        if (authentication != null && authentication.isAuthenticated()) {
+//            // Pobranie nazwy zalogowanego użytkownika
+//            String username = authentication.getName();
+//
+//            // Pobranie użytkownika na podstawie nazwy użytkownika
+//            Long userId = userService.getUserIdByUsername(username);
+//
+//            // Pobranie ofert zalogowanego użytkownika
+//            List<OfferDto> userActiveOffers = offerService.provideActiveUserOffers(user);
+//            List<OfferDto> userInactiveOffers = offerService.provideInactiveUserOffers(user);
+//
+//            model.addAttribute("userId", user.getUserId());
+//
+//            Page<OfferDto> activeOfferPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), userActiveOffers);
+//            model.addAttribute("activeFilteredOfferList", activeOfferPage.getContent());
+//            model.addAttribute("activePages", offerService.calculatePageNumbers(activeOfferPage));
+//
+//            Page<OfferDto> inactiveOfferPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), userInactiveOffers);
+//            model.addAttribute("inactiveFilteredOfferList", inactiveOfferPage.getContent());
+//            model.addAttribute("inactivePages", offerService.calculatePageNumbers(inactiveOfferPage));
+//
+//            LOGGER.info("Returning user Offers list page with '{}' active offers found", userActiveOffers.size());
+//            LOGGER.info("Returning user Offers list page with '{}' inactive offers found", userInactiveOffers.size());
+//        }
+//
+//        return "myOffers";
+//    }
 
+    @GetMapping("/myOffers")
+    public String showUserOffers(
+            @RequestParam(defaultValue = "1") int pageList,
+            @RequestParam(defaultValue = "8") int sizeList,
+            Model model,
+            Principal principal
+    ) {
         LOGGER.info("Searching for user offers");
 
-        List<OfferDto> activeOffers = offerService.provideActiveOffers();
-        List<OfferDto> inactiveOffers = offerService.provideInactiveOffers();
+        if (principal != null && principal instanceof Authentication) {
+            Authentication authentication = (Authentication) principal;
 
-        Page<OfferDto> activeOfferDtoListPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), activeOffers);
-        model.addAttribute("activeFilteredOfferDtoList", activeOfferDtoListPage);
-        model.addAttribute("activePagesDtoList", offerService.calculatePageNumbers(activeOfferDtoListPage));
+            if (!authentication.isAuthenticated()) {
+                // Jeśli użytkownik nie jest uwierzytelniony, przekieruj lub zwróć inną stronę
+                // lub wykonaj inne odpowiednie działania
+                return "redirect:/"; // Przykładowy przekierowanie
+            }
 
-        Page<OfferDto> inactiveOfferDtoListPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), inactiveOffers);
-        model.addAttribute("inactiveFilteredOfferDtoList", inactiveOfferDtoListPage);
-        model.addAttribute("inactivePagesDtoList", offerService.calculatePageNumbers(inactiveOfferDtoListPage));
+            // Pobranie nazwy zalogowanego użytkownika
+            String username = authentication.getName();
 
-        LOGGER.info("Returning user Offers list page with '{}' active offers found", activeOffers.size());
-        LOGGER.info("Returning user Offers list page with '{}' inactive offers found", inactiveOffers.size());
+            // Pobranie użytkownika na podstawie nazwy użytkownika
+            Long userId = userService.getUserIdByUsername(username);
+            User user = userService.findUserByLogin(username);
+
+            // Pobranie ofert zalogowanego użytkownika
+            List<OfferDto> userActiveOffers = offerService.provideActiveUserOffers(user);
+            List<OfferDto> userInactiveOffers = offerService.provideInactiveUserOffers(user);
+
+            model.addAttribute("userId", userId);
+
+            Page<OfferDto> activeOfferPage = offerService.providePagination(
+                    PageRequest.of(pageList - 1, sizeList),
+                    userActiveOffers
+            );
+            model.addAttribute("activeFilteredOfferList", activeOfferPage.getContent());
+            model.addAttribute("activePages", offerService.calculatePageNumbers(activeOfferPage));
+
+            Page<OfferDto> inactiveOfferPage = offerService.providePagination(
+                    PageRequest.of(pageList - 1, sizeList),
+                    userInactiveOffers
+            );
+            model.addAttribute("inactiveFilteredOfferList", inactiveOfferPage.getContent());
+            model.addAttribute("inactivePages", offerService.calculatePageNumbers(inactiveOfferPage));
+
+            LOGGER.info(
+                    "Returning user Offers list page with '{}' active offers found",
+                    userActiveOffers.size()
+            );
+            LOGGER.info(
+                    "Returning user Offers list page with '{}' inactive offers found",
+                    userInactiveOffers.size()
+            );
+        }
 
         return "myOffers";
     }
+
 
 }

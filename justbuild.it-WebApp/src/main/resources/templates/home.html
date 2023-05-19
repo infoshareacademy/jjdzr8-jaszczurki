@@ -13,7 +13,7 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
           integrity="sha512-qRtsAzTnYsT99+0x+1SjIyLhQO+ydlJF9zAnZ4MYjOYl8a0JlAX3q/Aj0EMy1JImBHDvjmMh9E2PzETZ+UrY8g=="
-          crossorigin="anonymous" />
+          crossorigin="anonymous"/>
     <title>home</title>
     <link rel="stylesheet" type="text/css" th:href="@{/add style.css}"/>
 </head>
@@ -33,13 +33,25 @@
 <div class="container-fluid-mx-3 mt-5 mb-5">
     <div class="row">
         <div class="col-md-4">
-            <form class="btn-group-vertical btn-group-lg ml-3" aria-label="Basic outlined example" th:action="@{/searchOffer}" method="get" style="height: 400px; width: 250px">
+            <form class="btn-group-vertical btn-group-lg ml-3" aria-label="Basic outlined example"
+                  th:action="@{/searchOffer}" method="get" style="height: 400px; width: 250px">
                 <button type="submit" class="btn btn-outline-dark" name="category" value="Budowa">Budowa</button>
-                <button type="submit" class="btn btn-outline-white" style="background-color: #fcf1b9; box-shadow: 10px 10px 30px 0 #000000;" name="category" value="Remont">Remont</button>
-                <button type="submit" class="btn btn-outline-dark" name="category" value="Instalacje">Instalacje</button>
-                <button type="submit" class="btn btn-outline-white" style="background-color: #fcf1b9; box-shadow: 10px 10px 30px 0 #000000;" name="category" value="Elektryka">Elektryka</button>
-                <button type="submit" class="btn btn-outline-dark" name="category" value="Roboty ziemne">Roboty ziemne</button>
-                <button type="submit" class="btn btn-outline-white" style="background-color: #fcf1b9; box-shadow: 10px 10px 30px 0 #000000;" name="category" value="Ogród">Ogród</button>
+                <button type="submit" class="btn btn-outline-white"
+                        style="background-color: #fcf1b9; box-shadow: 10px 10px 30px 0 #000000;" name="category"
+                        value="Remont">Remont
+                </button>
+                <button type="submit" class="btn btn-outline-dark" name="category" value="Instalacje">Instalacje
+                </button>
+                <button type="submit" class="btn btn-outline-white"
+                        style="background-color: #fcf1b9; box-shadow: 10px 10px 30px 0 #000000;" name="category"
+                        value="Elektryka">Elektryka
+                </button>
+                <button type="submit" class="btn btn-outline-dark" name="category" value="Roboty ziemne">Roboty ziemne
+                </button>
+                <button type="submit" class="btn btn-outline-white"
+                        style="background-color: #fcf1b9; box-shadow: 10px 10px 30px 0 #000000;" name="category"
+                        value="Ogród">Ogród
+                </button>
             </form>
         </div>
         <div class="col-md-6" style="font-size: 12px;">
@@ -78,7 +90,8 @@
                         <p>Nazwisko: <span th:text="${offerToModal.userLastName}"></span></p>
                         <p>Telefon: <span th:text="${offerToModal.userTelephoneNumber}"></span></p>
                         <p>Email: <span th:text="${offerToModal.userEmailAddress}"></span></p>
-                        <a th:href="'/editOffer/' + ${offerToModal.dtoOfferId}" th:text="'Edycja'" type="button" id="button-shadow2" class="btn btn-outline-dark"></a>
+                        <a th:href="'/editOffer/' + ${offerToModal.dtoOfferId}" th:text="'Edycja'" type="button"
+                           id="button-shadow2" class="btn btn-outline-dark"></a>
                     </div>
                     <div class="modal-footer bg-dark text-white" style="box-shadow: 10px 10px 30px 0 #000000;">
                         <p th:text="'Id: ' + ${offerToModal.dtoOfferId}"></p>
@@ -104,7 +117,8 @@
                    th:text="${pageNumber}"></a>
             </li>
             <li class="page-item">
-                <a class="page-link" style="color: black; border-color: #fabf4b" th:href="@{/(size=${offerDtoPage.size}, page=${offerDtoPage.number + 2})}"
+                <a class="page-link" style="color: black; border-color: #fabf4b"
+                   th:href="@{/(size=${offerDtoPage.size}, page=${offerDtoPage.number + 2})}"
                    th:if="${offerDtoPage.hasNext}">
                     Next
                 </a>

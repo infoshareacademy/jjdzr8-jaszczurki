@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface UserOffersInterface {
     List<Offer> getUserOfferList(User user);
+
     boolean isUserOfferActive(Offer offer);
 }
