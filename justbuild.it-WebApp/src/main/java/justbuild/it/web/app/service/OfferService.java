@@ -166,4 +166,10 @@ public class OfferService {
             throw new IllegalArgumentException("Incorrect prolong period");
         }
     }
+
+    public void terminateOffer(Long id) {
+        OfferDto offerDtoById = offerEditionService.getOfferDtoById(id);
+        offerDtoById.setExpiryDate(LocalDateTime.now());
+        offerEditionService.updateOffer(offerDtoById);
+    }
 }

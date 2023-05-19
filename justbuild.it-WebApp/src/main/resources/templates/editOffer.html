@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet"
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"
           type="text/css"/>
     <title>Dodaj ogłoszenie</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/fontawesome.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" th:href="@{/add style.css}"/>
 </head>
 <body>
@@ -78,19 +82,51 @@
            th:field="*{dateTime}" readonly>
     <input type="text" class="alert alert-dark col-12 date-alert" tabindex="-1" id="formGroupExampleInput9"
            th:field="*{expiryDate}" readonly>
-    <button class="btn btn-dark" type="button" id="prolong-btn" th:if="${prolongable}" data-bs-toggle="modal"
+    <button class="btn btn-outline-dark" type="button" id="prolong-btn" th:if="${prolongable}" data-bs-toggle="modal"
             data-bs-target="#prolong-modal">
+        <i class="fa-regular fa-clock"></i>
         Przedłuż
     </button>
+    <button th:if="${!expired}" type="button" class="btn btn-outline-dark mr-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop0">
+        <i class="fa-solid fa-xmark"></i> Zakończ
+    </button>
+    <div class="modal fade" id="staticBackdrop0" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="staticBackdropLabel0">Potwierdź zakończenie oferty</h3>
+                    <a type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                </div>
+                <div class="modal-body">
+                    Oferta stanie się niewidoczna dla odwiedzających.
+                    Czy chcesz zakończyć swoją ofertę?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Nie</button>
+                    <button type="button" class="btn btn-outline-dark" onclick="
+                        const id = document.getElementById('offer-id').value;
+                        fetch('/terminateOffer/' + id, {method: 'GET'})
+                        .finally(r => {
+                            window.location.replace('/editOffer/' + id)
+                        });">
+                        Tak
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <hr>
     <div class="buttons mb-4">
         <button type="button" class="btn btn-outline-dark mr-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <i class="fa-regular fa-floppy-disk"></i>
             Zatwierdź
         </button>
         <a href="/" class="btn btn-dark" role="button" data-bs-toggle="modal"
-           data-bs-target="#staticBackdrop2">Wróć do strony głównej</a>
+           data-bs-target="#staticBackdrop2"><i class="fa-solid fa-arrow-left"></i> Wróć do strony głównej</a>
     </div>
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
          aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -98,7 +134,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Potwierdź edycję oferty</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <a type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
                 </div>
                 <div class="modal-body">
                     Czy chcesz zapisać swoją ofertę i wrócić do strony głównej ?
@@ -126,10 +164,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel2">Potwierdź rezygnację</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <a type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
                 </div>
                 <div class="modal-body">
-                    Czy chcesz przerwać dodawanie oferty i wrócić do strony głównej ?
+                    Czy chcesz porzucić zmiany i wrócić do strony głównej ?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Nie</button>
@@ -145,7 +185,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="prolong-title">Przedłużenie ogłoszenia</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <a type="button" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
                 </div>
                 <div class="modal-body">
 
