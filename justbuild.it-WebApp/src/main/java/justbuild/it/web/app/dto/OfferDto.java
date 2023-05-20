@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 import static justbuild.it.web.app.entity.constants.AppConstants.DISPLAY_DATE_FORMAT;
 import static justbuild.it.web.app.entity.constants.AppConstants.EMAIL_FORMAT;
+import static justbuild.it.web.app.entity.constants.AppConstants.EXPIRY_DATE_FORMAT;
 
 public class OfferDto {
 
@@ -29,6 +30,9 @@ public class OfferDto {
     @DateTimeFormat(pattern = DISPLAY_DATE_FORMAT)
     private LocalDateTime dateTime;
 
+    @DateTimeFormat(pattern = EXPIRY_DATE_FORMAT)
+    private LocalDateTime expiryDate;
+
     public OfferDto() {
         this.dtoOfferId = 0L;
         this.serviceCategory = null;
@@ -40,11 +44,12 @@ public class OfferDto {
         this.userEmailAddress = "";
         this.userTelephoneNumber = "";
         this.dateTime = LocalDateTime.now();
+        this.expiryDate = dateTime.plusDays(30);
     }
 
     public OfferDto(Long dtoOfferId, ServiceCategoryEnum serviceCategory, String offerContent, String city,
                     String userFirstName, String userLastName, String userCompanyName, String userEmailAddress,
-                    String userTelephoneNumber, LocalDateTime dateTime) {
+                    String userTelephoneNumber, LocalDateTime dateTime, LocalDateTime expiryDate) {
         this.dtoOfferId = dtoOfferId;
         this.serviceCategory = serviceCategory;
         this.offerContent = offerContent;
@@ -55,6 +60,7 @@ public class OfferDto {
         this.userEmailAddress = userEmailAddress;
         this.userTelephoneNumber = userTelephoneNumber;
         this.dateTime = dateTime;
+        this.expiryDate = expiryDate;
     }
 
     public Long getDtoOfferId() {
@@ -136,4 +142,13 @@ public class OfferDto {
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
+
+    public LocalDateTime getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(LocalDateTime expiryDate) {
+        this.expiryDate = expiryDate;
+    }
+
 }
