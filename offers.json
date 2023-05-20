@@ -206,29 +206,6 @@
   "date" : [ 2023, 1, 9, 21, 23, 22, 820000000 ],
   "expiryDate" : [ 2023, 2, 9, 21, 23, 22, 820000000 ]
 }, {
-  "offerId" : 9,
-  "serviceCategory" : "GARDEN",
-  "offerContent" : "projekt i realizacja, piękny ogród na życzenie",
-  "city" : "warszawa",
-  "user" : {
-    "userId" : 1,
-    "firstName" : "Monika",
-    "lastName" : "Kisiel",
-    "company" : "MoKi Garden ",
-    "emailAddress" : "monika@garden.eu",
-    "username" : null,
-    "password" : null,
-    "telephoneNumber" : "505 527 211",
-    "offers" : [ ],
-    "authorities" : null,
-    "enabled" : true,
-    "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
-  },
-  "date" : [ 2023, 1, 9, 21, 20, 14, 815000000 ],
-  "expiryDate" : [ 2023, 2, 9, 21, 20, 14, 815000000 ]
-}, {
   "offerId" : 8,
   "serviceCategory" : "ELECTRICITY",
   "offerContent" : "fachowe usługi elektryczne, monitoring, inteligentny dom",
@@ -343,29 +320,6 @@
   },
   "date" : [ 2023, 1, 8, 18, 23, 25, 234000000 ],
   "expiryDate" : [ 2023, 2, 8, 18, 23, 25, 234000000 ]
-}, {
-  "offerId" : 28,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "Sprzęt ciężki, roboty ziemne, wznoszenie budynków",
-  "city" : "Warszawa",
-  "user" : {
-    "userId" : 1,
-    "firstName" : "",
-    "lastName" : "",
-    "company" : "WARBUD SA",
-    "emailAddress" : "warbud.office@warbud.pl",
-    "username" : null,
-    "password" : null,
-    "telephoneNumber" : "22 562 10 01",
-    "offers" : [ ],
-    "authorities" : null,
-    "enabled" : true,
-    "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
-  },
-  "date" : [ 2023, 2, 21, 22, 40 ],
-  "expiryDate" : [ 2023, 3, 21, 22, 40 ]
 }, {
   "offerId" : 30,
   "serviceCategory" : "CONSTRUCTION",
@@ -619,29 +573,6 @@
   },
   "date" : [ 2023, 3, 1, 23, 4 ],
   "expiryDate" : [ 2023, 6, 14, 20, 55, 6, 68074000 ]
-}, {
-  "offerId" : 12,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
-  "city" : "warszawa",
-  "user" : {
-    "userId" : 1,
-    "firstName" : "Gwidon",
-    "lastName" : "Gwóźdź",
-    "company" : "GOOD-BUD SA",
-    "emailAddress" : "office@gbud.pl",
-    "username" : null,
-    "password" : null,
-    "telephoneNumber" : "22 562 00 10",
-    "offers" : [ ],
-    "authorities" : null,
-    "enabled" : true,
-    "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
-  },
-  "date" : [ 2023, 5, 17, 21, 16 ],
-  "expiryDate" : [ 2023, 6, 16, 21, 16 ]
 }, {
   "offerId" : 3,
   "serviceCategory" : "FINISHING_WORKS",
@@ -1010,4 +941,96 @@
   },
   "date" : [ 2023, 5, 20, 18, 15 ],
   "expiryDate" : [ 2023, 6, 19, 18, 16, 15, 661031000 ]
+}, {
+  "offerId" : 12,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
+  "city" : "Warszawa",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Gwidon",
+    "lastName" : "Gwóźdź",
+    "company" : "GOOD-BUD SA",
+    "emailAddress" : "office@gbud.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "22 562 00 10",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 22, 55 ],
+  "expiryDate" : [ 2023, 6, 16, 21, 16 ]
+}, {
+  "offerId" : 28,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Sprzęt ciężki, roboty ziemne, wznoszenie budynków.",
+  "city" : "Warszawa",
+  "user" : {
+    "userId" : null,
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "WARBUD SA",
+    "emailAddress" : "warbud.office@warbud.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "22 562 10 01",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 22, 55 ],
+  "expiryDate" : [ 2023, 3, 21, 22, 40 ]
+}, {
+  "offerId" : 9,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "projekt i realizacja, piękny ogród na życzenie",
+  "city" : "warszawa",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Monika",
+    "lastName" : "Kisiel",
+    "company" : "MoKi Garden ",
+    "emailAddress" : "monika@garden.eu",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "505 527 211",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 22, 56 ],
+  "expiryDate" : [ 2023, 6, 19, 22, 56 ]
+}, {
+  "offerId" : 49,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Janusze. Omijaj nas.",
+  "city" : "Januszowo",
+  "user" : {
+    "userId" : 1,
+    "firstName" : "Janusz",
+    "lastName" : "Januszowy",
+    "company" : "Januszex",
+    "emailAddress" : "januszex@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "123 323 445",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 23, 4 ],
+  "expiryDate" : [ 2023, 6, 19, 23, 5, 27, 271623000 ]
 } ]

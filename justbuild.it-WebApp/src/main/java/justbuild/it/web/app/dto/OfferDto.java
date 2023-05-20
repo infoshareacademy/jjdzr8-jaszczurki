@@ -39,7 +39,7 @@ public class OfferDto {
         this.serviceCategory = null;
         this.offerContent = "";
         this.city = "";
-        this.userId = 0L;
+//        this.userId = 0L;
         this.userFirstName = "";
         this.userLastName = "";
         this.userCompanyName = "";
