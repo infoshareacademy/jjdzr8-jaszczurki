@@ -1,33 +1,10 @@
 [ {
-  "offerId" : 24,
-  "serviceCategory" : "ELECTRICITY",
-  "offerContent" : "systemy alarmowe",
-  "city" : "kraków",
-  "user" : {
-    "userId" : null,
-    "firstName" : "",
-    "lastName" : "",
-    "company" : "ALARM-INTACT",
-    "emailAddress" : "systemy@alarm.intact.pl",
-    "username" : null,
-    "password" : null,
-    "telephoneNumber" : "792 427 385",
-    "offers" : [ ],
-    "authorities" : null,
-    "enabled" : true,
-    "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
-  },
-  "date" : [ 2023, 1, 15, 13, 54, 9, 818000000 ],
-  "expiryDate" : [ 2023, 2, 15, 13, 54, 9, 818000000 ]
-}, {
   "offerId" : 23,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacje co i piece",
   "city" : "lublin",
   "user" : {
-    "userId" : null,
+    "userId" : 1,
     "firstName" : "Tomasz",
     "lastName" : "Kowal",
     "company" : "ThermoInstall Sp. z o.o.",
@@ -39,41 +16,18 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 15, 10, 4, 5, 991000000 ],
   "expiryDate" : [ 2023, 2, 15, 10, 4, 5, 991000000 ]
-}, {
-  "offerId" : 22,
-  "serviceCategory" : "GARDEN",
-  "offerContent" : "najpiękniejszy ogród w okolicy",
-  "city" : "gdańsk",
-  "user" : {
-    "userId" : null,
-    "firstName" : "Pola",
-    "lastName" : "Oliwska",
-    "company" : "Pola Ogrody",
-    "emailAddress" : "ogrodnik@pola.ogrody.pl",
-    "username" : null,
-    "password" : null,
-    "telephoneNumber" : "603 391 755",
-    "offers" : [ ],
-    "authorities" : null,
-    "enabled" : true,
-    "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
-  },
-  "date" : [ 2023, 1, 13, 14, 8, 10, 859000000 ],
-  "expiryDate" : [ 2023, 2, 13, 14, 8, 10, 859000000 ]
 }, {
   "offerId" : 21,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacje i przyłącza - wszystkie ",
   "city" : "gdańsk",
   "user" : {
-    "userId" : null,
+    "userId" : 4,
     "firstName" : "Wojciech",
     "lastName" : "Słupski",
     "company" : "WOJ-TEC Installbud",
@@ -85,8 +39,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 13, 13, 48, 51, 417000000 ],
   "expiryDate" : [ 2023, 2, 13, 13, 48, 51, 417000000 ]
@@ -96,7 +50,7 @@
   "offerContent" : "kompleksowe roboty budowlane i wykończenie",
   "city" : "kraków",
   "user" : {
-    "userId" : null,
+    "userId" : 3,
     "firstName" : "",
     "lastName" : "",
     "company" : "REMBUD SA",
@@ -108,8 +62,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 13, 13, 21, 6, 371000000 ],
   "expiryDate" : [ 2023, 2, 13, 13, 21, 6, 371000000 ]
@@ -131,8 +85,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 13, 13, 14, 38, 42000000 ],
   "expiryDate" : [ 2023, 2, 13, 13, 14, 38, 42000000 ]
@@ -154,8 +108,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 13, 12, 10, 12, 59000000 ],
   "expiryDate" : [ 2023, 2, 13, 12, 10, 12, 59000000 ]
@@ -177,8 +131,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 13, 11, 46, 39, 584000000 ],
   "expiryDate" : [ 2023, 2, 13, 11, 46, 39, 584000000 ]
@@ -200,8 +154,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 10, 19, 52, 15, 131000000 ],
   "expiryDate" : [ 2023, 2, 10, 19, 52, 15, 131000000 ]
@@ -223,8 +177,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 10, 11, 58, 21, 727000000 ],
   "expiryDate" : [ 2023, 2, 10, 11, 58, 21, 727000000 ]
@@ -246,8 +200,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 9, 21, 23, 22, 820000000 ],
   "expiryDate" : [ 2023, 2, 9, 21, 23, 22, 820000000 ]
@@ -257,7 +211,7 @@
   "offerContent" : "projekt i realizacja, piękny ogród na życzenie",
   "city" : "warszawa",
   "user" : {
-    "userId" : null,
+    "userId" : 1,
     "firstName" : "Monika",
     "lastName" : "Kisiel",
     "company" : "MoKi Garden ",
@@ -269,8 +223,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 9, 21, 20, 14, 815000000 ],
   "expiryDate" : [ 2023, 2, 9, 21, 20, 14, 815000000 ]
@@ -292,8 +246,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 9, 20, 58, 11, 831000000 ],
   "expiryDate" : [ 2023, 2, 9, 20, 58, 11, 831000000 ]
@@ -315,8 +269,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 9, 16, 37, 41, 356000000 ],
   "expiryDate" : [ 2023, 2, 9, 16, 37, 41, 356000000 ]
@@ -338,8 +292,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 8, 18, 31, 34, 771000000 ],
   "expiryDate" : [ 2023, 2, 8, 18, 31, 34, 771000000 ]
@@ -361,8 +315,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 8, 18, 26, 53, 914000000 ],
   "expiryDate" : [ 2023, 2, 8, 18, 26, 53, 914000000 ]
@@ -384,8 +338,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 8, 18, 23, 25, 234000000 ],
   "expiryDate" : [ 2023, 2, 8, 18, 23, 25, 234000000 ]
@@ -395,7 +349,7 @@
   "offerContent" : "Sprzęt ciężki, roboty ziemne, wznoszenie budynków",
   "city" : "Warszawa",
   "user" : {
-    "userId" : null,
+    "userId" : 1,
     "firstName" : "",
     "lastName" : "",
     "company" : "WARBUD SA",
@@ -407,8 +361,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 2, 21, 22, 40 ],
   "expiryDate" : [ 2023, 3, 21, 22, 40 ]
@@ -430,8 +384,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 2, 22, 17, 16 ],
   "expiryDate" : [ 2023, 3, 2, 17, 16 ]
@@ -453,8 +407,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 4, 22, 18, 49 ],
   "expiryDate" : [ 2023, 5, 20, 18, 49 ]
@@ -476,8 +430,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 5, 6, 22, 39 ],
   "expiryDate" : [ 2023, 6, 5, 22, 39, 37, 781471973 ]
@@ -499,8 +453,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 17, 19, 9, 43, 159000000 ],
   "expiryDate" : [ 2023, 6, 6, 1, 10, 2, 847370659 ]
@@ -522,8 +476,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 16, 23, 6, 24, 972000000 ],
   "expiryDate" : [ 2023, 6, 6, 1, 13, 6, 617198083 ]
@@ -545,8 +499,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 16, 23, 4, 55, 754000000 ],
   "expiryDate" : [ 2023, 6, 9, 1, 21, 36, 151468029 ]
@@ -568,8 +522,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 1, 7, 21, 48, 45, 260000000 ],
   "expiryDate" : [ 2023, 5, 8, 1, 31, 39, 773101431 ]
@@ -591,8 +545,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 3, 3, 0, 17 ],
   "expiryDate" : [ 2023, 6, 14, 20, 44, 7, 906126000 ]
@@ -614,8 +568,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 5, 6, 23, 17 ],
   "expiryDate" : [ 2023, 5, 27, 1, 36, 55, 899760660 ]
@@ -637,8 +591,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 2, 21, 22, 38 ],
   "expiryDate" : [ 2023, 6, 14, 20, 54, 31, 765235000 ]
@@ -660,41 +614,18 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 3, 1, 23, 4 ],
   "expiryDate" : [ 2023, 6, 14, 20, 55, 6, 68074000 ]
-}, {
-  "offerId" : 29,
-  "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "Profesjonalne roboty wykończeniowe, remonty, obiekty użyteczności publicznej i przemysłowe",
-  "city" : "Poznań",
-  "user" : {
-    "userId" : null,
-    "firstName" : "Jan",
-    "lastName" : "Remontowy",
-    "company" : "REM-BUD",
-    "emailAddress" : "rembud.biuro@rembud.pl",
-    "username" : null,
-    "password" : null,
-    "telephoneNumber" : "702 452 118",
-    "offers" : [ ],
-    "authorities" : null,
-    "enabled" : true,
-    "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
-  },
-  "date" : [ 2023, 5, 15, 20, 56 ],
-  "expiryDate" : [ 2023, 6, 14, 21, 2, 9, 348778000 ]
 }, {
   "offerId" : 12,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
   "city" : "warszawa",
   "user" : {
-    "userId" : null,
+    "userId" : 1,
     "firstName" : "Gwidon",
     "lastName" : "Gwóźdź",
     "company" : "GOOD-BUD SA",
@@ -706,34 +637,11 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 5, 17, 21, 16 ],
   "expiryDate" : [ 2023, 6, 16, 21, 16 ]
-}, {
-  "offerId" : 35,
-  "serviceCategory" : "ELECTRICITY",
-  "offerContent" : "Montaż oświetlenia zewnętrznego.",
-  "city" : "Gdańsk",
-  "user" : {
-    "userId" : null,
-    "firstName" : "Filip",
-    "lastName" : "Goman",
-    "company" : "GonBud",
-    "emailAddress" : "gombud@gmail.com",
-    "username" : null,
-    "password" : null,
-    "telephoneNumber" : "233 456 666",
-    "offers" : [ ],
-    "authorities" : null,
-    "enabled" : true,
-    "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
-  },
-  "date" : [ 2023, 5, 17, 21, 53 ],
-  "expiryDate" : [ 2023, 6, 16, 21, 55, 1, 301969000 ]
 }, {
   "offerId" : 3,
   "serviceCategory" : "FINISHING_WORKS",
@@ -752,8 +660,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 5, 19, 0, 43 ],
   "expiryDate" : [ 2023, 7, 6, 0, 59 ]
@@ -775,8 +683,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 5, 19, 0, 44 ],
   "expiryDate" : [ 2023, 6, 18, 0, 44 ]
@@ -798,9 +706,262 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "accountNonLocked" : true,
-    "credentialsNonExpired" : true
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
   },
   "date" : [ 2023, 5, 19, 1, 1 ],
   "expiryDate" : [ 2023, 6, 18, 1, 2, 46, 807686000 ]
+}, {
+  "offerId" : 35,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "Montaż oświetlenia zewnętrznego.",
+  "city" : "Gdańsk",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Filip",
+    "lastName" : "Goman",
+    "company" : "GonBud",
+    "emailAddress" : "gombud@gmail.com",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "233 456 666",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 5, 20, 2, 52 ],
+  "expiryDate" : [ 2023, 6, 16, 21, 55 ]
+}, {
+  "offerId" : 37,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "Szpachlowanie i malowanie",
+  "city" : "Warszawa",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Damian",
+    "lastName" : "Damianowicz",
+    "company" : "Damiano",
+    "emailAddress" : "damiano@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "546 324 435",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 5, 20, 3, 1 ],
+  "expiryDate" : [ 2023, 6, 19, 3, 2, 47, 137028000 ]
+}, {
+  "offerId" : 24,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "systemy alarmowe",
+  "city" : "kraków",
+  "user" : {
+    "userId" : null,
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "ALARM-INTACT",
+    "emailAddress" : "systemy@alarm.intact.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "792 427 385",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 5, 20, 8, 34 ],
+  "expiryDate" : [ 2023, 6, 19, 8, 34 ]
+}, {
+  "offerId" : 38,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Instalacje elektryczne",
+  "city" : "Gościcino",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Franciszek",
+    "lastName" : "Fhilips",
+    "company" : "FranekInastalacje",
+    "emailAddress" : "franz@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "345 456 234",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 5, 20, 8, 37 ],
+  "expiryDate" : [ 2023, 6, 19, 8, 38, 13, 157646000 ]
+}, {
+  "offerId" : 39,
+  "serviceCategory" : "EARTH_WORKS",
+  "offerContent" : "Wykopy pod fundamenty.",
+  "city" : "Radom",
+  "user" : {
+    "userId" : 1,
+    "firstName" : "Filip",
+    "lastName" : "Zawada",
+    "company" : "Zawada S.A.",
+    "emailAddress" : "zawada@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "324 567 322",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 5, 20, 8, 48 ],
+  "expiryDate" : [ 2023, 6, 19, 8, 49, 15, 114199000 ]
+}, {
+  "offerId" : 42,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Glazura i terakota.",
+  "city" : "Katowice",
+  "user" : {
+    "userId" : 1,
+    "firstName" : "Zenon",
+    "lastName" : "Markiewicz",
+    "company" : "Markiewicz&Markiewicz",
+    "emailAddress" : "markiewicz@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "244 345 435",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 5, 20, 9, 20 ],
+  "expiryDate" : [ 2023, 6, 19, 9, 21, 42, 492781000 ]
+}, {
+  "offerId" : 43,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "dsgdfhhbvndsrf",
+  "city" : "ewr",
+  "user" : {
+    "userId" : 2,
+    "firstName" : "dsfsdf",
+    "lastName" : "fdgsd",
+    "company" : "fsdgfd",
+    "emailAddress" : "dsfsadf@dgxdg.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "435345435",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 5, 20, 13, 35 ],
+  "expiryDate" : [ 2023, 6, 19, 13, 36, 21, 630657000 ]
+}, {
+  "offerId" : 22,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "najpiękniejszy ogród w okolicy",
+  "city" : "gdańsk",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Pola",
+    "lastName" : "Oliwska",
+    "company" : "Pola Ogrody",
+    "emailAddress" : "ogrodnik@pola.ogrody.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "603 391 755",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 1, 13, 14, 8, 10, 859000000 ],
+  "expiryDate" : [ 2023, 6, 19, 13, 53, 33, 707193000 ]
+}, {
+  "offerId" : 44,
+  "serviceCategory" : "EARTH_WORKS",
+  "offerContent" : "fdsgdfsgsghbndfsgfd",
+  "city" : "fdsgdgh",
+  "user" : {
+    "userId" : 2,
+    "firstName" : "fdgfdsg",
+    "lastName" : "gfhfgh",
+    "company" : "fdsgdsfg",
+    "emailAddress" : "dsfgdfsg@rdg.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "324235345",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 5, 20, 14, 7 ],
+  "expiryDate" : [ 2023, 6, 19, 14, 7 ]
+}, {
+  "offerId" : 29,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "Profesjonalne roboty wykończeniowe, remonty, obiekty użyteczności publicznej i przemysłowe.",
+  "city" : "Poznań",
+  "user" : {
+    "userId" : 2,
+    "firstName" : "Jan",
+    "lastName" : "Remontowy",
+    "company" : "REM-BUD",
+    "emailAddress" : "rembud.biuro@rembud.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "702 452 118",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 5, 20, 14, 7 ],
+  "expiryDate" : [ 2023, 6, 14, 21, 2 ]
+}, {
+  "offerId" : 45,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "Instalacje CO",
+  "city" : "Koszalin",
+  "user" : {
+    "userId" : 2,
+    "firstName" : "Maja",
+    "lastName" : "Majewska",
+    "company" : "Maewska",
+    "emailAddress" : "majewska@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "324 345 565",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "credentialsNonExpired" : true,
+    "accountNonLocked" : true
+  },
+  "date" : [ 2023, 5, 20, 16, 20 ],
+  "expiryDate" : [ 2023, 6, 19, 16, 21, 15, 277778000 ]
 } ]

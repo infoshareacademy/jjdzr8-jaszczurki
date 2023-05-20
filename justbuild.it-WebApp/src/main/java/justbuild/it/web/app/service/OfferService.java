@@ -2,7 +2,6 @@ package justbuild.it.web.app.service;
 
 import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
-import justbuild.it.web.app.entity.User;
 import justbuild.it.web.app.mapper.OfferMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -172,28 +171,27 @@ public class OfferService {
         }
     }
 
-    public List<OfferDto> provideUserOffers(User user) {
-        LOGGER.debug("Providing user: {} offer DTO list", user);
+    public List<OfferDto> provideUserOffers(Long userId) {
+        LOGGER.debug("Providing user: {} offer DTO list", userId);
         OfferMapper offerMapper = new OfferMapper();
-        return offerMapper.toDtoList(userOfferService.getUserOfferList(user));
+        return offerMapper.toDtoList(userOfferService.getUserOfferList(userId));
     }
 
-    public List<OfferDto> provideActiveUserOffers(User user) {
-        LOGGER.debug("Providing active offer DTO list for user: {}", user);
+    public List<OfferDto> provideActiveUserOffers(Long userId) {
+        LOGGER.debug("Providing active offer DTO list for user: {}", userId);
         OfferMapper offerMapper = new OfferMapper();
-        List<OfferDto> userOfferDtoList = provideUserOffers(user);
+        List<OfferDto> userOfferDtoList = provideUserOffers(userId);
         return userOfferDtoList.stream()
                 .filter(offerDto -> userOfferService.isUserOfferActive(offerMapper.fromDto(offerDto)))
                 .collect(Collectors.toList());
     }
 
-    public List<OfferDto> provideInactiveUserOffers(User user) {
-        LOGGER.debug("Providing inactive offer DTO list for user: {}", user);
+    public List<OfferDto> provideInactiveUserOffers(Long userId) {
+        LOGGER.debug("Providing inactive offer DTO list for user: {}", userId);
         OfferMapper offerMapper = new OfferMapper();
-        List<OfferDto> userOfferDtoList = provideUserOffers(user);
+        List<OfferDto> userOfferDtoList = provideUserOffers(userId);
         return userOfferDtoList.stream()
                 .filter(offerDto -> !userOfferService.isUserOfferActive(offerMapper.fromDto(offerDto)))
                 .collect(Collectors.toList());
     }
-
 }

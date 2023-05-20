@@ -1,8 +1,10 @@
 package justbuild.it.web.app.service;
 
+import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
-import justbuild.it.web.app.entity.User;
 import justbuild.it.web.app.repository.OfferFileRepository;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -23,15 +25,29 @@ public class UserOfferService implements UserOffersInterface {
     }
 
     @Override
-    public List<Offer> getUserOfferList(User user) {
+    public List<Offer> getUserOfferList(Long userId) {
         List<Offer> userOffers = offerFileRepository.getOffersFromJsonFile(OFFERS_FILEPATH);
         return userOffers.stream()
-                .filter(offer -> offer.getUser().getUserId().equals(user.getUserId()))
+                .filter(offer -> userId.equals(offer.getUser().getUserId()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public boolean isUserOfferActive(Offer offer) {
         return offer.getExpiryDate().isAfter(LocalDateTime.now());
+    }
+    @Override
+    public boolean isLoggedUserOwnerOfOffer(OfferDto offerDto) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication.isAuthenticated() && !authentication.getPrincipal().equals("anonymousUser")) {
+            String username = authentication.getName();
+            Long userId = userService.getUserIdByUsername(username);
+            System.out.println("UserId: " + userId + " " + authentication);
+            System.out.println("OfferUserId : " + offerDto.getUserId());
+            return userId.equals(offerDto.getUserId());
+        } else {
+            return false;
+        }
     }
 }

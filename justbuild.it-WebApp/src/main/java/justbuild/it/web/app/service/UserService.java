@@ -30,6 +30,7 @@ public class UserService {
         userRepository.save(newUser);
     }
 
+
     public User findUserByLogin(String username) {
         return userRepository.findUserByUsername(username);
     }
@@ -37,9 +38,5 @@ public class UserService {
     public Long getUserIdByUsername(String username) {
         User user = userRepository.findUserByUsername(username);
         return user != null ? user.getUserId() : null;
-    }
-
-    public boolean isUserOwnerOfOffer(Long userId, Long offerId) {
-        return userRepository.isUserOwnerOfOffer(userId, offerId);
     }
 }

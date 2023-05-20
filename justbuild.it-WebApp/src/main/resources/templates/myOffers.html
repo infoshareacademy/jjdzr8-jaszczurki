@@ -30,10 +30,7 @@
             </li>
         </ul>
 
-        <!-- Zawartość zakładek -->
         <div class="tab-content">
-
-            <!-- Zakładka Aktywne -->
             <div class="tab-pane fade show active" id="active">
                 <table id="activeTable" class="table table-striped">
                     <thead>
@@ -46,10 +43,9 @@
                         <th></th>
                     </tr>
                     </thead>
+
                     <tbody>
-                    <!-- Pętla dla aktywnych ofert -->
                     <tr th:each="offer : ${activeFilteredOfferDtoList}">
-                        <!-- Wypełnienie danych oferty -->
                         <td th:text="${offer.dtoOfferId}"></td>
                         <td th:text="${offer.serviceCategory}"></td>
                         <td th:text="${offer.city}"></td>
@@ -62,39 +58,9 @@
                         </td>
                     </tr>
                     </tbody>
-
-                    <tfoot>
-                    <tr>
-                        <td colspan="6" class="pagination-container">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item">
-                                    <a class="page-link" style="color: black"
-                                       th:href="@{/myOffers(page=0, sizeList=${activeFilteredOfferDtoList.size}, pageList=${activeFilteredOfferDtoList.previousPageable().getPageNumber() + 1})}"
-                                       th:if="${activeFilteredOfferDtoList.hasPrevious}">
-                                        Previous
-                                    </a>
-                                </li>
-                                <li th:each="pageNumber : ${activePagesDtoList}" class="page-item"
-                                    th:classappend="${pageNumber==activeFilteredOfferDtoList.number + 1} ? 'active'">
-                                    <a id="active-black" class="page-link" style="color: black; border-color: #fabf4b"
-                                       th:href="@{/myOffers(page=0, sizeList=${activeFilteredOfferDtoList.size}, pageList=${pageNumber})}"
-                                       th:text="${pageNumber}"></a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" style="color: black; border-color: #fabf4b"
-                                       th:href="@{/myOffers(page=0, sizeList=${activeFilteredOfferDtoList.size}, pageList=${activeFilteredOfferDtoList.number + 2})}"
-                                       th:if="${activeFilteredOfferDtoList.hasNext}">
-                                        Next
-                                    </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    </tfoot>
                 </table>
-
             </div>
-            <!-- Zakładka Zakończone -->
+
             <div class="tab-pane fade" id="inactive">
                 <table id="inactiveTable" class="table table-striped">
                     <thead>
@@ -107,10 +73,9 @@
                         <th></th>
                     </tr>
                     </thead>
+
                     <tbody>
-                    <!-- Pętla dla zakończonych ofert -->
                     <tr th:each="offer : ${inactiveFilteredOfferDtoList}">
-                        <!-- Wypełnienie danych oferty -->
                         <td th:text="${offer.dtoOfferId}"></td>
                         <td th:text="${offer.serviceCategory}"></td>
                         <td th:text="${offer.city}"></td>
@@ -124,34 +89,6 @@
                         </td>
                     </tr>
                     </tbody>
-                    <tfoot>
-                    <tr>
-                        <td colspan="6" class="pagination-container">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item">
-                                    <a class="page-link" style="color: black"
-                                       th:href="@{/myOffers(page=0, sizeList=${inactiveFilteredOfferDtoList.size}, pageList=${inactiveFilteredOfferDtoList.previousPageable().getPageNumber() + 1})}"
-                                       th:if="${inactiveFilteredOfferDtoList.hasPrevious}">
-                                        Previous
-                                    </a>
-                                </li>
-                                <li th:each="pageNumber : ${inactivePagesDtoList}" class="page-item"
-                                    th:classappend="${pageNumber==inactiveFilteredOfferDtoList.number + 1} ? 'active'">
-                                    <a id="active-black1" class="page-link" style="color: black; border-color: #fabf4b"
-                                       th:href="@{/myOffers(page=0, sizeList=${inactiveFilteredOfferDtoList.size}, pageList=${pageNumber})}"
-                                       th:text="${pageNumber}"></a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" style="color: black; border-color: #fabf4b"
-                                       th:href="@{/myOffers(page=0, sizeList=${inactiveFilteredOfferDtoList.size}, pageList=${inactiveFilteredOfferDtoList.number + 2})}"
-                                       th:if="${inactiveFilteredOfferDtoList.hasNext}">
-                                        Next
-                                    </a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
@@ -245,16 +182,11 @@
     <script>
         $(document).ready(function () {
             $('.nav-tabs a').click(function (event) {
-                event.preventDefault(); // Zapobiega domyślnej akcji dla linka
-
-                // Aktywuj odpowiednią zakładkę
+                event.preventDefault();
                 $(this).tab('show');
-
-                // Zaktualizuj adres URL z haszem, aby odzwierciedlić aktywną zakładkę
                 history.pushState(null, null, event.target.hash);
             });
 
-            // Sprawdź, czy URL zawiera hash i aktywuj odpowiednią zakładkę
             if (window.location.hash) {
                 var hash = window.location.hash;
                 $('.nav-tabs a[href="' + hash + '"]').tab('show');
@@ -264,13 +196,11 @@
 
     <script>
         $(document).ready(function () {
-            // Skrypt dla przycisków "Szczegóły" na zakładce "Aktywne"
             $('#active button[data-bs-toggle="modal"]').click(function () {
                 var targetModal = $(this).attr('th:data-bs-target');
                 $(targetModal).modal('show');
             });
 
-            // Skrypt dla przycisków "Szczegóły" na zakładce "Zakończone"
             $('#inactive button[data-bs-toggle="modal"]').click(function () {
                 var targetModal = $(this).attr('th:data-bs-target');
                 $(targetModal).modal('show');

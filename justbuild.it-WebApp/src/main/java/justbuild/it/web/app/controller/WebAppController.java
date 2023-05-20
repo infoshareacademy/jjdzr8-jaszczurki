@@ -6,12 +6,14 @@ import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.entity.User;
 import justbuild.it.web.app.mapper.OfferMapper;
 import justbuild.it.web.app.service.OfferService;
+import justbuild.it.web.app.service.UserOfferService;
 import justbuild.it.web.app.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -32,12 +33,14 @@ public class WebAppController {
 
     private final OfferService offerService;
     private final UserService userService;
+    private final UserOfferService userOfferService;
     private final OfferMapper mapper;
     private static final Logger LOGGER = LoggerFactory.getLogger(WebAppController.class);
 
-    public WebAppController(OfferService offerService, UserService userService, OfferMapper mapper) {
+    public WebAppController(OfferService offerService, UserService userService, UserOfferService userOfferService, OfferMapper mapper) {
         this.offerService = offerService;
         this.userService = userService;
+        this.userOfferService = userOfferService;
         this.mapper = mapper;
     }
 
@@ -57,7 +60,6 @@ public class WebAppController {
         offerService.prolongOffer(request.getId(), request.getDays());
     }
 
-
     @GetMapping("/user/addOffer")
     public String goAdd(Model model) {
         model.addAttribute("offer", offerService.provideNewOffer());
@@ -70,8 +72,19 @@ public class WebAppController {
         if (result.hasErrors()) {
             return "addOffer";
         }
+
         Offer offer = mapper.fromDto(offerDto);
         offerService.setIdToOffer(offer);
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (authentication != null && authentication.isAuthenticated()) {
+            String username = authentication.getName();
+            Long userId = userService.getUserIdByUsername(username);
+            User user = offer.getUser();
+            user.setUserId(userId);
+            offer.setUser(user);
+        }
         offerService.addOffer(offer);
         LOGGER.info("New offer added with ID: {}", offer.getOfferId());
         return "redirect:/";
@@ -107,104 +120,37 @@ public class WebAppController {
         if (result.hasErrors()) {
             return "editOffer";
         }
-        offerService.updateOffer(offerDto);
-        LOGGER.info("Updated offer with ID: {}", offerDto.getDtoOfferId());
-        return "redirect:/";
-    }
+        System.out.println(offerDto.getUserId());
+        if (userOfferService.isLoggedUserOwnerOfOffer(offerDto)) {
 
-//    @GetMapping("/myOffers")
-//    public String showUserOffers(@RequestParam(defaultValue = "1") int pageList, @RequestParam(defaultValue = "8") int sizeList,
-//                                 Model model) {
-//
-//        LOGGER.info("Searching for user offers");
-//
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//
-//        if (authentication != null && authentication.isAuthenticated()) {
-//            // Pobranie nazwy zalogowanego użytkownika
-//            String username = authentication.getName();
-//
-//            // Pobranie użytkownika na podstawie nazwy użytkownika
-//            Long userId = userService.getUserIdByUsername(username);
-//
-//            // Pobranie ofert zalogowanego użytkownika
-//            List<OfferDto> userActiveOffers = offerService.provideActiveUserOffers(user);
-//            List<OfferDto> userInactiveOffers = offerService.provideInactiveUserOffers(user);
-//
-//            model.addAttribute("userId", user.getUserId());
-//
-//            Page<OfferDto> activeOfferPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), userActiveOffers);
-//            model.addAttribute("activeFilteredOfferList", activeOfferPage.getContent());
-//            model.addAttribute("activePages", offerService.calculatePageNumbers(activeOfferPage));
-//
-//            Page<OfferDto> inactiveOfferPage = offerService.providePagination(PageRequest.of(pageList - 1, sizeList), userInactiveOffers);
-//            model.addAttribute("inactiveFilteredOfferList", inactiveOfferPage.getContent());
-//            model.addAttribute("inactivePages", offerService.calculatePageNumbers(inactiveOfferPage));
-//
-//            LOGGER.info("Returning user Offers list page with '{}' active offers found", userActiveOffers.size());
-//            LOGGER.info("Returning user Offers list page with '{}' inactive offers found", userInactiveOffers.size());
-//        }
-//
-//        return "myOffers";
-//    }
-
-    @GetMapping("/myOffers")
-    public String showUserOffers(
-            @RequestParam(defaultValue = "1") int pageList,
-            @RequestParam(defaultValue = "8") int sizeList,
-            Model model,
-            Principal principal
-    ) {
-        LOGGER.info("Searching for user offers");
-
-        if (principal != null && principal instanceof Authentication) {
-            Authentication authentication = (Authentication) principal;
-
-            if (!authentication.isAuthenticated()) {
-                // Jeśli użytkownik nie jest uwierzytelniony, przekieruj lub zwróć inną stronę
-                // lub wykonaj inne odpowiednie działania
-                return "redirect:/"; // Przykładowy przekierowanie
-            }
-
-            // Pobranie nazwy zalogowanego użytkownika
-            String username = authentication.getName();
-
-            // Pobranie użytkownika na podstawie nazwy użytkownika
-            Long userId = userService.getUserIdByUsername(username);
-            User user = userService.findUserByLogin(username);
-
-            // Pobranie ofert zalogowanego użytkownika
-            List<OfferDto> userActiveOffers = offerService.provideActiveUserOffers(user);
-            List<OfferDto> userInactiveOffers = offerService.provideInactiveUserOffers(user);
-
-            model.addAttribute("userId", userId);
-
-            Page<OfferDto> activeOfferPage = offerService.providePagination(
-                    PageRequest.of(pageList - 1, sizeList),
-                    userActiveOffers
-            );
-            model.addAttribute("activeFilteredOfferList", activeOfferPage.getContent());
-            model.addAttribute("activePages", offerService.calculatePageNumbers(activeOfferPage));
-
-            Page<OfferDto> inactiveOfferPage = offerService.providePagination(
-                    PageRequest.of(pageList - 1, sizeList),
-                    userInactiveOffers
-            );
-            model.addAttribute("inactiveFilteredOfferList", inactiveOfferPage.getContent());
-            model.addAttribute("inactivePages", offerService.calculatePageNumbers(inactiveOfferPage));
-
-            LOGGER.info(
-                    "Returning user Offers list page with '{}' active offers found",
-                    userActiveOffers.size()
-            );
-            LOGGER.info(
-                    "Returning user Offers list page with '{}' inactive offers found",
-                    userInactiveOffers.size()
-            );
+            offerService.updateOffer(offerDto);
+            LOGGER.info("Updated offer with ID: {}", offerDto.getDtoOfferId());
+            return "editOffer";
+        } else {
+            return "redirect:/";
         }
-
-        return "myOffers";
     }
 
+    @GetMapping("myOffers")
+    public String showUserOffers(Model model) {
+        LOGGER.info("Searching for user offers");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
+        if (authentication.isAuthenticated() && !authentication.getPrincipal().equals("anonymousUser")) {
+            String username = authentication.getName();
+            Long userId = userService.getUserIdByUsername(username);
+
+            List<OfferDto> userActiveOffers = offerService.provideActiveUserOffers(userId);
+            List<OfferDto> userInactiveOffers = offerService.provideInactiveUserOffers(userId);
+
+            model.addAttribute("activeFilteredOfferDtoList", userActiveOffers);
+            model.addAttribute("inactiveFilteredOfferDtoList", userInactiveOffers);
+
+            LOGGER.info("Returning user Offers list page with '{}' active offers found", userActiveOffers.size());
+            LOGGER.info("Returning user Offers list page with '{}' inactive offers found", userInactiveOffers.size());
+            return "myOffers";
+        } else {
+            return "loginForm";
+        }
+    }
 }

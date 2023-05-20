@@ -162,6 +162,15 @@ h5 {
     padding: 4px;
 }
 
+.nav-link.active {
+    background-color: #fcf1b9;
+    color: black;
+}
+
+.nav-link {
+    background-color: #fcf1b9;
+    color: black;
+}
 
 
 
