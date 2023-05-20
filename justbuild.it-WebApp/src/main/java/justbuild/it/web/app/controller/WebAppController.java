@@ -120,15 +120,10 @@ public class WebAppController {
         if (result.hasErrors()) {
             return "editOffer";
         }
-        System.out.println(offerDto.getUserId());
-        if (userOfferService.isLoggedUserOwnerOfOffer(offerDto)) {
+        offerService.updateOffer(offerDto);
+        LOGGER.info("Updated offer with ID: {}", offerDto.getDtoOfferId());
 
-            offerService.updateOffer(offerDto);
-            LOGGER.info("Updated offer with ID: {}", offerDto.getDtoOfferId());
-            return "editOffer";
-        } else {
-            return "redirect:/";
-        }
+        return "redirect:/";
     }
 
     @GetMapping("myOffers")

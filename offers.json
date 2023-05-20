@@ -16,8 +16,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 15, 10, 4, 5, 991000000 ],
   "expiryDate" : [ 2023, 2, 15, 10, 4, 5, 991000000 ]
@@ -39,8 +39,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 13, 48, 51, 417000000 ],
   "expiryDate" : [ 2023, 2, 13, 13, 48, 51, 417000000 ]
@@ -62,8 +62,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 13, 21, 6, 371000000 ],
   "expiryDate" : [ 2023, 2, 13, 13, 21, 6, 371000000 ]
@@ -85,8 +85,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 13, 14, 38, 42000000 ],
   "expiryDate" : [ 2023, 2, 13, 13, 14, 38, 42000000 ]
@@ -108,8 +108,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 12, 10, 12, 59000000 ],
   "expiryDate" : [ 2023, 2, 13, 12, 10, 12, 59000000 ]
@@ -131,8 +131,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 11, 46, 39, 584000000 ],
   "expiryDate" : [ 2023, 2, 13, 11, 46, 39, 584000000 ]
@@ -154,8 +154,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 10, 19, 52, 15, 131000000 ],
   "expiryDate" : [ 2023, 2, 10, 19, 52, 15, 131000000 ]
@@ -177,8 +177,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 10, 11, 58, 21, 727000000 ],
   "expiryDate" : [ 2023, 2, 10, 11, 58, 21, 727000000 ]
@@ -200,8 +200,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 9, 21, 23, 22, 820000000 ],
   "expiryDate" : [ 2023, 2, 9, 21, 23, 22, 820000000 ]
@@ -223,8 +223,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 9, 21, 20, 14, 815000000 ],
   "expiryDate" : [ 2023, 2, 9, 21, 20, 14, 815000000 ]
@@ -246,8 +246,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 9, 20, 58, 11, 831000000 ],
   "expiryDate" : [ 2023, 2, 9, 20, 58, 11, 831000000 ]
@@ -269,8 +269,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 9, 16, 37, 41, 356000000 ],
   "expiryDate" : [ 2023, 2, 9, 16, 37, 41, 356000000 ]
@@ -292,8 +292,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 8, 18, 31, 34, 771000000 ],
   "expiryDate" : [ 2023, 2, 8, 18, 31, 34, 771000000 ]
@@ -315,8 +315,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 8, 18, 26, 53, 914000000 ],
   "expiryDate" : [ 2023, 2, 8, 18, 26, 53, 914000000 ]
@@ -338,8 +338,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 8, 18, 23, 25, 234000000 ],
   "expiryDate" : [ 2023, 2, 8, 18, 23, 25, 234000000 ]
@@ -361,8 +361,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 2, 21, 22, 40 ],
   "expiryDate" : [ 2023, 3, 21, 22, 40 ]
@@ -384,8 +384,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 2, 22, 17, 16 ],
   "expiryDate" : [ 2023, 3, 2, 17, 16 ]
@@ -407,8 +407,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 4, 22, 18, 49 ],
   "expiryDate" : [ 2023, 5, 20, 18, 49 ]
@@ -430,8 +430,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 6, 22, 39 ],
   "expiryDate" : [ 2023, 6, 5, 22, 39, 37, 781471973 ]
@@ -453,8 +453,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 17, 19, 9, 43, 159000000 ],
   "expiryDate" : [ 2023, 6, 6, 1, 10, 2, 847370659 ]
@@ -476,8 +476,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 16, 23, 6, 24, 972000000 ],
   "expiryDate" : [ 2023, 6, 6, 1, 13, 6, 617198083 ]
@@ -499,8 +499,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 16, 23, 4, 55, 754000000 ],
   "expiryDate" : [ 2023, 6, 9, 1, 21, 36, 151468029 ]
@@ -522,8 +522,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 7, 21, 48, 45, 260000000 ],
   "expiryDate" : [ 2023, 5, 8, 1, 31, 39, 773101431 ]
@@ -545,8 +545,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 3, 3, 0, 17 ],
   "expiryDate" : [ 2023, 6, 14, 20, 44, 7, 906126000 ]
@@ -568,8 +568,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 6, 23, 17 ],
   "expiryDate" : [ 2023, 5, 27, 1, 36, 55, 899760660 ]
@@ -591,8 +591,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 2, 21, 22, 38 ],
   "expiryDate" : [ 2023, 6, 14, 20, 54, 31, 765235000 ]
@@ -614,8 +614,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 3, 1, 23, 4 ],
   "expiryDate" : [ 2023, 6, 14, 20, 55, 6, 68074000 ]
@@ -637,8 +637,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 17, 21, 16 ],
   "expiryDate" : [ 2023, 6, 16, 21, 16 ]
@@ -660,8 +660,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 19, 0, 43 ],
   "expiryDate" : [ 2023, 7, 6, 0, 59 ]
@@ -683,8 +683,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 19, 0, 44 ],
   "expiryDate" : [ 2023, 6, 18, 0, 44 ]
@@ -706,8 +706,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 19, 1, 1 ],
   "expiryDate" : [ 2023, 6, 18, 1, 2, 46, 807686000 ]
@@ -729,8 +729,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 20, 2, 52 ],
   "expiryDate" : [ 2023, 6, 16, 21, 55 ]
@@ -740,7 +740,7 @@
   "offerContent" : "Szpachlowanie i malowanie",
   "city" : "Warszawa",
   "user" : {
-    "userId" : null,
+    "userId" : 3,
     "firstName" : "Damian",
     "lastName" : "Damianowicz",
     "company" : "Damiano",
@@ -752,8 +752,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 20, 3, 1 ],
   "expiryDate" : [ 2023, 6, 19, 3, 2, 47, 137028000 ]
@@ -763,7 +763,7 @@
   "offerContent" : "systemy alarmowe",
   "city" : "kraków",
   "user" : {
-    "userId" : null,
+    "userId" : 3,
     "firstName" : "",
     "lastName" : "",
     "company" : "ALARM-INTACT",
@@ -775,8 +775,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 20, 8, 34 ],
   "expiryDate" : [ 2023, 6, 19, 8, 34 ]
@@ -786,7 +786,7 @@
   "offerContent" : "Instalacje elektryczne",
   "city" : "Gościcino",
   "user" : {
-    "userId" : null,
+    "userId" : 3,
     "firstName" : "Franciszek",
     "lastName" : "Fhilips",
     "company" : "FranekInastalacje",
@@ -798,8 +798,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 20, 8, 37 ],
   "expiryDate" : [ 2023, 6, 19, 8, 38, 13, 157646000 ]
@@ -809,7 +809,7 @@
   "offerContent" : "Wykopy pod fundamenty.",
   "city" : "Radom",
   "user" : {
-    "userId" : 1,
+    "userId" : 2,
     "firstName" : "Filip",
     "lastName" : "Zawada",
     "company" : "Zawada S.A.",
@@ -821,8 +821,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 20, 8, 48 ],
   "expiryDate" : [ 2023, 6, 19, 8, 49, 15, 114199000 ]
@@ -844,8 +844,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 20, 9, 20 ],
   "expiryDate" : [ 2023, 6, 19, 9, 21, 42, 492781000 ]
@@ -867,8 +867,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 20, 13, 35 ],
   "expiryDate" : [ 2023, 6, 19, 13, 36, 21, 630657000 ]
@@ -878,7 +878,7 @@
   "offerContent" : "najpiękniejszy ogród w okolicy",
   "city" : "gdańsk",
   "user" : {
-    "userId" : null,
+    "userId" : 1,
     "firstName" : "Pola",
     "lastName" : "Oliwska",
     "company" : "Pola Ogrody",
@@ -890,34 +890,11 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 14, 8, 10, 859000000 ],
   "expiryDate" : [ 2023, 6, 19, 13, 53, 33, 707193000 ]
-}, {
-  "offerId" : 44,
-  "serviceCategory" : "EARTH_WORKS",
-  "offerContent" : "fdsgdfsgsghbndfsgfd",
-  "city" : "fdsgdgh",
-  "user" : {
-    "userId" : 2,
-    "firstName" : "fdgfdsg",
-    "lastName" : "gfhfgh",
-    "company" : "fdsgdsfg",
-    "emailAddress" : "dsfgdfsg@rdg.pl",
-    "username" : null,
-    "password" : null,
-    "telephoneNumber" : "324235345",
-    "offers" : [ ],
-    "authorities" : null,
-    "enabled" : true,
-    "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
-  },
-  "date" : [ 2023, 5, 20, 14, 7 ],
-  "expiryDate" : [ 2023, 6, 19, 14, 7 ]
 }, {
   "offerId" : 29,
   "serviceCategory" : "FINISHING_WORKS",
@@ -936,8 +913,8 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 20, 14, 7 ],
   "expiryDate" : [ 2023, 6, 14, 21, 2 ]
@@ -947,10 +924,10 @@
   "offerContent" : "Instalacje CO",
   "city" : "Koszalin",
   "user" : {
-    "userId" : 2,
+    "userId" : 1,
     "firstName" : "Maja",
     "lastName" : "Majewska",
-    "company" : "Maewska",
+    "company" : "Majewska",
     "emailAddress" : "majewska@o2.pl",
     "username" : null,
     "password" : null,
@@ -959,9 +936,78 @@
     "authorities" : null,
     "enabled" : true,
     "accountNonExpired" : true,
-    "credentialsNonExpired" : true,
-    "accountNonLocked" : true
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
-  "date" : [ 2023, 5, 20, 16, 20 ],
-  "expiryDate" : [ 2023, 6, 19, 16, 21, 15, 277778000 ]
+  "date" : [ 2023, 5, 20, 18, 8 ],
+  "expiryDate" : [ 2023, 6, 19, 16, 21 ]
+}, {
+  "offerId" : 46,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "Ogrody, drzewa, krzewy.",
+  "city" : "Poznań",
+  "user" : {
+    "userId" : 0,
+    "firstName" : "Paulina",
+    "lastName" : "Bendzmer",
+    "company" : "Paula Ogrody",
+    "emailAddress" : "paulaogrody@firma.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "435 567 324",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 18, 11 ],
+  "expiryDate" : [ 2023, 6, 19, 18, 10 ]
+}, {
+  "offerId" : 47,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Konstrukcje dachowe i pokrycia dachowe.",
+  "city" : "Marki",
+  "user" : {
+    "userId" : 0,
+    "firstName" : "Marcin",
+    "lastName" : "Majewski",
+    "company" : "MajewskiDachy",
+    "emailAddress" : "majewskibudowa@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "345 466 546",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 18, 13 ],
+  "expiryDate" : [ 2023, 6, 19, 18, 13 ]
+}, {
+  "offerId" : 48,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Ydsfdsgdfg",
+  "city" : "ertet",
+  "user" : {
+    "userId" : 1,
+    "firstName" : "rty",
+    "lastName" : "try",
+    "company" : "try",
+    "emailAddress" : "tryrty@dsg.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "try",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 18, 15 ],
+  "expiryDate" : [ 2023, 6, 19, 18, 16, 15, 661031000 ]
 } ]
