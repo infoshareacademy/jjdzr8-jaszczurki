@@ -54,14 +54,14 @@ public class WebAppController {
         offerService.prolongOffer(request.getId(), request.getDays());
     }
 
-    @GetMapping("/addOffer")
+    @GetMapping("/user/addOffer")
     public String goAdd(Model model) {
         model.addAttribute("offer", offerService.provideNewOffer());
         LOGGER.info("Opening addOffer page");
         return "addOffer";
     }
 
-    @PostMapping("/addOffer")
+    @PostMapping("/user/addOffer")
     public String addOffer(@Valid @ModelAttribute("offer") OfferDto offerDto, BindingResult result) {
         if (result.hasErrors()) {
             return "addOffer";
