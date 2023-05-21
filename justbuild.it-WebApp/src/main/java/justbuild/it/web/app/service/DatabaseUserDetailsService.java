@@ -48,3 +48,4 @@ public class DatabaseUserDetailsService implements UserDetailsService {
         return userRepository.save(adminUser);
     }
 }
+

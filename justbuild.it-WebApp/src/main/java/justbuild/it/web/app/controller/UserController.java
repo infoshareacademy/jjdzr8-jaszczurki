@@ -41,6 +41,7 @@ public class UserController {
 
         String username = user.getUsername();
         User existingUser = userService.findUserByLogin(username);
+
         if(existingUser != null) {
             result.rejectValue("username", "error.user", "User already exists");
             return "registration";
@@ -67,4 +68,6 @@ public class UserController {
     public String showLogout() {
         return "logoutForm";
     }
+
 }
+

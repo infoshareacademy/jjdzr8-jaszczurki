@@ -97,4 +97,22 @@ class UserServiceTest {
                 .hasNoNullFieldsOrPropertiesExcept("userId", "firstName", "lastName", "company", "emailAddress", "telephoneNumber", "offers");
 
     }
+
+    @Test
+    void testGetUserIdByUsername() {
+        // Given
+        String username = "john";
+        Long userId = 1L;
+        User user = new User();
+        user.setUserId(userId);
+
+        when(userRepositoryMock.findUserByUsername(username)).thenReturn(user);
+
+        // When
+        Long result = userService.getUserIdByUsername(username);
+
+        // Then
+        verify(userRepositoryMock, times(1)).findUserByUsername(username);
+        assertEquals(userId, result);
+    }
 }

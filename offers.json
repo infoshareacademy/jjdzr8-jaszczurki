@@ -1,84 +1,46 @@
 [ {
-  "offerId" : 12,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
-  "city" : "warszawa",
-  "user" : {
-    "firstName" : "Gwidon",
-    "lastName" : "Gwóźdź",
-    "company" : "GOOD-BUD SA",
-    "emailAddress" : "office@gbud.pl",
-    "telephoneNumber" : "22 562 00 10"
-  },
-  "date" : [ 2021, 1, 16, 19, 4, 7, 555000000 ],
-  "expiryDate" : [ 2023, 2, 16, 19, 4, 7, 555000000 ]
-}, {
-  "offerId" : 25,
-  "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "kompleksowo - pełny zakres robót wewnętrznych",
-  "city" : "kraków",
-  "user" : {
-    "firstName" : "Edward",
-    "lastName" : "Gierak",
-    "company" : "Gierak Malarstwo i Glazurnictwo",
-    "emailAddress" : "",
-    "telephoneNumber" : "506 874 323"
-  },
-  "date" : [ 2023, 1, 15, 15, 18, 28, 8000000 ],
-  "expiryDate" : [ 2023, 2, 15, 15, 18, 28, 8000000 ]
-}, {
-  "offerId" : 24,
-  "serviceCategory" : "ELECTRICITY",
-  "offerContent" : "systemy alarmowe",
-  "city" : "kraków",
-  "user" : {
-    "firstName" : "",
-    "lastName" : "",
-    "company" : "ALARM-INTACT",
-    "emailAddress" : "systemy@alarm.intact.pl",
-    "telephoneNumber" : "792 427 385"
-  },
-  "date" : [ 2023, 1, 15, 13, 54, 9, 818000000 ],
-  "expiryDate" : [ 2023, 2, 15, 13, 54, 9, 818000000 ]
-}, {
   "offerId" : 23,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacje co i piece",
   "city" : "lublin",
   "user" : {
+    "userId" : 1,
     "firstName" : "Tomasz",
     "lastName" : "Kowal",
     "company" : "ThermoInstall Sp. z o.o.",
     "emailAddress" : "kowal77@gmail.com",
-    "telephoneNumber" : "605 055 321"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "605 055 321",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 15, 10, 4, 5, 991000000 ],
   "expiryDate" : [ 2023, 2, 15, 10, 4, 5, 991000000 ]
-}, {
-  "offerId" : 22,
-  "serviceCategory" : "GARDEN",
-  "offerContent" : "najpiękniejszy ogród w okolicy",
-  "city" : "gdańsk",
-  "user" : {
-    "firstName" : "Pola",
-    "lastName" : "Oliwska",
-    "company" : "Pola Ogrody",
-    "emailAddress" : "ogrodnik@pola.ogrody.pl",
-    "telephoneNumber" : "603 391 755"
-  },
-  "date" : [ 2023, 1, 13, 14, 8, 10, 859000000 ],
-  "expiryDate" : [ 2023, 2, 13, 14, 8, 10, 859000000 ]
 }, {
   "offerId" : 21,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacje i przyłącza - wszystkie ",
   "city" : "gdańsk",
   "user" : {
+    "userId" : 4,
     "firstName" : "Wojciech",
     "lastName" : "Słupski",
     "company" : "WOJ-TEC Installbud",
     "emailAddress" : "slupski@installbud.pl",
-    "telephoneNumber" : "506 299 114"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "506 299 114",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 13, 48, 51, 417000000 ],
   "expiryDate" : [ 2023, 2, 13, 13, 48, 51, 417000000 ]
@@ -88,11 +50,20 @@
   "offerContent" : "kompleksowe roboty budowlane i wykończenie",
   "city" : "kraków",
   "user" : {
+    "userId" : 3,
     "firstName" : "",
     "lastName" : "",
     "company" : "REMBUD SA",
     "emailAddress" : "biuro@rembud.pl",
-    "telephoneNumber" : "881 001 001"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "881 001 001",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 13, 21, 6, 371000000 ],
   "expiryDate" : [ 2023, 2, 13, 13, 21, 6, 371000000 ]
@@ -102,11 +73,20 @@
   "offerContent" : "glazurnik",
   "city" : "lublin",
   "user" : {
+    "userId" : null,
     "firstName" : "Krzysztof",
     "lastName" : "Lato",
     "company" : "Krzysztof Lato",
     "emailAddress" : "krzysztof9202@wp.pl",
-    "telephoneNumber" : "602 563 298"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "602 563 298",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 13, 14, 38, 42000000 ],
   "expiryDate" : [ 2023, 2, 13, 13, 14, 38, 42000000 ]
@@ -116,11 +96,20 @@
   "offerContent" : "instalacja elektryczna, alarmy, monitoring",
   "city" : "warszawa",
   "user" : {
+    "userId" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "E-House Sp. z o.o.",
     "emailAddress" : "office@ehouse.eu",
-    "telephoneNumber" : "880 001 081"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "880 001 081",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 12, 10, 12, 59000000 ],
   "expiryDate" : [ 2023, 2, 13, 12, 10, 12, 59000000 ]
@@ -130,11 +119,20 @@
   "offerContent" : "wykopy, niwelacja, sprzęt ciężki",
   "city" : "lublin",
   "user" : {
+    "userId" : null,
     "firstName" : "Feliks",
     "lastName" : "Komar",
     "company" : "FEL-BUD PBU",
     "emailAddress" : "roboty.ziemne@komar.pl",
-    "telephoneNumber" : "792 871 018"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "792 871 018",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 13, 11, 46, 39, 584000000 ],
   "expiryDate" : [ 2023, 2, 13, 11, 46, 39, 584000000 ]
@@ -144,11 +142,20 @@
   "offerContent" : "profesjonalnie, szybki termin realizacji, możliwe wykończenie pod klucz",
   "city" : "lublin",
   "user" : {
+    "userId" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "INVEST-PROJEKT SA",
     "emailAddress" : "biuro@invest-projekt.pl",
-    "telephoneNumber" : "81 560 00 01"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "81 560 00 01",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 10, 19, 52, 15, 131000000 ],
   "expiryDate" : [ 2023, 2, 10, 19, 52, 15, 131000000 ]
@@ -158,11 +165,20 @@
   "offerContent" : "koparka, ładowarka, walec i łopata, kompleksowo",
   "city" : "skierniewice",
   "user" : {
+    "userId" : null,
     "firstName" : "Zenon",
     "lastName" : "Ptak",
     "company" : "ZenBUD Sp. z o.o.",
     "emailAddress" : "biuro@zenbud.pl",
-    "telephoneNumber" : "688 089 003"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "688 089 003",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 10, 11, 58, 21, 727000000 ],
   "expiryDate" : [ 2023, 2, 10, 11, 58, 21, 727000000 ]
@@ -172,39 +188,43 @@
   "offerContent" : "wykończenie pod klucz, solidnie, krótkie terminy realizacji",
   "city" : "gdańsk",
   "user" : {
+    "userId" : null,
     "firstName" : "Zenon",
     "lastName" : "Laskowik",
     "company" : "Laskowik Remonty ",
     "emailAddress" : "biuro.remonty@laskowik.pl",
-    "telephoneNumber" : "502 718 345"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "502 718 345",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 9, 21, 23, 22, 820000000 ],
   "expiryDate" : [ 2023, 2, 9, 21, 23, 22, 820000000 ]
-}, {
-  "offerId" : 9,
-  "serviceCategory" : "GARDEN",
-  "offerContent" : "projekt i realizacja, piękny ogród na życzenie",
-  "city" : "warszawa",
-  "user" : {
-    "firstName" : "Monika",
-    "lastName" : "Kisiel",
-    "company" : "MoKi Garden ",
-    "emailAddress" : "monika@garden.eu",
-    "telephoneNumber" : "505 527 211"
-  },
-  "date" : [ 2023, 1, 9, 21, 20, 14, 815000000 ],
-  "expiryDate" : [ 2023, 2, 9, 21, 20, 14, 815000000 ]
 }, {
   "offerId" : 8,
   "serviceCategory" : "ELECTRICITY",
   "offerContent" : "fachowe usługi elektryczne, monitoring, inteligentny dom",
   "city" : "warszawa",
   "user" : {
+    "userId" : null,
     "firstName" : "Arnold",
     "lastName" : "Guzik",
     "company" : "EL-GUZ ",
     "emailAddress" : "biuro@elguz.pl",
-    "telephoneNumber" : "772 675 012"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "772 675 012",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 9, 20, 58, 11, 831000000 ],
   "expiryDate" : [ 2023, 2, 9, 20, 58, 11, 831000000 ]
@@ -214,11 +234,20 @@
   "offerContent" : "tylko konstrukcja, do stanu surowego zamkniętego",
   "city" : "lublin",
   "user" : {
+    "userId" : null,
     "firstName" : "Piotr",
     "lastName" : "Nowak",
     "company" : "Nowak Construction SA",
     "emailAddress" : "office@nowak.construction.pl",
-    "telephoneNumber" : "660 067 001"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "660 067 001",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 9, 16, 37, 41, 356000000 ],
   "expiryDate" : [ 2023, 2, 9, 16, 37, 41, 356000000 ]
@@ -228,11 +257,20 @@
   "offerContent" : "instalacje wod-kan i co, przyłącza",
   "city" : "kraków",
   "user" : {
+    "userId" : null,
     "firstName" : "Jan",
     "lastName" : "Nowak",
     "company" : "Instalator ",
     "emailAddress" : "office@instalator.pl",
-    "telephoneNumber" : "880 011 010"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "880 011 010",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 8, 18, 31, 34, 771000000 ],
   "expiryDate" : [ 2023, 2, 8, 18, 31, 34, 771000000 ]
@@ -242,11 +280,20 @@
   "offerContent" : "kompleksowe usługi wykończeniowe-remontowe",
   "city" : "warszawa",
   "user" : {
+    "userId" : null,
     "firstName" : "Janusz",
     "lastName" : "Piątek",
     "company" : "Piątek Remonty ",
     "emailAddress" : "remonty@gmail.com",
-    "telephoneNumber" : "609 333 330"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "609 333 330",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 8, 18, 26, 53, 914000000 ],
   "expiryDate" : [ 2023, 2, 8, 18, 26, 53, 914000000 ]
@@ -256,109 +303,66 @@
   "offerContent" : "konstrukcja budynku, wykończenie pod klucz",
   "city" : "lublin",
   "user" : {
+    "userId" : null,
     "firstName" : "Tadeusz",
     "lastName" : "Wójtowicz",
     "company" : "TAD-BUD PBU Sp. z o.o.",
     "emailAddress" : "biuro@tadbud.pl",
-    "telephoneNumber" : "708 921 001"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "708 921 001",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 8, 18, 23, 25, 234000000 ],
   "expiryDate" : [ 2023, 2, 8, 18, 23, 25, 234000000 ]
-}, {
-  "offerId" : 27,
-  "serviceCategory" : "GARDEN",
-  "offerContent" : "Piękny ogród, projekt i wykonawstwo",
-  "city" : "Lublin",
-  "user" : {
-    "firstName" : "Jan",
-    "lastName" : "Ogrodnik",
-    "company" : "Gardenia",
-    "emailAddress" : "ogrodnik@gmail.com",
-    "telephoneNumber" : "605 551 056"
-  },
-  "date" : [ 2023, 2, 21, 22, 38 ],
-  "expiryDate" : [ 2023, 2, 21, 22, 38 ]
-}, {
-  "offerId" : 28,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "Sprzęt ciężki, roboty ziemne, wznoszenie budynków",
-  "city" : "Warszawa",
-  "user" : {
-    "firstName" : "",
-    "lastName" : "",
-    "company" : "WARBUD SA",
-    "emailAddress" : "warbud.office@warbud.pl",
-    "telephoneNumber" : "22 562 10 01"
-  },
-  "date" : [ 2023, 2, 21, 22, 40 ],
-  "expiryDate" : [ 2023, 3, 21, 22, 40 ]
-}, {
-  "offerId" : 29,
-  "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "Profesjonalne roboty wykończeniowe, remonty, obiekty użyteczności publicznej i przemysłowe",
-  "city" : "Poznań",
-  "user" : {
-    "firstName" : "Jan",
-    "lastName" : "Remontowy",
-    "company" : "REM-BUD",
-    "emailAddress" : "rembud.biuro@rembud.pl",
-    "telephoneNumber" : "702 452 118"
-  },
-  "date" : [ 2023, 2, 21, 22, 41 ],
-  "expiryDate" : [ 2023, 3, 21, 22, 41 ]
 }, {
   "offerId" : 30,
   "serviceCategory" : "CONSTRUCTION",
   "offerContent" : "Kompleksowe roboty budowlane ",
   "city" : "Warszawa",
   "user" : {
+    "userId" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "KP Construction SA",
     "emailAddress" : "kp.office@construction.pl",
-    "telephoneNumber" : "770 007 007"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "770 007 007",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 2, 22, 17, 16 ],
   "expiryDate" : [ 2023, 3, 2, 17, 16 ]
-}, {
-  "offerId" : 31,
-  "serviceCategory" : "INSTALLATION",
-  "offerContent" : "Instalacje wodne",
-  "city" : "Gdynia",
-  "user" : {
-    "firstName" : "Eugeniusz",
-    "lastName" : "Wolski",
-    "company" : "WolskiBud",
-    "emailAddress" : "wolski@o2.pl",
-    "telephoneNumber" : "555 222 555"
-  },
-  "date" : [ 2023, 3, 1, 23, 4 ],
-  "expiryDate" : [ 2023, 3, 30, 23, 4 ]
-}, {
-  "offerId" : 32,
-  "serviceCategory" : "CONSTRUCTION",
-  "offerContent" : "Ciągle poszerzamy wiedzę na temat energooszczędnych rozwiązań. Jako jedni z pierwszych w regionie pomorza budujemy domy z Ytonga Jumbo, dzięki czemu nasze inwestycje powstają w krótkim czasie. Posiadamy pełen park maszynowy, który pozwala nam sprawnie wykonać wszystkie prace.",
-  "city" : "Gdynia",
-  "user" : {
-    "firstName" : "Filip",
-    "lastName" : "Burchacz",
-    "company" : "BurchBudowa",
-    "emailAddress" : "burchacz@budowa.eu",
-    "telephoneNumber" : "123 456 654"
-  },
-  "date" : [ 2023, 3, 3, 0, 17 ],
-  "expiryDate" : [ 2023, 3, 23, 0, 17 ]
 }, {
   "offerId" : 26,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "prace remontowo-wykończeniowe, termin realizacji: jesień 2023\r\nzagospodarowanie terenu",
   "city" : "warszawa",
   "user" : {
+    "userId" : null,
     "firstName" : "Norbert",
     "lastName" : "Noga",
     "company" : "NorbertREMONT",
     "emailAddress" : "remonty@norbert.pl",
-    "telephoneNumber" : "607 871 292"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "607 871 292",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 4, 22, 18, 49 ],
   "expiryDate" : [ 2023, 5, 20, 18, 49 ]
@@ -368,39 +372,43 @@
   "offerContent" : "Wszelkie instalacje elektryczne oraz alarmowe.",
   "city" : "Wrocław",
   "user" : {
+    "userId" : null,
     "firstName" : "Damian",
     "lastName" : "Lubaszenko",
     "company" : "DLB",
     "emailAddress" : "dlb@service.pl",
-    "telephoneNumber" : "888 222 333"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "888 222 333",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 6, 22, 39 ],
   "expiryDate" : [ 2023, 6, 5, 22, 39, 37, 781471973 ]
-}, {
-  "offerId" : 3,
-  "serviceCategory" : "FINISHING_WORKS",
-  "offerContent" : "szybki i tani fachowiec od robót wewnętrznych",
-  "city" : "poznań",
-  "user" : {
-    "firstName" : "Ryszard",
-    "lastName" : "Makowski",
-    "company" : "Makbud",
-    "emailAddress" : "fachowiec@makbud.pl",
-    "telephoneNumber" : "880 033 701"
-  },
-  "date" : [ 2023, 1, 8, 13, 49, 57, 620000000 ],
-  "expiryDate" : [ 2023, 7, 6, 0, 59, 29, 910813430 ]
 }, {
   "offerId" : 13,
   "serviceCategory" : "INSTALLATION",
   "offerContent" : "instalacja wod-kan, co, gazowa, fotowoltaiczna, przyłącza",
   "city" : "szczecin",
   "user" : {
+    "userId" : null,
     "firstName" : "Krzysztof",
     "lastName" : "Jarzyna",
     "company" : "InstallBUD SA",
     "emailAddress" : "grzegorz.jarzyna@installbud.pl",
-    "telephoneNumber" : "500 055 001"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "500 055 001",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 17, 19, 9, 43, 159000000 ],
   "expiryDate" : [ 2023, 6, 6, 1, 10, 2, 847370659 ]
@@ -410,11 +418,20 @@
   "offerContent" : "roboty drogowo-mostowe",
   "city" : "gdańsk",
   "user" : {
+    "userId" : null,
     "firstName" : "",
     "lastName" : "",
     "company" : "Bridge&Highway SA",
     "emailAddress" : "reception@bh.pl",
-    "telephoneNumber" : "58 556 00 01"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "58 556 00 01",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 16, 23, 6, 24, 972000000 ],
   "expiryDate" : [ 2023, 6, 6, 1, 13, 6, 617198083 ]
@@ -424,11 +441,20 @@
   "offerContent" : "budowa - trójmiasto i całe województwo pomorskie",
   "city" : "gdańsk",
   "user" : {
+    "userId" : null,
     "firstName" : "Mikołaj",
     "lastName" : "Święty",
     "company" : "Santa Claus Constructions SA",
     "emailAddress" : "office@santa_claus.pl",
-    "telephoneNumber" : "804 444 444"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "804 444 444",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 16, 23, 4, 55, 754000000 ],
   "expiryDate" : [ 2023, 6, 9, 1, 21, 36, 151468029 ]
@@ -438,26 +464,573 @@
   "offerContent" : "wykończenie pod klucz, szybko i fachowo",
   "city" : "gdańsk",
   "user" : {
+    "userId" : null,
     "firstName" : "Piotr",
     "lastName" : "Jankowski",
     "company" : "PeterBUD Sp. z o.o.",
     "emailAddress" : "fachowiec@peterbud.pl",
-    "telephoneNumber" : "724 678 054"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "724 678 054",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 1, 7, 21, 48, 45, 260000000 ],
   "expiryDate" : [ 2023, 5, 8, 1, 31, 39, 773101431 ]
+}, {
+  "offerId" : 32,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Ciągle poszerzamy wiedzę na temat energooszczędnych rozwiązań. Jako jedni z pierwszych w regionie pomorza budujemy domy z Ytonga Jumbo, dzięki czemu nasze inwestycje powstają w krótkim czasie. Posiadamy pełen park maszynowy, który pozwala nam sprawnie wykonać wszystkie prace.",
+  "city" : "Gdynia",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Filip",
+    "lastName" : "Burchacz",
+    "company" : "BurchBudowa",
+    "emailAddress" : "burchacz@budowa.eu",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "123 456 654",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 3, 3, 0, 17 ],
+  "expiryDate" : [ 2023, 6, 14, 20, 44, 7, 906126000 ]
 }, {
   "offerId" : 34,
   "serviceCategory" : "FINISHING_WORKS",
   "offerContent" : "Wyremontuję mieszkanie",
   "city" : "Pruszcz Gdański",
   "user" : {
+    "userId" : null,
     "firstName" : "Anna",
     "lastName" : "Ryba",
     "company" : "poldex",
     "emailAddress" : "biuro@poldex.pl",
-    "telephoneNumber" : "512345678"
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "512345678",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
   },
   "date" : [ 2023, 5, 6, 23, 17 ],
-  "expiryDate" : [ 2023, 5, 17, 1, 36, 55, 899760660 ]
+  "expiryDate" : [ 2023, 5, 27, 1, 36, 55, 899760660 ]
+}, {
+  "offerId" : 27,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "Piękny ogród, projekt i wykonawstwo",
+  "city" : "Lublin",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Jan",
+    "lastName" : "Ogrodnik",
+    "company" : "Gardenia",
+    "emailAddress" : "ogrodnik@gmail.com",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "605 551 056",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 2, 21, 22, 38 ],
+  "expiryDate" : [ 2023, 6, 14, 20, 54, 31, 765235000 ]
+}, {
+  "offerId" : 31,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "Instalacje wodne",
+  "city" : "Gdynia",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Eugeniusz",
+    "lastName" : "Wolski",
+    "company" : "WolskiBud",
+    "emailAddress" : "wolski@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "555 222 555",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 3, 1, 23, 4 ],
+  "expiryDate" : [ 2023, 6, 14, 20, 55, 6, 68074000 ]
+}, {
+  "offerId" : 3,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "szybki i tani fachowiec od robót wewnętrznych",
+  "city" : "poznań",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Ryszard",
+    "lastName" : "Makowski",
+    "company" : "Makbud",
+    "emailAddress" : "fachowiec@makbud.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "880 033 701",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 19, 0, 43 ],
+  "expiryDate" : [ 2023, 7, 6, 0, 59 ]
+}, {
+  "offerId" : 25,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "kompleksowo - pełny zakres robót wewnętrznych",
+  "city" : "kraków",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Edward",
+    "lastName" : "Gierak",
+    "company" : "Gierak Malarstwo i Glazurnictwo",
+    "emailAddress" : "gierak@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "506 874 323",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 19, 0, 44 ],
+  "expiryDate" : [ 2023, 6, 18, 0, 44 ]
+}, {
+  "offerId" : 36,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "Montaż kanalizacji",
+  "city" : "Gdynia",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Franciszek",
+    "lastName" : "Zapala",
+    "company" : "ZapalaEl",
+    "emailAddress" : "zapala@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "356 567 324",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 19, 1, 1 ],
+  "expiryDate" : [ 2023, 6, 18, 1, 2, 46, 807686000 ]
+}, {
+  "offerId" : 35,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "Montaż oświetlenia zewnętrznego.",
+  "city" : "Gdańsk",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Filip",
+    "lastName" : "Goman",
+    "company" : "GonBud",
+    "emailAddress" : "gombud@gmail.com",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "233 456 666",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 2, 52 ],
+  "expiryDate" : [ 2023, 6, 16, 21, 55 ]
+}, {
+  "offerId" : 37,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "Szpachlowanie i malowanie",
+  "city" : "Warszawa",
+  "user" : {
+    "userId" : 3,
+    "firstName" : "Damian",
+    "lastName" : "Damianowicz",
+    "company" : "Damiano",
+    "emailAddress" : "damiano@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "546 324 435",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 3, 1 ],
+  "expiryDate" : [ 2023, 6, 19, 3, 2, 47, 137028000 ]
+}, {
+  "offerId" : 24,
+  "serviceCategory" : "ELECTRICITY",
+  "offerContent" : "systemy alarmowe",
+  "city" : "kraków",
+  "user" : {
+    "userId" : 3,
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "ALARM-INTACT",
+    "emailAddress" : "systemy@alarm.intact.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "792 427 385",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 8, 34 ],
+  "expiryDate" : [ 2023, 6, 19, 8, 34 ]
+}, {
+  "offerId" : 38,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Instalacje elektryczne",
+  "city" : "Gościcino",
+  "user" : {
+    "userId" : 3,
+    "firstName" : "Franciszek",
+    "lastName" : "Fhilips",
+    "company" : "FranekInastalacje",
+    "emailAddress" : "franz@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "345 456 234",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 8, 37 ],
+  "expiryDate" : [ 2023, 6, 19, 8, 38, 13, 157646000 ]
+}, {
+  "offerId" : 39,
+  "serviceCategory" : "EARTH_WORKS",
+  "offerContent" : "Wykopy pod fundamenty.",
+  "city" : "Radom",
+  "user" : {
+    "userId" : 2,
+    "firstName" : "Filip",
+    "lastName" : "Zawada",
+    "company" : "Zawada S.A.",
+    "emailAddress" : "zawada@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "324 567 322",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 8, 48 ],
+  "expiryDate" : [ 2023, 6, 19, 8, 49, 15, 114199000 ]
+}, {
+  "offerId" : 42,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Glazura i terakota.",
+  "city" : "Katowice",
+  "user" : {
+    "userId" : 1,
+    "firstName" : "Zenon",
+    "lastName" : "Markiewicz",
+    "company" : "Markiewicz&Markiewicz",
+    "emailAddress" : "markiewicz@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "244 345 435",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 9, 20 ],
+  "expiryDate" : [ 2023, 6, 19, 9, 21, 42, 492781000 ]
+}, {
+  "offerId" : 43,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "dsgdfhhbvndsrf",
+  "city" : "ewr",
+  "user" : {
+    "userId" : 2,
+    "firstName" : "dsfsdf",
+    "lastName" : "fdgsd",
+    "company" : "fsdgfd",
+    "emailAddress" : "dsfsadf@dgxdg.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "435345435",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 13, 35 ],
+  "expiryDate" : [ 2023, 6, 19, 13, 36, 21, 630657000 ]
+}, {
+  "offerId" : 22,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "najpiękniejszy ogród w okolicy",
+  "city" : "gdańsk",
+  "user" : {
+    "userId" : 1,
+    "firstName" : "Pola",
+    "lastName" : "Oliwska",
+    "company" : "Pola Ogrody",
+    "emailAddress" : "ogrodnik@pola.ogrody.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "603 391 755",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 1, 13, 14, 8, 10, 859000000 ],
+  "expiryDate" : [ 2023, 6, 19, 13, 53, 33, 707193000 ]
+}, {
+  "offerId" : 29,
+  "serviceCategory" : "FINISHING_WORKS",
+  "offerContent" : "Profesjonalne roboty wykończeniowe, remonty, obiekty użyteczności publicznej i przemysłowe.",
+  "city" : "Poznań",
+  "user" : {
+    "userId" : 2,
+    "firstName" : "Jan",
+    "lastName" : "Remontowy",
+    "company" : "REM-BUD",
+    "emailAddress" : "rembud.biuro@rembud.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "702 452 118",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 14, 7 ],
+  "expiryDate" : [ 2023, 6, 14, 21, 2 ]
+}, {
+  "offerId" : 45,
+  "serviceCategory" : "INSTALLATION",
+  "offerContent" : "Instalacje CO",
+  "city" : "Koszalin",
+  "user" : {
+    "userId" : 1,
+    "firstName" : "Maja",
+    "lastName" : "Majewska",
+    "company" : "Majewska",
+    "emailAddress" : "majewska@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "324 345 565",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 18, 8 ],
+  "expiryDate" : [ 2023, 6, 19, 16, 21 ]
+}, {
+  "offerId" : 46,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "Ogrody, drzewa, krzewy.",
+  "city" : "Poznań",
+  "user" : {
+    "userId" : 0,
+    "firstName" : "Paulina",
+    "lastName" : "Bendzmer",
+    "company" : "Paula Ogrody",
+    "emailAddress" : "paulaogrody@firma.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "435 567 324",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 18, 11 ],
+  "expiryDate" : [ 2023, 6, 19, 18, 10 ]
+}, {
+  "offerId" : 47,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Konstrukcje dachowe i pokrycia dachowe.",
+  "city" : "Marki",
+  "user" : {
+    "userId" : 0,
+    "firstName" : "Marcin",
+    "lastName" : "Majewski",
+    "company" : "MajewskiDachy",
+    "emailAddress" : "majewskibudowa@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "345 466 546",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 18, 13 ],
+  "expiryDate" : [ 2023, 6, 19, 18, 13 ]
+}, {
+  "offerId" : 48,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Ydsfdsgdfg",
+  "city" : "ertet",
+  "user" : {
+    "userId" : 1,
+    "firstName" : "rty",
+    "lastName" : "try",
+    "company" : "try",
+    "emailAddress" : "tryrty@dsg.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "try",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 18, 15 ],
+  "expiryDate" : [ 2023, 6, 19, 18, 16, 15, 661031000 ]
+}, {
+  "offerId" : 12,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "budowa, wykończenie, roboty zewnętrzne",
+  "city" : "Warszawa",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Gwidon",
+    "lastName" : "Gwóźdź",
+    "company" : "GOOD-BUD SA",
+    "emailAddress" : "office@gbud.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "22 562 00 10",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 22, 55 ],
+  "expiryDate" : [ 2023, 6, 16, 21, 16 ]
+}, {
+  "offerId" : 28,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Sprzęt ciężki, roboty ziemne, wznoszenie budynków.",
+  "city" : "Warszawa",
+  "user" : {
+    "userId" : null,
+    "firstName" : "",
+    "lastName" : "",
+    "company" : "WARBUD SA",
+    "emailAddress" : "warbud.office@warbud.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "22 562 10 01",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 22, 55 ],
+  "expiryDate" : [ 2023, 3, 21, 22, 40 ]
+}, {
+  "offerId" : 9,
+  "serviceCategory" : "GARDEN",
+  "offerContent" : "projekt i realizacja, piękny ogród na życzenie",
+  "city" : "warszawa",
+  "user" : {
+    "userId" : null,
+    "firstName" : "Monika",
+    "lastName" : "Kisiel",
+    "company" : "MoKi Garden ",
+    "emailAddress" : "monika@garden.eu",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "505 527 211",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 22, 56 ],
+  "expiryDate" : [ 2023, 6, 19, 22, 56 ]
+}, {
+  "offerId" : 49,
+  "serviceCategory" : "CONSTRUCTION",
+  "offerContent" : "Janusze. Omijaj nas.",
+  "city" : "Januszowo",
+  "user" : {
+    "userId" : 1,
+    "firstName" : "Janusz",
+    "lastName" : "Januszowy",
+    "company" : "Januszex",
+    "emailAddress" : "januszex@o2.pl",
+    "username" : null,
+    "password" : null,
+    "telephoneNumber" : "123 323 445",
+    "offers" : [ ],
+    "authorities" : null,
+    "enabled" : true,
+    "accountNonExpired" : true,
+    "accountNonLocked" : true,
+    "credentialsNonExpired" : true
+  },
+  "date" : [ 2023, 5, 20, 23, 4 ],
+  "expiryDate" : [ 2023, 6, 19, 23, 5, 27, 271623000 ]
 } ]

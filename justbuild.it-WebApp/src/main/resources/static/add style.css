@@ -20,6 +20,11 @@
     border-radius: 5px;
 }
 
+#formGroupExampleInput8 {
+    background-color: #7a7a78;
+    color: white;
+}
+
 .date-alert {
     background-color: #7a7a78;
     color: white;
@@ -124,9 +129,28 @@ h5 {
     box-shadow: 10px 10px 15px 0 #000000;
 }
 
+#button-shadow3 {
+    background-color: #fabf4b;
+    box-shadow: 10px 10px 15px 0 #000000;
+}
+
+#button-shadow4 {
+    background-color: #fabf4b;
+    box-shadow: 10px 10px 15px 0 #000000;
+}
+
 #add-shadow {
     background-color: #fcf1b9;
     box-shadow: 10px 10px 15px 0 #000000;
+}
+
+#myOffers-shadow {
+    background-color: #fcf1b9;
+    box-shadow: 10px 10px 15px 0 #000000;
+}
+
+.button-marg {
+    margin-right: 1.5rem !important;
 }
 
 .security {
@@ -136,6 +160,16 @@ h5 {
 .navigation {
     background-color: lightgray;
     padding: 4px;
+}
+
+.nav-link.active {
+    background-color: #fcf1b9;
+    color: black;
+}
+
+.nav-link {
+    background-color: #fcf1b9;
+    color: black;
 }
 
 

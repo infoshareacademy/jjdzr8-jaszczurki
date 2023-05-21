@@ -15,6 +15,7 @@ import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Service
@@ -23,12 +24,14 @@ public class OfferService {
     private final OfferCreationService offerCreationService;
     private final OfferSearchingService offerSearchingService;
     private final OfferEditionService offerEditionService;
+    private final UserOfferService userOfferService;
     private static final Logger LOGGER = LoggerFactory.getLogger(OfferService.class);
 
-    public OfferService(OfferCreationService offerCreationService, OfferSearchingService offerSearchingService, OfferEditionService offerEditionService) {
+    public OfferService(OfferCreationService offerCreationService, OfferSearchingService offerSearchingService, OfferEditionService offerEditionService, UserOfferService userOfferService) {
         this.offerCreationService = offerCreationService;
         this.offerSearchingService = offerSearchingService;
         this.offerEditionService = offerEditionService;
+        this.userOfferService = userOfferService;
     }
 
     public void addOffer(Offer offer) {
@@ -74,7 +77,7 @@ public class OfferService {
 
     public List<OfferDto> provideOfferDtoList(String searchValue, String category) {
         List<OfferDto> filteredOfferDtoList;
-        if (category != null && !category.isEmpty()){
+        if (category != null && !category.isEmpty()) {
             filteredOfferDtoList = provideNewFilteredByCategoryOfferDtoList(category);
         } else {
             filteredOfferDtoList = provideNewFilteredOfferDtoList(searchValue);
@@ -132,6 +135,7 @@ public class OfferService {
 
         return new PageImpl<>(offerDtos, pageable, allResources.size());
     }
+
     public List<Integer> calculatePageNumbers(Page<?> page) {
         int totalPages = page.getTotalPages();
         if (totalPages > 0) {
@@ -146,7 +150,7 @@ public class OfferService {
         }
     }
 
-    public boolean checkOfferProlongability(OfferDto offerDto){
+    public boolean checkOfferProlongability(OfferDto offerDto) {
         return offerDto.getExpiryDate().minusDays(3).isBefore(LocalDateTime.now());
     }
 
@@ -166,6 +170,29 @@ public class OfferService {
             throw new IllegalArgumentException("Incorrect prolong period");
         }
     }
+
+    public List<OfferDto> provideUserOffers(Long userId) {
+        LOGGER.debug("Providing user: {} offer DTO list", userId);
+        OfferMapper offerMapper = new OfferMapper();
+        return offerMapper.toDtoList(userOfferService.getUserOfferList(userId));
+    }
+
+    public List<OfferDto> provideActiveUserOffers(Long userId) {
+        LOGGER.debug("Providing active offer DTO list for user: {}", userId);
+        OfferMapper offerMapper = new OfferMapper();
+        List<OfferDto> userOfferDtoList = provideUserOffers(userId);
+        return userOfferDtoList.stream()
+                .filter(offerDto -> userOfferService.isUserOfferActive(offerMapper.fromDto(offerDto)))
+                .collect(Collectors.toList());
+    }
+
+    public List<OfferDto> provideInactiveUserOffers(Long userId) {
+        LOGGER.debug("Providing inactive offer DTO list for user: {}", userId);
+        OfferMapper offerMapper = new OfferMapper();
+        List<OfferDto> userOfferDtoList = provideUserOffers(userId);
+        return userOfferDtoList.stream()
+                .filter(offerDto -> !userOfferService.isUserOfferActive(offerMapper.fromDto(offerDto)))
+                .collect(Collectors.toList());
 
     public void terminateOffer(Long id) {
         OfferDto offerDtoById = offerEditionService.getOfferDtoById(id);

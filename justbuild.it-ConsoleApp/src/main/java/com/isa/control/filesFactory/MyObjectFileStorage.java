@@ -16,6 +16,7 @@ public class MyObjectFileStorage {
     }
 
     public List<Offer> readFromFile(String filePath) throws IOException {
-         return objectMapper.readValue(new File(filePath), new TypeReference<>() {});
+        return objectMapper.readValue(new File(filePath), new TypeReference<>() {
+        });
     }
 }

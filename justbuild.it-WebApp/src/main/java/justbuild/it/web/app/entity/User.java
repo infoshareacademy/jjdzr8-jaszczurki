@@ -80,6 +80,7 @@ public class User implements UserDetails {
 
     public void addOffer(Offer offer) {this.offers.add(offer);}
 
+
     public Long getUserId() {
         return userId;
     }

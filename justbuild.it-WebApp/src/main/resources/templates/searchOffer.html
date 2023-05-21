@@ -57,27 +57,28 @@
             <tfoot>
             <tr>
                 <td colspan="6" class="pagination-container">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" style="color: black"
-                                        th:href="@{/searchOffer(searchValue=${searchValue}, page=0, category=${category}, sizeList=${filteredOfferDtoList.size}, pageList=${filteredOfferDtoList.previousPageable().getPageNumber() + 1})}"
-                                        th:if="${filteredOfferDtoList.hasPrevious}">
-                                    Previous
-                                </a>
-                            </li>
-                            <li th:each="pageNumber : ${pagesDtoList}" class="page-item"
-                                th:classappend="${pageNumber==filteredOfferDtoList.number + 1} ? 'active'">
-                                <a id="active-black" class="page-link" style="color: black; border-color: #fabf4b"
-                                   th:href="@{/searchOffer(searchValue=${searchValue}, page=0, category=${category}, sizeList=${filteredOfferDtoList.size}, pageList=${pageNumber})}"
-                                   th:text="${pageNumber}"></a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" style="color: black; border-color: #fabf4b" th:href="@{/searchOffer(searchValue=${searchValue}, page=0, category=${category}, sizeList=${filteredOfferDtoList.size}, pageList=${filteredOfferDtoList.number + 2})}"
-                                   th:if="${filteredOfferDtoList.hasNext}">
-                                    Next
-                                </a>
-                            </li>
-                        </ul>
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" style="color: black"
+                               th:href="@{/searchOffer(searchValue=${searchValue}, page=0, category=${category}, sizeList=${filteredOfferDtoList.size}, pageList=${filteredOfferDtoList.previousPageable().getPageNumber() + 1})}"
+                               th:if="${filteredOfferDtoList.hasPrevious}">
+                                Previous
+                            </a>
+                        </li>
+                        <li th:each="pageNumber : ${pagesDtoList}" class="page-item"
+                            th:classappend="${pageNumber==filteredOfferDtoList.number + 1} ? 'active'">
+                            <a id="active-black" class="page-link" style="color: black; border-color: #fabf4b"
+                               th:href="@{/searchOffer(searchValue=${searchValue}, page=0, category=${category}, sizeList=${filteredOfferDtoList.size}, pageList=${pageNumber})}"
+                               th:text="${pageNumber}"></a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" style="color: black; border-color: #fabf4b"
+                               th:href="@{/searchOffer(searchValue=${searchValue}, page=0, category=${category}, sizeList=${filteredOfferDtoList.size}, pageList=${filteredOfferDtoList.number + 2})}"
+                               th:if="${filteredOfferDtoList.hasNext}">
+                                Next
+                            </a>
+                        </li>
+                    </ul>
                 </td>
             </tr>
             </tfoot>
@@ -102,7 +103,8 @@
                             <p>Nazwisko: <span th:text="${offerToModal.userLastName}"></span></p>
                             <p>Telefon: <span th:text="${offerToModal.userTelephoneNumber}"></span></p>
                             <p>Email: <span th:text="${offerToModal.userEmailAddress}"></span></p>
-                            <a th:href="'/editOffer/' + ${offerToModal.dtoOfferId}" th:text="'Edycja'" type="button" id="button-shadow2" class="btn btn-outline-dark"></a>
+                            <a th:href="'/editOffer/' + ${offerToModal.dtoOfferId}" th:text="'Edycja'" type="button"
+                               id="button-shadow2" class="btn btn-outline-dark"></a>
                         </div>
                         <div class="modal-footer bg-dark text-white" style="box-shadow: 10px 10px 30px 0 #000000;">
                             <p th:text="'Id: ' + ${offerToModal.dtoOfferId}"></p>
@@ -127,6 +129,8 @@
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous">
     </script>
+
+
 </form>
 </body>
 </html>

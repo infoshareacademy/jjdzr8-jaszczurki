@@ -11,6 +11,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
@@ -28,13 +29,13 @@ class OfferSearchingServiceTest {
     private OfferFileRepository offerFileRepositoryMock;
     private OfferSearchingService offerSearchingService;
 
-    private static final Offer OFFER_1 = new Offer(1L, ServiceCategoryEnum.CONSTRUCTION, "Przykładowa oferta budowy", "Gdańsk", new User("Jan", "Kowalski", "KowalBud", "kowal@example.com", "111222333"), LocalDateTime.now().minusHours(1));
-    private static final Offer OFFER_2 = new Offer(2L, ServiceCategoryEnum.GARDEN, "Projektowanie ogrodu", "Szczecin", new User("Filip", "Nowak", "NowakGarden", "nowak@example.com", "123456789"), LocalDateTime.now().minusDays(1));
-    private static final Offer OFFER_3 = new Offer(3L, ServiceCategoryEnum.FINISHING_WORKS, "Prace wykończeniowe", "Warszawa", new User("Roman", "Romanowski", "RomanBud", "romanBud@example.com", "987654321"), LocalDateTime.now().minusDays(2));
-    private static final Offer OFFER_4 = new Offer(4L, ServiceCategoryEnum.EARTH_WORKS, "Prace ziemne", "Warszawa", new User("Tomasz", "Filipiak", "Filipiak&Son", "filipiak@example.com", "435657345"), LocalDateTime.now().minusDays(8));
-    private static final Offer OFFER_5 = new Offer(5L, ServiceCategoryEnum.ELECTRICITY, "Instalacje elektryczne", "Radom", new User("Tadeusz", "Wolski", "InstallWol", "install@example.com", "435657345"), LocalDateTime.now().minusDays(1));
-    private static final Offer OFFER_6 = new Offer(6L, ServiceCategoryEnum.INSTALLATION, "Kanalizacja", "Kraków", new User("Andrzej", "Redlin", "RedLine", "redline@example.com", "567897546"), LocalDateTime.now().minusDays(3));
-    private static final Offer OFFER_7 = new Offer(7L, ServiceCategoryEnum.GARDEN, "Aranżacja ogrodu", "Nowy Sącz", new User("Eustachy", "Konieczko", "Gardens", "gardens@example.com", "1232343212"), LocalDateTime.now().minusDays(6));
+    private static final Offer OFFER_1 = new Offer(1L, ServiceCategoryEnum.CONSTRUCTION, "Przykładowa oferta budowy", "Gdańsk", new User(1L, "Jan", "Kowalski", "KowalBud", "kowal@example.com", "111222333", new ArrayList<>()), LocalDateTime.now().minusHours(1));
+    private static final Offer OFFER_2 = new Offer(2L, ServiceCategoryEnum.GARDEN, "Projektowanie ogrodu", "Szczecin", new User(2L, "Filip", "Nowak", "NowakGarden", "nowak@example.com", "123456789", new ArrayList<>()), LocalDateTime.now().minusDays(1));
+    private static final Offer OFFER_3 = new Offer(3L, ServiceCategoryEnum.FINISHING_WORKS, "Prace wykończeniowe", "Warszawa", new User(3L, "Roman", "Romanowski", "RomanBud", "romanBud@example.com", "987654321", new ArrayList<>()), LocalDateTime.now().minusDays(2));
+    private static final Offer OFFER_4 = new Offer(4L, ServiceCategoryEnum.EARTH_WORKS, "Prace ziemne", "Warszawa", new User(4L, "Tomasz", "Filipiak", "Filipiak&Son", "filipiak@example.com", "435657345", new ArrayList<>()), LocalDateTime.now().minusDays(8));
+    private static final Offer OFFER_5 = new Offer(5L, ServiceCategoryEnum.ELECTRICITY, "Instalacje elektryczne", "Radom", new User(5L, "Tadeusz", "Wolski", "InstallWol", "install@example.com", "435657345", new ArrayList<>()), LocalDateTime.now().minusDays(1));
+    private static final Offer OFFER_6 = new Offer(6L, ServiceCategoryEnum.INSTALLATION, "Kanalizacja", "Kraków", new User(6L, "Andrzej", "Redlin", "RedLine", "redline@example.com", "567897546", new ArrayList<>()), LocalDateTime.now().minusDays(3));
+    private static final Offer OFFER_7 = new Offer(7L, ServiceCategoryEnum.GARDEN, "Aranżacja ogrodu", "Nowy Sącz", new User(7L, "Eustachy", "Konieczko", "Gardens", "gardens@example.com", "1232343212", new ArrayList<>()), LocalDateTime.now().minusDays(6));
 
     private static final List<Offer> GIVEN_TEST_LIST = List.of(OFFER_1, OFFER_2, OFFER_3, OFFER_4, OFFER_5, OFFER_6, OFFER_7);
 

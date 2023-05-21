@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Collections;
 
 @Configuration
-@EnableGlobalMethodSecurity(securedEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class SecurityConfiguration {
 
     @Bean
@@ -60,6 +60,10 @@ public class SecurityConfiguration {
                 .permitAll()
                 .antMatchers("/admin/*")
                 .hasAuthority("ROLE_ADMIN")
+                .antMatchers("/myOffers")
+                .access("hasAuthority('ROLE_USER') or hasAuthority('ROLE_ADMIN')")
+                .antMatchers("/editOffer")
+                .access("hasAuthority('ROLE_USER') or hasAuthority('ROLE_ADMIN')")
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -83,3 +87,4 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder();
     }
 }
+

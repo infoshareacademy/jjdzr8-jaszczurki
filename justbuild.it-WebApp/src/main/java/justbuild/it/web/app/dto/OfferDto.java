@@ -18,6 +18,7 @@ public class OfferDto {
     private String offerContent;
     @NotBlank
     private String city;
+    private Long userId;
     private String userFirstName;
     private String userLastName;
     @NotBlank
@@ -38,6 +39,7 @@ public class OfferDto {
         this.serviceCategory = null;
         this.offerContent = "";
         this.city = "";
+//        this.userId = 0L;
         this.userFirstName = "";
         this.userLastName = "";
         this.userCompanyName = "";
@@ -48,12 +50,13 @@ public class OfferDto {
     }
 
     public OfferDto(Long dtoOfferId, ServiceCategoryEnum serviceCategory, String offerContent, String city,
-                    String userFirstName, String userLastName, String userCompanyName, String userEmailAddress,
+                    Long userId, String userFirstName, String userLastName, String userCompanyName, String userEmailAddress,
                     String userTelephoneNumber, LocalDateTime dateTime, LocalDateTime expiryDate) {
         this.dtoOfferId = dtoOfferId;
         this.serviceCategory = serviceCategory;
         this.offerContent = offerContent;
         this.city = city;
+        this.userId = userId;
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.userCompanyName = userCompanyName;
@@ -151,4 +154,11 @@ public class OfferDto {
         this.expiryDate = expiryDate;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 }

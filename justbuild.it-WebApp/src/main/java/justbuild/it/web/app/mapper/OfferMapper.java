@@ -4,6 +4,7 @@ import justbuild.it.web.app.dto.OfferDto;
 import justbuild.it.web.app.entity.Offer;
 import justbuild.it.web.app.entity.User;
 import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +18,7 @@ public class OfferMapper {
         dto.setOfferContent(offer.getOfferContent());
         dto.setCity(offer.getCity());
         dto.setDateTime(offer.getDate());
+        dto.setUserId(offer.getUser().getUserId());
         dto.setUserFirstName(offer.getUser().getFirstName());
         dto.setUserLastName(offer.getUser().getLastName());
         dto.setUserCompanyName(offer.getUser().getCompany());
@@ -35,6 +37,7 @@ public class OfferMapper {
         offer.setDate(dto.getDateTime());
         offer.setExpiryDate(dto.getExpiryDate());
         User user = new User();
+        user.setUserId(dto.getUserId());
         user.setFirstName(dto.getUserFirstName());
         user.setLastName(dto.getUserLastName());
         user.setCompany(dto.getUserCompanyName());
@@ -47,7 +50,7 @@ public class OfferMapper {
     public List<OfferDto> toDtoList(List<Offer> offerList) {
         return offerList.stream()
                 .map(offer -> new OfferDto(offer.getOfferId(), offer.getServiceCategory(), offer.getOfferContent(),
-                        offer.getCity(), offer.getUser().getFirstName(), offer.getUser().getLastName(),
+                        offer.getCity(), offer.getUser().getUserId(), offer.getUser().getFirstName(), offer.getUser().getLastName(),
                         offer.getUser().getCompany(), offer.getUser().getEmailAddress(),
                         offer.getUser().getTelephoneNumber(), offer.getDate(), offer.getExpiryDate()))
                 .collect(Collectors.toList());
