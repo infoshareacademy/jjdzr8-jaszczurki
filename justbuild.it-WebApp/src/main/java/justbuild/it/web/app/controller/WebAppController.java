@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.net.http.HttpResponse;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -91,8 +92,10 @@ public class WebAppController {
     public String goEdit(@PathVariable Long id, Model model) {
         OfferDto offerDto = offerService.getOfferDtoById(id);
         boolean prolongable = offerService.checkOfferProlongability(offerDto);
+        boolean expired = LocalDateTime.now().isAfter(offerDto.getExpiryDate());
         model.addAttribute("offer", offerDto);
         model.addAttribute("prolongable", prolongable);
+        model.addAttribute("expired", expired);
         LOGGER.info("Opening editOffer page for offer with ID: {}", id);
         return "editOffer";
     }
@@ -105,5 +108,11 @@ public class WebAppController {
         offerService.updateOffer(offerDto);
         LOGGER.info("Updated offer with ID: {}", offerDto.getDtoOfferId());
         return "redirect:/";
+    }
+
+    @GetMapping("/terminateOffer/{id}")
+    public ResponseEntity<Offer> terminateOffer(@PathVariable(name = "id") Long id) {
+        offerService.terminateOffer(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
