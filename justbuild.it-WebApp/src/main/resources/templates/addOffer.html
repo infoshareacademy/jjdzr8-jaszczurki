@@ -12,6 +12,7 @@
 <body>
 <div th:insert="~{fragments/header :: header-add}"></div>
 
+
 <form id="addForm" class="addForm col-10 mt-5 mb-5 mx-auto" action="#" th:action="@{/user/addOffer}"
       th:object="${offer}"
       method="post">

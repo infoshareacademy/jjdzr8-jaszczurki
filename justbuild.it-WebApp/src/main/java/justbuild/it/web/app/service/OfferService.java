@@ -193,5 +193,10 @@ public class OfferService {
         return userOfferDtoList.stream()
                 .filter(offerDto -> !userOfferService.isUserOfferActive(offerMapper.fromDto(offerDto)))
                 .collect(Collectors.toList());
+
+    public void terminateOffer(Long id) {
+        OfferDto offerDtoById = offerEditionService.getOfferDtoById(id);
+        offerDtoById.setExpiryDate(LocalDateTime.now());
+        offerEditionService.updateOffer(offerDtoById);
     }
 }

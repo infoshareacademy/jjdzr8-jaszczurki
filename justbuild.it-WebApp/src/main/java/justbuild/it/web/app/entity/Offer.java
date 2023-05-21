@@ -141,4 +141,6 @@ public class Offer {
                 ", expiryDate=" + expiryDate +
                 '}';
     }
+
 }
+
